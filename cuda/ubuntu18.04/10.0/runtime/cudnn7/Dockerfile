@@ -1,4 +1,4 @@
-ARG repository
+ARG repository=vistart/cuda
 FROM ${repository}:10.0-runtime-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 

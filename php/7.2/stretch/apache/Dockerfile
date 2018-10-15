@@ -7,5 +7,5 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include --with-jpeg-dir
     docker-php-ext-install -j$(nproc) intl mbstring mysqli pdo pdo_mysql gd zip iconv && \
     docker-php-ext-enable xdebug mongodb timezonedb imagick
 ADD composer-setup.sh /root
-RUN /root/composer-setup.sh
+RUN chmod +x /root/composer-setup.sh && /root/composer-setup.sh
 RUN a2enmod rewrite

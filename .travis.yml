@@ -4,7 +4,7 @@ services:
   - docker
 
 script:
-- docker build -f php/7.2/stretch/apache/Dockerfile -t vistart/php:apache -t vistart/php:7.2.10-apache-stretch
+- cd php/7.2/stretch/apache && docker build . -t vistart/php:apache -t vistart/php:7.2.10-apache-stretch
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

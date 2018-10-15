@@ -1,4 +1,4 @@
-FROM php:7.2.10-apache-stretch
+FROM php:apache
 LABEL maintainer "vistart <i@vistart.me>"
 
 RUN apt-get update && apt-get install -y wget git zlib1g-dev zip unzip libicu-dev libpng-dev imagemagick libfreetype6-dev libjpeg62-turbo-dev libmagickwand-dev
@@ -8,3 +8,4 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include --with-jpeg-dir
     docker-php-ext-enable xdebug mongodb timezonedb imagick
 ADD composer-setup.sh /root
 RUN /root/composer-setup.sh
+RUN a2enmod rewrite

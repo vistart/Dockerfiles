@@ -9,12 +9,16 @@ script:
 - cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-runtime-ubuntu18.04
 - cd ../../devel && docker build . -t vistart/cuda:10.0-devel-ubuntu18.04
 - cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu18.04
+- cd tensorrt5 && wget "https://drive.google.com/uc?export=download&id=15c4AAmdUI5BjfzTVvTF4LXOhGLEBq6Lf&confirm=K0Gt" -O nv-tensorrt-repo-ubuntu1804-cuda10.0-trt5.0.0.10-rc-20180906_1-1_amd64.deb && \
+  docker build . -t vistart/cuda:10.0-cudnn7-tensorrt5-devel-ubuntu18.04
 
 - cd ../../../../ubuntu16.04/10.0/base && docker build . -t vistart/cuda:10.0-base-ubuntu16.04
 - cd ../runtime && docker build . -t vistart/cuda:10.0-runtime-ubuntu16.04
 - cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-runtime-ubuntu16.04
 - cd ../../devel && docker build . -t vistart/cuda:10.0-devel-ubuntu16.04
 - cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu16.04
+- cd tensorrt5 && wget "https://drive.google.com/uc?export=download&id=1My1zA_OmBi231MfuhBr1UjXfF3Rlh2Qn&confirm=p-5N" -O nv-tensorrt-repo-ubuntu1804-cuda10.0-trt5.0.0.10-rc-20180906_1-1_amd64.deb && \
+  docker build . -t vistart/cuda:10.0-cudnn7-tensorrt5-devel-ubuntu16.04
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin

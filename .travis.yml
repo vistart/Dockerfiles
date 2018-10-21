@@ -4,8 +4,12 @@ services:
   - docker
 
 script:
-- cd php/7.2/stretch/apache && docker build . -t vistart/php:apache -t vistart/php:7.2.10-apache-stretch
+- cd cuda/ubuntu18.04/10.0/base && docker build . -t vistart/cuda:10.0-base-ubuntu18.04
+- cd ../runtime && docker build . -t vistart/cuda:10.0-runtime-ubuntu18.04
+- cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-runtime-ubuntu18.04
+- cd ../../devel && docker build . -t vistart/cuda:10.0-devel-ubuntu18.04
+- cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu18.04
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker push vistart/php
+- docker push vistart/cuda

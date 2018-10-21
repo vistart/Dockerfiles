@@ -10,6 +10,12 @@ script:
 - cd ../../devel && docker build . -t vistart/cuda:10.0-devel-ubuntu18.04
 - cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu18.04
 
+- cd ../../../../ubuntu16.04/10.0/base && docker build . -t vistart/cuda:10.0-base-ubuntu16.04
+- cd ../runtime && docker build . -t vistart/cuda:10.0-runtime-ubuntu16.04
+- cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-runtime-ubuntu16.04
+- cd ../../devel && docker build . -t vistart/cuda:10.0-devel-ubuntu16.04
+- cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu16.04
+
 after_script:
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
 - docker push vistart/cuda

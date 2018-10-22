@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y git python3 python3-pip python3-libnvin
 RUN curl -s https://bazel.build/bazel-release.pub.gpg | apt-key add -
 RUN apt-get update && apt-get install -y bazel 
 RUN pip3 install numpy mock protobuf absl-py keras
-RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow
+RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow && cd tensorflow && git checkout r1.10
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2

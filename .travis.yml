@@ -4,8 +4,10 @@ services:
   - docker
 
 script:
-- cd php/7.2/stretch/apache && docker build . -t vistart/php:apache -t vistart/php:7.2.10-apache-stretch
+- docker pull vistart/cuda:10.0-cudnn7-tensorrt5-devel-ubuntu18.04
+- cd build_tensorflow/1.10.1/py27 && docker build . -t vistart/build_tensorflow:py27 -t vistart/build_tensorflow:py27-cuda10.0-cudnn7-tensorrt5-devel-ubuntu18.04
+- cd ../py36 && docker build . -t vistart/build_tensorflow:py36 -t vistart/build_tensorflow:py36-cuda10.0-cudnn7-tensorrt5-devel-ubuntu18.04
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker push vistart/php
+- docker push vistart/build_tensorflow

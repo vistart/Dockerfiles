@@ -1,7 +1,7 @@
 FROM vistart/cuda:10.0-cudnn7-tensorrt5-devel-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
-RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3D5919B448457EE0
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3D5919B448457EE0
 RUN echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
 RUN apt-get update && apt-get install -y git python3 python3-pip python3-libnvinfer-dev uff-converter-tf openjdk-8-jdk curl
 RUN curl -s https://bazel.build/bazel-release.pub.gpg | apt-key add -

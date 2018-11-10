@@ -9,4 +9,4 @@ script:
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker push vistart/php
+- docker push vistart/pcl

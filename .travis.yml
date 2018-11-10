@@ -4,7 +4,8 @@ services:
   - docker
 
 script:
-- cd php/7.2/stretch/apache && docker build . -t vistart/php:apache -t vistart/php:7.2.10-apache-stretch
+- cd pcl/ubuntu18.04/1.9.0 && docker build . -t vistart/pcl:1.9.0-ubuntu18.04
+- cd ../../ubuntu16.04/1.9.0 && docker build . -t vistart/pcl:1.9.0-ubuntu16.04
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

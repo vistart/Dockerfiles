@@ -11,6 +11,7 @@ script:
 - cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-runtime-ubuntu18.04
 - cd ../../devel && docker build . -t vistart/cuda:10.0-devel-ubuntu18.04
 - cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu18.04
+- cd tensorrt5 && wget "$TRT_DEB_URL" && docker build . -t vistart/cuda:10.0-cudnn7-tensorrt5-devel-ubuntu18.04
 
 - docker pull vistart/cuda:10.0-cudnn7-runtime-ubuntu16.04
 - docker pull vistart/cuda:10.0-cudnn7-devel-ubuntu16.04

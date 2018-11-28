@@ -13,7 +13,10 @@ RUN apt-get update && \
                        openjdk-8-jdk \
                        curl \
                        libc-ares-dev \
-                       wget
+                       wget \
+                       zlib1g-dev \
+                       bash-completion \
+                       unzip
 RUN curl -s https://bazel.build/bazel-release.pub.gpg | apt-key add -
 RUN wget https://github.com/bazelbuild/bazel/releases/download/0.18.1/bazel_0.18.1-linux-x86_64.deb && dpkg -i bazel_0.18.1-linux-x86_64.deb  && rm bazel_0.18.1-linux-x86_64.deb
 RUN pip install numpy \

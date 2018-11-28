@@ -7,8 +7,10 @@ script:
 - docker pull vistart/cuda:10.0-cudnn7-tensorrt5-devel-ubuntu18.04
 - cd build_tensorflow/1.10.1/py27 && docker build . -t vistart/build_tensorflow:1.10.1-py27-cuda10.0-cudnn7-tensorrt5-devel-ubuntu18.04
 - cd ../py36 && docker build . -t vistart/build_tensorflow:1.10.1-py36-cuda10.0-cudnn7-tensorrt5-devel-ubuntu18.04
-- cd ../../1.11.0/py27 && docker build . -t vistart/build_tensorflow:py27 -t vistart/build_tensorflow:1.11.0-py27-cuda10.0-cudnn7-tensorrt5-devel-ubuntu18.04
-- cd ../py36 && docker build . -t vistart/build_tensorflow:py36 -t vistart/build_tensorflow:1.11.0-py36-cuda10.0-cudnn7-tensorrt5-devel-ubuntu18.04
+- cd ../../1.11.0/py27 && docker build . -t vistart/build_tensorflow:1.11.0-py27-cuda10.0-cudnn7-tensorrt5-devel-ubuntu18.04
+- cd ../py36 && docker build . -t vistart/build_tensorflow:1.11.0-py36-cuda10.0-cudnn7-tensorrt5-devel-ubuntu18.04
+- cd ../../1.12.0/py27 && docker build . -t vistart/build_tensorflow:py27 -t vistart/build_tensorflow:1.12.0-py27-cuda10.0-cudnn7-tensorrt5-devel-ubuntu18.04
+- cd ../py36 && docker build . -t vistart/build_tensorflow:py36 -t vistart/build_tensorflow:1.12.0-py36-cuda10.0-cudnn7-tensorrt5-devel-ubuntu18.04
 
 
 after_script:

@@ -4,7 +4,7 @@ services:
   - docker
 
 script:
-- cd php/apache && docker build . -t vistart/php:apache && docker build . --build-arg tag=7.2-apache -t vistart/php:7.2-apache
+- cd php/apache && docker build . -t vistart/php:apache && docker build . --build-arg TAG=7.2-apache -t vistart/php:7.2-apache
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

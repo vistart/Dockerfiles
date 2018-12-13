@@ -1,4 +1,5 @@
-FROM php:apache
+ARG TAG=apache
+FROM php:${TAG}
 LABEL maintainer "vistart <i@vistart.me>"
 
 ENV APACHE_DOCUMENT_ROOT /var/www

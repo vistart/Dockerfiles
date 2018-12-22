@@ -21,9 +21,7 @@ RUN chmod +x /root/composer-setup.sh && /root/composer-setup.sh
 # RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
 # Enable SSL Module
-
-RUN sed -i '226 s/^/LoadModule mod_ssl.so\n/' /etc/apache2/apache2.conf
-RUN sed -i '226 s/^/LoadModule mod_socache_shmcb.so\n/' /etc/apache2/apache2.conf
+RUN a2enmod ssl
 
 # AllowOverride
 

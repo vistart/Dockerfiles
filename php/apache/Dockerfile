@@ -8,7 +8,7 @@ ENV APACHE_DOCUMENT_ROOT /var/www
 RUN apt-get update && \
     apt-get install -y wget \
                        git \
-                       zlib1g-dev 
+                       zlib1g-dev \
                        libzip-dev \
                        zip \
                        unzip \

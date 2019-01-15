@@ -4,7 +4,7 @@ LABEL maintainer "vistart <i@vistart.me>"
 
 ENV APACHE_DOCUMENT_ROOT /var/www
 
-# Require xdebug, mongodb, timezone, imagick modules
+# Require xdebug, mongodb, timezone, imagick, igbinary extensions
 RUN apt-get update && \
     apt-get install -y wget \
                        git \
@@ -23,7 +23,8 @@ RUN apt-get update && \
 RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/mongodb \
                  https://pecl.php.net/get/timezonedb \
-                 https://pecl.php.net/get/imagick https://pecl.php.net/get/igbinary
+                 https://pecl.php.net/get/imagick \
+                 https://pecl.php.net/get/igbinary
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include --with-jpeg-dir=/usr/include && \
     docker-php-ext-install -j$(nproc) bcmath \
                                       intl \

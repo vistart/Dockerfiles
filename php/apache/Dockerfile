@@ -20,7 +20,7 @@ RUN apt-get update && \
                        libmagickwand-dev \
                        openssl \
                        libssl-dev \
-                       librabbitmq4
+                       librabbitmq-dev
 RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/mongodb \
                  https://pecl.php.net/get/timezonedb \

@@ -19,7 +19,8 @@ RUN apt-get update && \
                        libjpeg62-turbo-dev \
                        libmagickwand-dev \
                        openssl \
-                       libssl-dev
+                       libssl-dev \
+                       librabbitmq4
 RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/mongodb \
                  https://pecl.php.net/get/timezonedb \

@@ -46,7 +46,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include --with-jpeg-dir
                           imagick \
                           igbinary \
                           amqp \
-                          libsodium
+                          sodium
 
 # Install Composer
 ADD composer-setup.sh /root

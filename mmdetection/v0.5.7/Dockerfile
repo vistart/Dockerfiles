@@ -1,7 +1,6 @@
-FROM pytorch/pytorch:1.0.1-cuda10.0-cudnn7-runtime
+FROM vistart/cuda:10.0-cudnn7-runtime-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
+RUN apt-get update && apt-get upgrade -y && apt-get install python3 git -y
 RUN pip install mmcv cython
-RUN apt-get install git -y
-ENV CUDA_HOME=/usr/local/cuda-10.0
 RUN git clone https://github.com/open-mmlab/mmdetection.git && cd mmdetection && git checkout v0.5.7 && ./compile.sh && python setup.py install

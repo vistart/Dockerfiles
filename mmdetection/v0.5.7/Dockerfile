@@ -3,5 +3,5 @@ LABEL maintainer "vistart <i@vistart.me>"
 
 RUN pip install mmcv
 RUN apt-get install git -y
-RUN git clone https://github.com/open-mmlab/mmdetection.git && git checkout v0.5.7
-RUN cd mmdetection && pip install cython && ./compile.sh && pip install .
+RUN git clone https://github.com/open-mmlab/mmdetection.git
+RUN cd mmdetection && git checkout v0.5.7 && pip install cython && ./compile.sh && pip install .

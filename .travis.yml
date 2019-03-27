@@ -8,6 +8,7 @@ script:
 - cd ../6.5.4 && docker build . -t vistart/elasticsearch:6.5.4
 - cd ../6.6.1 && docker build . -t vistart/elasticsearch:6.6.1
 - cd ../6.6.2 && docker build . -t vistart/elasticsearch:6.6.2
+- cd ../6.7.0 && docker build . -t vistart/elasticsearch:6.7.0
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

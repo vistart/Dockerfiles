@@ -20,8 +20,6 @@ RUN apt-get install -y git \
                        libxrender1 \
                        libfontconfig1 \
                        python3-opencv
-RUN curl -s https://bazel.build/bazel-release.pub.gpg | apt-key add -
-RUN wget https://github.com/bazelbuild/bazel/releases/download/0.24.0/bazel_0.24.0-linux-x86_64.deb && dpkg -i bazel_0.24.0-linux-x86_64.deb && rm bazel_0.24.0-linux-x86_64.deb
 RUN pip3 install numpy \
                  mock \
                  protobuf \

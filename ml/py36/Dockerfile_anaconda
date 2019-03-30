@@ -1,0 +1,5 @@
+ARG TENSORFLOW_BRANCH=r1.13
+FROM vistart/ml:py36
+LABEL maintainer "vistart <i@vistart.me>"
+
+RUN wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh -O anaconda3.sh && chmod +x anaconda3.sh && ./anaconda3.sh -b

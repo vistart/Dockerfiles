@@ -8,8 +8,6 @@ RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure 
 RUN apt-get install -y git \
                        python3 \
                        python3-pip \
-                       python3-libnvinfer-dev \
-                       uff-converter-tf \
                        openjdk-8-jdk \
                        curl \
                        libc-ares-dev \

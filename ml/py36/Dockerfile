@@ -1,5 +1,4 @@
-ARG TENSORFLOW_BRANCH=r1.13
-FROM vistart/cuda:10.1-cudnn7-devel-ubuntu18.04
+FROM vistart/cuda:10.0-cudnn7-devel-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.sjtu

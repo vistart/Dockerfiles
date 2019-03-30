@@ -2,9 +2,8 @@ ARG TENSORFLOW_BRANCH=r1.13
 FROM vistart/cuda:10.1-cudnn7-devel-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3D5919B448457EE0
-RUN echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
-RUN apt-get update
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install tzdata -y
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
 RUN apt-get install -y git \
                        python3 \

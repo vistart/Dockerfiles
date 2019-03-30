@@ -2,6 +2,8 @@ ARG TENSORFLOW_BRANCH=r1.13
 FROM vistart/cuda:10.1-cudnn7-devel-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.sjtu
+RUN mv /etc/apt/sources.list.bak /etc/apt/sources.list
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install tzdata -y
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
@@ -40,3 +42,5 @@ RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2
 RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
+RUN mv /etc/apt/sources.list.sjtu /etc/apt/sources.list

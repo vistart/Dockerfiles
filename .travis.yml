@@ -4,7 +4,8 @@ services:
   - docker
 
 script:
-- cd ml/py36 && docker build . -t vistart/ml:py36 && docker build -f Dockerfile_anaconda -t vistart/ml:anaconda3
+- docker pull vistart/ml:py36
+- cd ml/py36 && docker build . -t vistart/ml:py36 && docker build . -f Dockerfile_anaconda -t vistart/ml:anaconda3
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

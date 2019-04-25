@@ -23,7 +23,8 @@ RUN apt-get install -y git \
                        libxrender1 \
                        libfontconfig1 \
                        python-opencv
-RUN pip install numpy \
+RUN pip install  https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp27-cp27mu-linux_x86_64.whl
+RUN pip install  numpy \
                  mock \
                  protobuf \
                  absl-py \
@@ -32,8 +33,7 @@ RUN pip install numpy \
                  jupyter \
                  cython \
                  mmcv
-RUN pip install  https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp27-cp27mu-linux_x86_64.whl \
-                 torchvision \
+RUN pip install  torchvision \
                  sklearn \
                  scipy \
                  pandas \

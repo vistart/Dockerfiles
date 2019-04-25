@@ -2,4 +2,4 @@ ARG TENSORFLOW_BRANCH=r1.13
 FROM vistart/ml:py27
 LABEL maintainer "vistart <i@vistart.me>"
 
-RUN wget -q https://repo.anaconda.com/archive/Anaconda2-2019.03-Linux-x86_64.sh -O anaconda2.sh && chmod +x anaconda2.sh && ./anaconda2.sh -b -p /usr/local/anaconda2
+RUN wget -q https://repo.anaconda.com/archive/Anaconda2-2019.03-Linux-x86_64.sh -O anaconda2.sh && chmod +x anaconda2.sh && ./anaconda2.sh -b -p /usr/local/anaconda2 && rm anaconda2.sh

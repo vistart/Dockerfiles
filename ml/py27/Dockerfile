@@ -23,22 +23,22 @@ RUN apt-get install -y git \
                        libxrender1 \
                        libfontconfig1 \
                        python-opencv
-RUN pip install  https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp27-cp27mu-linux_x86_64.whl
-RUN pip install  numpy \
-                 mock \
-                 protobuf \
-                 absl-py \
-                 tensorflow-gpu \
-                 keras \
-                 jupyter \
-                 cython \
-                 mmcv
-RUN pip install  torchvision \
-                 sklearn \
-                 scipy \
-                 pandas \
-                 scikit-image \
-                 scikit-learn
+RUN pip install --no-cache-dir numpy \
+                               mock \
+                               protobuf \
+                               absl-py \
+                               tensorflow-gpu \
+                               keras \
+                               jupyter \
+                               cython \
+                               mmcv \
+                               https://download.pytorch.org/whl/cu100/torch-1.0.1.post2-cp27-cp27mu-linux_x86_64.whl \
+                               torchvision \
+                               sklearn \
+                               scipy \
+                               pandas \
+                               scikit-image \
+                               scikit-learn
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2

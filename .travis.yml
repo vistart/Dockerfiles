@@ -4,8 +4,8 @@ services:
   - docker
 
 script:
-- cd elasticsearch/6.8.0 && docker build . -t vistart/elasticsearch:6.8.0
-- cd ../7.1.1 && docker build . -t vistart/elasticsearch:7.1.1
+- cd elasticsearch/6.8.1 && docker build . -t vistart/elasticsearch:6.8.1
+- cd ../7.2.0 && docker build . -t vistart/elasticsearch:7.2.0
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

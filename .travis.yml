@@ -5,7 +5,7 @@ services:
 
 script:
 - cd mmdetection/v0.5.7 && docker build . -t vistart/mmdetection:v0.5.7
-- cd ../v0.6rc0 && docker build . -t vistart/mmdetection:v0.6rc0
+- cd ../v0.6.0 && docker build . -t vistart/mmdetection:v0.6.0
 - cd ../dev-master && docker build . -t vistart/mmdetection:latest
 
 after_script:

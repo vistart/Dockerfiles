@@ -1,4 +1,4 @@
-ARG TENSORFLOW_BRANCH=r1.13
+ARG TENSORFLOW_BRANCH=r1.14
 FROM vistart/ml:py36
 LABEL maintainer "vistart <i@vistart.me>"
 

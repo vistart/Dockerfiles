@@ -31,7 +31,6 @@ RUN pip install --no-cache-dir numpy \
                                keras \
                                jupyter \
                                cython \
-                               mmcv \
                                https://download.pytorch.org/whl/cu100/torch-1.1.0-cp27-cp27mu-linux_x86_64.whl \
                                https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp27-cp27mu-linux_x86_64.whl \
                                sklearn \

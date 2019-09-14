@@ -2,7 +2,7 @@ ARG repository=vistart/cuda
 FROM ${repository}:9.2-base-1604
 LABEL maintainer "vistart <i@vistart.me>"
 
-ENV NCCL_VERSION 2.2.13
+ENV NCCL_VERSION 2.4.8
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     cuda-libraries-$CUDA_PKG_VERSION \

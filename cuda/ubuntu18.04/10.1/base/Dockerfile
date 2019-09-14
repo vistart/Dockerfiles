@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends gnupg2 curl ca-
     apt-get purge --autoremove -y curl && \
     rm -rf /var/lib/apt/lists/*
 
-ENV CUDA_VERSION 10.1.168
+ENV CUDA_VERSION 10.1.243
 
 ENV CUDA_PKG_VERSION 10-1=$CUDA_VERSION-1
 

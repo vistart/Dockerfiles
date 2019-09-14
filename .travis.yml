@@ -4,22 +4,36 @@ services:
   - docker
 
 script:
-- cd cuda/ubuntu18.04/10.0/base && docker build . -t vistart/cuda:10.0-base-ubuntu18.04
-- cd ../runtime && docker build . -t vistart/cuda:10.0-runtime-ubuntu18.04
-- cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-runtime-ubuntu18.04
-- cd ../../devel && docker build . -t vistart/cuda:10.0-devel-ubuntu18.04
-- cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu18.0
+
 - cd ../../../9.2/base && docker build . -t vistart/cuda:9.2-base-ubuntu18.04
 - cd ../runtime && docker build . -t vistart/cuda:9.2-runtime-ubuntu18.04
 - cd cudnn7 && docker build . -t vistart/cuda:9.2-cudnn7-runtime-ubuntu18.04
 - cd ../../devel && docker build . -t vistart/cuda:9.2-devel-ubuntu18.04
 - cd cudnn7 && docker build . -t vistart/cuda:9.2-cudnn7-devel-ubuntu18.04
 
+- cd cuda/ubuntu18.04/10.0/base && docker build . -t vistart/cuda:10.0-base-ubuntu18.04
+- cd ../runtime && docker build . -t vistart/cuda:10.0-runtime-ubuntu18.04
+- cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-runtime-ubuntu18.04
+- cd ../../devel && docker build . -t vistart/cuda:10.0-devel-ubuntu18.04
+- cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu18.0
+
 - cd ../../../../ubuntu16.04/10.0/base && docker build . -t vistart/cuda:10.0-base-ubuntu16.04
 - cd ../runtime && docker build . -t vistart/cuda:10.0-runtime-ubuntu16.04
 - cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-runtime-ubuntu16.04
 - cd ../../devel && docker build . -t vistart/cuda:10.0-devel-ubuntu16.04
 - cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu16.04
+
+- cd cuda/ubuntu16.04/10.1/base && docker build . -t vistart/cuda:10.1-base-ubuntu16.04
+- cd ../runtime && docker build . -t vistart/cuda:10.1-runtime-ubuntu16.04
+- cd cudnn7 && docker build . -t vistart/cuda:10.1-cudnn7-runtime-ubuntu16.04
+- cd ../../devel && docker build . -t vistart/cuda:10.1-devel-ubuntu16.04
+- cd cudnn7 && docker build . -t vistart/cuda:10.1-cudnn7-devel-ubuntu16.04
+
+- cd cuda/ubuntu18.04/10.1/base && docker build . -t vistart/cuda:10.1-base-ubuntu18.04
+- cd ../runtime && docker build . -t vistart/cuda:10.1-runtime-ubuntu18.04
+- cd cudnn7 && docker build . -t vistart/cuda:10.1-cudnn7-runtime-ubuntu18.04
+- cd ../../devel && docker build . -t vistart/cuda:10.1-devel-ubuntu18.04
+- cd cudnn7 && docker build . -t vistart/cuda:10.1-cudnn7-devel-ubuntu18.04
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin

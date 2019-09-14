@@ -1,5 +1,5 @@
 ARG repository=vistart/cuda
-FROM ${repository}:9.2-runtime-1604
+FROM ${repository}:9.2-runtime-ubuntu16.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 ENV CUDNN_VERSION 7.6.3.30

@@ -15,7 +15,7 @@ script:
 - cd ../runtime && docker build . -t vistart/cuda:10.0-runtime-ubuntu18.04
 - cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-runtime-ubuntu18.04
 - cd ../../devel && docker build . -t vistart/cuda:10.0-devel-ubuntu18.04
-- cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu18.0
+- cd cudnn7 && docker build . -t vistart/cuda:10.0-cudnn7-devel-ubuntu18.04
 
 - cd ../../../10.1/base && docker build . -t vistart/cuda:10.1-base-ubuntu18.04
 - cd ../runtime && docker build . -t vistart/cuda:10.1-runtime-ubuntu18.04

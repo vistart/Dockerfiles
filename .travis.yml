@@ -6,6 +6,8 @@ services:
 script:
 - cd ml/py36 && docker build . -t vistart/ml:py36
 - cd ../py27 && docker build . -t vistart/ml:py27
+- cd ../py36-cuda10.1 && docker build . -t vistart/ml:py36-cuda10.1
+- cd ../py27-cuda10.1 && docker build . -t vistart/ml:py27-cuda10.1
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

@@ -4,5 +4,5 @@ LABEL maintainer "vistart <i@vistart.me>"
 RUN apt-get update && apt-get upgrade -y && apt-get install python3 python3-pip git libsm6 libxrender1 libfontconfig1 -y
 RUN pip3 install mmcv cython torch torchvision
 RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN git clone https://github.com/open-mmlab/mmdetection.git && cd mmdetection && ./compile.sh && python3 setup.py install
+RUN git clone https://github.com/open-mmlab/mmdetection.git && cd mmdetection && pip3 install --no-cache-dir -e .
 RUN mkdir data

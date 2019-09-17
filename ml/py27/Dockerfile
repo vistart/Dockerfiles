@@ -21,16 +21,16 @@ RUN apt-get install -y git \
                        libxrender1 \
                        libfontconfig1 \
                        python-opencv
-RUN pip install --no-cache-dir numpy \
+RUN pip install --no-cache-dir numpy==1.16.5 \
                                mock \
                                protobuf \
                                absl-py \
-                               tensorflow-gpu \
+                               tensorflow-gpu==1.13.2 \
                                keras \
                                jupyter \
                                cython \
-                               https://download.pytorch.org/whl/cu100/torch-1.2.0-cp27-cp27mu-manylinux1_x86_64.whl \
-                               https://download.pytorch.org/whl/cu100/torchvision-0.4.0-cp27-cp27mu-manylinux1_x86_64.whl \
+                               torch \
+                               torchvision \
                                sklearn \
                                scipy \
                                pandas \

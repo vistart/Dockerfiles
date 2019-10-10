@@ -2,7 +2,7 @@ ARG repository=vistart/cuda
 FROM ${repository}:10.0-runtime-ubuntu16.04
 LABEL maintainer "vistart <i@vistart.me>"
 
-ENV CUDNN_VERSION 7.6.3.30
+ENV CUDNN_VERSION 7.6.4.38
 LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \

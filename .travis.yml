@@ -3,11 +3,27 @@ sudo: required
 services:
   - docker
 
+matrix:
+  include:
+  - name: "Python 3.6 with CUDA 10.0"
+    env: BUILD_TAG=py36
+  - name: "Python 3.6 with CUDA 10.1"
+    env: BUILD_TAG=py36-cuda10.1
+  - name: "Python 2.7 with CUDA 10.0"
+    env: BUILD_TAG=py27
+  - name: "Python 2.7 with CUDA 10.1"
+    env: BUILD_TAG=py26-cuda10.1
+
 script:
-- cd ml/py36 && docker build . -t vistart/ml:py36
-- cd ../py27 && docker build . -t vistart/ml:py27
-- cd ../py36-cuda10.1 && docker build . -t vistart/ml:py36-cuda10.1
-- cd ../py27-cuda10.1 && docker build . -t vistart/ml:py27-cuda10.1
+    - |
+        if [ $BUILD_TAG = 'py36' ]
+            docker build ml/py36 -t vistart/ml:py36
+        elif [ $BUILD_TAG = 'py36-cuda10.1' ]
+            docker build ml/py36-cuda10.1 -t vistart/ml:py36-cuda10.1
+        elif [ $BUILD_TAG = 'py27' ]
+            docker build ml/py27 -t vistart/ml:py27
+        elif [ $BUILD_TAG = 'py27-cuda10.1' ]
+            docker build ml/py27-cuda10.1 -t vistart/ml:py27-cuda10.1
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

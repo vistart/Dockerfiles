@@ -10,3 +10,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libnccl2=$NCCL_VERSION-1+cuda10.0 && \
     apt-mark hold libnccl2 && \
     rm -rf /var/lib/apt/lists/*
+RUN apt-get autoremove -y && apt-get clean

@@ -10,3 +10,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
             libcudnn7-dev=$CUDNN_VERSION-1+cuda10.0 && \
     apt-mark hold libcudnn7 && \
     rm -rf /var/lib/apt/lists/*
+RUN apt-get autoremove -y && apt-get clean

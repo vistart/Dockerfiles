@@ -2,7 +2,7 @@ FROM vistart/cuda:10.0-cudnn7-devel-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get clean && apt-get update && apt-get install -y locales tzdata
+RUN apt-get update && apt-get install -y locales tzdata
 RUN locale-gen en_US.UTF-8
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure -f noninteractive tzdata && dpkg-reconfigure locales
 ENV LANG en_US.UTF-8
@@ -21,6 +21,7 @@ RUN apt-get install -y git \
                        libxrender1 \
                        libfontconfig1 \
                        python3-opencv
+RUN apt-get autoremove -y && apt-get clean
 RUN pip3 install --no-cache-dir numpy==1.16.5 \
                                 mock \
                                 protobuf \

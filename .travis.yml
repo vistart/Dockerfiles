@@ -3,9 +3,20 @@ sudo: required
 services:
   - docker
 
+matrix:
+  include:
+  - name: "Point Cloud Library 1.9.1 in Ubuntu 18.04"
+    env: BUILD_TAG=1.9.1-ubuntu18.04
+  - name: "Point Cloud Library 1.9.1 in Ubuntu 16.04"
+    env: BUILD_TAG=1.9.1-ubuntu16.04
+
 script:
-- cd pcl/ubuntu18.04/1.9.1 && docker build . -t vistart/pcl:1.9.1-ubuntu18.04
-- cd ../../ubuntu16.04/1.9.1 && docker build . -t vistart/pcl:1.9.1-ubuntu16.04
+  - |
+    if [ $BUILD_TAG = '1.9.1-ubuntu18.04' ]; then
+      docker build pcl/ubuntu18.04/1.9.1 -t vistart/pcl:1.9.1-ubuntu18.04
+    elif [ $BUILD_TAG = '1.9.1-ubuntu16.04' ]; then
+      docker build pcl/ubuntu16.04/1.9.1 -t vistart/pcl:1.9.1-ubuntu16.04
+    fi
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

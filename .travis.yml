@@ -3,11 +3,28 @@ sudo: required
 services:
   - docker
 
+matrix:
+  include:
+  - name: "v0.5.7"
+    env: BUILD_TAG=v0.5.7
+  - name: "v0.6.0"
+    env: BUILD_TAG=v0.6.0
+  - name: "v1.0.0"
+    env: BUILD_TAG=v1.0.0
+  - name: "latest"
+    env: BUILD_TAG=latest
+
 script:
-- cd mmdetection/v0.5.7 && docker build . -t vistart/mmdetection:v0.5.7
-- cd ../v0.6.0 && docker build . -t vistart/mmdetection:v0.6.0
-- cd ../v1.0.0 && docker build . -t vistart/mmdetection:v1.0.0
-- cd ../dev-master && docker build . -t vistart/mmdetection:latest
+  - |
+    if [ $BUILD_TAG = 'v0.5.7' ]; then
+      docker build mmdetection/v0.5.7 -t vistart/mmdetection:v0.5.7
+    elif [ $BUILD_TAG = 'v0.6.0' ]; then
+      docker build mmdetection/v0.6.0 -t vistart/mmdetection:v0.6.0
+    elif [ $BUILD_TAG = 'v1.0.0' ]; then
+      docker build mmdetection/v1.0.0 -t vistart/mmdetection:v1.0.0
+    elif [ $BUILD_TAG = 'latest' ]; then
+      docker build mmdetection/dev-master -t vistart/mmdetection:latest
+    fi
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

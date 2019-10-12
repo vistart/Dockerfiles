@@ -24,6 +24,7 @@ script:
             docker build ml/py27 -t vistart/ml:py27
         elif [ $BUILD_TAG = 'py27-cuda10.1' ]; then
             docker build ml/py27-cuda10.1 -t vistart/ml:py27-cuda10.1
+        fi
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

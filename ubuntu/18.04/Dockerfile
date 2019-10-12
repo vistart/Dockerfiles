@@ -6,4 +6,4 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 ADD sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install ca-certificates -y
 ADD sources_ssl.list /etc/apt/sources.list
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update && apt-get upgrade -y && apt-get autoremove -y && apt-get clean

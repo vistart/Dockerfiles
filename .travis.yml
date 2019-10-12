@@ -3,9 +3,24 @@ sudo: required
 services:
   - docker
 
+matrix:
+  include:
+  - name: "Ubuntu 18.04"
+    env: BUILD_TAG=18.04
+  - name: "Ubuntu 16.04"
+    env: BUILD_TAG=16.04
+  - name: "Ubuntu 14.04"
+    env: BUILD_TAG=14.04
+
 script:
-- cd ubuntu/16.04 && docker build . -t vistart/ubuntu:16.04
-- cd ../18.04 && docker build . -t vistart/ubuntu:18.04
+  - |
+    if [ $BUILD_TAG = '18.04' ]; then
+      docker build ubuntu/18.04 . -t vistart/ubuntu:18.04
+    elif [ $BUILD_TAG = '16.04' ]; then
+      docker build ubuntu/16.04 . -t vistart/ubuntu:16.04
+    elif [ $BUILD_TAG = '14.04' ]; then
+      docker build ubuntu/14.04 . -t vistart/ubuntu:14.04
+    fi
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin

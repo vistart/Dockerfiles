@@ -8,9 +8,9 @@ matrix:
   - name: "CUDA 10.1 in ubuntu 18.04"
     env: BUILD_GROUP=cuda10.1-ubuntu18.04
   - name: "CUDA 10.0 in ubuntu 18.04"
-    env: BUILD_GROUP=cuda10.0-ubuntu16.04
+    env: BUILD_GROUP=cuda10.0-ubuntu18.04
   - name: "CUDA 10.1 in ubuntu 16.04"
-    env: BUILD_GROUP=cuda10.1-ubuntu18.04
+    env: BUILD_GROUP=cuda10.1-ubuntu16.04
   - name: "CUDA 10.0 in ubuntu 16.04"
     env: BUILD_GROUP=cuda10.0-ubuntu16.04
 

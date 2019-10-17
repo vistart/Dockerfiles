@@ -13,9 +13,7 @@ RUN apt-get update && \
                        zlib1g-dev \
                        bash-completion \
                        unzip
-RUN echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
-RUN curl -s https://bazel.build/bazel-release.pub.gpg | apt-key add -
-RUN apt-get update && apt-get install bazel -y
+RUN wget https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel_0.26.1-linux-x86_64.deb && dpkg -i bazel_0.26.1-linux-x86_64.deb
 RUN pip install numpy \
                 mock \
                 protobuf \

@@ -13,6 +13,7 @@ RUN apt-get update && \
                        zlib1g-dev \
                        bash-completion \
                        unzip
+RUN echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
 RUN curl -s https://bazel.build/bazel-release.pub.gpg | apt-key add -
 RUN apt-get update && apt-get install bazel
 RUN pip3 install numpy \

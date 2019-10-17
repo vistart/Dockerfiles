@@ -27,12 +27,12 @@ before_script:
 script:
   - |
     if [ $BUILD_GROUP = 'cuda10.1-ubuntu18.04' ]; then
-        python download_googledrive.py
         docker build cuda/ubuntu18.04/10.1/base -t vistart/cuda:10.1-base-ubuntu18.04
         docker build cuda/ubuntu18.04/10.1/runtime -t vistart/cuda:10.1-runtime-ubuntu18.04
         docker build cuda/ubuntu18.04/10.1/runtime/cudnn7 -t vistart/cuda:10.1-cudnn7-runtime-ubuntu18.04
         docker build cuda/ubuntu18.04/10.1/devel -t vistart/cuda:10.1-devel-ubuntu18.04
         docker build cuda/ubuntu18.04/10.1/devel/cudnn7 -t vistart/cuda:10.1-cudnn7-devel-ubuntu18.04
+        python download_googledrive.py
         docker build cuda/ubuntu18.04/10.1/devel/cudnn7/tensorrt6 -t vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu18.04
     elif [ $BUILD_GROUP = 'cuda10.0-ubuntu18.04' ]; then
         docker build cuda/ubuntu18.04/10.0/base -t vistart/cuda:10.0-base-ubuntu18.04

@@ -24,10 +24,12 @@ def get_confirm_token(response):
 def save_response_content(response, destination):
     CHUNK_SIZE = 32768
 
+    count = 0
     with open(destination, "wb") as f:
         for chunk in response.iter_content(CHUNK_SIZE):
             if chunk: # filter out keep-alive new chunks
-                f.write(chunk)
+                count = count + f.write(chunk)
+    print("Downloaded: %10.2f MB" % (count / 1048576))
 
 if __name__ == "__main__":
     file_id = '1xXRKaE8adAAN_6liC-g-5EP9aXbrXj_2'

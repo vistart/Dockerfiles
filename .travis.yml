@@ -5,6 +5,8 @@ services:
 
 matrix:
   include:
+  - name: "nsnam base environment"
+    env: BUILD_TAG=base
   - name: "nsnam 3.28"
     env: BUILD_TAG=3.28
   - name: "nsnam 3.29"
@@ -13,9 +15,16 @@ matrix:
     env: BUILD_TAG=3.30
 
 script:
-- docker build nsnam/ns-3.28 -t vistart/nsnam:3.28
-- docker build nsnam/ns-3.29 -t vistart/nsnam:3.29
-- docker build nsnam/ns-3.30 -t vistart/nsnam:3.30
+  - |
+    if [ $BUILD_TAG = 'base' ]; then
+      docker build nsnam/base -t vistart/nsnam
+    elif [ $BUILD_TAG = '3.28' ]; then
+      travis_wait 600 docker build nsnam/ns-3.28 -t vistart/nsnam:3.28
+    elif [ $BUILD_TAG = '3.29' ]; then
+      travis_wait 600 docker build nsnam/ns-3.29 -t vistart/nsnam:3.29
+    elif [ $BUILD_TAG = '3.30' ]; then
+      traivs_wait 600 docker build nsnam/ns-3.30 -t vistart/nsnam:3.30
+    fi
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

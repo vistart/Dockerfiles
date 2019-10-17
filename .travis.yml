@@ -23,9 +23,9 @@ script:
     elif [ $BUILD_TAG = '3.29' ]; then
       travis_wait 600 docker build nsnam/ns-3.29 -t vistart/nsnam:3.29
     elif [ $BUILD_TAG = '3.30' ]; then
-      traivs_wait 600 docker build nsnam/ns-3.30 -t vistart/nsnam:3.30
+      travis_wait 600 docker build nsnam/ns-3.30 -t vistart/nsnam:3.30
     fi
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker push vistart/php
+- docker push vistart/nsnam

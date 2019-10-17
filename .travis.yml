@@ -3,8 +3,19 @@ sudo: required
 services:
   - docker
 
+matrix:
+  include:
+  - name: "nsnam 3.28"
+    env: BUILD_TAG=3.28
+  - name: "nsnam 3.29"
+    env: BUILD_TAG=3.29
+  - name: "nsnam 3.30"
+    env: BUILD_TAG=3.30
+
 script:
-- cd php/7.2/stretch/apache && docker build . -t vistart/php:apache -t vistart/php:7.2.10-apache-stretch
+- docker build nsnam/ns-3.28 -t vistart/nsnam:3.28
+- docker build nsnam/ns-3.29 -t vistart/nsnam:3.29
+- docker build nsnam/ns-3.30 -t vistart/nsnam:3.30
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

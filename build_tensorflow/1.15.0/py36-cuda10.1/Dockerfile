@@ -4,7 +4,9 @@ LABEL maintainer "vistart <i@vistart.me>"
 
 RUN apt-get update && \
     apt-get install -y git \
+                       python \
                        python3 \
+                       python-pip \
                        python3-pip \
                        openjdk-11-jdk \
                        curl \

@@ -27,6 +27,7 @@ before_script:
 script:
   - |
     if [ $BUILD_GROUP = 'cuda10.1-ubuntu18.04' ]; then
+        python download_googledrive.py
         docker build cuda/ubuntu18.04/10.1/base -t vistart/cuda:10.1-base-ubuntu18.04
         docker build cuda/ubuntu18.04/10.1/runtime -t vistart/cuda:10.1-runtime-ubuntu18.04
         docker build cuda/ubuntu18.04/10.1/runtime/cudnn7 -t vistart/cuda:10.1-cudnn7-runtime-ubuntu18.04

@@ -1,4 +1,5 @@
 import requests
+import sys
 
 def download_file_from_google_drive(id, destination):
     URL = "https://docs.google.com/uc?export=download"
@@ -31,7 +32,19 @@ def save_response_content(response, destination):
                 count = count + f.write(chunk)
     print("Downloaded: %10.2f MB" % (count / 1048576))
 
+def resolve_arguments():
+    file_id = ''
+    destination = '.'
+    if (len(sys.argv) <= 1):
+        raise RuntimeError('You must specify at least one parameter, which is the Google Drive File ID.')
+    if (len(sys.argv) >= 2):
+        file_id = sys.argv[1]
+    if (len(sys.argv) >= 3):
+        destination = sys.argv[2]
+    return file_id, destination
+    
+
 if __name__ == "__main__":
-    file_id = '1xXRKaE8adAAN_6liC-g-5EP9aXbrXj_2'
-    destination = 'cuda/ubuntu18.04/10.1/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1804-cuda10.1-trt6.0.1.5-ga-20190913_1-1_amd64.deb'
+    file_id, destination = resolve_arguments()
+    print(file_id, destination)
     download_file_from_google_drive(file_id, destination)

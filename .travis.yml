@@ -19,14 +19,14 @@ script:
     if [ $BUILD_TAG = 'base' ]; then
       docker build nsnam/base -t vistart/nsnam:base
     elif [ $BUILD_TAG = '3.28' ]; then
-      travis_wait 20 sleep 600 
-      travis_wait 20 docker build nsnam/ns-3.28 -t vistart/nsnam:3.28
+      sleep 580 
+      docker build nsnam/ns-3.28 -t vistart/nsnam:3.28
     elif [ $BUILD_TAG = '3.29' ]; then
-      travis_wait 20 sleep 600
-      travis_wait 20 docker build nsnam/ns-3.29 -t vistart/nsnam:3.29
+      sleep 580
+      docker build nsnam/ns-3.29 -t vistart/nsnam:3.29
     elif [ $BUILD_TAG = '3.30' ]; then
-      travis_wait 20 sleep 600
-      travis_wait 20 docker build nsnam/ns-3.30 -t vistart/nsnam:3.30
+      sleep 580
+      docker build nsnam/ns-3.30 -t vistart/nsnam:3.30
     fi
 
 after_script:

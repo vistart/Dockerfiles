@@ -1,4 +1,4 @@
-FROM vistart/cuda:10.1-cudnn7-tensort6-devel-ubuntu18.04
+FROM vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 RUN apt-get update && \

@@ -15,16 +15,15 @@ matrix:
     env: BUILD_TAG=tf1.15-py36-cuda10.1
 
 script:
-- docker pull vistart/cuda:10.0-cudnn7-devel-ubuntu18.04
 - |
   if [ $BUILD_TAG = 'tf1.15-py27-cuda10.0' ]; then
-    docker build build_tensorflow/1.15.0/py27 -t vistart/build_tensorflow:1.15-py27 -t vistart/build_tensorflow:1.15-py27-cuda10.0
+    docker build build_tensorflow/py27 -t vistart/build_tensorflow:1.15-py27 -t vistart/build_tensorflow:1.15-py27-cuda10.0
   elif [ $BUILD_TAG = 'tf1.15-py36-cuda10.0' ]; then
-    docker build build_tensorflow/1.15.0/py36 -t vistart/build_tensorflow:1.15-py36 -t vistart/build_tensorflow:1.15-py27-cuda10.0
+    docker build build_tensorflow/py36 -t vistart/build_tensorflow:1.15-py36 -t vistart/build_tensorflow:1.15-py27-cuda10.0
   elif [ $BUILD_TAG = 'tf1.15-py27-cuda10.1' ]; then
-    docker build build_tensorflow/1.15.0/py27-cuda10.1 -t vistart/build_tensorflow:1.15-py27-cuda10.1
+    docker build build_tensorflow/py27-cuda10.1 -t vistart/build_tensorflow:1.15-py27-cuda10.1
   elif [ $BUILD_TAG = 'tf1.15-py36-cuda10.1' ]; then
-    docker build build_tensorflow/1.15.0/py36-cuda10.1 -t vistart/build_tensorflow:1.15-py36-cuda10.1
+    docker build build_tensorflow/py36-cuda10.1 -t vistart/build_tensorflow:1.15-py36-cuda10.1
   fi
 
 

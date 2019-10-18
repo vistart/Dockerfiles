@@ -46,5 +46,4 @@ def resolve_arguments():
 
 if __name__ == "__main__":
     file_id, destination = resolve_arguments()
-    print(file_id, destination)
     download_file_from_google_drive(file_id, destination)

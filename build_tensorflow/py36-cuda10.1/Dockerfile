@@ -27,4 +27,5 @@ RUN pip3 install numpy \
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2
+RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow

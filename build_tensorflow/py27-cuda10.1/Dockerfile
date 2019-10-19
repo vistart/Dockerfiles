@@ -20,7 +20,8 @@ RUN pip install numpy \
                 protobuf \
                 absl-py \
                 enum34 \
-                keras
+                keras \
+                future
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2

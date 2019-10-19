@@ -6,24 +6,24 @@ services:
 matrix:
   include:
   - name: "Tensorflow 1.15 with Python 2.7 & CUDA 10.0"
-    env: BUILD_TAG=tf1.15-py27-cuda10.0
+    env: BUILD_TAG=py27-cuda10.0
   - name: "Tensorflow 1.15 with Python 3.6 & CUDA 10.0"
-    env: BUILD_TAG=tf1.15-py36-cuda10.0
+    env: BUILD_TAG=py36-cuda10.0
   - name: "Tensorflow 1.15 with Python 2.7 & CUDA 10.1"
-    env: BUILD_TAG=tf1.15-py27-cuda10.1
+    env: BUILD_TAG=py27-cuda10.1
   - name: "Tensorflow 1.15 with Python 3.6 & CUDA 10.1"
-    env: BUILD_TAG=tf1.15-py36-cuda10.1
+    env: BUILD_TAG=py36-cuda10.1
 
 script:
 - |
-  if [ $BUILD_TAG = 'tf1.15-py27-cuda10.0' ]; then
-    docker build build_tensorflow/py27 -t vistart/build_tensorflow:1.15-py27 -t vistart/build_tensorflow:1.15-py27-cuda10.0
-  elif [ $BUILD_TAG = 'tf1.15-py36-cuda10.0' ]; then
-    docker build build_tensorflow/py36 -t vistart/build_tensorflow:1.15-py36 -t vistart/build_tensorflow:1.15-py36-cuda10.0
-  elif [ $BUILD_TAG = 'tf1.15-py27-cuda10.1' ]; then
-    docker build build_tensorflow/py27-cuda10.1 -t vistart/build_tensorflow:1.15-py27-cuda10.1
-  elif [ $BUILD_TAG = 'tf1.15-py36-cuda10.1' ]; then
-    docker build build_tensorflow/py36-cuda10.1 -t vistart/build_tensorflow:1.15-py36-cuda10.1
+  if [ $BUILD_TAG = 'py27-cuda10.0' ]; then
+    docker build build_tensorflow/py27 -t vistart/build_tensorflow:py27 -t vistart/build_tensorflow:py27-cuda10.0
+  elif [ $BUILD_TAG = 'py36-cuda10.0' ]; then
+    docker build build_tensorflow/py36 -t vistart/build_tensorflow:py36 -t vistart/build_tensorflow:py36-cuda10.0
+  elif [ $BUILD_TAG = 'py27-cuda10.1' ]; then
+    docker build build_tensorflow/py27-cuda10.1 -t vistart/build_tensorflow:py27-cuda10.1
+  elif [ $BUILD_TAG = 'py36-cuda10.1' ]; then
+    docker build build_tensorflow/py36-cuda10.1 -t vistart/build_tensorflow:py36-cuda10.1
   fi
 
 

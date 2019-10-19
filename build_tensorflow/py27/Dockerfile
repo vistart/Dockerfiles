@@ -1,27 +1,81 @@
-FROM vistart/cuda:10.0-cudnn7-tensorrt6-devel-ubuntu18.04
-LABEL maintainer "vistart <i@vistart.me>"
+# Dockerfiles & building scripts for building tensorflow
 
-RUN apt-get update && \
-    apt-get install -y git \
-                       python \
-                       python-pip \
-                       python-libnvinfer-dev \
-                       uff-converter-tf \
-                       openjdk-11-jdk \
-                       curl \
-                       libc-ares-dev \
-                       wget \
-                       zlib1g-dev \
-                       bash-completion \
-                       unzip
-RUN wget https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel_0.26.1-linux-x86_64.deb && dpkg -i bazel_0.26.1-linux-x86_64.deb
-RUN pip install numpy \
-                mock \
-                protobuf \
-                absl-py \
-                enum34 \
-                keras
-RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
-RUN mkdir /usr/local/cuda/lib
-RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2
-RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow
+[Docker Hub](https://hub.docker.com/r/vistart/build_tensorflow)
+
+[![Build Status](https://travis-ci.org/vistart/Dockerfiles.svg?branch=build_tensorflow)](https://travis-ci.org/vistart/Dockerfiles)
+
+# Prerequisites
+
+- Ubuntu, LTS is better
+- Python 2.7 or 3.6
+- CUDA 10.0 or 10.1, and devices that support them
+
+# Images
+
+The following level headings are also tags for the docker image.
+
+- `py36-cuda10.1` (Depends on vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu18.04)
+
+  - CUDA 10.1
+  - CUDNN 7.6
+  - NCCL 2.4
+  - TensorRT 6.0
+  - Python 3.6
+  - Ubuntu 18.04
+
+- `py36-cuda10.0`, `py36` (Depends on vistart/cuda:10.0-cudnn7-tensorrt6-devel-ubuntu18.04)
+
+  - CUDA 10.0
+  - CUDNN 7.6
+  - NCCL 2.4
+  - TensorRT 6.0
+  - Python 3.6
+  - Ubuntu 18.04
+
+- `py27-cuda10.1` (Depends on vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu18.04)
+
+  - CUDA 10.1
+  - CUDNN 7.6
+  - NCCL 2.4
+  - TensorRT 6.0
+  - Python 2.7
+  - Ubuntu 18.04
+
+- `py27-cuda10.0`, `py27` (Depends on vistart/cuda:10.0-cudnn7-tensorrt6-devel-ubuntu18.04)
+
+  - CUDA 10.0
+  - CUDNN 7.6
+  - NCCL 2.4
+  - TensorRT 6.0
+  - Python 2.7
+  - Ubuntu 18.04
+
+To find out the specific version number of each software in the above images, please visit [here](https://hub.docker.com/r/vistart/cuda).
+
+# Usage
+
+- Pull the image you need, for example:
+
+```
+docker pull vistart/build_tensorflow:py36-cuda10.1
+```
+The above command will pull the image that contains Python 3.6 and CUDA 10.1.
+
+- Clone this repository and change directory to it:
+
+```
+git clone -b build_tensorflow https://github.com/vistart/Dockerfiles
+cd Dockerfiles
+```
+
+- Run the build process:
+
+```
+sh build_tensorflow/py36-cuda10.1/build_tensorflow_2.sh
+```
+
+- Once the build is complete, the build results are generated in the current directory:
+
+```
+-rwxrwxrwx 1 vistart vistart 194526324 Oct 19 18:59 tensorflow-2.0.0-cp36-cp36m-linux_x86_64.whl*
+```

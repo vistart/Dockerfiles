@@ -3,9 +3,7 @@ LABEL maintainer "vistart <i@vistart.me>"
 
 RUN apt-get update && \
     apt-get install -y git \
-                       python \
                        python3 \
-                       python-pip \
                        python3-pip \
                        python3-libnvinfer-dev \
                        uff-converter-tf \
@@ -16,7 +14,9 @@ RUN apt-get update && \
                        zlib1g-dev \
                        bash-completion \
                        unzip
-RUN wget https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel_0.26.1-linux-x86_64.deb && dpkg -i bazel_0.26.1-linux-x86_64.deb
+RUN wget https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel-0.26.1-installer-linux-x86_64.sh && chmod +x bazel-0.26.1-installer-linux-x86_64.sh
+RUN ./bazel-0.26.1-installer-linux-x86_64.sh --user
+RUN export PATH="$PATH:$HOME/bin"
 RUN pip3 install numpy \
                  mock \
                  protobuf \

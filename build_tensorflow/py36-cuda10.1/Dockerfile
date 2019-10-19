@@ -18,7 +18,7 @@ RUN apt-get update && \
                        unzip
 RUN wget https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel-0.26.1-installer-linux-x86_64.sh && chmod +x bazel-0.26.1-installer-linux-x86_64.sh
 RUN ./bazel-0.26.1-installer-linux-x86_64.sh --user && rm bazel-0.26.1-installer-linux-x86_64.sh
-ENV PATH "$PATH:$HOME/bin"
+ENV PATH "$PATH:/root/bin"
 RUN pip3 install numpy \
                  mock \
                  protobuf \

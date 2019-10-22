@@ -5,6 +5,8 @@ services:
 
 matrix:
   include:
+  - name: "Ubuntu 19.10"
+    enc: BUILD_TAG=19.10
   - name: "Ubuntu 18.04"
     env: BUILD_TAG=18.04
   - name: "Ubuntu 16.04"
@@ -20,6 +22,8 @@ script:
       docker build ubuntu/16.04 -t vistart/ubuntu:16.04
     elif [ $BUILD_TAG = '14.04' ]; then
       docker build ubuntu/14.04 -t vistart/ubuntu:14.04
+    elif [ $BUILD_TAG = '19.10' ]; then
+      docker build ubuntu/19.10 -t vistart/ubuntu:19.10
     fi
 
 after_script:

@@ -1,0 +1,10 @@
+deb http://ftp.sjtu.edu.cn/ubuntu/ eoan main restricted universe multiverse
+deb http://ftp.sjtu.edu.cn/ubuntu/ eoan-security main restricted universe multiverse
+deb http://ftp.sjtu.edu.cn/ubuntu/ eoan-updates main restricted universe multiverse
+deb http://ftp.sjtu.edu.cn/ubuntu/ eoan-proposed main restricted universe multiverse
+deb http://ftp.sjtu.edu.cn/ubuntu/ eoan-backports main restricted universe multiverse
+deb-src http://ftp.sjtu.edu.cn/ubuntu/ eoan main restricted universe multiverse
+deb-src http://ftp.sjtu.edu.cn/ubuntu/ eoan-security main restricted universe multiverse
+deb-src http://ftp.sjtu.edu.cn/ubuntu/ eoan-updates main restricted universe multiverse
+deb-src http://ftp.sjtu.edu.cn/ubuntu/ eoan-proposed main restricted universe multiverse
+deb-src http://ftp.sjtu.edu.cn/ubuntu/ eoan-backports main restricted universe multiverse

@@ -6,7 +6,7 @@ services:
 matrix:
   include:
   - name: "Ubuntu 19.10"
-    enc: BUILD_TAG=19.10
+    env: BUILD_TAG=19.10
   - name: "Ubuntu 18.04"
     env: BUILD_TAG=18.04
   - name: "Ubuntu 16.04"

@@ -1,11 +1,13 @@
 ARG repository=vistart/cuda
-FROM ${repository}:9.2-runtime-ubuntu18.04
+FROM ${repository}:10.1-devel-ubuntu19.10
 LABEL maintainer "vistart <i@vistart.me>"
 
-ENV CUDNN_VERSION 7.6.3.30
+ENV CUDNN_VERSION 7.6.4.38
 LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-            libcudnn7=$CUDNN_VERSION-1+cuda9.2 && \
+            libcudnn7=$CUDNN_VERSION-1+cuda10.1 \
+            libcudnn7-dev=$CUDNN_VERSION-1+cuda10.1 && \
     apt-mark hold libcudnn7 && \
     rm -rf /var/lib/apt/lists/*
+RUN apt-get autoremove -y && apt-get clean

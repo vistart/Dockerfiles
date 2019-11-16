@@ -26,9 +26,7 @@ RUN pip3 install --no-cache-dir numpy \
                                 mock \
                                 protobuf \
                                 absl-py \
-                                https://github.com/vistart/Dockerfiles/releases/download/tensorflow-1.15.0/tensorflow-1.15.0-cp36-cp36m-linux_x86_64-cuda10.1.whl \
                                 keras \
-                                jupyter \
                                 cython \
                                 torch \
                                 torchvision \
@@ -37,6 +35,7 @@ RUN pip3 install --no-cache-dir numpy \
                                 pandas \
                                 scikit-image \
                                 scikit-learn
+RUN wget https://github.com/vistart/Dockerfiles/releases/download/tensorflow-1.15.0/tensorflow-1.15.0-cp36-cp36m-linux_x86_64-cuda10.1.whl && pip install tensorflow-1.15.0-cp36-cp36m-linux_x86_64-cuda10.1.whl && rm tensorflow-1.15.0-cp36-cp36m-linux_x86_64-cuda10.1.whl
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2

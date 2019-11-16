@@ -22,11 +22,11 @@ RUN apt-get install -y git \
                        libfontconfig1 \
                        python3-opencv
 RUN apt-get autoremove -y && apt-get clean
-RUN pip3 install --no-cache-dir numpy==1.16.5 \
+RUN pip3 install --no-cache-dir numpy \
                                 mock \
                                 protobuf \
                                 absl-py \
-                                tensorflow-gpu==1.13.2 \
+                                https://github.com/vistart/Dockerfiles/releases/download/tensorflow-1.15.0/tensorflow-1.15.0-cp36-cp36m-linux_x86_64-cuda10.0.whl \
                                 keras \
                                 jupyter \
                                 cython \

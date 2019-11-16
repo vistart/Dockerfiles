@@ -26,6 +26,7 @@ RUN pip install --no-cache-dir numpy \
                                mock \
                                protobuf \
                                absl-py \
+                               https://github.com/vistart/Dockerfiles/releases/download/tensorflow-1.15.0/tensorflow-1.15.0-cp27-cp27mu-linux_x86_64-cuda10.1.whl \
                                keras \
                                jupyter \
                                cython \

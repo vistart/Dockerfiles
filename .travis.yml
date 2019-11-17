@@ -24,9 +24,9 @@ script:
     docker build build_tensorflow/py36 --build-arg TR_BRANCH=r2.0 -t vistart/build_tensorflow:py36-tf2 -t vistart/build_tensorflow:py36-cuda10.0-tf2
   elif [ $BUILD_TAG = 'py27-cuda10.1' ]; then
     docker build build_tensorflow/py27-cuda10.1 --build-arg TR_BRANCH=r1.15 -t vistart/build_tensorflow:py27-cuda10.1 -t vistart/build_tensorflow:py27-cuda10.1-tf1
-    docker build build_tensorflow/py27-cuda10.1 --build-arg TR_BRANCH=r2.0 -t vistart/build_tensorflow:py27-cuda10.1-tf1
+    docker build build_tensorflow/py27-cuda10.1 --build-arg TR_BRANCH=r2.0 -t vistart/build_tensorflow:py27-cuda10.1-tf2
   elif [ $BUILD_TAG = 'py36-cuda10.1' ]; then
-    docker build build_tensorflow/py36-cuda10.1 --build-arg TR_BRANCH=r1.15 -t vistart/build_tensorflow:py36-cuda10.1 -t vistart/build_tensorflow:py36-cuda10.1-tf2
+    docker build build_tensorflow/py36-cuda10.1 --build-arg TR_BRANCH=r1.15 -t vistart/build_tensorflow:py36-cuda10.1 -t vistart/build_tensorflow:py36-cuda10.1-tf1
     docker build build_tensorflow/py36-cuda10.1 --build-arg TR_BRANCH=r2.0 -t vistart/build_tensorflow:py36-cuda10.1-tf2
   fi
 

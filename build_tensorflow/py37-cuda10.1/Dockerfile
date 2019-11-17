@@ -7,8 +7,8 @@ RUN apt-get update && \
     apt-get install -y git \
                        python3 \
                        python3-pip \
-                       python3-libnvinfer-dev \
-                       uff-converter-tf \
+                       python3-libnvinfer-dev=6.0.1-1+cuda10.1 \
+                       uff-converter-tf=6.0.1-1+cuda10.1 \
                        openjdk-11-jdk \
                        curl \
                        libc-ares-dev \
@@ -30,6 +30,7 @@ RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2
 RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow && cd tensorflow && git checkout $TF_BRANCH
+RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow
+RUN cd tensorflow && git checkout $TF_BRANCH
 COPY $BAZEL_RC_FILE .tf_configure.bazelrc
 RUN bazel build --nobuild //tensorflow/tools/pip_package:build_pip_package && bazel shutdown

@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get install -y git \
                        python3 \
                        python3-pip \
-                       python-libnvinfer=6.0.1-1+cuda10.0 \
+                       python3-libnvinfer=6.0.1-1+cuda10.0 \
                        python3-libnvinfer-dev=6.0.1-1+cuda10.0 \
                        uff-converter-tf=6.0.1-1+cuda10.0 \
                        openjdk-11-jdk \

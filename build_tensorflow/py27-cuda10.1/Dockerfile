@@ -1,5 +1,5 @@
-ARG TF_BRANCH r1.15
-ARG BAZEL_RC_FILE build_tensorflow/.tf_configure.bazelrc.py27
+ARG TF_BRANCH=r1.15
+ARG BAZEL_RC_FILE=build_tensorflow/.tf_configure.bazelrc.py27
 FROM vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
@@ -27,7 +27,6 @@ RUN pip install numpy \
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2
-RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow
 RUN cd root && git clone --recurse-submodules -b $TF_BRANCH https://github.com/tensorflow/tensorflow
 COPY $BAZEL_RC_FILE tensorflow/.tf_configure.bazelrc
 RUN bazel build --nobuild //tensorflow/tools/pip_package:build_pip_package

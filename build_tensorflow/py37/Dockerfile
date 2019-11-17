@@ -1,5 +1,5 @@
-ARG TF_BRANCH r1.15
-ARG BAZEL_RC_FILE build_tensorflow/.tf_configure.bazelrc.py37
+ARG TF_BRANCH=r1.15
+ARG BAZEL_RC_FILE=build_tensorflow/.tf_configure.bazelrc.py37
 FROM vistart/cuda:10.0-cudnn7-tensorrt6-devel-ubuntu19.10
 LABEL maintainer "vistart <i@vistart.me>"
 

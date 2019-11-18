@@ -1,6 +1,6 @@
-ARG TF_BRANCH=r1.15
 FROM vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu19.10
 LABEL maintainer "vistart <i@vistart.me>"
+ARG TF_BRANCH=r1.15
 
 RUN apt-get update && \
     apt-get install -y git \

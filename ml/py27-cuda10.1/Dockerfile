@@ -37,10 +37,10 @@ RUN pip install --no-cache-dir numpy \
                                'scikit-learn<0.21' \
                                'PyWavelets<1.1' \
                                'networkx<2.3' \
-                               'matplotlib<3.0'
-RUN pip install --no-cache-dir torch \
-                               torchvision
-RUN wget https://github.com/vistart/Dockerfiles/releases/download/tensorflow-1.15.0/tensorflow-1.15.0-cp27-cp27mu-linux_x86_64-cuda10.1.whl && pip install tensorflow-1.15.0-cp27-cp27mu-linux_x86_64-cuda10.1.whl && rm tensorflow-1.15.0-cp27-cp27mu-linux_x86_64-cuda10.1.whl
+                               'matplotlib<3.0' \
+                               torch \
+                               torchvision \
+                               https://github.com/vistart/Dockerfiles/releases/download/tensorflow-1.15.0/tensorflow-1.15.0-cp27-cp27mu-linux_x86_64-cuda10.1.whl
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2

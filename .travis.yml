@@ -17,13 +17,17 @@ matrix:
 script:
     - |
         if [ $BUILD_TAG = 'py36' ]; then
-            docker build ml/py36 -t vistart/ml:py36
+            docker build ml/py36 --build-arg TF_VERSION=1.15.0 -t vistart/ml:py36 -t vistart/ml:py36-tf1 -t vistart/ml:py36-cuda10.0 -t vistart/ml:py36-cuda10.0-tf1
+            docker build ml/py36 --build-arg TF_VERSION=2.0.0 -t vistart/ml:py36-tf2 -t vistart/ml:py36-cuda10.0-tf2
         elif [ $BUILD_TAG = 'py36-cuda10.1' ]; then
-            docker build ml/py36-cuda10.1 -t vistart/ml:py36-cuda10.1
+            docker build ml/py36-cuda10.1 --build-arg TF_VERSION=1.15.0 -t vistart/ml:py36-cuda10.1 -t vistart/ml:py36-cuda10.1-tf1
+            docker build ml/py36-cuda10.1 --build-arg TF_VERSION=2.0.0 -t vistart/ml:py36-cuda10.1-tf2
         elif [ $BUILD_TAG = 'py27' ]; then
-            docker build ml/py27 -t vistart/ml:py27
+            docker build ml/py27 --build-arg TF_VERSION=1.15.0 -t vistart/ml:py27 -t vistart/ml:py27-tf1 -t vistart/ml:py27-cuda10.0 -t vistart/ml:py27-cuda10.0-tf1
+            docker build ml/py27 --build-arg TF_VERSION=2.0.0 -t vistart/ml:py27-tf2 -t vistart/ml:py27-cuda10.0-tf2
         elif [ $BUILD_TAG = 'py27-cuda10.1' ]; then
-            docker build ml/py27-cuda10.1 -t vistart/ml:py27-cuda10.1
+            docker build ml/py27-cuda10.1 --build-arg TF_VERSION=1.15.0 -t vistart/ml:py27-cuda10.1 -t vistart/ml:py27-cuda10.1-tf1
+            docker build ml/py27-cuda10.1 --build-arg TF_VERSION=2.0.0 -t vistart/ml:py27-cuda10.1-tf2
         fi
 
 after_script:

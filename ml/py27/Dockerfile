@@ -38,7 +38,8 @@ RUN pip install --no-cache-dir numpy \
                                'matplotlib<3.0' \
                                torch \
                                torchvision
-RUN wget https://github.com/vistart/Dockerfiles/releases/download/tensorflow-1.15.0/tensorflow-1.15.0-cp27-cp27mu-linux_x86_64-cuda10.0.whl -O tensorflow-1.15.0-cp27-cp27mu-linux_x86_64.whl && pip install tensorflow-1.15.0-cp27-cp27mu-linux_x86_64.whl
+ARG TF_VERSION=1.15.0
+RUN wget https://github.com/vistart/Dockerfiles/releases/download/tensorflow-$TF_VERSION/tensorflow-$TF_VERSION-cp27-cp27mu-linux_x86_64-cuda10.0.whl -O tensorflow-$TF_VERSION-cp27-cp27mu-linux_x86_64.whl && pip install tensorflow-$TF_VERSION-cp27-cp27mu-linux_x86_64.whl
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2

@@ -35,7 +35,8 @@ RUN pip3 install --no-cache-dir numpy \
                                 pandas \
                                 scikit-image \
                                 scikit-learn
-RUN wget https://github.com/vistart/Dockerfiles/releases/download/tensorflow-1.15.0/tensorflow-1.15.0-cp36-cp36m-linux_x86_64-cuda10.0.whl -O tensorflow-1.15.0-cp36-cp36m-linux_x86_64.whl && pip3 install tensorflow-1.15.0-cp36-cp36m-linux_x86_64.whl
+ARG TF_VERSION=1.15.0
+RUN wget https://github.com/vistart/Dockerfiles/releases/download/tensorflow-$TF_VERSION/tensorflow-$TF_VERSION-cp36-cp36m-linux_x86_64-cuda10.0.whl -O tensorflow-$TF_VERSION-cp36-cp36m-linux_x86_64.whl && pip3 install tensorflow-$TF_VERSION-cp36-cp36m-linux_x86_64.whl
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2

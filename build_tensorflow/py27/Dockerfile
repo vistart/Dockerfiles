@@ -1,6 +1,5 @@
 FROM vistart/cuda:10.0-cudnn7-tensorrt6-devel-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
-ARG TF_BRANCH=r1.15
 
 RUN apt-get update && \
     apt-get install -y git \
@@ -30,4 +29,6 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.
 RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow
 WORKDIR /root/tensorflow
 COPY build_tensorflow/.tf_configure.bazelrc.py27 ./.tf_configure.bazelrc
+
+ARG TF_BRANCH=r1.15
 RUN git checkout $TF_BRANCH && bazel build --nobuild //tensorflow/tools/pip_package:build_pip_package && bazel shutdown

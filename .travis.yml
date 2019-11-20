@@ -16,7 +16,7 @@ matrix:
     env: BUILD_GROUP=ubuntu18.04
   - name: "CUDA 10.0 / 10.1 / 10.2 in ubuntu 16.04"
     env: BUILD_GROUP=ubuntu16.04
-  - name: "CUDA 9.0 / 9.2 / 10.0 in ubuntu 14.04"
+  - name: "CUDA 9.0 / 10.0 / 10.1 in ubuntu 14.04"
     env: BUILD_GROUP=ubuntu14.04
 
 before_script:
@@ -85,6 +85,7 @@ script:
 
     elif [ $BUILD_GROUP = 'ubuntu14.04' ]; then
 
+        python download_googledrive.py "$GDRIVETRTDEB1404101FID" "cuda/ubuntu14.04/10.0/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1404-cuda10.1-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu14.04/10.1/base -t vistart/cuda:10.1-base-ubuntu14.04
         docker build cuda/ubuntu14.04/10.1/runtime -t vistart/cuda:10.1-runtime-ubuntu14.04
         docker build cuda/ubuntu14.04/10.1/runtime/cudnn7 -t vistart/cuda:10.1-cudnn7-runtime-ubuntu14.04
@@ -92,6 +93,7 @@ script:
         docker build cuda/ubuntu14.04/10.1/devel/cudnn7 -t vistart/cuda:10.1-cudnn7-devel-ubuntu14.04
         docker build cuda/ubuntu14.04/10.1/devel/cudnn7/tensorrt6 -t vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu14.04
 
+        python download_googledrive.py "$GDRIVETRTDEB1404100FID" "cuda/ubuntu14.04/10.0/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1404-cuda10.0-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu14.04/10.0/base -t vistart/cuda:10.0-base-ubuntu14.04
         docker build cuda/ubuntu14.04/10.0/runtime -t vistart/cuda:10.0-runtime-ubuntu14.04
         docker build cuda/ubuntu14.04/10.0/runtime/cudnn7 -t vistart/cuda:10.0-cudnn7-runtime-ubuntu14.04

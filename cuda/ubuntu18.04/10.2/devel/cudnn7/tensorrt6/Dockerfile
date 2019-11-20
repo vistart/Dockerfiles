@@ -7,7 +7,7 @@ RUN apt-get install libnvinfer6=$NVINFER_VERSION \
                     libnvinfer-plugin6=$NVINFER_VERSION \
                     libnvparsers6=$NVINFER_VERSION \
                     libnvonnxparsers6=$NVINFER_VERSION -y
-RUN apt-get install 
+RUN apt-get install \
                     libnvinfer-dev=$NVINFER_VERSION \
                     libnvinfer-plugin-dev=$NVINFER_VERSION \
                     libnvparsers-dev=$NVINFER_VERSION \

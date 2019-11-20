@@ -1,13 +1,14 @@
 ARG repository=vistart/cuda
-FROM ${repository}:10.0-base-ubuntu16.04
+FROM ${repository}:10.1-base-ubuntu20.04
 LABEL maintainer "vistart <i@vistart.me>"
 
-ENV NCCL_VERSION 2.5.6
+ENV NCCL_VERSION 2.5.4
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         cuda-libraries-$CUDA_PKG_VERSION \
         cuda-nvtx-$CUDA_PKG_VERSION \
-        libnccl2=$NCCL_VERSION-1+cuda10.0 && \
+        libnccl2=$NCCL_VERSION-1+cuda10.1 && \
     apt-mark hold libnccl2 && \
     rm -rf /var/lib/apt/lists/*
 RUN apt-get autoremove -y && apt-get clean
+

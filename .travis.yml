@@ -10,6 +10,8 @@ python:
 
 matrix:
   include:
+  - name: "CUDA 10.2 in ubuntu 20.04"
+    env: BUILD_GROUP=cuda10.2-ubuntu20.04
   - name: "CUDA 10.1 in ubuntu 18.04"
     env: BUILD_GROUP=cuda10.1-ubuntu18.04
   - name: "CUDA 10.0 in ubuntu 18.04"
@@ -56,6 +58,13 @@ script:
         docker build cuda/ubuntu16.04/10.0/devel -t vistart/cuda:10.0-devel-ubuntu16.04
         docker build cuda/ubuntu16.04/10.0/devel/cudnn7 -t vistart/cuda:10.0-cudnn7-devel-ubuntu16.04
         docker build cuda/ubuntu16.04/10.0/devel/cudnn7/tensorrt6 -t vistart/cuda:10.0-cudnn7-tensorrt6-devel-ubuntu16.04
+    elif [ $BUILD_GROUP = 'cuda10.2-ubuntu20.04' ]; then
+        docker build cuda/ubuntu20.04/10.2/base -t vistart/cuda:10.2-base-ubuntu20.04
+        docker build cuda/ubuntu20.04/10.2/runtime -t vistart/cuda:10.2-runtime-ubuntu20.04
+        docker build cuda/ubuntu20.04/10.2/runtime/cudnn7 -t vistart/cuda:10.2-cudnn7-runtime-ubuntu20.04
+        docker build cuda/ubuntu20.04/10.2/devel -t vistart/cuda:10.2-devel-ubuntu20.04
+        docker build cuda/ubuntu20.04/10.2/devel/cudnn7 -t vistart/cuda:10.2-cudnn7-devel-ubuntu20.04
+        docker build cuda/ubuntu20.04/10.2/devel/cudnn7/tensorrt6 -t vistart/cuda:10.2-cudnn7-tensorrt6-devel-ubuntu20.04
     fi
 
 after_script:

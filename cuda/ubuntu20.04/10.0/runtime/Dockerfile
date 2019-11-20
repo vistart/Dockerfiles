@@ -1,5 +1,5 @@
 ARG repository=vistart/cuda
-FROM ${repository}:10.0-base-ubuntu16.04
+FROM ${repository}:10.0-base-ubuntu20.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 ENV NCCL_VERSION 2.5.6

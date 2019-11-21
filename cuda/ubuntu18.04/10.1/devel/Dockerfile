@@ -2,7 +2,7 @@ ARG repository=vistart/cuda
 FROM ${repository}:10.1-runtime-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --fix-missing --no-install-recommends \
         cuda-libraries-dev-$CUDA_PKG_VERSION \
         cuda-nvml-dev-$CUDA_PKG_VERSION \
         cuda-minimal-build-$CUDA_PKG_VERSION \

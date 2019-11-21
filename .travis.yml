@@ -12,9 +12,15 @@ matrix:
   - name: "Tensorflow with Python 2.7 & CUDA 10.1"
     env: BUILD_TAG=py27-cuda10.1
   - name: "Tensorflow with Python 3.6 & CUDA 10.1"
-    env: BUILD_TAG=py36-cuda10.1
+    env: BUILD_TAG=py36-cuda10.0
+  - name: "Tensorflow with Python 2.7 & CUDA 10.2"
+    env: BUILD_TAG=py36-cuda10.2
   - name: "Tensorflow with Python 3.6 & CUDA 10.2"
     env: BUILD_TAG=py36-cuda10.2
+
+  allow_failures:
+    - name: "Tensorflow with Python 2.7 & CUDA 10.1"
+    - name: "Tensorflow with Python 3.6 & CUDA 10.1"
 
 script:
 - |
@@ -30,6 +36,9 @@ script:
   elif [ $BUILD_TAG = 'py36-cuda10.1' ]; then
     docker build . -f build_tensorflow/py36-cuda10.1/Dockerfile --build-arg TF_BRANCH=v1.15.0 -t vistart/build_tensorflow:py36-cuda10.1 -t vistart/build_tensorflow:py36-cuda10.1-tf1
     docker build . -f build_tensorflow/py36-cuda10.1/Dockerfile --build-arg TF_BRANCH=v2.0.0 -t vistart/build_tensorflow:py36-cuda10.1-tf2
+  elif [ $BUILD_TAG = 'py27-cuda10.2' ]; then
+    docker build . -f build_tensorflow/py27-cuda10.2/Dockerfile --build-arg TF_BRANCH=v1.15.0 -t vistart/build_tensorflow:py27-cuda10.2 -t vistart/build_tensorflow:py27-cuda10.2-tf1
+    docker build . -f build_tensorflow/py27-cuda10.2/Dockerfile --build-arg TF_BRANCH=v2.0.0 -t vistart/build_tensorflow:py27-cuda10.2-tf2
   elif [ $BUILD_TAG = 'py36-cuda10.2' ]; then
     docker build . -f build_tensorflow/py36-cuda10.2/Dockerfile --build-arg TF_BRANCH=v1.15.0 -t vistart/build_tensorflow:py36-cuda10.2 -t vistart/build_tensorflow:py36-cuda10.2-tf1
     docker build . -f build_tensorflow/py36-cuda10.2/Dockerfile --build-arg TF_BRANCH=v2.0.0 -t vistart/build_tensorflow:py36-cuda10.2-tf2

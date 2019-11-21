@@ -8,17 +8,26 @@
 
 - Ubuntu, LTS is better
 - Python 2.7 or 3.6
-- CUDA 10.0 or 10.1, and devices that support them
+- CUDA 10.0, 10.1 or 10.2, and devices that support them
 
 # Images
 
 The following level headings are also tags for the docker image.
 
+- `py36-cuda10.2`
+
+  - CUDA 10.2
+  - CUDNN 7.6
+  - NCCL 2.5
+  - TensorRT 6.0
+  - Python 3.6
+  - Ubuntu 18.04
+
 - `py36-cuda10.1`
 
   - CUDA 10.1
   - CUDNN 7.6
-  - NCCL 2.4
+  - NCCL 2.5
   - TensorRT 6.0
   - Python 3.6
   - Ubuntu 18.04
@@ -27,7 +36,7 @@ The following level headings are also tags for the docker image.
 
   - CUDA 10.0
   - CUDNN 7.6
-  - NCCL 2.4
+  - NCCL 2.5
   - TensorRT 6.0
   - Python 3.6
   - Ubuntu 18.04
@@ -36,7 +45,7 @@ The following level headings are also tags for the docker image.
 
   - CUDA 10.1
   - CUDNN 7.6
-  - NCCL 2.4
+  - NCCL 2.5
   - TensorRT 6.0
   - Python 2.7
   - Ubuntu 18.04
@@ -45,7 +54,7 @@ The following level headings are also tags for the docker image.
 
   - CUDA 10.0
   - CUDNN 7.6
-  - NCCL 2.4
+  - NCCL 2.5
   - TensorRT 6.0
   - Python 2.7
   - Ubuntu 18.04

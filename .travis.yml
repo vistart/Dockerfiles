@@ -17,7 +17,7 @@ matrix:
     env: BUILD_GROUP=cuda10.1-ubuntu20.04
 
   - name: "CUDA 10.0 in ubuntu 20.04"
-    env: BUILD_GROUP=cuda10.0ubuntu20.04
+    env: BUILD_GROUP=cuda10.0-ubuntu20.04
 
   - name: "CUDA 10.2 in ubuntu 18.04"
     env: BUILD_GROUP=cuda10.2-ubuntu18.04

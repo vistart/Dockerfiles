@@ -5,6 +5,7 @@ RUN apt-get update && \
     apt-get install -y git \
                        python \
                        python-pip \
+                       python-libnvinfer=6.0.1-1+cuda10.1 \
                        python-libnvinfer-dev=6.0.1-1+cuda10.1 \
                        uff-converter-tf=6.0.1-1+cuda10.1 \
                        openjdk-11-jdk \

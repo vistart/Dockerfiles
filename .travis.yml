@@ -85,82 +85,90 @@ script:
 
     elif [ $BUILD_GROUP = 'cuda10.2-ubuntu18.04' ]; then
 
-        python download_googledrive.py "$GDRIVETRTDEB1804102FID" "cuda/ubuntu18.04/10.2/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1804-cuda10.2-trt6.0.1.8-ga-20191108_1-1_amd64.deb"
         docker build cuda/ubuntu18.04/10.2/base -t vistart/cuda:10.2-base-ubuntu18.04
         docker build cuda/ubuntu18.04/10.2/runtime -t vistart/cuda:10.2-runtime-ubuntu18.04
         docker build cuda/ubuntu18.04/10.2/runtime/cudnn7 -t vistart/cuda:10.2-cudnn7-runtime-ubuntu18.04
         docker build cuda/ubuntu18.04/10.2/devel -t vistart/cuda:10.2-devel-ubuntu18.04
         docker build cuda/ubuntu18.04/10.2/devel/cudnn7 -t vistart/cuda:10.2-cudnn7-devel-ubuntu18.04
+        python download_googledrive.py "$GDRIVETRT6DEB1804102FID" "cuda/ubuntu18.04/10.2/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1804-cuda10.2-trt6.0.1.8-ga-20191108_1-1_amd64.deb"
         docker build cuda/ubuntu18.04/10.2/devel/cudnn7/tensorrt6 -t vistart/cuda:10.2-cudnn7-tensorrt6-devel-ubuntu18.04
+        python download_googledrive.py "$GDRIVETRT7DEB1804102FID" "cuda/ubuntu18.04/10.2/devel/cudnn7/tensorrt7/nv-tensorrt-repo-ubuntu1804-cuda10.2-trt7.0.0.11-ga-20191216_1-1_amd64.deb"
+        docker build cuda/ubuntu18.04/10.2/devel/cudnn7/tensorrt7 -t vistart/cuda:10.2-cudnn7-tensorrt7-devel-ubuntu18.04
 
     elif [ $BUILD_GROUP = 'cuda10.1-ubuntu18.04' ]; then
 
-        python download_googledrive.py "$GDRIVETRTDEB1804101FID" "cuda/ubuntu18.04/10.1/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1804-cuda10.1-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu18.04/10.1/base -t vistart/cuda:10.1-base-ubuntu18.04
         docker build cuda/ubuntu18.04/10.1/runtime -t vistart/cuda:10.1-runtime-ubuntu18.04
         docker build cuda/ubuntu18.04/10.1/runtime/cudnn7 -t vistart/cuda:10.1-cudnn7-runtime-ubuntu18.04
         docker build cuda/ubuntu18.04/10.1/devel -t vistart/cuda:10.1-devel-ubuntu18.04
         docker build cuda/ubuntu18.04/10.1/devel/cudnn7 -t vistart/cuda:10.1-cudnn7-devel-ubuntu18.04
+        python download_googledrive.py "$GDRIVETRT6DEB1804101FID" "cuda/ubuntu18.04/10.1/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1804-cuda10.1-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu18.04/10.1/devel/cudnn7/tensorrt6 -t vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu18.04
 
     elif [ $BUILD_GROUP = 'cuda10.0-ubuntu18.04' ]; then
     
-        python download_googledrive.py "$GDRIVETRTDEB1804100FID" "cuda/ubuntu18.04/10.0/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1804-cuda10.0-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu18.04/10.0/base -t vistart/cuda:10.0-base-ubuntu18.04
         docker build cuda/ubuntu18.04/10.0/runtime -t vistart/cuda:10.0-runtime-ubuntu18.04
         docker build cuda/ubuntu18.04/10.0/runtime/cudnn7 -t vistart/cuda:10.0-cudnn7-runtime-ubuntu18.04
         docker build cuda/ubuntu18.04/10.0/devel -t vistart/cuda:10.0-devel-ubuntu18.04
         docker build cuda/ubuntu18.04/10.0/devel/cudnn7 -t vistart/cuda:10.0-cudnn7-devel-ubuntu18.04
+        python download_googledrive.py "$GDRIVETRT6DEB1804100FID" "cuda/ubuntu18.04/10.0/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1804-cuda10.0-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu18.04/10.0/devel/cudnn7/tensorrt6 -t vistart/cuda:10.0-cudnn7-tensorrt6-devel-ubuntu18.04
+        python download_googledrive.py "$GDRIVETRT7DEB1804100FID" "cuda/ubuntu18.04/10.0/devel/cudnn7/tensorrt7/nv-tensorrt-repo-ubuntu1804-cuda10.0-trt7.0.0.11-ga-20191216_1-1_amd64.deb"
+        docker build cuda/ubuntu18.04/10.0/devel/cudnn7/tensorrt7 -t vistart/cuda:10.0-cudnn7-tensorrt7-devel-ubuntu18.04
 
     elif [ $BUILD_GROUP = 'cuda10.2-ubuntu16.04' ]; then
 
-        python download_googledrive.py "$GDRIVETRTDEB1604102FID" "cuda/ubuntu16.04/10.2/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1604-cuda10.2-trt6.0.1.8-ga-20191108_1-1_amd64.deb"
         docker build cuda/ubuntu16.04/10.2/base -t vistart/cuda:10.2-base-ubuntu16.04
         docker build cuda/ubuntu16.04/10.2/runtime -t vistart/cuda:10.2-runtime-ubuntu16.04
         docker build cuda/ubuntu16.04/10.2/runtime/cudnn7 -t vistart/cuda:10.2-cudnn7-runtime-ubuntu16.04
         docker build cuda/ubuntu16.04/10.2/devel -t vistart/cuda:10.2-devel-ubuntu16.04
         docker build cuda/ubuntu16.04/10.2/devel/cudnn7 -t vistart/cuda:10.2-cudnn7-devel-ubuntu16.04
+        python download_googledrive.py "$GDRIVETRT6DEB1604102FID" "cuda/ubuntu16.04/10.2/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1604-cuda10.2-trt6.0.1.8-ga-20191108_1-1_amd64.deb"
         docker build cuda/ubuntu16.04/10.2/devel/cudnn7/tensorrt6 -t vistart/cuda:10.2-cudnn7-tensorrt6-devel-ubuntu16.04
+        python download_googledrive.py "$GDRIVETRT7DEB1604102FID" "cuda/ubuntu16.04/10.2/devel/cudnn7/tensorrt7/nv-tensorrt-repo-ubuntu1604-cuda10.2-trt7.0.0.11-ga-20191216_1-1_amd64.deb"
+        docker build cuda/ubuntu16.04/10.2/devel/cudnn7/tensorrt7 -t vistart/cuda:10.2-cudnn7-tensorrt7-devel-ubuntu16.04
 
     elif [ $BUILD_GROUP = 'cuda10.1-ubuntu16.04' ]; then
 
-        python download_googledrive.py "$GDRIVETRTDEB1604101FID" "cuda/ubuntu16.04/10.1/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1604-cuda10.1-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu16.04/10.1/base -t vistart/cuda:10.1-base-ubuntu16.04
         docker build cuda/ubuntu16.04/10.1/runtime -t vistart/cuda:10.1-runtime-ubuntu16.04
         docker build cuda/ubuntu16.04/10.1/runtime/cudnn7 -t vistart/cuda:10.1-cudnn7-runtime-ubuntu16.04
         docker build cuda/ubuntu16.04/10.1/devel -t vistart/cuda:10.1-devel-ubuntu16.04
         docker build cuda/ubuntu16.04/10.1/devel/cudnn7 -t vistart/cuda:10.1-cudnn7-devel-ubuntu16.04
+        python download_googledrive.py "$GDRIVETRT6DEB1604101FID" "cuda/ubuntu16.04/10.1/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1604-cuda10.1-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu16.04/10.1/devel/cudnn7/tensorrt6 -t vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu16.04
 
     elif [ $BUILD_GROUP = 'cuda10.0-ubuntu16.04' ]; then
     
-        python download_googledrive.py "$GDRIVETRTDEB1604100FID" "cuda/ubuntu16.04/10.0/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1604-cuda10.0-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu16.04/10.0/base -t vistart/cuda:10.0-base-ubuntu16.04
         docker build cuda/ubuntu16.04/10.0/runtime -t vistart/cuda:10.0-runtime-ubuntu16.04
         docker build cuda/ubuntu16.04/10.0/runtime/cudnn7 -t vistart/cuda:10.0-cudnn7-runtime-ubuntu16.04
         docker build cuda/ubuntu16.04/10.0/devel -t vistart/cuda:10.0-devel-ubuntu16.04
         docker build cuda/ubuntu16.04/10.0/devel/cudnn7 -t vistart/cuda:10.0-cudnn7-devel-ubuntu16.04
+        python download_googledrive.py "$GDRIVETRT6DEB1604100FID" "cuda/ubuntu16.04/10.0/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1604-cuda10.0-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu16.04/10.0/devel/cudnn7/tensorrt6 -t vistart/cuda:10.0-cudnn7-tensorrt6-devel-ubuntu16.04
+        python download_googledrive.py "$GDRIVETRT7DEB1604100FID" "cuda/ubuntu16.04/10.0/devel/cudnn7/tensorrt7/nv-tensorrt-repo-ubuntu1604-cuda10.0-trt7.0.0.11-ga-20191216_1-1_amd64.deb"
+        docker build cuda/ubuntu16.04/10.0/devel/cudnn7/tensorrt7 -t vistart/cuda:10.0-cudnn7-tensorrt7-devel-ubuntu16.04
 
     elif [ $BUILD_GROUP = 'cuda10.1-ubuntu14.04' ]; then
 
-        python download_googledrive.py "$GDRIVETRTDEB1404101FID" "cuda/ubuntu14.04/10.0/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1404-cuda10.1-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu14.04/10.1/base -t vistart/cuda:10.1-base-ubuntu14.04
         docker build cuda/ubuntu14.04/10.1/runtime -t vistart/cuda:10.1-runtime-ubuntu14.04
         docker build cuda/ubuntu14.04/10.1/runtime/cudnn7 -t vistart/cuda:10.1-cudnn7-runtime-ubuntu14.04
         docker build cuda/ubuntu14.04/10.1/devel -t vistart/cuda:10.1-devel-ubuntu14.04
         docker build cuda/ubuntu14.04/10.1/devel/cudnn7 -t vistart/cuda:10.1-cudnn7-devel-ubuntu14.04
+        python download_googledrive.py "$GDRIVETRT6DEB1404101FID" "cuda/ubuntu14.04/10.0/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1404-cuda10.1-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu14.04/10.1/devel/cudnn7/tensorrt6 -t vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu14.04
 
     elif [ $BUILD_GROUP = 'cuda10.0-ubuntu14.04' ]; then
 
-        python download_googledrive.py "$GDRIVETRTDEB1404100FID" "cuda/ubuntu14.04/10.0/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1404-cuda10.0-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu14.04/10.0/base -t vistart/cuda:10.0-base-ubuntu14.04
         docker build cuda/ubuntu14.04/10.0/runtime -t vistart/cuda:10.0-runtime-ubuntu14.04
         docker build cuda/ubuntu14.04/10.0/runtime/cudnn7 -t vistart/cuda:10.0-cudnn7-runtime-ubuntu14.04
         docker build cuda/ubuntu14.04/10.0/devel -t vistart/cuda:10.0-devel-ubuntu14.04
         docker build cuda/ubuntu14.04/10.0/devel/cudnn7 -t vistart/cuda:10.0-cudnn7-devel-ubuntu14.04
+        python download_googledrive.py "$GDRIVETRT6DEB1404100FID" "cuda/ubuntu14.04/10.0/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1404-cuda10.0-trt6.0.1.5-ga-20190913_1-1_amd64.deb"
         docker build cuda/ubuntu14.04/10.0/devel/cudnn7/tensorrt6 -t vistart/cuda:10.0-cudnn7-tensorrt6-devel-ubuntu14.04
 
     fi

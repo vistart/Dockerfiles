@@ -1,12 +1,12 @@
-FROM vistart/cuda:10.2-cudnn7-tensorrt6-devel-ubuntu18.04
+FROM vistart/cuda:10.2-cudnn7-tensorrt7-devel-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 RUN apt-get update && \
     apt-get install -y git \
                        python3 \
                        python3-pip \
-                       python3-libnvinfer-dev=6.0.1-1+cuda10.2 \
-                       uff-converter-tf=6.0.1-1+cuda10.2 \
+                       python3-libnvinfer-dev=7.0.0-1+cuda10.2 \
+                       uff-converter-tf=7.0.0-1+cuda10.2 \
                        openjdk-11-jdk \
                        curl \
                        libc-ares-dev \

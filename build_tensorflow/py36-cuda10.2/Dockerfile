@@ -16,8 +16,9 @@ RUN apt-get update && \
                        pkg-config \
                        zip \
                        unzip
-RUN wget https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel-0.26.1-installer-linux-x86_64.sh && chmod +x bazel-0.26.1-installer-linux-x86_64.sh
-RUN ./bazel-0.26.1-installer-linux-x86_64.sh --user && rm bazel-0.26.1-installer-linux-x86_64.sh
+ARG BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel-0.26.1-installer-linux-x86_64.sh
+RUN wget $BAZEL_URL -O bazel.sh && chmod +x bazel.sh
+RUN ./bazel.sh --user && rm bazel.sh
 ENV PATH "$PATH:/root/bin"
 RUN pip3 install numpy \
                  mock \

@@ -14,9 +14,8 @@ RUN apt-get update && \
                        zlib1g-dev \
                        bash-completion \
                        unzip
-ARG BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel-0.26.1-installer-linux-x86_64.sh
-RUN wget $BAZEL_URL -O bazel.sh && chmod +x bazel.sh
-RUN ./bazel.sh --user && rm bazel.sh
+ARG BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel_0.26.1-linux-x86_64.deb
+RUN wget $BAZEL_URL -O bazel.deb && dpkg -i bazel.deb && rm bazel.deb
 RUN pip install numpy \
                 mock \
                 protobuf \

@@ -20,19 +20,19 @@ matrix:
 
 script:
 - |
-  if [ $BUILD_GROUP = 'PHP 7.2' ]; then
+  if [ $BUILD_GROUP = 'php7.2' ]; then
 
     docker build php/apache --build-arg TAG=7.2-apache -t vistart/php:7.2-apache
 
-  elif [ $BUILD_GROUP = 'PHP 7.3' ]; then
+  elif [ $BUILD_GROUP = 'php7.3' ]; then
 
     docker build php/apache --build-arg TAG=7.3-apache -t vistart/php:7.3-apache
 
-  elif [ $BUILD_GROUP = 'PHP 7.4' ]; then
+  elif [ $BUILD_GROUP = 'php7.4' ]; then
 
     docker build php/apache --build-arg TAG=7.4-apache -t vistart/php:7.4-apache
 
-  elif [ $BUILD_GROUP = 'LATEST' ]; then
+  elif [ $BUILD_GROUP = 'php-latest' ]; then
 
     docker build php/apache --build-arg TAG=apache -t vistart/php:apache
 

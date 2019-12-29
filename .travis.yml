@@ -3,8 +3,40 @@ sudo: required
 services:
   - docker
 
+matrix:
+  include:
+  - name: "PHP 7.2"
+    env: BUILD_GROUP=php7.2
+  - name: "PHP 7.3"
+    env: BUILD_GROUP=php7.3
+  - name: "PHP 7.4"
+    env: BUILD_GROUP=php7.4
+  - name: "LATEST"
+    env: BUILD_GROUP=php-latest
+
+  allow_failures:
+    - name: "PHP 7.4"
+    - name: "LATEST"
+
 script:
-- cd php/apache && docker build . -t vistart/php:apache && docker build . --build-arg TAG=7.2-apache -t vistart/php:7.2-apache
+- |
+  if [ $BUILD_GROUP = 'PHP 7.2' ]; then
+
+    docker build php/apache --build-arg TAG=7.2-apache -t vistart/php:7.2-apache
+
+  elif [ $BUILD_GROUP = 'PHP 7.3' ]; then
+
+    docker build php/apache --build-arg TAG=7.3-apache -t vistart/php:7.3-apache
+
+  elif [ $BUILD_GROUP = 'PHP 7.4' ]; then
+
+    docker build php/apache --build-arg TAG=7.4-apache -t vistart/php:7.4-apache
+
+  elif [ $BUILD_GROUP = 'LATEST']; then
+
+    docker build php/apache --build-arg TAG=apache -t vistart/php:apache
+
+  fi
 
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

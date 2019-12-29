@@ -29,7 +29,7 @@ RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/igbinary \
                  https://pecl.php.net/get/amqp \
                  https://pecl.php.net/get/libsodium
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include --with-jpeg-dir=/usr/include && \
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install -j$(nproc) bcmath \
                                       intl \
                                       mbstring \

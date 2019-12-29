@@ -32,7 +32,7 @@ script:
 
     docker build php/apache --build-arg TAG=7.4-apache -t vistart/php:7.4-apache
 
-  elif [ $BUILD_GROUP = 'LATEST']; then
+  elif [ $BUILD_GROUP = 'LATEST' ]; then
 
     docker build php/apache --build-arg TAG=apache -t vistart/php:apache
 

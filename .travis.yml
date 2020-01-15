@@ -22,11 +22,11 @@ script:
 - |
   if [ $BUILD_GROUP = 'php7.2' ]; then
 
-    docker build php/apache -f Dockerfile-7.2 --build-arg TAG=7.2-apache -t vistart/php:7.2-apache
+    docker build php/apache -f php/apache/Dockerfile-7.2 --build-arg TAG=7.2-apache -t vistart/php:7.2-apache
 
   elif [ $BUILD_GROUP = 'php7.3' ]; then
 
-    docker build php/apache -f Dockerfile-7.2 --build-arg TAG=7.3-apache -t vistart/php:7.3-apache
+    docker build php/apache -f php/apache/Dockerfile-7.2 --build-arg TAG=7.3-apache -t vistart/php:7.3-apache
 
   elif [ $BUILD_GROUP = 'php7.4' ]; then
 

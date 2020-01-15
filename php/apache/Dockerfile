@@ -12,15 +12,18 @@ RUN apt-get update && \
                        libzip-dev \
                        zip \
                        unzip \
+                       libmcrypt-dev \
                        libicu-dev \
                        libpng-dev \
                        imagemagick \
                        libfreetype6-dev \
                        libjpeg62-turbo-dev \
+                       libwebp-dev \
                        libmagickwand-dev \
                        openssl \
                        libssl-dev \
-                       librabbitmq-dev
+                       librabbitmq-dev \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz -O libsodium.tar.gz && tar -xzf libsodium.tar.gz && cd libsodium-stable && ./configure && make && make check && make install
 RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/mongodb \
@@ -28,8 +31,9 @@ RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/imagick \
                  https://pecl.php.net/get/igbinary \
                  https://pecl.php.net/get/amqp \
-                 https://pecl.php.net/get/libsodium
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
+                 https://pecl.php.net/get/libsodium \
+                 https://pecl.php.net/get/mcrypt
+RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp && \
     docker-php-ext-install -j$(nproc) bcmath \
                                       intl \
                                       mbstring \
@@ -46,7 +50,8 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
                           imagick \
                           igbinary \
                           amqp \
-                          sodium
+                          sodium \
+                          mcrypt
 
 # Install Composer
 ADD composer-setup.sh /root

@@ -5,9 +5,9 @@ RUN apt-get update && \
     apt-get install -y git \
                        python3 \
                        python3-pip \
-                       python3-libnvinfer=7.0.0-1+cuda10.2 \
-                       python3-libnvinfer-dev=7.0.0-1+cuda10.2 \
-                       uff-converter-tf=7.0.0-1+cuda10.2 \
+#                       python3-libnvinfer=7.0.0-1+cuda10.2 \ python3-libnvinfer requires the python 3 (<3.7)
+#                       python3-libnvinfer-dev=7.0.0-1+cuda10.2 \
+#                       uff-converter-tf=7.0.0-1+cuda10.2 \
                        openjdk-11-jdk \
                        curl \
                        libc-ares-dev \

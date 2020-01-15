@@ -14,9 +14,9 @@ matrix:
   - name: "LATEST"
     env: BUILD_GROUP=php-latest
 
-#  allow_failures:
+  allow_failures:
 #    - name: "PHP 7.4"
-#    - name: "LATEST"
+    - name: "LATEST"
 
 script:
 - |

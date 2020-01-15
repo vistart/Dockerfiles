@@ -19,13 +19,11 @@ RUN apt-get update && \
                        imagemagick \
                        libfreetype6-dev \
                        libjpeg62-turbo-dev \
-                       libwebp-dev \
                        libmagickwand-dev \
                        openssl \
                        libssl-dev \
                        librabbitmq-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp
 RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz -O libsodium.tar.gz && tar -xzf libsodium.tar.gz && cd libsodium-stable && ./configure && make && make check && make install
 RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/mongodb \
@@ -35,7 +33,8 @@ RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/amqp \
                  https://pecl.php.net/get/libsodium \
                  https://pecl.php.net/get/mcrypt
-RUN docker-php-ext-install -j$(nproc) bcmath \
+RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ && \
+    docker-php-ext-install -j$(nproc) bcmath \
                                       intl \
                                       mbstring \
                                       mysqli \

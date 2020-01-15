@@ -1,13 +1,12 @@
-FROM vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu20.04
+FROM vistart/cuda:10.2-cudnn7-tensorrt7-devel-ubuntu20.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 RUN apt-get update && \
     apt-get install -y git \
                        python3 \
                        python3-pip \
-                       python3-libnvinfer=6.0.1-1+cuda10.1 \
-                       python3-libnvinfer-dev=6.0.1-1+cuda10.1 \
-                       uff-converter-tf=6.0.1-1+cuda10.1 \
+                       python3-libnvinfer-dev=7.0.0-1+cuda10.2 \
+                       uff-converter-tf=7.0.0-1+cuda10.2 \
                        openjdk-11-jdk \
                        curl \
                        libc-ares-dev \
@@ -32,7 +31,7 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow
 WORKDIR /root/tensorflow
-COPY build_tensorflow/.tf_configure.bazelrc.py37 ./.tf_configure.bazelrc
+COPY build_tensorflow/.tf_configure.bazelrc.py36 ./.tf_configure.bazelrc
 
 ARG TF_BRANCH=r1.15
 RUN git checkout $TF_BRANCH && bazel build --nobuild //tensorflow/tools/pip_package:build_pip_package && bazel shutdown

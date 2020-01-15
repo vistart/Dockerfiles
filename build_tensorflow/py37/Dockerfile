@@ -1,4 +1,4 @@
-FROM vistart/cuda:10.0-cudnn7-tensorrt7-devel-ubuntu19.10
+FROM vistart/cuda:10.0-cudnn7-tensorrt7-devel-ubuntu20.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 RUN apt-get update && \

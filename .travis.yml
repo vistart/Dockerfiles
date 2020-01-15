@@ -9,18 +9,27 @@ matrix:
     env: BUILD_TAG=py27-cuda10.0
   - name: "Tensorflow with Python 3.6 & CUDA 10.0"
     env: BUILD_TAG=py36-cuda10.0
+  - name: "Tensorflow with Python 3.7 & CUDA 10.0"
+    env: BUILD_TAG=py37-cuda10.0
   - name: "Tensorflow with Python 2.7 & CUDA 10.1"
     env: BUILD_TAG=py27-cuda10.1
   - name: "Tensorflow with Python 3.6 & CUDA 10.1"
     env: BUILD_TAG=py36-cuda10.1
+  - name: "Tensorflow with Python 3.7 & CUDA 10.1"
+    env: BUILD_TAG=py37-cuda10.1
   - name: "Tensorflow with Python 2.7 & CUDA 10.2"
     env: BUILD_TAG=py27-cuda10.2
   - name: "Tensorflow with Python 3.6 & CUDA 10.2"
     env: BUILD_TAG=py36-cuda10.2
+  - name: "Tensorflow with Python 3.7 & CUDA 10.2"
+    env: BUILD_TAG=py37-cuda10.2
 
   allow_failures:
     - name: "Tensorflow with Python 2.7 & CUDA 10.1"
     - name: "Tensorflow with Python 3.6 & CUDA 10.1"
+    - name: "Tensorflow with Python 3.7 & CUDA 10.0"
+    - name: "Tensorflow with Python 3.7 & CUDA 10.1"
+    - name: "Tensorflow with Python 3.7 & CUDA 10.2"
 
 script:
 - |
@@ -52,6 +61,20 @@ script:
                  -t vistart/build_tensorflow:py36-tf2 \
                  -t vistart/build_tensorflow:py36-cuda10.0-tf2
 
+  elif [ $BUILD_TAG = 'py37-cuda10.0' ]; then
+
+    docker build . -f build_tensorflow/py37/Dockerfile \
+                 --build-arg TF_BRANCH=r1.15 \
+                 -t vistart/build_tensorflow:py37-tf1 \
+                 -t vistart/build_tensorflow:py37-cuda10.0-tf1
+    docker build . -f build_tensorflow/py37/Dockerfile \
+                 --build-arg TF_BRANCH=master \
+                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-installer-linux-x86_64.sh \
+                 -t vistart/build_tensorflow:py37 \
+                 -t vistart/build_tensorflow:py37-cuda10.0 \
+                 -t vistart/build_tensorflow:py37-tf2 \
+                 -t vistart/build_tensorflow:py37-cuda10.0-tf2
+
   elif [ $BUILD_TAG = 'py27-cuda10.1' ]; then
 
     docker build . -f build_tensorflow/py27-cuda10.1/Dockerfile \
@@ -74,6 +97,17 @@ script:
                  -t vistart/build_tensorflow:py36-cuda10.1 \
                  -t vistart/build_tensorflow:py36-cuda10.1-tf2
 
+  elif [ $BUILD_TAG = 'py37-cuda10.1' ]; then
+
+    docker build . -f build_tensorflow/py37-cuda10.1/Dockerfile \
+                 --build-arg TF_BRANCH=r1.15 \
+                 -t vistart/build_tensorflow:py37-cuda10.1-tf1
+    docker build . -f build_tensorflow/py37-cuda10.1/Dockerfile \
+                 --build-arg TF_BRANCH=master \
+                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-installer-linux-x86_64.sh \
+                 -t vistart/build_tensorflow:py37-cuda10.1 \
+                 -t vistart/build_tensorflow:py37-cuda10.1-tf2
+
   elif [ $BUILD_TAG = 'py27-cuda10.2' ]; then
 
     docker build . -f build_tensorflow/py27-cuda10.2/Dockerfile \
@@ -95,6 +129,19 @@ script:
                  --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-installer-linux-x86_64.sh \
                  -t vistart/build_tensorflow:py36-cuda10.2 \
                  -t vistart/build_tensorflow:py36-cuda10.2-tf2 \
+                 -t vistart/build_tensorflow:latest
+
+
+  elif [ $BUILD_TAG = 'py37-cuda10.2' ]; then
+
+    docker build . -f build_tensorflow/py37-cuda10.2/Dockerfile \
+                 --build-arg TF_BRANCH=r1.15 \
+                 -t vistart/build_tensorflow:py37-cuda10.2-tf1
+    docker build . -f build_tensorflow/py37-cuda10.2/Dockerfile \
+                 --build-arg TF_BRANCH=master \
+                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-installer-linux-x86_64.sh \
+                 -t vistart/build_tensorflow:py37-cuda10.2 \
+                 -t vistart/build_tensorflow:py37-cuda10.2-tf2 \
                  -t vistart/build_tensorflow:latest
 
   fi

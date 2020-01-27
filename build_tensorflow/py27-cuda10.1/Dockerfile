@@ -15,8 +15,6 @@ RUN apt-get update && \
                        zlib1g-dev \
                        bash-completion \
                        unzip
-ARG BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel_0.26.1-linux-x86_64.deb
-RUN wget $BAZEL_URL -O bazel.deb && dpkg -i bazel.deb && rm bazel.deb
 RUN pip install numpy \
                 mock \
                 protobuf \
@@ -28,8 +26,9 @@ RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2
 RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow
-WORKDIR /root/tensorflow
 COPY build_tensorflow/.tf_configure.bazelrc.py27 ./.tf_configure.bazelrc
-
+ARG BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel_0.26.1-linux-x86_64.deb
+RUN wget $BAZEL_URL -O bazel.deb && dpkg -i bazel.deb && rm bazel.deb
 ARG TF_BRANCH=r1.15
 RUN git checkout $TF_BRANCH && bazel build --nobuild //tensorflow/tools/pip_package:build_pip_package && bazel shutdown
+WORKDIR /root/tensorflow

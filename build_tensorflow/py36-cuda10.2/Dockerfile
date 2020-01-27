@@ -26,6 +26,7 @@ RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow
+WORKDIR /root/tensorflow
 COPY build_tensorflow/.tf_configure.bazelrc.py36 ./.tf_configure.bazelrc
 ARG BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel-0.26.1-installer-linux-x86_64.sh
 RUN wget $BAZEL_URL -O bazel.sh && chmod +x bazel.sh
@@ -33,5 +34,4 @@ RUN ./bazel.sh --user && rm bazel.sh
 ENV PATH "$PATH:/root/bin"
 ARG TF_BRANCH=r1.15
 RUN git checkout $TF_BRANCH && bazel build --nobuild //tensorflow/tools/pip_package:build_pip_package && bazel shutdown
-WORKDIR /root/tensorflow
 

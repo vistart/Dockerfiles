@@ -33,7 +33,7 @@ script:
                  -t vistart/build_tensorflow:py36-cuda10.0-tf1
     docker build . -f build_tensorflow/py36/Dockerfile \
                  --build-arg TF_BRANCH=master \
-                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-installer-linux-x86_64.sh \
+                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-installer-linux-x86_64.sh \
                  -t vistart/build_tensorflow:py36 \
                  -t vistart/build_tensorflow:py36-cuda10.0 \
                  -t vistart/build_tensorflow:py36-tf2 \
@@ -47,7 +47,7 @@ script:
                  -t vistart/build_tensorflow:py37-cuda10.0-tf1
     docker build . -f build_tensorflow/py37/Dockerfile \
                  --build-arg TF_BRANCH=master \
-                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-installer-linux-x86_64.sh \
+                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-installer-linux-x86_64.sh \
                  -t vistart/build_tensorflow:py37 \
                  -t vistart/build_tensorflow:py37-cuda10.0 \
                  -t vistart/build_tensorflow:py37-tf2 \
@@ -60,7 +60,7 @@ script:
                  -t vistart/build_tensorflow:py36-cuda10.1-tf1
     docker build . -f build_tensorflow/py36-cuda10.1/Dockerfile \
                  --build-arg TF_BRANCH=master \
-                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-installer-linux-x86_64.sh \
+                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-installer-linux-x86_64.sh \
                  -t vistart/build_tensorflow:py36-cuda10.1 \
                  -t vistart/build_tensorflow:py36-cuda10.1-tf2
 
@@ -71,7 +71,7 @@ script:
                  -t vistart/build_tensorflow:py37-cuda10.1-tf1
     docker build . -f build_tensorflow/py37-cuda10.1/Dockerfile \
                  --build-arg TF_BRANCH=master \
-                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-installer-linux-x86_64.sh \
+                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-installer-linux-x86_64.sh \
                  -t vistart/build_tensorflow:py37-cuda10.1 \
                  -t vistart/build_tensorflow:py37-cuda10.1-tf2
 
@@ -82,7 +82,7 @@ script:
                  -t vistart/build_tensorflow:py36-cuda10.2-tf1
     docker build . -f build_tensorflow/py36-cuda10.2/Dockerfile \
                  --build-arg TF_BRANCH=master \
-                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-installer-linux-x86_64.sh \
+                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-installer-linux-x86_64.sh \
                  -t vistart/build_tensorflow:py36-cuda10.2 \
                  -t vistart/build_tensorflow:py36-cuda10.2-tf2 \
                  -t vistart/build_tensorflow:latest
@@ -95,7 +95,7 @@ script:
                  -t vistart/build_tensorflow:py37-cuda10.2-tf1
     docker build . -f build_tensorflow/py37-cuda10.2/Dockerfile \
                  --build-arg TF_BRANCH=master \
-                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-installer-linux-x86_64.sh \
+                 --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-installer-linux-x86_64.sh \
                  -t vistart/build_tensorflow:py37-cuda10.2 \
                  -t vistart/build_tensorflow:py37-cuda10.2-tf2 \
                  -t vistart/build_tensorflow:latest

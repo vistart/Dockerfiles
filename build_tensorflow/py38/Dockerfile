@@ -1,13 +1,14 @@
-FROM vistart/cuda:10.2-cudnn7-tensorrt7-devel-ubuntu20.04
+FROM vistart/cuda:10.0-cudnn7-tensorrt7-devel-ubuntu20.04
 LABEL maintainer "vistart <i@vistart.me>"
 
+RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
 RUN apt-get update && \
     apt-get install -y git \
                        python3 \
                        python3-pip \
-#                       python3-libnvinfer=7.0.0-1+cuda10.2 \ python3-libnvinfer requires the python 3 (<3.7)
-#                       python3-libnvinfer-dev=7.0.0-1+cuda10.2 \
-#                       uff-converter-tf=7.0.0-1+cuda10.2 \
+#                       python3-libnvinfer=7.0.0-1+cuda10.0 \ python3-libnvinfer requires the python 3 (<3.7)
+#                       python3-libnvinfer-dev=7.0.0-1+cuda10.0 \
+#                       uff-converter-tf=7.0.0-1+cuda10.0 \
                        openjdk-11-jdk \
                        curl \
                        libc-ares-dev \
@@ -28,7 +29,7 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tensorflow
 WORKDIR /root/tensorflow
-COPY build_tensorflow/.tf_configure.bazelrc.py37 ./.tf_configure.bazelrc
+COPY build_tensorflow/.tf_configure.bazelrc.py38 ./.tf_configure.bazelrc
 ARG BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel-0.26.1-installer-linux-x86_64.sh
 RUN wget $BAZEL_URL -O bazel.sh && chmod +x bazel.sh
 RUN ./bazel.sh --user && rm bazel.sh

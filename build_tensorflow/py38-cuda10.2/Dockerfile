@@ -1,6 +1,7 @@
 FROM vistart/cuda:10.2-cudnn7-tensorrt7-devel-ubuntu20.04
 LABEL maintainer "vistart <i@vistart.me>"
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
 RUN apt-get update && \
     apt-get install -y git \

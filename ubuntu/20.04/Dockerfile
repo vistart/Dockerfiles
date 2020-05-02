@@ -1,4 +1,4 @@
-ARG ubuntu=focal
+ARG ubuntu=20.04
 FROM ubuntu:${ubuntu}
 LABEL maintianer "vistart <i@vistart.me>"
 

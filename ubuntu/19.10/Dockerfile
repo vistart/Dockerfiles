@@ -1,6 +1,6 @@
 ARG ubuntu=19.10
 FROM ubuntu:${ubuntu}
-LABEL maintianer "vistart <i@vistart.me>"
+LABEL maintainer "vistart <i@vistart.me>"
 
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 ADD sources_eoan.list /etc/apt/sources.list

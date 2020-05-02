@@ -1,6 +1,6 @@
 ARG ubuntu=14.04
 FROM ubuntu:${ubuntu}
-LABEL maintianer "vistart <i@vistart.me>"
+LABEL maintainer "vistart <i@vistart.me>"
 
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 ADD sources_trusty.list /etc/apt/sources.list

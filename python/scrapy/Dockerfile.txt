@@ -1,3 +1,0 @@
-ARG pythonversion=latest
-FROM python:${pythonversion}
-LABEL maintainer "vistart <i@vistart.me>"

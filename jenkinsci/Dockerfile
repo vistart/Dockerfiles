@@ -35,7 +35,7 @@ RUN mkdir -p ${REF}/init.groovy.d
 # Use tini as subreaper in Docker container to adopt zombie processes
 ARG TINI_VERSION=v0.16.1
 RUN git clone https://github.com/jenkinsci/docker
-COPY ../docker/tini_pub.gpg ${JENKINS_HOME}/tini_pub.gpg
+RUN cp docker/tini_pub.gpg ${JENKINS_HOME}/tini_pub.gpg
 RUN curl -fsSL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-static-$(dpkg --print-architecture) -o /sbin/tini \
   && curl -fsSL https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-static-$(dpkg --print-architecture).asc -o /sbin/tini.asc \
   && gpg --no-tty --import ${JENKINS_HOME}/tini_pub.gpg \
@@ -74,11 +74,11 @@ ENV JENKINS_ENABLE_FUTURE_JAVA=true
 
 USER ${user}
 
-COPY ../docker/jenkins-support /usr/local/bin/jenkins-support
-COPY ../docker/jenkins.sh /usr/local/bin/jenkins.sh
-COPY ../docker/tini-shim.sh /bin/tini
+RUN cp docker/jenkins-support /usr/local/bin/jenkins-support
+RUN cp docker/jenkins.sh /usr/local/bin/jenkins.sh
+RUN cp docker/tini-shim.sh /bin/tini
 ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/jenkins.sh"]
 
 # from a derived Dockerfile, can use `RUN plugins.sh active.txt` to setup $REF/plugins from a support bundle
-COPY ../docker/plugins.sh /usr/local/bin/plugins.sh
-COPY ../docker/install-plugins.sh /usr/local/bin/install-plugins.sh
+RUN cp docker/plugins.sh /usr/local/bin/plugins.sh
+RUN cp docker/install-plugins.sh /usr/local/bin/install-plugins.sh

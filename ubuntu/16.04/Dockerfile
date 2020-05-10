@@ -2,4 +2,4 @@ ARG ubuntu=16.04
 FROM ubuntu:${ubuntu}
 LABEL maintainer "vistart <i@vistart.me>"
 
-RUN apt-get update && apt-get upgrade -y && apt-get install apt-transport-https ca-certificates git wget -y && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/list/*
+RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install apt-transport-https ca-certificates git wget -y -qq && apt-get autoremove -y -qq && apt-get clean && rm -rf /var/lib/apt/list/*

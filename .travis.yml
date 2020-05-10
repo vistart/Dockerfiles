@@ -27,19 +27,16 @@ before_install:
   - docker buildx create --use --name mybuilder
   - docker buildx inspect mybuilder --bootstrap
   - docker buildx ls
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
 
 script:
   - |
     if [ $BUILD_TAG = '20.04' ]; then
-      docker buildx build ubuntu/20.04 -t vistart/ubuntu:20.04 -t vistart/ubuntu:focal -t vistart/ubuntu:latest --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull
+      docker buildx build ubuntu/20.04 -t vistart/ubuntu:20.04 -t vistart/ubuntu:focal -t vistart/ubuntu:latest --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '18.04' ]; then
-      docker buildx build ubuntu/18.04 -t vistart/ubuntu:18.04 -t vistart/ubuntu:bionic --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull
+      docker buildx build ubuntu/18.04 -t vistart/ubuntu:18.04 -t vistart/ubuntu:bionic --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '16.04' ]; then
-      docker buildx build ubuntu/16.04 -t vistart/ubuntu:16.04 -t vistart/ubuntu:xenial --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull
+      docker buildx build ubuntu/16.04 -t vistart/ubuntu:16.04 -t vistart/ubuntu:xenial --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '14.04' ]; then
-      docker buildx build ubuntu/14.04 -t vistart/ubuntu:trusty -t vistart/ubuntu:14.04 --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7 --pull
+      docker buildx build ubuntu/14.04 -t vistart/ubuntu:trusty -t vistart/ubuntu:14.04 --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7 --pull --push
     fi
-
-after_script:
-- echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-- docker push vistart/ubuntu

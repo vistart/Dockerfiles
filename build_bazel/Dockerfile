@@ -1,5 +1,5 @@
 ARG image_version=8u212-jdk-alpine
-FROM openjdk:{$image_version}
+FROM openjdk:${image_version}
 LABEL maintainer "vistsart <i@vistart.me>"
 
 ARG bazel_dist_url=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-dist.zip

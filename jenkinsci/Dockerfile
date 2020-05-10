@@ -1,7 +1,7 @@
 ARG image_version=20.04
 FROM vistart/ubuntu:${image_version}
 
-RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq git curl build-essential openjdk-11-jdk pthon zip unzip && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y -qq git-lfs && git lfs install && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq git curl build-essential openjdk-11-jdk python zip unzip && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y -qq git-lfs && git lfs install && rm -rf /var/lib/apt/lists/*
 
 ARG user=jenkins
 ARG group=jenkins

@@ -37,7 +37,7 @@ script:
     elif [ $BUILD_TAG = '16.04' ]; then
       docker buildx build ubuntu/16.04 -t vistart/ubuntu:16.04 -t vistart/ubuntu:xenial --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull
     elif [ $BUILD_TAG = '14.04' ]; then
-      docker buildx build ubuntu/14.04 -t vistart/ubuntu:trusty -t vistart/ubuntu:14.04 --platform=linux/amd64,linux/arm64,,linux/ppc64le,linux/386,linux/arm/v7 --pull
+      docker buildx build ubuntu/14.04 -t vistart/ubuntu:trusty -t vistart/ubuntu:14.04 --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7 --pull
     fi
 
 after_script:

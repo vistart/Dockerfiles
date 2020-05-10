@@ -1,8 +1,9 @@
 ARG image_version=20.04
 FROM vistart/ubuntu:${image_version}
 
-RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq git curl build-essential openjdk-11-jdk python zip unzip && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y -qq git-lfs && git lfs install && rm -rf /var/lib/apt/lists/*
-
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq git curl build-essential openjdk-11-jdk python zip unzip && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y -qq git-lfs && git lfs install
+RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure -f noninteractive tzdata && rm -rf /var/lib/apt/lists/*
 ARG user=jenkins
 ARG group=jenkins
 ARG uid=1000

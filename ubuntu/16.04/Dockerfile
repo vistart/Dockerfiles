@@ -2,8 +2,4 @@ ARG ubuntu=16.04
 FROM ubuntu:${ubuntu}
 LABEL maintainer "vistart <i@vistart.me>"
 
-RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
-ADD sources_xenial.list /etc/apt/sources.list
-RUN apt-get update && apt-get upgrade -y && apt-get install apt-transport-https ca-certificates -y && rm /etc/apt/sources.list && apt-get clean
-ADD sources_ssl_xenial.list /etc/apt/sources.list
-RUN apt-get update && apt-get upgrade -y && apt-get autoremove -y && rm -rf /var/lib/apt/list/*
+RUN apt-get update && apt-get upgrade -y && apt-get install apt-transport-https ca-certificates git wget -y && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/list/*

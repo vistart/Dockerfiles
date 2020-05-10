@@ -1,4 +1,4 @@
-ARG image_version=20.04
+ARG image_version=18.04
 FROM vistart/ubuntu:${image_version}
 LABEL maintainer "vistsart <i@vistart.me>"
 

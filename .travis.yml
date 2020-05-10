@@ -1,0 +1,45 @@
+sudo: required
+
+dist: bionic
+
+services:
+  - docker
+
+matrix:
+  include:
+  - name: "BAZEL 3.1.0"
+    env: BUILD_TAG=3.1.0
+  - name: "BAZEL 3.0.0"
+    env: BUILD_TAG=3.0.0
+  - name: "BAZEL 2.2.0"
+    env: BUILD_TAG=2.2.0
+  - name: "BAZEL 2.0.0"
+    env: BUILD_TAG=2.0.0
+
+before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - export DOCKER_CLI_EXPERIMENTAL=enabled
+  - docker buildx version
+  - docker run --rm --privileged docker/binfmt:a7996909642ee92942dcd6cff44b9b95f08dad64
+  - docker buildx create --use --name mybuilder
+  - docker buildx inspect mybuilder --bootstrap
+  - docker buildx ls
+
+script:
+  - |
+    if [ $BUILD_TAG = '3.1.0' ]; then
+      docker buildx build build_bazel -t vistart/build_bazel:3.1.0 -t vistart/build_bazel:latest --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x
+    elif [ $BUILD_TAG = '3.0.0' ]; then
+      docker buildx build build_bazel -t vistart/build_bazel:3.0.0 --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x
+    elif [ $BUILD_TAG = '2.2.0' ]; then
+      docker buildx build build_bazel -t vistart/build_bazel:2.2.0 --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x
+    elif [ $BUILD_TAG = '2.0.0' ]; then
+      docker buildx build build_bazel -t vistart/build_bazel:2.0.0 --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x
+    fi
+
+after_script:
+- echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+- docker push vistart/build_bazel

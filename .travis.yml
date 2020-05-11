@@ -1,0 +1,30 @@
+sudo: required
+
+dist: bionic
+
+services:
+  - docker
+
+matrix:
+  include:
+  - name: "JENKINS-CI 2.235"
+    env: BUILD_TAG=2.235
+
+before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update -qq
+  - sudo apt-get -y -qq -o Dpkg::Options::="--force-confnew" install docker-ce
+  - export DOCKER_CLI_EXPERIMENTAL=enabled
+  - docker buildx version
+  - docker run --rm --privileged docker/binfmt:a7996909642ee92942dcd6cff44b9b95f08dad64
+  - docker buildx create --use --name mybuilder
+  - docker buildx inspect mybuilder --bootstrap
+  - docker buildx ls
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+
+script:
+  - |
+    if [ $BUILD_TAG = '2.235' ]; then
+      docker buildx build jenkinsci -t vistart/jenkinsci:2.235 -t vistart/jenkinsci:latest --platform=linux/amd64,linux/arm64 --pull --push
+    fi

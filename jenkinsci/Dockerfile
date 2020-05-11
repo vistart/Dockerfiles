@@ -2,7 +2,7 @@ ARG image_version=18.04
 FROM vistart/ubuntu:${image_version}
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq git curl build-essential openjdk-11-jdk python zip unzip libfreetype6 && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y -qq git-lfs && git lfs install
+RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq git curl build-essential openjdk-11-jdk python zip unzip libfreetype6 tzdata && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt-get install -y -qq git-lfs && git lfs install
 RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure -f noninteractive tzdata && rm -rf /var/lib/apt/lists/*
 ARG user=jenkins
 ARG group=jenkins

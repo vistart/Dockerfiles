@@ -72,11 +72,11 @@ ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 
 USER ${user}
 
-COPY jenkins-support /usr/local/bin/jenkins-support
-COPY jenkins.sh /usr/local/bin/jenkins.sh
-COPY tini-shim.sh /bin/tini
+COPY docker-master/jenkins-support /usr/local/bin/jenkins-support
+COPY docker-master/jenkins.sh /usr/local/bin/jenkins.sh
+COPY docker-master/tini-shim.sh /bin/tini
 ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/jenkins.sh"]
 
 # from a derived Dockerfile, can use `RUN plugins.sh active.txt` to setup $REF/plugins from a support bundle
-COPY plugins.sh /usr/local/bin/plugins.sh
-COPY install-plugins.sh /usr/local/bin/install-plugins.sh
+COPY docker-master/plugins.sh /usr/local/bin/plugins.sh
+COPY docker-master/install-plugins.sh /usr/local/bin/install-plugins.sh

@@ -32,5 +32,5 @@ script:
       docker buildx build jenkinsci -t vistart/jenkinsci:2.235 -t vistart/jenkinsci:latest --build-arg JENKINS_VERSION=2.235 --build-arg JENKINS_SHA=2ef4df7129d8cc972b4f449353e17d0843898999818f276b1887f9989e507ec6 --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/386,linux/ppc64le,linux/s390x --pull --push
     elif [ $BUILD_TAG = '2.235-alpine' ]; then
       git clone https://github.com/jenkinsci/docker jenkinsci/docker-master
-      docker buildx build jenkinsci -f Dockerfile-alpine -t vistart/jenkinsci:2.235-alpine -t vistart/jenkinsci:alpine --build-arg JENKINS_VERSION=2.235 --build-arg JENKINS_SHA=2ef4df7129d8cc972b4f449353e17d0843898999818f276b1887f9989e507ec6 --platform=linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7,linux/386,linux/ppc64le,linux/s390x --pull --push
+      docker buildx build jenkinsci-alpine -t vistart/jenkinsci:2.235-alpine -t vistart/jenkinsci:alpine --build-arg JENKINS_VERSION=2.235 --build-arg JENKINS_SHA=2ef4df7129d8cc972b4f449353e17d0843898999818f276b1887f9989e507ec6 --platform=linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7,linux/386,linux/ppc64le,linux/s390x --pull --push
     fi

@@ -27,5 +27,5 @@ script:
   - |
     if [ $BUILD_TAG = '1.0.0' ]; then
       git clone https://github.com/buchgr/bazel-remote bazel-remote-cache/master
-      docker buildx build bazel-remote-cache -t vistart/bazel-remote-cache:1.0.0 -t vistart/bazel-remote-cache:latest --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6,linux/arm/s390x --pull --push
+      docker buildx build bazel-remote-cache -t vistart/bazel-remote-cache:1.0.0 -t vistart/bazel-remote-cache:latest --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 --pull --push
     fi

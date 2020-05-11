@@ -28,6 +28,7 @@ script:
     if [ $BUILD_TAG = '2.235-1.23.1' ]; then
       git clone -b release/1.23.1 https://github.com/jenkinsci/blueocean-plugin blueocean/blueocean-plugin-master
       chmod +x blueocean/blueocean-plugin-master/bin/build-in-docker.sh
-      blueocean/blueocean-plugin-master/bin/build-in-docker.sh -m
+      cd blueocean/blueocean-plugin-master/bin
+      ./build-in-docker.sh -m
       docker buildx build blueocean -f Dockerfile -t vistart/blueocean:1.23.1 -t vistart/blueocean:latest --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/386 --pull --push
     fi

@@ -32,11 +32,11 @@ before_install:
 script:
   - |
     if [ $BUILD_TAG = '3.1.0' ]; then
-      docker buildx build build_bazel -t vistart/build_bazel:3.1.0 -t vistart/build_bazel:latest --build-arg bazel-dist-url=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-dist.zip --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/s390x --pull --push
+      docker buildx build build_bazel -t vistart/build_bazel:3.1.0 -t vistart/build_bazel:latest --build-arg bazel-dist-url=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-dist.zip --platform=linux/amd64,linux/arm64 --pull --push
     elif [ $BUILD_TAG = '3.0.0' ]; then
-      docker buildx build build_bazel -t vistart/build_bazel:3.0.0 --build-arg bazel-dist-url=https://github.com/bazelbuild/bazel/releases/download/3.0.0/bazel-3.0.0-dist.zip --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/s390x --pull --push
+      docker buildx build build_bazel -t vistart/build_bazel:3.0.0 --build-arg bazel-dist-url=https://github.com/bazelbuild/bazel/releases/download/3.0.0/bazel-3.0.0-dist.zip --platform=linux/amd64,linux/arm64 --pull --push
     elif [ $BUILD_TAG = '2.2.0' ]; then
-      docker buildx build build_bazel -t vistart/build_bazel:2.2.0 --build-arg bazel-dist-url=https://github.com/bazelbuild/bazel/releases/download/2.2.0/bazel-2.2.0-dist.zip --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/s390x --pull --push
+      docker buildx build build_bazel -t vistart/build_bazel:2.2.0 --build-arg bazel-dist-url=https://github.com/bazelbuild/bazel/releases/download/2.2.0/bazel-2.2.0-dist.zip --platform=linux/amd64,linux/arm64 --pull --push
     elif [ $BUILD_TAG = '2.0.0' ]; then
-      docker buildx build build_bazel -t vistart/build_bazel:2.0.0 --build-arg bazel-dist-url=https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-dist.zip --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/s390x --pull --push
+      docker buildx build build_bazel -t vistart/build_bazel:2.0.0 --build-arg bazel-dist-url=https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-dist.zip --platform=linux/amd64,linux/arm64 --pull --push
     fi

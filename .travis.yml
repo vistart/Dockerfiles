@@ -7,8 +7,8 @@ services:
 
 matrix:
   include:
-  - name: "JENKINS-CI with BLUEOCEAN 2.235 ALPINE"
-    env: BUILD_TAG=2.235-alpine
+  - name: "JENKINS-CI 2.235 with BLUEOCEAN 1.23.1"
+    env: BUILD_TAG=2.235-1.23.1
 
 before_install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -25,6 +25,9 @@ before_install:
 
 script:
   - |
-    if [ $BUILD_TAG = '2.235-alpine' ]; then
-      docker buildx build blueocean -f Dockerfile -t vistart/blueocean:2.235-alpine -t vistart/jenkinsci:alpine -t vistart/jenkinsci:latest --platform=linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7,linux/386,linux/ppc64le,linux/s390x --pull --push
+    if [ $BUILD_TAG = '2.235-1.23.1' ]; then
+      git clone -b release/1.23.1 https://github.com/jenkinsci/blueocean-plugin blueocean/blueocean-plugin-master
+      chmod +x blueocean/blueocean-plugin-master/bin/build-in-docker.sh
+      blueocean/blueocean-plugin-master/bin/build-in-docker.sh -m
+      docker buildx build blueocean -f Dockerfile -t vistart/blueocean:1.23.1 -t vistart/blueocean:latest --platform=linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7,linux/386,linux/ppc64le,linux/s390x --pull --push
     fi

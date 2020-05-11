@@ -1,11 +1,25 @@
-# This image is based off the latest Jenkins LTS
-FROM vistart/jenkinsci:alpine
+#
+# Before building this Dockerfile, BlueOcean needs to be built locally using Maven
+# You can build everything needed and this Dockerfile by invoking `bin/build-in-docker.sh -m`
+#
+
+# Effective version should be kept in sync with jenkins.properties of pom.xml
+# Use `docker run jenkins/jenkins:lts --version` to obtain latest LTS version
+# Patch version is not to be considered, we prefer to base the image off the latest LTS of the line
+# and keep the dependency on the baseline in pom.xml
+FROM jenkins/jenkins:lts
 
 USER root
 
-# Add the docker binary so running Docker commands from the master works nicely
-RUN apk -U add docker
+COPY blueocean-plugin-master/blueocean/target/plugins /usr/share/jenkins/ref/plugins/
+
+RUN for f in /usr/share/jenkins/ref/plugins/*.hpi; do mv "$f" "${f%%hpi}jpi"; done
+RUN install-plugins.sh antisamy-markup-formatter matrix-auth # for security, you know
+
+# Force use of locally built blueocean plugin
+RUN for f in /usr/share/jenkins/ref/plugins/blueocean-*.jpi; do mv "$f" "$f.override"; done
+
+# let scripts customize the reference Jenkins folder. Used in bin/build-in-docker to inject the git build data
+COPY blueocean-plugin-master/docker/ref /usr/share/jenkins/ref
 
 USER jenkins
-
-RUN install-plugins.sh antisamy-markup-formatter matrix-auth blueocean:$BLUEOCEAN_VERSION

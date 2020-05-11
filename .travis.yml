@@ -26,5 +26,6 @@ before_install:
 script:
   - |
     if [ $BUILD_TAG = '2.235' ]; then
-      docker buildx build jenkinsci -t vistart/jenkinsci:2.235 -t vistart/jenkinsci:latest --platform=linux/amd64,linux/arm64 --pull --push
+      git clone https://github.com/jenkinsci/docker jenkinsci/docker-master
+      docker buildx build jenkinsci -t vistart/jenkinsci:2.235 -t vistart/jenkinsci:latest --build-arg JENKINS_VERSION=2.235 --build-arg JENKINS_SHA=2ef4df7129d8cc972b4f449353e17d0843898999818f276b1887f9989e507ec6 --platform=linux/amd64,linux/arm64 --pull --push
     fi

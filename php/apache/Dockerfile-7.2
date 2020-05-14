@@ -5,9 +5,7 @@ LABEL maintainer "vistart <i@vistart.me>"
 ENV APACHE_DOCUMENT_ROOT /var/www
 
 # Require xdebug, mongodb, timezone, imagick, igbinary, amqp, libsodium extensions
-RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq software-properties-common python python-certbot-apache
-RUN add-apt-repository ppa:certbot/certbot
-RUN apt-get install -y -qq wget \
+RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq wget \
                        git \
                        zlib1g-dev \
                        libzip-dev \
@@ -26,7 +24,7 @@ RUN apt-get install -y -qq wget \
                        libssl-dev \
                        librabbitmq-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz -O libsodium.tar.gz && tar -xzf libsodium.tar.gz && cd libsodium-stable && ./configure && make && make check && make install
+RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz -qO libsodium.tar.gz && tar -xzf libsodium.tar.gz && cd libsodium-stable && ./configure && make && make check && make install
 RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/mongodb \
                  https://pecl.php.net/get/timezonedb \

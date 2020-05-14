@@ -24,7 +24,7 @@ RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq wget 
                        libssl-dev \
                        librabbitmq-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz -O libsodium.tar.gz && tar -xzf libsodium.tar.gz && cd libsodium-stable && ./configure && make && make check && make install
+RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz -qO libsodium.tar.gz && tar -xzf libsodium.tar.gz && cd libsodium-stable && ./configure && make && make check && make install
 RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/mongodb \
                  https://pecl.php.net/get/timezonedb \

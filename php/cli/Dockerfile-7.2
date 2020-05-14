@@ -1,13 +1,11 @@
-ARG TAG=apache
+ARG TAG=7.2-cli
 FROM php:${TAG}
 LABEL maintainer "vistart <i@vistart.me>"
 
 ENV APACHE_DOCUMENT_ROOT /var/www
 
 # Require xdebug, mongodb, timezone, imagick, igbinary, amqp, libsodium extensions
-RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq software-properties-common python python-certbot-apache
-RUN add-apt-repository ppa:certbot/certbot
-RUN apt-get install -y -qq wget \
+RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq wget \
                        git \
                        zlib1g-dev \
                        libzip-dev \
@@ -35,7 +33,7 @@ RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/amqp \
                  https://pecl.php.net/get/libsodium \
                  https://pecl.php.net/get/mcrypt
-RUN docker-php-ext-configure gd --with-freetype	 --with-jpeg --with-webp && \
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-webp-dir=/usr/include/ && \
     docker-php-ext-install -j$(nproc) bcmath \
                                       intl \
                                       mbstring \
@@ -58,18 +56,3 @@ RUN docker-php-ext-configure gd --with-freetype	 --with-jpeg --with-webp && \
 # Install Composer
 ADD composer-setup.sh /root
 RUN chmod +x /root/composer-setup.sh && /root/composer-setup.sh
-
-# Change DocumentRoot
-# Remove the comment character(#) if needed.
-# RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
-# RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
-
-# Enable SSL Module
-RUN a2enmod ssl
-
-# AllowOverride
-
-RUN sed -i '172s/None/All/' /etc/apache2/apache2.conf
-
-# Enable RewriteEngine
-RUN a2enmod rewrite

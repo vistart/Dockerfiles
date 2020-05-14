@@ -11,21 +11,12 @@ matrix:
     env: BUILD_GROUP=php7.3-apache
   - name: "PHP 7.4 with APACHE2"
     env: BUILD_GROUP=php7.4-apache
-  - name: "LATEST with APACHE2"
-    env: BUILD_GROUP=php-apache
   - name: "PHP 7.2 CLI"
     env: BUILD_GROUP=php7.2-cli
   - name: "PHP 7.3 CLI"
     env: BUILD_GROUP=php7.3-cli
   - name: "PHP 7.4 CLI"
     env: BUILD_GROUP=php7.4-cli
-  - name: "LATEST CLI"
-    env: BUILD_GROUP=php-cli
-
-  allow_failures:
-#    - name: "PHP 7.4"
-    - name: "LATEST with APACHE2"
-    - name: "LATEST CLI"
 
 before_install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -52,11 +43,7 @@ script:
 
   elif [ $BUILD_GROUP = 'php7.4-apache' ]; then
 
-    docker buildx build php/apache --build-arg TAG=7.4-apache -t vistart/php:7.4-apache --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/s390x --pull --push
-
-  elif [ $BUILD_GROUP = 'php-apache' ]; then
-
-    docker buildx build php/apache --build-arg TAG=apache -t vistart/php:apache --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/s390x --pull --push
+    docker buildx build php/apache --build-arg TAG=7.4-apache -t vistart/php:7.4-apache -t vistart/php:apache --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.2-cli' ]; then
 
@@ -68,11 +55,7 @@ script:
 
   elif [ $BUILD_GROUP = 'php7.4-cli' ]; then
 
-    docker buildx build php/cli --build-arg TAG=7.4-apache -t vistart/php:7.4-cli --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/s390x --pull --push
-
-  elif [ $BUILD_GROUP = 'php-cli' ]; then
-
-    docker buildx build php/cli --build-arg TAG=apache -t vistart/php:cli --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/s390x --pull --push
+    docker buildx build php/cli --build-arg TAG=7.4-apache -t vistart/php:7.4-cli -t vistart/php:cli --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/s390x --pull --push
 
   fi
 

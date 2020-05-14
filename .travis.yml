@@ -44,19 +44,19 @@ script:
 - |
   if [ $BUILD_GROUP = 'php7.2-apache' ]; then
 
-    docker buildx build php/apache -f php/apache/Dockerfile-7.2 -t vistart/php:7.2-apache --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
+    docker buildx build php/apache -f php/apache/Dockerfile-7.2 -t vistart/php:7.2-apache --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.3-apache' ]; then
 
-    docker buildx build php/apache -f php/apache/Dockerfile-7.2 --build-arg TAG=7.3-apache -t vistart/php:7.3-apache --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
+    docker buildx build php/apache -f php/apache/Dockerfile-7.2 --build-arg TAG=7.3-apache -t vistart/php:7.3-apache --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.4-apache' ]; then
 
-    docker buildx build php/apache --build-arg TAG=7.4-apache -t vistart/php:7.4-apache --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
+    docker buildx build php/apache --build-arg TAG=7.4-apache -t vistart/php:7.4-apache --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php-apache' ]; then
 
-    docker buildx build php/apache --build-arg TAG=apache -t vistart/php:apache --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
+    docker buildx build php/apache --build-arg TAG=apache -t vistart/php:apache --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.2-cli' ]; then
 

@@ -45,7 +45,7 @@ script:
 
   elif [ $BUILD_GROUP = 'php7.4-apache' ]; then
 
-    docker buildx build php/apache --build-arg TAG=7.4-apache -t vistart/php:7.4-apache -t vistart/php:apache --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v6,linux/arm/v7,linux/s390x --pull --push
+    docker buildx build php/apache --build-arg TAG=7.4-apache -t vistart/php:7.4-apache -t vistart/php:apache --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v6,linux/arm/v7,linux/s390x,linux/ppc64le --pull --push
 
   elif [ $BUILD_GROUP = 'php7.2-cli' ]; then
 
@@ -57,7 +57,7 @@ script:
 
   elif [ $BUILD_GROUP = 'php7.4-cli' ]; then
 
-    docker buildx build php/cli --build-arg TAG=7.4-apache -t vistart/php:7.4-cli -t vistart/php:cli --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v6,linux/arm/v7,linux/s390x --pull --push
+    docker buildx build php/cli --build-arg TAG=7.4-apache -t vistart/php:7.4-cli -t vistart/php:cli --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v6,linux/arm/v7,linux/s390x,linux/ppc64le --pull --push
 
   fi
 

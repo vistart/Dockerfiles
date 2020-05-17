@@ -5,7 +5,10 @@ LABEL maintainer "vistart <i@vistart.me>"
 ENV APACHE_DOCUMENT_ROOT /var/www
 
 # Require xdebug, mongodb, timezone, imagick, igbinary, amqp, libsodium extensions
-RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq wget \
+RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y software-properties-common python python-certbot-apache
+RUN add-apt-repository ppa:certbot/certbot
+RUN apt-get update && \
+    apt-get install -y wget \
                        git \
                        zlib1g-dev \
                        libzip-dev \

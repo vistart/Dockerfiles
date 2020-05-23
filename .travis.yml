@@ -1,0 +1,30 @@
+sudo: required
+
+dist: bionic
+
+services:
+  - docker
+
+matrix:
+  include:
+  - name: "BIND9"
+    env: BUILD_TAG=BIND9
+
+before_install:
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - export DOCKER_CLI_EXPERIMENTAL=enabled
+  - docker buildx version
+  - docker run --rm --privileged docker/binfmt:a7996909642ee92942dcd6cff44b9b95f08dad64
+  - docker buildx create --use --name mybuilder
+  - docker buildx inspect mybuilder --bootstrap
+  - docker buildx ls
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+
+script:
+  - |
+    if [ $BUILD_TAG = 'BIND9' ]; then
+      docker buildx build bind -t vistart/bind:latest -t vistart/bind:9.16.1 -t --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
+    fi

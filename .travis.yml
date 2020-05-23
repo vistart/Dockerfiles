@@ -26,5 +26,5 @@ before_install:
 script:
   - |
     if [ $BUILD_TAG = 'BIND9' ]; then
-      docker buildx build bind -t vistart/bind:latest -t vistart/bind:9.16.1 -t --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
+      docker buildx build bind -t vistart/bind:latest -t vistart/bind:9.16.1 --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
     fi

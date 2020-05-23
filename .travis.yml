@@ -7,8 +7,10 @@ services:
 
 matrix:
   include:
-  - name: "BIND9"
-    env: BUILD_TAG=BIND9
+  - name: "BIND9 on Ubuntu 20.04"
+    env: BUILD_TAG=focal
+  - name: "BIND9 on Ubuntu 18.04"
+    env: BUILD_TAG=bionic
 
 before_install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -25,6 +27,8 @@ before_install:
 
 script:
   - |
-    if [ $BUILD_TAG = 'BIND9' ]; then
-      docker buildx build bind -t vistart/bind:latest -t vistart/bind:9.16.1 --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
+    if [ $BUILD_TAG = 'focal' ]; then
+      docker buildx build bind -t vistart/bind:latest -t vistart/bind:focal -t vistart/bind:9.16.1 --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
+    elif
+      docker buildx build bind -f bind/Dockerfile-bionic -t vistart/bind:bionic -t vistart/bind:9.11.3 --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x,linux/386,linux/ppc64le --pull --push
     fi

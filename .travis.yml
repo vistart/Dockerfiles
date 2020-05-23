@@ -30,5 +30,5 @@ script:
     if [ $BUILD_TAG = 'focal' ]; then
       docker buildx build bind -t vistart/bind:latest -t vistart/bind:focal -t vistart/bind:9.16.1 --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = 'bionic' ]; then
-      docker buildx build bind -f bind/Dockerfile-bionic -t vistart/bind:bionic -t vistart/bind:9.11.3 --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x,linux/386,linux/ppc64le --pull --push
+      docker buildx build bind -f bind/Dockerfile-bionic -t vistart/bind:bionic -t vistart/bind:9.11.3 --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x,linux/386 --pull --push
     fi

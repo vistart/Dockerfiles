@@ -15,7 +15,7 @@ ENV CUDA_PKG_VERSION 11-0=$CUDA_VERSION-1
 
 # For libraries in the cuda-compat-* package: https://docs.nvidia.com/cuda/eula/index.html#attachment-a
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        cuda-cudart-$CUDA_PKG_VERSION \
+        cuda-cudart-11-0 \
         cuda-compat-11-0 && \
     ln -s cuda-11.0 /usr/local/cuda && \
     rm -rf /var/lib/apt/lists/*

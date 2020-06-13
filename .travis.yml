@@ -31,6 +31,9 @@ matrix:
   - name: "CUDA 10.0 in ubuntu 18.04"
     env: BUILD_GROUP=cuda10.0-ubuntu18.04
 
+  - name: "CUDA 11.0 in ubuntu 16.04"
+    env: BUILD_GROUP=cuda11.0-ubuntu16.04
+
   - name: "CUDA 10.2 in ubuntu 16.04"
     env: BUILD_GROUP=cuda10.2-ubuntu16.04
 
@@ -47,6 +50,7 @@ matrix:
     - name: "CUDA 10.1 in ubuntu 18.04"
     - name: "CUDA 11.0 in ubuntu 18.04"
     - name: "CUDA 10.1 in ubuntu 16.04"
+    - name: "CUDA 11.0 in ubuntu 16.04"
 
 before_script:
   - pip install requests
@@ -90,6 +94,7 @@ script:
     elif [ $BUILD_GROUP = 'cuda11.0-ubuntu18.04' ]; then
 
         docker build cuda/ubuntu18.04/11.0/base -t vistart/cuda:11.0-base-ubuntu18.04
+        docker build cuda/ubuntu18.04/11.0/runtime -t vistart/cuda:11.0-runtime-ubuntu18.04
 
     elif [ $BUILD_GROUP = 'cuda10.2-ubuntu18.04' ]; then
 
@@ -124,6 +129,11 @@ script:
         docker build cuda/ubuntu18.04/10.0/devel/cudnn7/tensorrt6 -t vistart/cuda:10.0-cudnn7-tensorrt6-devel-ubuntu18.04
         python download_googledrive.py "$GDRIVETRT7DEB1804100FID" "cuda/ubuntu18.04/10.0/devel/cudnn7/tensorrt7/nv-tensorrt-repo-ubuntu1804-cuda10.0-trt7.0.0.11-ga-20191216_1-1_amd64.deb"
         docker build cuda/ubuntu18.04/10.0/devel/cudnn7/tensorrt7 -t vistart/cuda:10.0-cudnn7-tensorrt7-devel-ubuntu18.04 -t vistart/cuda:10.0-ubuntu18.04
+
+    elif [ $BUILD_GROUP = 'cuda11.0-ubuntu16.04' ]; then
+
+        docker build cuda/ubuntu16.04/11.0/base -t vistart/cuda:11.0-base-ubuntu16.04
+        docker build cuda/ubuntu16.04/11.0/runtime -t vistart/cuda:11.0-runtime-ubuntu16.04
 
     elif [ $BUILD_GROUP = 'cuda10.2-ubuntu16.04' ]; then
 

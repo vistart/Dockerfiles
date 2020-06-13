@@ -33,7 +33,7 @@ RUN cd root && git clone --recurse-submodules https://github.com/tensorflow/tens
 WORKDIR /root/tensorflow
 COPY build_tensorflow/.tf_configure.bazelrc.py38 ./.tf_configure.bazelrc
 ARG BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel-0.26.1-installer-linux-x86_64.sh
-RUN wget $BAZEL_URL -O bazel.sh && chmod +x bazel.sh
+RUN wget $BAZEL_URL -qO bazel.sh && chmod +x bazel.sh
 RUN ./bazel.sh --user && rm bazel.sh
 ENV PATH "$PATH:/root/bin"
 ARG TF_BRANCH=r1.15

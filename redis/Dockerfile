@@ -12,5 +12,5 @@ RUN wget https://github.com/jemalloc/jemalloc/archive/${jemalloc_version}.zip &&
 RUN cd /root
 ARG redis_branch=6.0
 RUN wget https://github.com/antirez/redis/archive/${redis_branch}.zip && unzip ${redis_branch}.zip && rm ${redis_branch}.zip
-RUN cd redis-${redis_branch}/src && make BUILD_TLS=yes MALLOC=jemalloc V=1 && make test && ../utils/gen-test-certs.sh && ../runtest --tls && make distclean && make install
+RUN cd redis-${redis_branch}/src && make BUILD_TLS=yes MALLOC=jemalloc V=1 && make distclean && make install
 WORKDIR /data

@@ -1,8 +1,8 @@
-FROM debian:buster-slim
+ARG ubuntu_version=20.04
+FROM vistart/ubuntu:${ubuntu_version}
 LABEL maintainer "vistart <i@vistart.me>"
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 
-RUN sed -i "s/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && sed -i "s/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list
 RUN groupadd -r -g 999 redis && useradd -r -g redis -u 999 redis
 
 # grab gosu for easy step-down from root

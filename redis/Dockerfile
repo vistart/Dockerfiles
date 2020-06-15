@@ -30,7 +30,7 @@ RUN set -eux; \
 
 ARG REDIS_VERSION=6.0.5
 ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-${REDIS_VERSION}.tar.gz
-ENV REDIS_DOWNLOAD_SHA 42cf86a114d2a451b898fcda96acd4d01062a7dbaaad2801d9164a36f898f596
+ARG REDIS_DOWNLOAD_SHA=42cf86a114d2a451b898fcda96acd4d01062a7dbaaad2801d9164a36f898f596
 
 RUN set -eux; \
 	\
@@ -48,7 +48,7 @@ RUN set -eux; \
 	rm -rf /var/lib/apt/lists/*; \
 	\
 	wget -O redis.tar.gz "$REDIS_DOWNLOAD_URL"; \
-	echo "$REDIS_DOWNLOAD_SHA *redis.tar.gz" | sha256sum -c -; \
+	echo "${REDIS_DOWNLOAD_SHA} *redis.tar.gz" | sha256sum -c -; \
 	mkdir -p /usr/src/redis; \
 	tar -xzf redis.tar.gz -C /usr/src/redis --strip-components=1; \
 	rm redis.tar.gz; \
@@ -100,6 +100,7 @@ VOLUME /data
 WORKDIR /data
 
 COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 6379

@@ -1,5 +1,4 @@
-ARG ubuntu_version=20.04
-FROM vistart/ubuntu:${ubuntu_version}
+FROM debian:buster-slim
 LABEL maintainer "vistart <i@vistart.me>"
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 

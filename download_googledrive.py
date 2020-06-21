@@ -9,6 +9,8 @@ def download_file_from_google_drive(id, destination):
     response = session.get(URL, params = { 'id' : id }, stream = True)
     token = get_confirm_token(response)
 
+    print("Token: %s" % token)
+
     if token:
         params = { 'id' : id, 'confirm' : token }
         response = session.get(URL, params = params, stream = True)
@@ -42,9 +44,9 @@ def resolve_arguments():
     if (len(sys.argv) >= 3):
         destination = sys.argv[2]
     return file_id, destination
-    
+
 
 if __name__ == "__main__":
     file_id, destination = resolve_arguments()
-    print(file_id, destination)
+    print("File ID: %s, Destination: %s" % (file_id, destination))
     download_file_from_google_drive(file_id, destination)

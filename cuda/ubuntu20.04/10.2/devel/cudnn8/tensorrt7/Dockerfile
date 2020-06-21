@@ -5,7 +5,7 @@ LABEL maintainer "vistart <i@vistart.me>"
 ARG TRT_NAME=cuda10.2-trt7.1.3.4-ga-20200617
 COPY nv-tensorrt-repo-ubuntu1804-${TRT_NAME}_1-1_amd64.deb .
 RUN dpkg -i nv-tensorrt-repo-ubuntu1804-${TRT_NAME}_1-1_amd64.deb && apt-key add /var/nv-tensorrt-repo-${TRT_NAME}/7fa2af80.pub && apt-get update
-ARG NVINFER_VERSION=7.1.3-1+cuda11.0
+ARG NVINFER_VERSION=7.1.3-1+cuda10.2
 RUN apt-get install libnvinfer7=$NVINFER_VERSION \
                     libnvinfer-plugin7=$NVINFER_VERSION \
                     libnvparsers7=$NVINFER_VERSION \

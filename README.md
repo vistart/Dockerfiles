@@ -80,7 +80,7 @@ All images under this repository are built in strict accordance with the Dockerf
 - 10.1-cudnn7-runtime-ubuntu18.04 (cuda 10.1.243, nccl 2.7.3, cudnn 7.6.5.32)
 - 10.1-devel-ubuntu18.04 (cuda 10.1.243, nccl 2.7.3)
 - 10.1-cudnn7-devel-ubuntu18.04 (cuda 10.1.243, nccl 2.7.3, cudnn 7.6.5.32)
-- 10.1-cudnn7-tensorrt6-devel-ubuntu18.04 (cuda 10.1.243, nccl 2.7.3, cudnn 7.6.5.32 tensorrt 6.0.1.5)
+- 10.1-cudnn7-tensorrt6-devel-ubuntu18.04, 10.1-ubuntu18.04 (cuda 10.1.243, nccl 2.7.3, cudnn 7.6.5.32 tensorrt 6.0.1.5)
 
 ## Ubuntu 16.04
 - 10.1-base-ubuntu16.04 (cuda 10.1.243)
@@ -88,7 +88,7 @@ All images under this repository are built in strict accordance with the Dockerf
 - 10.1-cudnn7-runtime-ubuntu16.04 (cuda 10.1.243, nccl 2.7.3, cudnn 7.6.5.32)
 - 10.1-devel-ubuntu16.04 (cuda 10.1.243, nccl 2.7.3)
 - 10.1-cudnn7-devel-ubuntu16.04 (cuda 10.1.243, nccl 2.7.3, cudnn 7.6.5.32)
-- 10.1-cudnn7-tensorrt6-devel-ubuntu16.04 (cuda 10.1.243, nccl 2.7.3, cudnn 7.6.5.32 tensorrt 6.0.1.5)
+- 10.1-cudnn7-tensorrt6-devel-ubuntu16.04, 10.1-ubuntu16.04 (cuda 10.1.243, nccl 2.7.3, cudnn 7.6.5.32 tensorrt 6.0.1.5)
 
 ## Ubuntu 14.04
 - 10.1-base-ubuntu14.04 (cuda 10.1.243)
@@ -106,7 +106,7 @@ All images under this repository are built in strict accordance with the Dockerf
 - 10.0-devel-ubuntu20.04 (cuda 10.0.130, nccl 2.6.4)
 - 10.0-cudnn7-devel-ubuntu20.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32)
 - 10.0-cudnn7-tensorrt6-devel-ubuntu20.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32 tensorrt 6.0.1.8)
-- 10.0-cudnn7-tensorrt7-devel-ubuntu20.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32 tednsorrt 7.0.0.11)
+- 10.0-cudnn7-tensorrt7-devel-ubuntu20.04, 10.0-ubuntu20.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32 tednsorrt 7.0.0.11)
 
 ## Ubuntu 18.04
 - 10.0-base-ubuntu18.04 (cuda 10.0.130)
@@ -115,7 +115,7 @@ All images under this repository are built in strict accordance with the Dockerf
 - 10.0-devel-ubuntu18.04 (cuda 10.0.130, nccl 2.6.4)
 - 10.0-cudnn7-devel-ubuntu18.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32)
 - 10.0-cudnn7-tensorrt6-devel-ubuntu18.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32 tensorrt 6.0.1.5)
-- 10.0-cudnn7-tensorrt7-devel-ubuntu18.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32 tensorrt 7.0.0.11)
+- 10.0-cudnn7-tensorrt7-devel-ubuntu18.04, 10.0-ubuntu18.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32 tensorrt 7.0.0.11)
 
 ## Ubuntu 16.04
 - 10.0-base-ubuntu16.04 (cuda 10.0.130)
@@ -124,7 +124,7 @@ All images under this repository are built in strict accordance with the Dockerf
 - 10.0-devel-ubuntu16.04 (cuda 10.0.130, nccl 2.6.4)
 - 10.0-cudnn7-devel-ubuntu16.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32)
 - 10.0-cudnn7-tensorrt6-devel-ubuntu16.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32 tensorrt 6.0.1.5)
-- 10.0-cudnn7-tensorrt7-devel-ubuntu16.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32 tensorrt 7.0.0.11)
+- 10.0-cudnn7-tensorrt7-devel-ubuntu16.04, 10.0-ubuntu16.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32 tensorrt 7.0.0.11)
 
 ## Ubuntu 14.04
 - 10.0-base-ubuntu14.04 (cuda 10.0.130)

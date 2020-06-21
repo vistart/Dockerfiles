@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/vistart/Dockerfiles.svg?branch=cuda)](https://travis-ci.org/vistart/Dockerfiles)
 
 # Introduction
-All images under this repository are built in strict accordance with the Dockerfiles published by NVIDIA respectively. The only difference between this image and the official version is that the operating system source is from [Shanghai Jiaotong University](https://ftp.sjtu.edu.cn). These images are updated daily.
+All images under this repository are built in strict accordance with the Dockerfiles published by NVIDIA respectively. The only difference between this image and the official version is that the operating system source is from [Tsinghua University](https://mirrors.tuna.tsinghua.edu.cn). These images are updated daily.
 
 # Latest CUDA 11.0 (Experimental)
 ## Ubuntu 20.04

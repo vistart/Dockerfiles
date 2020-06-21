@@ -12,4 +12,3 @@ RUN apt-get install libnvinfer-dev=$NVINFER_VERSION \
                     libnvparsers-dev=$NVINFER_VERSION \
                     libnvinfer-dev=$NVINFER_VERSION \
                     libnvonnxparsers-dev=$NVINFER_VERSION -y
-RUN apt-get install tensorrt -y && dpkg -l | grep TensorRT

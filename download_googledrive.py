@@ -5,8 +5,14 @@ def download_file_from_google_drive(id, destination):
     URL = "https://docs.google.com/uc?export=download"
 
     session = requests.Session()
-
-    response = session.get(URL, params = { 'id' : id }, stream = True)
+    headers = { 
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'accept-encoding': 'gzip, deflate, br',
+        'cache-control': 'max-age=0'
+    }
+    response = session.get(URL, params = { 'id' : id }, headers = headers, stream = True)
     token = get_confirm_token(response)
 
     print("Token: %s" % token)
@@ -20,7 +26,7 @@ def download_file_from_google_drive(id, destination):
 def get_confirm_token(response):
     for key, value in response.cookies.items():
         print("Key: %s, Value: %s" % (key, value))
-        if key.startswith('NID'):
+        if key.startswith('download_warning'):
             return value
 
     return None

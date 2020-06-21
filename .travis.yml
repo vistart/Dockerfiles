@@ -163,6 +163,8 @@ script:
         docker build cuda/ubuntu16.04/11.0/runtime/cudnn8 -t vistart/cuda:11.0-cudnn8-runtime-ubuntu16.04
         docker build cuda/ubuntu16.04/11.0/devel -t vistart/cuda:11.0-devel-ubuntu16.04
         docker build cuda/ubuntu16.04/11.0/devel/cudnn8 -t vistart/cuda:11.0-cudnn8-devel-ubuntu16.04 -t vistart/cuda:11.0-ubuntu16.04
+        python download_googledrive.py "$GDRIVETRT7DEB1604110FID" "cuda/ubuntu16.04/11.0/devel/cudnn8/tensorrt7/nv-tensorrt-repo-ubuntu1604-cuda11.0-trt7.1.3.4-ga-20200617_1-1_amd64.deb"
+        docker build cuda/ubuntu16.04/11.0/devel/cudnn8/tensorrt7 -t vistart/cuda:11.0-cudnn8-tensorrt7-devel-ubuntu16.04 -t vistart/cuda:11.0-ubuntu16.04
 
     elif [ $BUILD_GROUP = 'cuda10.2-ubuntu16.04' ]; then
 
@@ -174,7 +176,11 @@ script:
         python download_googledrive.py "$GDRIVETRT6DEB1604102FID" "cuda/ubuntu16.04/10.2/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1604-cuda10.2-trt6.0.1.8-ga-20191108_1-1_amd64.deb"
         docker build cuda/ubuntu16.04/10.2/devel/cudnn7/tensorrt6 -t vistart/cuda:10.2-cudnn7-tensorrt6-devel-ubuntu16.04
         python download_googledrive.py "$GDRIVETRT7DEB1604102FID" "cuda/ubuntu16.04/10.2/devel/cudnn7/tensorrt7/nv-tensorrt-repo-ubuntu1604-cuda10.2-trt7.0.0.11-ga-20191216_1-1_amd64.deb"
-        docker build cuda/ubuntu16.04/10.2/devel/cudnn7/tensorrt7 -t vistart/cuda:10.2-cudnn7-tensorrt7-devel-ubuntu16.04 -t vistart/cuda:10.2-ubuntu16.04
+        docker build cuda/ubuntu16.04/10.2/devel/cudnn7/tensorrt7 -t vistart/cuda:10.2-cudnn7-tensorrt7-devel-ubuntu16.04
+
+        docker build cuda/ubuntu16.04/10.2/devel/cudnn8 -t vistart/cuda:10.2-cudnn8-devel-ubuntu16.04
+        python download_googledrive.py "$GDRIVETRT71DEB1604102FID" "cuda/ubuntu16.04/10.2/devel/cudnn8/tensorrt7/nv-tensorrt-repo-ubuntu1604-cuda10.2-trt7.1.3.4-ga-20200617_1-1_amd64.deb"
+        docker build cuda/ubuntu16.04/10.2/devel/cudnn8/tensorrt7 -t vistart/cuda:10.2-cudnn8-tensorrt7-devel-ubuntu16.04 -t vistart/cuda:10.2-ubuntu16.04
 
     elif [ $BUILD_GROUP = 'cuda10.1-ubuntu16.04' ]; then
 

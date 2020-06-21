@@ -1,11 +1,11 @@
 ARG repository=vistart/cuda
-FROM ${repository}:11.0-cudnn8-devel-ubuntu20.04
+FROM ${repository}:11.0-cudnn8-devel-ubuntu16.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 ARG TRT_NAME=cuda11.0-trt7.1.3.4-ga-20200617
-COPY nv-tensorrt-repo-ubuntu1804-${TRT_NAME}_1-1_amd64.deb .
-RUN dpkg -i nv-tensorrt-repo-ubuntu1804-${TRT_NAME}_1-1_amd64.deb && apt-key add /var/nv-tensorrt-repo-${TRT_NAME}/7fa2af80.pub && apt-get update
-ARG NVINFER_VERSION=7.1.3-1+cuda11.0
+COPY nv-tensorrt-repo-ubuntu1604-${TRT_NAME}_1-1_amd64.deb .
+RUN dpkg -i nv-tensorrt-repo-ubuntu1604-${TRT_NAME}_1-1_amd64.deb && apt-key add /var/nv-tensorrt-repo-${TRT_NAME}/7fa2af80.pub && apt-get update
+ARG NVINFER_VERSION=7.1.3-1+cuda10.2
 RUN apt-get install libnvinfer7=$NVINFER_VERSION \
                     libnvinfer-plugin7=$NVINFER_VERSION \
                     libnvparsers7=$NVINFER_VERSION \
@@ -19,4 +19,4 @@ RUN apt-get install libnvinfer-bin=$NVINFER_VERSION \
                     libnvinfer-samples=$NVINFER_VERSION \
                     libnvinfer-doc=$NVINFER_VERSION -y
 RUN apt-get install tensorrt -y && dpkg -l | grep TensorRT
-RUN rm nv-tensorrt-repo-ubuntu1804-${TRT_NAME}_1-1_amd64.deb
+RUN rm nv-tensorrt-repo-ubuntu1604-${TRT_NAME}_1-1_amd64.deb

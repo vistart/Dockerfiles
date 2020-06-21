@@ -1,0 +1,15 @@
+ARG repository=vistart/cuda
+FROM ${repository}:10.2-cudnn8-devel-ubuntu16.04
+LABEL maintainer "vistart <i@vistart.me>"
+
+ARG NVINFER_VERSION=7.1.3-1+cuda10.2
+RUN apt-get install libnvinfer7=$NVINFER_VERSION \
+                    libnvinfer-plugin7=$NVINFER_VERSION \
+                    libnvparsers7=$NVINFER_VERSION \
+                    libnvonnxparsers7=$NVINFER_VERSION -y
+RUN apt-get install libnvinfer-dev=$NVINFER_VERSION \
+                    libnvinfer-plugin-dev=$NVINFER_VERSION \
+                    libnvparsers-dev=$NVINFER_VERSION \
+                    libnvinfer-dev=$NVINFER_VERSION \
+                    libnvonnxparsers-dev=$NVINFER_VERSION -y
+RUN apt-get install tensorrt -y && dpkg -l | grep TensorRT

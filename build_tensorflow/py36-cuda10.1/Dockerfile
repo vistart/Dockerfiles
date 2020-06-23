@@ -7,7 +7,7 @@ RUN apt-get update && \
                        python3-pip \
                        python3-libnvinfer=6.0.1-1+cuda10.1 \
                        python3-libnvinfer-dev=6.0.1-1+cuda10.1 \
-                       # uff-converter-tf=6.0.1-1+cuda10.1 \
+                       uff-converter-tf=6.0.1-1+cuda10.1 \
                        openjdk-11-jdk \
                        curl \
                        libc-ares-dev \

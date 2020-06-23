@@ -7,7 +7,7 @@ RUN apt-get update && \
                        python3-pip \
 #                       python3-libnvinfer=7.1.3-1+cuda11.0 \ python3-libnvinfer doesn't support Python 3.7 or greater.
 #                       python3-libnvinfer-dev=7.1.0-1+cuda11.0 \
-#                       uff-converter-tf=7.0.0-1+cuda10.2 \
+#                       uff-converter-tf=7.1.3-1+cuda11.0 \
                        openjdk-11-jdk \
                        curl \
                        libc-ares-dev \

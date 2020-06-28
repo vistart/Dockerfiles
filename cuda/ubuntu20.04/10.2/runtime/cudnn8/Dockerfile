@@ -1,13 +1,13 @@
 ARG repository=vistart/cuda
-FROM ${repository}:10.2-devel-ubuntu20.04
+FROM ${repository}:10.2-runtime-ubuntu20.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 ENV CUDNN_VERSION 8.0.1.13
 LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-            libcudnn8=$CUDNN_VERSION-1+cuda10.2 \
-            libcudnn8-dev=$CUDNN_VERSION-1+cuda10.2 && \
+            libcudnn8=$CUDNN_VERSION-1+cuda10.2 && \
     apt-mark hold libcudnn8 && \
     rm -rf /var/lib/apt/lists/*
 RUN apt-get autoremove -y && apt-get clean
+

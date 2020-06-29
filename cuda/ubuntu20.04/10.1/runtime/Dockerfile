@@ -2,7 +2,7 @@ ARG repository=vistart/cuda
 FROM ${repository}:10.1-base-ubuntu20.04
 LABEL maintainer "vistart <i@vistart.me>"
 
-ENV NCCL_VERSION 2.6.4
+ENV NCCL_VERSION 2.7.5
 
 RUN apt-get update && apt-get install -y --fix-missing --no-install-recommends \
         cuda-libraries-$CUDA_PKG_VERSION \

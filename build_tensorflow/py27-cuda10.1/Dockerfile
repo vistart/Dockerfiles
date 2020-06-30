@@ -15,13 +15,18 @@ RUN apt-get update && \
                        zlib1g-dev \
                        bash-completion \
                        unzip
-RUN pip install numpy \
+RUN pip install -U six \
+                numpy \
+                wheel \
+                setuptools \
                 mock \
                 protobuf \
                 absl-py \
                 enum34 \
                 keras \
-                future
+                'future>=0.17.1'
+RUN pip install -U keras_applications --no-deps
+RUN pip install -U keras_preprocessing --no-deps
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2

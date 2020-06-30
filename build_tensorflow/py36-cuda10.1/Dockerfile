@@ -17,11 +17,15 @@ RUN apt-get update && \
                        pkg-config \
                        zip \
                        unzip
-RUN pip3 install numpy \
+RUN pip3 install -U six \
+                 numpy \
+                 wheel \
+                 setuptools \
                  mock \
                  protobuf \
-                 absl-py \
-                 keras
+                 absl-py
+RUN pip3 install -U keras_applications --no-deps
+RUN pip3 install -U keras_preprocessing --no-deps
 RUN ln -s /usr/include/nccl.h /usr/local/cuda/include/nccl.h
 RUN mkdir /usr/local/cuda/lib
 RUN ln -s /usr/lib/x86_64-linux-gnu/libnccl.so.2 /usr/local/cuda/lib/libnccl.so.2

@@ -19,15 +19,15 @@ matrix:
 script:
   - |
     if [ $BUILD_TAG = 'v0.5.7' ]; then
-      docker build mmdetection/v0.5.7 -t vistart/mmdetection:v0.5.7
+      nvidia-docker build mmdetection/v0.5.7 -t vistart/mmdetection:v0.5.7
     elif [ $BUILD_TAG = 'v0.6.0' ]; then
-      docker build mmdetection/v0.6.0 -t vistart/mmdetection:v0.6.0
+      nvidia-docker build mmdetection/v0.6.0 -t vistart/mmdetection:v0.6.0
     elif [ $BUILD_TAG = 'v1.0.0' ]; then
-      docker build mmdetection/v1.0.0 -t vistart/mmdetection:v1.0.0
+      nvidia-docker build mmdetection/v1.0.0 -t vistart/mmdetection:v1.0.0
     elif [ $BUILD_TAG = 'v2.2.0' ]; then
-      docker build mmdetection/v2.2.0 -t vistart/mmdetection:v2.2.0
+      nvidia-docker build mmdetection/v2.2.0 -t vistart/mmdetection:v2.2.0
     elif [ $BUILD_TAG = 'latest' ]; then
-      docker build mmdetection/dev-master -t vistart/mmdetection:latest
+      nvidia-docker build mmdetection/dev-master -t vistart/mmdetection:latest
     fi
 
 after_script:

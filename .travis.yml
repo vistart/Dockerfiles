@@ -33,11 +33,11 @@ before_install:
 script:
   - |
     if [ $BUILD_TAG = '20.04' ]; then
-      docker buildx build ubuntu/20.04 -t vistart/ubuntu:20.04 -t vistart/ubuntu:focal -t vistart/ubuntu:latest -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:focal -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:latest --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
+      travis_wait 30 docker buildx build ubuntu/20.04 -t vistart/ubuntu:20.04 -t vistart/ubuntu:focal -t vistart/ubuntu:latest -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:focal -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:latest --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '18.04' ]; then
-      docker buildx build ubuntu/18.04 -t vistart/ubuntu:18.04 -t vistart/ubuntu:bionic -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:18.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:bionic --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
+      travis_wait 30 docker buildx build ubuntu/18.04 -t vistart/ubuntu:18.04 -t vistart/ubuntu:bionic -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:18.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:bionic --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '16.04' ]; then
-      docker buildx build ubuntu/16.04 -t vistart/ubuntu:16.04 -t vistart/ubuntu:xenial -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:16.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:xenial --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
+      travis_wait 30 docker buildx build ubuntu/16.04 -t vistart/ubuntu:16.04 -t vistart/ubuntu:xenial -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:16.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:xenial --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '14.04' ]; then
-      docker buildx build ubuntu/14.04 -t vistart/ubuntu:14.04 -t vistart/ubuntu:trusty -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:14.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:trusty --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7 --pull --push
+      travis_wait 30 docker buildx build ubuntu/14.04 -t vistart/ubuntu:14.04 -t vistart/ubuntu:trusty -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:14.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:trusty --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7 --pull --push
     fi

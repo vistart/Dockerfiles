@@ -133,5 +133,5 @@ script:
 after_script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker push vistart/build_tensorflow
-- echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login -u "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin
+- echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login -u "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin registry.cn-huhehaote.aliyuncs.com
 - docker push registry.cn-huhehaote.aliyuncs.com/vistart_public/build_tensorflow

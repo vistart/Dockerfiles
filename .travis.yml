@@ -28,7 +28,7 @@ before_install:
   - docker buildx inspect mybuilder --bootstrap
   - docker buildx ls
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-  - echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login --username "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin
+  - echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login --username "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin registry.cn-huhehaote.aliyuncs.com
 
 script:
   - |

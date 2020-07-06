@@ -83,6 +83,7 @@ script:
 
         docker build cuda/ubuntu20.04/10.2/runtime/cudnn7 -t vistart/cuda:10.2-cudnn7-runtime-ubuntu20.04 &&
         docker build cuda/ubuntu20.04/10.2/devel -t vistart/cuda:10.2-devel-ubuntu20.04 &&
+        docker build cuda/ubuntu20.04/10.2/devel/cudnn7 -t vistart/cuda:10.2-cudnn7-devel-ubuntu20.04 &&
         python download_googledrive.py "$GDRIVETRT6DEB1804102FID" "cuda/ubuntu20.04/10.2/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1804-cuda10.2-trt6.0.1.8-ga-20191108_1-1_amd64.deb" &&
         docker build cuda/ubuntu20.04/10.2/devel/cudnn7/tensorrt6 -t vistart/cuda:10.2-cudnn7-tensorrt6-devel-ubuntu20.04 &&
         # docker build cuda/ubuntu20.04/10.2/devel/cudnn7/tensorrt6 -f cuda/ubuntu20.04/10.2/devel/cudnn7/tensorrt6/Dockerfile2 -t vistart/cuda:10.2-cudnn7-tensorrt6-devel-ubuntu20.04 &&

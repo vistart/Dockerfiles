@@ -1,5 +1,5 @@
 ARG repository=vistart/cuda
-FROM ${repository}:10.2-cudnn7-devel-ubuntu18.04
+FROM ${repository}:10.2-cudnn7-devel-ubuntu20.04
 LABEL maintainer "vistart <i@vistart.me>"
 
 COPY nv-tensorrt-repo-ubuntu1804-cuda10.2-trt6.0.1.8-ga-20191108_1-1_amd64.deb .

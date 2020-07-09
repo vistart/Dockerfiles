@@ -3,30 +3,30 @@
 # Introduction
 All images under this repository are built in strict accordance with the Dockerfiles published by NVIDIA respectively. The only difference between this image and the official version is that the operating system source is from [Tsinghua University](https://mirrors.tuna.tsinghua.edu.cn). These images are updated daily.
 
-# Latest CUDA 11.0 (Experimental)
+# Latest CUDA 11.0 (Experimental)(CUDA 11.0 for Ubuntu 20.04 is coming!)
 ## Ubuntu 20.04
-- 11.0-base-ubuntu20.04 (cuda 11.0.1)
-- 11.0-runtime-ubuntu20.04 (cuda 11.0.1, nccl 2.7.6)
-- 11.0-devel-ubuntu20.04 (cuda 11.0.1, nccl 2.7.6)
-- 11.0-cudnn8-runtime-ubuntu20.04 (cuda 11.0.1, nccl 2.7.6, cudnn 8.0.0.180)
-- 11.0-cudnn8-devel-ubuntu20.04 (cuda 11.0.1, nccl 2.7.6, cudnn 8.0.0.180)
-- 11.0-cudnn8-tensorrt7-devel-ubuntu20.04, 11.0-ubuntu20.04, latest (cuda 11.0.1, nccl 2.7.6, cudnn 8.0.0.180 tensorrt 7.1.3.4)
+- 11.0-base-ubuntu20.04 (cuda 11.0.2)
+- 11.0-runtime-ubuntu20.04 (cuda 11.0.2, nccl 2.7.6)
+- 11.0-devel-ubuntu20.04 (cuda 11.0.2, nccl 2.7.6)
+- 11.0-cudnn8-runtime-ubuntu20.04 (cuda 11.0.2, nccl 2.7.6, cudnn 8.0.0.180)
+- 11.0-cudnn8-devel-ubuntu20.04 (cuda 11.0.2, nccl 2.7.6, cudnn 8.0.0.180)
+- 11.0-cudnn8-tensorrt7-devel-ubuntu20.04, 11.0-ubuntu20.04, latest (cuda 11.0.2, nccl 2.7.6, cudnn 8.0.0.180 tensorrt 7.1.3.4)
 
 ## Ubuntu 18.04
-- 11.0-base-ubuntu18.04 (cuda 11.0.1)
-- 11.0-runtime-ubuntu18.04 (cuda 11.0.1, nccl 2.7.6)
-- 11.0-devel-ubuntu18.04 (cuda 11.0.1, nccl 2.7.6)
-- 11.0-cudnn8-runtime-ubuntu18.04 (cuda 11.0.1, nccl 2.7.6, cudnn 8.0.0.180)
-- 11.0-cudnn8-devel-ubuntu18.04 (cuda 11.0.1, nccl 2.7.6, cudnn 8.0.0.180)
-- 11.0-cudnn8-tensorrt7-devel-ubuntu18.04, 10.2-ubuntu18.04 (cuda 11.0.1, nccl 2.7.6, cudnn 8.0.0.180 tensorrt 7.1.3.4)
+- 11.0-base-ubuntu18.04 (cuda 11.0.2)
+- 11.0-runtime-ubuntu18.04 (cuda 11.0.2, nccl 2.7.6)
+- 11.0-devel-ubuntu18.04 (cuda 11.0.2, nccl 2.7.6)
+- 11.0-cudnn8-runtime-ubuntu18.04 (cuda 11.0.2, nccl 2.7.6, cudnn 8.0.0.180)
+- 11.0-cudnn8-devel-ubuntu18.04 (cuda 11.0.2, nccl 2.7.6, cudnn 8.0.0.180)
+- 11.0-cudnn8-tensorrt7-devel-ubuntu18.04, 10.2-ubuntu18.04 (cuda 11.0.2, nccl 2.7.6, cudnn 8.0.0.180 tensorrt 7.1.3.4)
 
 ## Ubuntu 16.04
-- 11.0-base-ubuntu16.04 (cuda 11.0.1)
-- 11.0-runtime-ubuntu16.04 (cuda 11.0.1, nccl 2.7.6)
-- 11.0-devel-ubuntu16.04 (cuda 11.0.1, nccl 2.7.6)
-- 11.0-cudnn8-runtime-ubuntu16.04 (cuda 11.0.1, nccl 2.7.6, cudnn 8.0.0.180)
-- 11.0-cudnn8-devel-ubuntu16.04 (cuda 11.0.1, nccl 2.7.6, cudnn 8.0.0.180)
-- 11.0-cudnn8-tensorrt7-devel-ubuntu16.04 (cuda 11.0.1, nccl 2.7.6, cudnn 8.0.0.180 tensorrt 7.1.3.4)
+- 11.0-base-ubuntu16.04 (cuda 11.0.2)
+- 11.0-runtime-ubuntu16.04 (cuda 11.0.2, nccl 2.7.6)
+- 11.0-devel-ubuntu16.04 (cuda 11.0.2, nccl 2.7.6)
+- 11.0-cudnn8-runtime-ubuntu16.04 (cuda 11.0.2, nccl 2.7.6, cudnn 8.0.0.180)
+- 11.0-cudnn8-devel-ubuntu16.04 (cuda 11.0.2, nccl 2.7.6, cudnn 8.0.0.180)
+- 11.0-cudnn8-tensorrt7-devel-ubuntu16.04 (cuda 11.0.2, nccl 2.7.6, cudnn 8.0.0.180 tensorrt 7.1.3.4)
 
 # CUDA 10.2
 ## Ubuntu 20.04 (Experimental)
@@ -39,7 +39,7 @@ All images under this repository are built in strict accordance with the Dockerf
 - 10.2-cudnn7-tensorrt7-devel-ubuntu20.04 (cuda 10.2.89, nccl 2.7.6, cudnn 7.6.5.32 tensorrt 7.0.0.11)
 - 10.2-cudnn8-runtime-ubuntu20.04 (cuda 10.2.89, nccl 2.7.6, cudnn 8.0.0.180)
 - 10.2-cudnn8-devel-ubuntu20.04 (cuda 10.2.89, nccl 2.7.6, cudnn 8.0.0.180)
-- 10.2-cudnn8-tensorrt7-devel-ubuntu20.04, 10.2-ubuntu20.04 (cuda 11.0.1, nccl 2.7.6, cudnn 8.0.0.180 tensorrt 7.1.3.4)
+- 10.2-cudnn8-tensorrt7-devel-ubuntu20.04, 10.2-ubuntu20.04 (cuda 10.2.89, nccl 2.7.6, cudnn 8.0.0.180 tensorrt 7.1.3.4)
 
 ## Ubuntu 18.04
 - 10.2-base-ubuntu18.04 (cuda 10.2.89)

@@ -53,10 +53,6 @@ matrix:
     - name: "CUDA 10.2 in ubuntu 20.04"
     - name: "CUDA 10.1 in ubuntu 20.04"
     - name: "CUDA 10.0 in ubuntu 20.04"
-    - name: "CUDA 10.1 in ubuntu 18.04"
-    - name: "CUDA 11.0 in ubuntu 18.04"
-    - name: "CUDA 10.1 in ubuntu 16.04"
-    - name: "CUDA 11.0 in ubuntu 16.04"
 
 before_script:
   - pip install requests
@@ -227,10 +223,14 @@ script:
                                                    -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-runtime-ubuntu18.04 &&
         docker build cuda/ubuntu18.04/10.1/runtime/cudnn7 -t vistart/cuda:10.1-cudnn7-runtime-ubuntu18.04 \
                                                           -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-cudnn7-runtime-ubuntu18.04 &&
+        docker build cuda/ubuntu18.04/10.1/runtime/cudnn8 -t vistart/cuda:10.1-cudnn8-runtime-ubuntu18.04 \
+                                                          -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-cudnn8-runtime-ubuntu18.04 &&
         docker build cuda/ubuntu18.04/10.1/devel -t vistart/cuda:10.1-devel-ubuntu18.04 \
                                                  -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-devel-ubuntu18.04 &&
         docker build cuda/ubuntu18.04/10.1/devel/cudnn7 -t vistart/cuda:10.1-cudnn7-devel-ubuntu18.04 \
                                                         -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-cudnn7-devel-ubuntu18.04 &&
+        docker build cuda/ubuntu18.04/10.1/devel/cudnn8 -t vistart/cuda:10.1-cudnn8-devel-ubuntu18.04 \
+                                                        -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-cudnn8-devel-ubuntu18.04 &&
         python download_googledrive.py "$GDRIVETRT6DEB1804101FID" "cuda/ubuntu18.04/10.1/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1804-cuda10.1-trt6.0.1.5-ga-20190913_1-1_amd64.deb" &&
         docker build cuda/ubuntu18.04/10.1/devel/cudnn7/tensorrt6 -t vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu18.04 -t vistart/cuda:10.1-ubuntu18.04 \
                                                                   -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu18.04 -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-ubuntu18.04 && 
@@ -329,10 +329,14 @@ script:
                                                    -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-runtime-ubuntu16.04 &&
         docker build cuda/ubuntu16.04/10.1/runtime/cudnn7 -t vistart/cuda:10.1-cudnn7-runtime-ubuntu16.04 \
                                                           -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-cudnn7-runtime-ubuntu16.04 &&
+        docker build cuda/ubuntu16.04/10.1/runtime/cudnn8 -t vistart/cuda:10.1-cudnn8-runtime-ubuntu16.04 \
+                                                          -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-cudnn8-runtime-ubuntu16.04 &&
         docker build cuda/ubuntu16.04/10.1/devel -t vistart/cuda:10.1-devel-ubuntu16.04 \
                                                  -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-devel-ubuntu16.04 &&
         docker build cuda/ubuntu16.04/10.1/devel/cudnn7 -t vistart/cuda:10.1-cudnn7-devel-ubuntu16.04 \
                                                         -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-cudnn7-devel-ubuntu16.04 &&
+        docker build cuda/ubuntu16.04/10.1/devel/cudnn8 -t vistart/cuda:10.1-cudnn8-devel-ubuntu16.04 \
+                                                        -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-cudnn8-devel-ubuntu16.04 &&
         python download_googledrive.py "$GDRIVETRT6DEB1604101FID" "cuda/ubuntu16.04/10.1/devel/cudnn7/tensorrt6/nv-tensorrt-repo-ubuntu1604-cuda10.1-trt6.0.1.5-ga-20190913_1-1_amd64.deb" &&
         docker build cuda/ubuntu16.04/10.1/devel/cudnn7/tensorrt6 -t vistart/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu16.04 -t vistart/cuda:10.1-ubuntu16.04 \
                                                                   -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-cudnn7-tensorrt6-devel-ubuntu16.04 -t registry.us-west-1.aliyuncs.com/vistart_public/cuda:10.1-ubuntu16.04 && 

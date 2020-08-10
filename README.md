@@ -73,3 +73,15 @@ Switch the current directory to the directory where the dockerfile is saved and 
 or
 
 `docker build . --build-arg TAG=7.4-apache`
+
+# Troubleshooting
+
+## `composer-setup.sh` NOT FOUND
+
+This problem is caused by the end of the `composer-setup.sh` file not conforming to the unix format.
+
+Solution: Use `dos2unix` to convert the `composer-setup.sh` file:
+
+```
+$ dos2unix composer-setup.sh
+```

@@ -5,28 +5,28 @@ All images under this repository are built in strict accordance with the Dockerf
 
 # Latest CUDA 11.0 (Experimental)(CUDA 11.0 for Ubuntu 20.04 is Ready! CUDNN 8.0.2/NCCL 2.7.8/TensorRT 7.1.3 are coming!)
 ## Ubuntu 20.04
-- 11.0-base-ubuntu20.04 (cuda 11.0.2)
-- 11.0-runtime-ubuntu20.04 (cuda 11.0.2, nccl 2.7.8)
-- 11.0-devel-ubuntu20.04 (cuda 11.0.2, nccl 2.7.8)
-- 11.0-cudnn8-runtime-ubuntu20.04 (cuda 11.0.2, nccl 2.7.8, cudnn 8.0.2.39)
-- 11.0-cudnn8-devel-ubuntu20.04 (cuda 11.0.2, nccl 2.7.8, cudnn 8.0.2.39)
-- 11.0-cudnn8-tensorrt7-devel-ubuntu20.04, 11.0-ubuntu20.04, latest (cuda 11.0.2, nccl 2.7.8, cudnn 8.0.2.39 tensorrt 7.1.3.4)
+- 11.0-base-ubuntu20.04 (cuda 11.0.3)
+- 11.0-runtime-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8)
+- 11.0-devel-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8)
+- 11.0-cudnn8-runtime-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39)
+- 11.0-cudnn8-devel-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39)
+- 11.0-cudnn8-tensorrt7-devel-ubuntu20.04, 11.0-ubuntu20.04, latest (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39 tensorrt 7.1.3.4)
 
 ## Ubuntu 18.04
-- 11.0-base-ubuntu18.04 (cuda 11.0.2)
-- 11.0-runtime-ubuntu18.04 (cuda 11.0.2, nccl 2.7.8)
-- 11.0-devel-ubuntu18.04 (cuda 11.0.2, nccl 2.7.8)
-- 11.0-cudnn8-runtime-ubuntu18.04 (cuda 11.0.2, nccl 2.7.8, cudnn 8.0.2.39)
-- 11.0-cudnn8-devel-ubuntu18.04 (cuda 11.0.2, nccl 2.7.8, cudnn 8.0.2.39)
-- 11.0-cudnn8-tensorrt7-devel-ubuntu18.04, 10.2-ubuntu18.04 (cuda 11.0.2, nccl 2.7.8, cudnn 8.0.2.39 tensorrt 7.1.3.4)
+- 11.0-base-ubuntu18.04 (cuda 11.0.3)
+- 11.0-runtime-ubuntu18.04 (cuda 11.0.3, nccl 2.7.8)
+- 11.0-devel-ubuntu18.04 (cuda 11.0.3, nccl 2.7.8)
+- 11.0-cudnn8-runtime-ubuntu18.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39)
+- 11.0-cudnn8-devel-ubuntu18.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39)
+- 11.0-cudnn8-tensorrt7-devel-ubuntu18.04, 10.2-ubuntu18.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39 tensorrt 7.1.3.4)
 
 ## Ubuntu 16.04
-- 11.0-base-ubuntu16.04 (cuda 11.0.2)
-- 11.0-runtime-ubuntu16.04 (cuda 11.0.2, nccl 2.7.8)
-- 11.0-devel-ubuntu16.04 (cuda 11.0.2, nccl 2.7.8)
-- 11.0-cudnn8-runtime-ubuntu16.04 (cuda 11.0.2, nccl 2.7.8, cudnn 8.0.2.39)
-- 11.0-cudnn8-devel-ubuntu16.04 (cuda 11.0.2, nccl 2.7.8, cudnn 8.0.2.39)
-- 11.0-cudnn8-tensorrt7-devel-ubuntu16.04 (cuda 11.0.2, nccl 2.7.8, cudnn 8.0.2.39 tensorrt 7.1.3.4)
+- 11.0-base-ubuntu16.04 (cuda 11.0.3)
+- 11.0-runtime-ubuntu16.04 (cuda 11.0.3, nccl 2.7.8)
+- 11.0-devel-ubuntu16.04 (cuda 11.0.3, nccl 2.7.8)
+- 11.0-cudnn8-runtime-ubuntu16.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39)
+- 11.0-cudnn8-devel-ubuntu16.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39)
+- 11.0-cudnn8-tensorrt7-devel-ubuntu16.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39 tensorrt 7.1.3.4)
 
 # CUDA 10.2
 ## Ubuntu 20.04 (Deprecated)

@@ -71,3 +71,6 @@ RUN sed -i '172s/None/All/' /etc/apache2/apache2.conf
 
 # Enable RewriteEngine
 RUN a2enmod rewrite
+
+# Disable default website
+RUN a2dissite 000-default.conf

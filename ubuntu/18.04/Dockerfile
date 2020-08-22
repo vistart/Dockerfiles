@@ -1,11 +1,7 @@
 ARG ubuntu=18.04
-FROM ubuntu:${ubuntu}
+FROM vistart/ubuntu:${ubuntu}
 LABEL maintainer "vistart <i@vistart.me>"
 
-RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install apt-transport-https ca-certificates git wget -y -qq && apt-get autoremove -y -qq && apt-get clean && rm -rf /var/lib/apt/list/*
-RUN if [ $(uname -m) = 'x86_64' -o $(uname -m) = 'x86' ]; then \
-        sed -i "s/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list ; \
-        sed -i "s/security.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list ; \
-    else \
-        sed -i "s/ports.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list ; \
-    fi
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install gcc g++ clang build-essential gdb cmake curl zip unzip ninja-build -y && apt-get clean && rm -rf /var/lib/apt/list/*
+RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure -f noninteractive tzdata

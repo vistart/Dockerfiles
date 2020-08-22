@@ -36,105 +36,105 @@ script:
 
     docker build . -f build_tensorflow/py36-cuda10.0/Dockerfile \
                  --build-arg TF_BRANCH=r1.15 \
-                 -t vistart/build_tensorflow:py36-tf1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-tf1 \
-                 -t vistart/build_tensorflow:py36-cuda10.0-tf1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.0-tf1
+                 -t vistart/build_tensorflow:py36-tf1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-tf1 \
+                 -t vistart/build_tensorflow:py36-cuda10.0-tf1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.0-tf1
     docker build . -f build_tensorflow/py36-cuda10.0/Dockerfile \
                  --build-arg TF_BRANCH=r2.3 \
                  --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-installer-linux-x86_64.sh \
-                 -t vistart/build_tensorflow:py36 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36 \
-                 -t vistart/build_tensorflow:py36-cuda10.0 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.0 \
-                 -t vistart/build_tensorflow:py36-tf2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-tf2 \
-                 -t vistart/build_tensorflow:py36-cuda10.0-tf2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.0-tf2
+                 -t vistart/build_tensorflow:py36 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36 \
+                 -t vistart/build_tensorflow:py36-cuda10.0 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.0 \
+                 -t vistart/build_tensorflow:py36-tf2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-tf2 \
+                 -t vistart/build_tensorflow:py36-cuda10.0-tf2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.0-tf2
 
   elif [ $BUILD_TAG = 'py38-cuda10.0' ]; then
 
     # docker build . -f build_tensorflow/py38-cuda10.0/Dockerfile \
     #              --build-arg TF_BRANCH=r1.15 \
-    #              -t vistart/build_tensorflow:py38-tf1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-tf1 \
-    #              -t vistart/build_tensorflow:py38-cuda10.0-tf1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.0-tf1
+    #              -t vistart/build_tensorflow:py38-tf1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-tf1 \
+    #              -t vistart/build_tensorflow:py38-cuda10.0-tf1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.0-tf1
     docker build . -f build_tensorflow/py38-cuda10.0/Dockerfile \
                  --build-arg TF_BRANCH=r2.3 \
                  --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-installer-linux-x86_64.sh \
-                 -t vistart/build_tensorflow:py38 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38 \
-                 -t vistart/build_tensorflow:py38-cuda10.0 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.0 \
-                 -t vistart/build_tensorflow:py38-tf2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-tf2 \
-                 -t vistart/build_tensorflow:py38-cuda10.0-tf2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.0-tf2
+                 -t vistart/build_tensorflow:py38 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38 \
+                 -t vistart/build_tensorflow:py38-cuda10.0 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.0 \
+                 -t vistart/build_tensorflow:py38-tf2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-tf2 \
+                 -t vistart/build_tensorflow:py38-cuda10.0-tf2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.0-tf2
 
   elif [ $BUILD_TAG = 'py36-cuda10.1' ]; then
 
     docker build . -f build_tensorflow/py36-cuda10.1/Dockerfile \
                  --build-arg TF_BRANCH=r1.15 \
-                 -t vistart/build_tensorflow:py36-cuda10.1-tf1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.1-tf1
+                 -t vistart/build_tensorflow:py36-cuda10.1-tf1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.1-tf1
     docker build . -f build_tensorflow/py36-cuda10.1/Dockerfile \
                  --build-arg TF_BRANCH=r2.3 \
                  --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-installer-linux-x86_64.sh \
-                 -t vistart/build_tensorflow:py36-cuda10.1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.1 \
-                 -t vistart/build_tensorflow:py36-cuda10.1-tf2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.1-tf2
+                 -t vistart/build_tensorflow:py36-cuda10.1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.1 \
+                 -t vistart/build_tensorflow:py36-cuda10.1-tf2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.1-tf2
 
   elif [ $BUILD_TAG = 'py38-cuda10.1' ]; then
 
     # docker build . -f build_tensorflow/py38-cuda10.1/Dockerfile \
     #              --build-arg TF_BRANCH=r1.15 \
-    #              -t vistart/build_tensorflow:py38-cuda10.1-tf1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.1-tf1
+    #              -t vistart/build_tensorflow:py38-cuda10.1-tf1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.1-tf1
     docker build . -f build_tensorflow/py38-cuda10.1/Dockerfile \
                  --build-arg TF_BRANCH=r2.3 \
                  --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-installer-linux-x86_64.sh \
-                 -t vistart/build_tensorflow:py38-cuda10.1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.1 \
-                 -t vistart/build_tensorflow:py38-cuda10.1-tf2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.1-tf2
+                 -t vistart/build_tensorflow:py38-cuda10.1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.1 \
+                 -t vistart/build_tensorflow:py38-cuda10.1-tf2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.1-tf2
 
   elif [ $BUILD_TAG = 'py36-cuda10.2' ]; then
 
     docker build . -f build_tensorflow/py36-cuda10.2/Dockerfile \
                  --build-arg TF_BRANCH=r1.15 \
-                 -t vistart/build_tensorflow:py36-cuda10.2-tf1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.2-tf1
+                 -t vistart/build_tensorflow:py36-cuda10.2-tf1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.2-tf1
     docker build . -f build_tensorflow/py36-cuda10.2/Dockerfile \
                  --build-arg TF_BRANCH=r2.3 \
                  --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-installer-linux-x86_64.sh \
-                 -t vistart/build_tensorflow:py36-cuda10.2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.2 \
-                 -t vistart/build_tensorflow:py36-cuda10.2-tf2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.2-tf2
+                 -t vistart/build_tensorflow:py36-cuda10.2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.2 \
+                 -t vistart/build_tensorflow:py36-cuda10.2-tf2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda10.2-tf2
 
 
   elif [ $BUILD_TAG = 'py38-cuda10.2' ]; then
 
     # docker build . -f build_tensorflow/py38-cuda10.2/Dockerfile \
     #              --build-arg TF_BRANCH=r1.15 \
-    #              -t vistart/build_tensorflow:py38-cuda10.2-tf1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.2-tf1
+    #              -t vistart/build_tensorflow:py38-cuda10.2-tf1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.2-tf1
     docker build . -f build_tensorflow/py38-cuda10.2/Dockerfile \
                  --build-arg TF_BRANCH=r2.3 \
                  --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-installer-linux-x86_64.sh \
-                 -t vistart/build_tensorflow:py38-cuda10.2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.2 \
-                 -t vistart/build_tensorflow:py38-cuda10.2-tf2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.2-tf2
+                 -t vistart/build_tensorflow:py38-cuda10.2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.2 \
+                 -t vistart/build_tensorflow:py38-cuda10.2-tf2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda10.2-tf2
 
   elif [ $BUILD_TAG = 'py36-cuda11.0' ]; then
 
     docker build . -f build_tensorflow/py36-cuda11.0/Dockerfile \
                  --build-arg TF_BRANCH=r1.15 \
-                 -t vistart/build_tensorflow:py36-cuda11.0-tf1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda11.0-tf1
+                 -t vistart/build_tensorflow:py36-cuda11.0-tf1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda11.0-tf1
     docker build . -f build_tensorflow/py36-cuda11.0/Dockerfile \
                  --build-arg TF_BRANCH=r2.3 \
                  --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-installer-linux-x86_64.sh \
-                 -t vistart/build_tensorflow:py36-cuda11.0 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda11.0 \
-                 -t vistart/build_tensorflow:py36-cuda11.0-tf2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda11.0-tf2 \
-                 -t vistart/build_tensorflow:latest -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:latest
+                 -t vistart/build_tensorflow:py36-cuda11.0 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda11.0 \
+                 -t vistart/build_tensorflow:py36-cuda11.0-tf2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py36-cuda11.0-tf2 \
+                 -t vistart/build_tensorflow:latest -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:latest
 
 
   elif [ $BUILD_TAG = 'py38-cuda11.0' ]; then
 
     # docker build . -f build_tensorflow/py38-cuda11.0/Dockerfile \
     #              --build-arg TF_BRANCH=r1.15 \
-    #              -t vistart/build_tensorflow:py38-cuda11.0-tf1 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda11.0-tf1
+    #              -t vistart/build_tensorflow:py38-cuda11.0-tf1 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda11.0-tf1
     docker build . -f build_tensorflow/py38-cuda11.0/Dockerfile \
                  --build-arg TF_BRANCH=r2.3 \
                  --build-arg BAZEL_URL=https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-installer-linux-x86_64.sh \
-                 -t vistart/build_tensorflow:py38-cuda11.0 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda11.0 \
-                 -t vistart/build_tensorflow:py38-cuda11.0-tf2 -t registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda11.0-tf2
+                 -t vistart/build_tensorflow:py38-cuda11.0 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda11.0 \
+                 -t vistart/build_tensorflow:py38-cuda11.0-tf2 -t registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:py38-cuda11.0-tf2
 
   fi
 
 
 after_script:
 - docker images | grep vistart/build_tensorflow
-- docker images | grep registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow
+- docker images | grep registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login -u "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin registry.us-west-1.aliyuncs.com
-- docker push vistart/build_tensorflow & docker push registry.us-west-1.aliyuncs.com/vistart_public/build_tensorflow
+- echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login -u "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin registry.cn-hongkong.aliyuncs.com
+- docker push vistart/build_tensorflow & docker push registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow

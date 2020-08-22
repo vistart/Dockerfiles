@@ -1,5 +1,5 @@
 ARG TAG=apache
-FROM php:${TAG}
+FROM registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:${TAG}
 LABEL maintainer "vistart <i@vistart.me>"
 
 ENV APACHE_DOCUMENT_ROOT /var/www

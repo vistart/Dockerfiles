@@ -10,7 +10,7 @@ The tag name format is:
 registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:<tag name>
 ```
 
-If you want to use the latest image as soon as possible, but don't want to change the it's tag name. You can pull the image stored in the Docker Hub after pulling the it stored in the Hong Kong node. Because the contents of the two are exactly the same, they have been tagged after pulling the manifest of the image stored in Docker Hub without pulling any image layer.
+If you want to use the latest image as soon as possible, but don't want to change it's tag name. You can pull the image stored in the Docker Hub after pulling it stored in the Hong Kong node. Because the contents of the two are exactly the same, they have been tagged after pulling the manifest of the image stored in Docker Hub without pulling any image layer.
 
 After that, if you want to update the image, repeat the above operations.
 

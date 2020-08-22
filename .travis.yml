@@ -29,15 +29,28 @@ before_install:
   - docker buildx ls
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
   - echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login --username "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin registry.us-west-1.aliyuncs.com
+  - echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login --username "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin registry.cn-shanghai.aliyuncs.com
 
 script:
   - |
     if [ $BUILD_TAG = '20.04' ]; then
-      docker buildx build ubuntu/20.04 -t vistart/ubuntu-cpp:20.04 -t vistart/ubuntu-cpp:focal -t vistart/ubuntu-cpp:latest -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:latest --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
+      docker buildx build ubuntu/20.04 -t vistart/ubuntu-cpp:20.04 -t vistart/ubuntu-cpp:focal -t vistart/ubuntu-cpp:latest \
+      -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
+      -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
+      --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '18.04' ]; then
-      docker buildx build ubuntu/20.04 --build-arg ubuntu=$BUILD_TAG -t vistart/ubuntu-cpp:18.04 -t vistart/ubuntu-cpp:bionic -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:18.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:bionic --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
+      docker buildx build ubuntu/20.04 --build-arg ubuntu=18.04 -t vistart/ubuntu-cpp:18.04 -t vistart/ubuntu-cpp:bionic \
+      -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:18.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:bionic \
+      -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:18.04 -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:bionic \
+      --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '16.04' ]; then
-      docker buildx build ubuntu/20.04 --build-arg ubuntu=$BUILD_TAG -t vistart/ubuntu-cpp:16.04 -t vistart/ubuntu-cpp:xenial -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:16.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:xenial --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
+      docker buildx build ubuntu/20.04 --build-arg ubuntu=16.04 -t vistart/ubuntu-cpp:16.04 -t vistart/ubuntu-cpp:xenial \
+      -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:16.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:xenial \
+      -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:16.04 -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:xenial \
+      --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '14.04' ]; then
-      docker buildx build ubuntu/20.04 --build-arg ubuntu=$BUILD_TAG -t vistart/ubuntu-cpp:14.04 -t vistart/ubuntu-cpp:trusty -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:14.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:trusty --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7 --pull --push
+      docker buildx build ubuntu/20.04 --build-arg ubuntu=14.04 -t vistart/ubuntu-cpp:14.04 -t vistart/ubuntu-cpp:trusty \
+      -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:14.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:trusty \
+      -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:14.04 -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:trusty \
+      --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7 --pull --push
     fi

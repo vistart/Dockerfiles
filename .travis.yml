@@ -37,7 +37,6 @@ before_install:
 script:
 - |
   if [ $BUILD_GROUP = 'php7.2-apache' ]; then
-
     docker buildx build php --build-arg TAG=7.2-apache \
 #    -t vistart/php:7.2-apache \
     -t registry.cn-hongkong.aliyuncs.com/vistart_public/php:7.2-apache \
@@ -79,4 +78,4 @@ script:
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/mips64le,linux/ppc64le,linux/s390x --pull --push
 
   fi
-
+  

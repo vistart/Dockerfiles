@@ -3,6 +3,17 @@
 # Introduction
 All images under this repository are built in strict accordance with the Dockerfiles published by NVIDIA respectively. The only difference between these images and the official version is that the operating system source is from [Tsinghua University](https://mirrors.tuna.tsinghua.edu.cn). These images are updated weekly.
 
+In addition to storing all images in Docker Hub, they are also stored in the Hong Kong node of Aliyun Container Service for alternative. If you want to use the latest image as soon as possible, but Docker Hub has not been able to synchronize for a long time, you can try to use the Hong Kone node of Aliyun Container Service.
+
+The tag name format is:
+```
+registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:<tag name>
+```
+
+If you want to use the latest image as soon as possible, but don't want to change the it's tag name. You can pull the image stored in the Docker Hub after pulling the it stored in the Hong Kong node. Because the contents of the two are exactly the same, they have been tagged after pulling the manifest of the image stored in Docker Hub without pulling any image layer.
+
+After that, if you want to update the image, repeat the above operations.
+
 # Latest CUDA 11.0 (Experimental)(CUDA 11.0 for Ubuntu 20.04 is Ready! CUDNN 8.0.2/NCCL 2.7.8/TensorRT 7.1.3 are coming!)
 ## Ubuntu 20.04
 - 11.0-base-ubuntu20.04 (cuda 11.0.3)

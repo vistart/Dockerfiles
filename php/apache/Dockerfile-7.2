@@ -80,3 +80,5 @@ RUN a2enmod rewrite
 RUN a2dissite 000-default.conf
 
 WORKDIR /root
+
+RUN source /etc/apache2/envvars

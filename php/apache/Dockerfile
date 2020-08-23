@@ -25,8 +25,9 @@ RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y axel wget \
                        openssl \
                        libssl-dev \
                        librabbitmq-dev \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN axel -q -o libsodium.tar.gz https://download.libsodium.org/libsodium/releases/LATEST.tar.gz && tar -xzf libsodium.tar.gz && cd libsodium-stable && ./configure && make && make check && make install
+    && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/*
+WORKDIR /tmp
+RUN axel -q -o libsodium.tar.gz https://download.libsodium.org/libsodium/releases/LATEST.tar.gz && tar -xzf libsodium.tar.gz && rm libsodium.tar.gz && cd libsodium-stable && ./configure && make && make check && make install
 RUN pecl install https://pecl.php.net/get/xdebug \
                  https://pecl.php.net/get/mongodb \
                  https://pecl.php.net/get/timezonedb \
@@ -57,7 +58,8 @@ RUN docker-php-ext-configure gd --with-freetype	 --with-jpeg --with-webp && \
 
 # Install Composer
 ADD composer-setup.sh /root
-RUN chmod +x /root/composer-setup.sh && /root/composer-setup.sh
+RUN apt-get update && apt-get install dos2unix -y && dos2unix /root/composer-setup.sh && apt-get remove dos2unix -y && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN chmod +x /root/composer-setup.sh && /root/composer-setup.sh && rm /root/composer-setup.sh
 
 # Change DocumentRoot
 # Remove the comment character(#) if needed.
@@ -76,3 +78,5 @@ RUN a2enmod rewrite
 
 # Disable default website
 RUN a2dissite 000-default.conf
+
+WORKDIR /root

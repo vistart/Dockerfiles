@@ -10,12 +10,12 @@ matrix:
         - name: "Fetch Files"
           env: BUILD_GROUP=fetch-files
 
-
-before_install:
-    - echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login --username "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin registry.cn-hongkong.aliyuncs.com
-
 script:
     - |
       if [ $BUILD_GROUP = 'fetch-files' ]; then
         docker build . -t registry.cn-hongkong.aliyuncs.com/vistart_public/fetch_files:202008231848
       fi
+
+after_script:
+    - echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login --username "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin registry.cn-hongkong.aliyuncs.com
+    - docker push registry.cn-hongkong.aliyuncs.com/vistart_public/fetch_files

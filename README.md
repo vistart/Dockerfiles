@@ -6,20 +6,69 @@
 
 # Prerequisites
 
-- Ubuntu, LTS is better
-- Python 2.7 or 3.6
-- CUDA 10.0, 10.1 or 10.2, and devices that support them
+- Ubuntu, LTS is better.
+- Python 3.6 or 3.8, the image containing Python 2.7 remains.
+- CUDA 10.0, 10.1, 10.2 or 11.0, and devices that support them.
 
 # Images
 
 The following level headings are also tags for the docker image.
 
+- `py38-cuda11.0`, `py38`
+
+  - CUDA 11.0
+  - CUDNN 8.0
+  - NCCL 2.7
+  - TensorRT 7.1
+  - Python 3.8
+  - Ubuntu 20.04
+  - Not include `python3-libnvinfer` and `uff-converter-tf`
+
+- `py38-cuda10.2`
+
+  - CUDA 10.2
+  - CUDNN 7.6
+  - NCCL 2.7
+  - TensorRT 7.6
+  - Python 3.8
+  - Ubuntu 20.04
+  - Not include `python3-libnvinfer` and `uff-converter-tf`
+
+- `py38-cuda10.1`
+
+  - CUDA 10.1
+  - CUDNN 7.6
+  - NCCL 2.7
+  - TensorRT 6.0
+  - Python 3.8
+  - Ubuntu 20.04
+  - Not include `python3-libnvinfer` and `uff-converter-tf`
+
+- `py38-cuda10.0`, `py38`
+
+  - CUDA 10.0
+  - CUDNN 7.6
+  - NCCL 2.6
+  - TensorRT 7.0
+  - Python 3.8
+  - Ubuntu 20.04
+  - Not include `python3-libnvinfer` and `uff-converter-tf`
+
+- `py36-cuda11.0`
+
+  - CUDA 11.0
+  - CUDNN 8.0
+  - NCCL 2.7
+  - TensorRT 7.1
+  - Python 3.6
+  - Ubuntu 18.04
+
 - `py36-cuda10.2`
 
   - CUDA 10.2
   - CUDNN 7.6
-  - NCCL 2.5
-  - TensorRT 6.0
+  - NCCL 2.7
+  - TensorRT 7.0
   - Python 3.6
   - Ubuntu 18.04
 
@@ -27,7 +76,7 @@ The following level headings are also tags for the docker image.
 
   - CUDA 10.1
   - CUDNN 7.6
-  - NCCL 2.5
+  - NCCL 2.7
   - TensorRT 6.0
   - Python 3.6
   - Ubuntu 18.04
@@ -36,12 +85,12 @@ The following level headings are also tags for the docker image.
 
   - CUDA 10.0
   - CUDNN 7.6
-  - NCCL 2.5
-  - TensorRT 6.0
+  - NCCL 2.6
+  - TensorRT 7.0
   - Python 3.6
   - Ubuntu 18.04
 
-- `py27-cuda10.1`
+- `py27-cuda10.1` (no longer updated)
 
   - CUDA 10.1
   - CUDNN 7.6
@@ -50,7 +99,7 @@ The following level headings are also tags for the docker image.
   - Python 2.7
   - Ubuntu 18.04
 
-- `py27-cuda10.0`, `py27`
+- `py27-cuda10.0`, `py27` (no longer updated)
 
   - CUDA 10.0
   - CUDNN 7.6
@@ -66,9 +115,9 @@ To find out the specific version number of each software in the above images, pl
 - Pull the image you need, for example:
 
 ```
-docker pull vistart/build_tensorflow:py36-cuda10.1
+docker pull vistart/build_tensorflow:py38-cuda11.0
 ```
-The above command will pull the image that contains Python 3.6 and CUDA 10.1.
+The above command will pull the image that contains Python 3.8 and CUDA 11.0.
 
 - Clone this repository and change directory to it:
 
@@ -80,11 +129,11 @@ cd Dockerfiles
 - Run the build process:
 
 ```
-sh build_tensorflow/py36-cuda10.1/build_tensorflow_2.sh
+sh build_tensorflow/py38-cuda11.0/build_tensorflow_2.sh
 ```
 
 - Once the build is complete, the build results are generated in the current directory:
 
 ```
--rwxrwxrwx 1 vistart vistart 194526324 Oct 19 18:59 tensorflow-2.0.0-cp36-cp36m-linux_x86_64.whl*
+-rw-r--r-- 1 root    root    262907737 Aug   8 03:43 tensorflow-2.4.0-cp38-cp38-linux_x86_64.whl
 ```

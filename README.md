@@ -3,7 +3,7 @@
 # Introduction
 All images under this repository are built in strict accordance with the Dockerfiles published by NVIDIA respectively. The only difference between these images and the official version is that the operating system source is from [Tsinghua University](https://mirrors.tuna.tsinghua.edu.cn). These images are updated weekly.
 
-In addition to storing all images in Docker Hub, they are also stored in the Hong Kong node of Aliyun Container Service for alternative. If you want to use the latest image as soon as possible, but Docker Hub has not been able to synchronize for a long time, you can try to use the Hong Kone node of Aliyun Container Service.
+In addition to storing all images in Docker Hub, they are also stored in the Hong Kong node of Aliyun Container Service for alternative. If you want to use the latest image as soon as possible, but Docker Hub has not been able to synchronize for a long time, you can try to use the Hong Kong node of Aliyun Container Service.
 
 The tag name format is:
 ```

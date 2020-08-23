@@ -58,7 +58,7 @@ RUN docker-php-ext-configure gd --with-freetype	 --with-jpeg --with-webp && \
 
 # Install Composer
 ADD composer-setup.sh /root
-RUN apt-get update && apt-get install dos2unix -y && dos2unix /root/composer-setup.sh && apt-get remove dos2unix -y && apt-get clean && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install dos2unix -y && dos2unix /root/composer-setup.sh && apt-get remove dos2unix -y && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN chmod +x /root/composer-setup.sh && /root/composer-setup.sh && rm /root/composer-setup.sh
 
 # Change DocumentRoot

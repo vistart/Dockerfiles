@@ -17,5 +17,5 @@ before_install:
 script:
     - |
       if [ $BUILD_GROUP = 'fetch-files' ]; then
-        docker build . -t registry.cn-hongkong.aliyuncs.com/vistart_public/fetch_files:latest
+        docker build . -t registry.cn-hongkong.aliyuncs.com/vistart_public/fetch_files:202008231848
       fi

@@ -3,7 +3,8 @@ FROM ${ubuntu}:20.04
 LABEL maintainer "vistart <i@vistart.vip>"
 
 ADD filelist /root
-WORKDIR /root
+RUN mkdir output
+WORKDIR /root/output
 RUN for line in $(cat filelist); \ 
     do \
       wget "${line}"; \ 

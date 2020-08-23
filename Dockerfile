@@ -7,5 +7,6 @@ RUN mkdir output
 WORKDIR /root/output
 RUN for line in $(cat ../filelist); \ 
     do \
-      wget -q "${line}"; \ 
+      wget -q "${line}"; \
+      echo "Done: ${line} \n"; \ 
     done

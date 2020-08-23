@@ -13,7 +13,7 @@ matrix:
 script:
     - |
       if [ $BUILD_GROUP = 'fetch-files' ]; then
-        travis_wait 45 docker build . -t registry.cn-hongkong.aliyuncs.com/vistart_public/fetch_files:202008231848
+        docker build . -t registry.cn-hongkong.aliyuncs.com/vistart_public/fetch_files:202008231911
       fi
 
 after_script:

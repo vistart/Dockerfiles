@@ -137,3 +137,16 @@ sh build_tensorflow/py38-cuda11.0/build_tensorflow_2.sh
 ```
 -rw-r--r-- 1 root    root    262907737 Aug   8 03:43 tensorflow-2.4.0-cp38-cp38-linux_x86_64.whl
 ```
+
+# Alternative Registry
+
+In addition to storing all images in Docker Hub, they are also stored in the Hong Kong node of Aliyun Container Service for alternative. If you want to use the latest image as soon as possible, but Docker Hub has not been able to synchronize for a long time, you can try to use the Hong Kong node of Aliyun Container Service.
+
+The tag name format is:
+```
+registry.cn-hongkong.aliyuncs.com/vistart_public/build_tensorflow:<tag name>
+```
+
+If you want to use the latest image as soon as possible, but don't want to change it's tag name. You can pull the image stored in the Docker Hub after pulling it stored in the Hong Kong node. Because the contents of the two are exactly the same, they have been tagged after pulling the manifest of the image stored in Docker Hub without pulling any image layer.
+
+After that, if you want to update the image, repeat the above operations.

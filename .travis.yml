@@ -33,42 +33,49 @@ before_install:
   - docker buildx ls
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
   - echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login --username "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin registry.cn-hongkong.aliyuncs.com
+  - echo "$DOCKER_ALIYUN_VISTART_PASSWORD" | docker login --username "$DOCKER_ALIYUN_VISTART_USERNAME" --password-stdin registry.cn-shanghai.aliyuncs.com
 
 script:
 - |
   if [ $BUILD_GROUP = 'php7.2-apache' ]; then
     docker buildx build php --build-arg TAG=7.2-apache \
     -t registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.2-apache \
+    -t registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.2-apache \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.3-apache' ]; then
 
     docker buildx build php --build-arg TAG=7.3-apache \
     -t registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.3-apache \
+    -t registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.3-apache \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/mips64le,linux/ppc64le,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.4-apache' ]; then
 
     docker buildx build php --build-arg TAG=7.4-apache \
     -t registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.4-apache -t registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:apache \
+    -t registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.4-apache -t registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:apache \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/mips64le,linux/ppc64le,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.2-cli' ]; then
 
     docker buildx build php --build-arg TAG=7.2-cli \
     -t registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.2-cli \
+    -t registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.2-cli \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.3-cli' ]; then
 
     docker buildx build php --build-arg TAG=7.3-cli \
     -t registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.3-cli \
+    -t registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.3-cli \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/mips64le,linux/ppc64le,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.4-cli' ]; then
 
     docker buildx build php --build-arg TAG=7.4-cli \
     -t registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.4-cli -t registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:cli \
+    -t registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.4-cli -t registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:cli \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/mips64le,linux/ppc64le,linux/s390x --pull --push
 
   fi

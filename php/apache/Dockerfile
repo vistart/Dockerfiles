@@ -1,5 +1,6 @@
 ARG TAG=apache
-FROM registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:${TAG}
+# FROM registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:${TAG}
+FROM php:${TAG}
 LABEL maintainer "vistart <i@vistart.me>"
 
 ENV APACHE_DOCUMENT_ROOT /var/www
@@ -80,5 +81,3 @@ RUN a2enmod rewrite
 RUN a2dissite 000-default.conf
 
 WORKDIR /root
-
-RUN bash /etc/apache2/envvars

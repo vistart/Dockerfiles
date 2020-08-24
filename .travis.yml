@@ -38,7 +38,6 @@ script:
   - |
     if [ $BUILD_TAG = '20.04' ]; then
       docker buildx build ubuntu/20.04 -t vistart/ubuntu-cpp:20.04 -t vistart/ubuntu-cpp:focal -t vistart/ubuntu-cpp:latest \
-      -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
       -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
       -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
       -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
@@ -46,7 +45,6 @@ script:
       --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '18.04' ]; then
       docker buildx build ubuntu/18.04 -t vistart/ubuntu-cpp:18.04 -t vistart/ubuntu-cpp:bionic \
-      -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:18.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:bionic \
       -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:18.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:bionic \
       -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:18.04 -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:bionic \
       -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:18.04 -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:bionic \
@@ -54,7 +52,6 @@ script:
       --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '16.04' ]; then
       docker buildx build ubuntu/16.04 -t vistart/ubuntu-cpp:16.04 -t vistart/ubuntu-cpp:xenial \
-      -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:16.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:xenial \
       -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:16.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:xenial \
       -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:16.04 -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:xenial \
       -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:16.04 -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:xenial \
@@ -62,7 +59,6 @@ script:
       --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/386,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '14.04' ]; then
       docker buildx build ubuntu/14.04 -t vistart/ubuntu-cpp:14.04 -t vistart/ubuntu-cpp:trusty \
-      -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:14.04 -t registry.us-west-1.aliyuncs.com/vistart_public/ubuntu-cpp:trusty \
       -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:14.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:trusty \
       -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:14.04 -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:trusty \
       -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:14.04 -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:trusty \

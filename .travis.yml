@@ -50,7 +50,7 @@ script:
 
   elif [ $BUILD_GROUP = 'php7.2-cli' ]; then
 
-    docker buildx build php/cli -f php/cli/Dockerfile-7.2 -t vistart/php:7.2-cli -t registry.cn-huhehaote.aliyuncs.com/vistart_public/php:7.2-cli --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v6,linux/arm/v7,linux/s390x --pull --push
+    docker buildx build php/cli -f php/cli/Dockerfile-7.2 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/php:7.2-cli --platform=linux/amd64,linux/arm64,linux/386,linux/arm/v6,linux/arm/v7,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.3-cli' ]; then
 

@@ -39,3 +39,5 @@ This image has downloaded the following PECL extensions:
 - https://pecl.php.net/get/amqp
 - https://pecl.php.net/get/libsodium
 - https://pecl.php.net/get/mcrypt
+
+and libsodium.

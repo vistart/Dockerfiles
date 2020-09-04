@@ -29,3 +29,4 @@ RUN sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sourc
 RUN sed -i 's/http/https/g' /etc/apt/sources.list
 WORKDIR /tmp
 RUN pecl channel-update pecl.php.net && pecl download https://pecl.php.net/get/xdebug https://pecl.php.net/get/mongodb https://pecl.php.net/get/timezonedb https://pecl.php.net/get/imagick https://pecl.php.net/get/igbinary https://pecl.php.net/get/amqp https://pecl.php.net/get/libsodium https://pecl.php.net/get/mcrypt
+RUN axel -q -o libsodium.tar.gz https://download.libsodium.org/libsodium/releases/LATEST.tar.gz

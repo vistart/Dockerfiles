@@ -27,7 +27,7 @@ matrix:
   - name: "CUDA 10.0 in ubuntu 20.04"
     env: BUILD_GROUP=cuda10.0-ubuntu20.04
 
-  - name: "CUDA 11.1 in ubuntu 20.04"
+  - name: "CUDA 11.1 in ubuntu 18.04"
     env: BUILD_GROUP=cuda11.1-ubuntu18.04
 
   - name: "CUDA 11.0 in ubuntu 18.04"

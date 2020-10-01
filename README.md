@@ -31,8 +31,8 @@ After that, if you want to update the image, repeat the above operations.
 - 11.1-runtime-ubuntu16.04 (cuda 11.1.0, nccl 2.7.8)
 - 11.1-devel-ubuntu16.04 (cuda 11.1.0, nccl 2.7.8)
 
-# CUDA 11.0 (Experimental)(CUDA 11.0 for Ubuntu 20.04 is Ready! CUDNN 8.0.2/NCCL 2.7.8/TensorRT 7.1.3 are coming!)
-## Ubuntu 20.04
+# CUDA 11.0 (CUDA 11.0 for Ubuntu 20.04 is Ready! CUDNN 8.0.2/NCCL 2.7.8/TensorRT 7.1.3 are coming!)
+## Ubuntu 20.04 (Experimental)
 - 11.0-base-ubuntu20.04 (cuda 11.0.3)
 - 11.0-runtime-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8)
 - 11.0-devel-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8)

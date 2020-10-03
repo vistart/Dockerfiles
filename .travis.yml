@@ -184,8 +184,12 @@ script:
                                                 -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-base-ubuntu18.04 &&
         docker build cuda/ubuntu18.04/11.1/runtime -t vistart/cuda:11.1-runtime-ubuntu18.04 \
                                                    -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-runtime-ubuntu18.04 &&
+        docker build cuda/ubuntu18.04/11.1/runtime/cudnn8 -t vistart/cuda:11.1-cudnn8-runtime-ubuntu18.04 \
+                                                          -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-cudnn8-runtime-ubuntu18.04 &&
         docker build cuda/ubuntu18.04/11.1/devel -t vistart/cuda:11.1-devel-ubuntu18.04 \
-                                                 -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-devel-ubuntu18.04
+                                                 -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-devel-ubuntu18.04 &&
+        docker build cuda/ubuntu18.04/11.1/devel/cudnn8 -t vistart/cuda:11.1-cudnn8-devel-ubuntu18.04 \
+                                                        -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-cudnn8-devel-ubuntu18.04
         docker images | grep vistart/cuda
    
     elif [ $BUILD_GROUP = 'cuda11.0-ubuntu18.04' ]; then
@@ -298,9 +302,13 @@ script:
         docker build cuda/ubuntu16.04/11.1/base -t vistart/cuda:11.1-base-ubuntu16.04 \
                                                 -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-base-ubuntu16.04 &&
         docker build cuda/ubuntu16.04/11.1/runtime -t vistart/cuda:11.1-runtime-ubuntu16.04 \
-                                                   -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-runtime-ubuntu16.04 &&
+                                                   -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-runtime-ubuntu16.04 && 
+        docker build cuda/ubuntu16.04/11.1/runtime/cudnn8 -t vistart/cuda:11.1-cudnn8-runtime-ubuntu16.04 \
+                                                          -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-cudnn8-runtime-ubuntu16.04 &&
         docker build cuda/ubuntu16.04/11.1/devel -t vistart/cuda:11.1-devel-ubuntu16.04 \
-                                                 -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-devel-ubuntu16.04
+                                                 -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-devel-ubuntu16.04 &&
+        docker build cuda/ubuntu16.04/11.1/devel/cudnn8 -t vistart/cuda:11.1-cudnn8-devel-ubuntu16.04 \
+                                                        -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.1-cudnn8-devel-ubuntu16.04
         docker images | grep vistart/cuda
 
     elif [ $BUILD_GROUP = 'cuda11.0-ubuntu16.04' ]; then

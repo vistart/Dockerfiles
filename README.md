@@ -140,7 +140,7 @@ After that, if you want to update the image, repeat the above operations.
 - 10.0-cudnn7-tensorrt6-devel-ubuntu20.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32 tensorrt 6.0.1.8)
 - 10.0-cudnn7-tensorrt7-devel-ubuntu20.04, 10.0-ubuntu20.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32, tensorrt 7.0.0.11)
 
-## Ubuntu 18.04 (No longer updated)
+## Ubuntu 18.04
 - 10.0-base-ubuntu18.04 (cuda 10.0.130)
 - 10.0-runtime-ubuntu18.04 (cuda 10.0.130, nccl 2.6.4)
 - 10.0-cudnn7-runtime-ubuntu18.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32)
@@ -149,7 +149,7 @@ After that, if you want to update the image, repeat the above operations.
 - 10.0-cudnn7-tensorrt6-devel-ubuntu18.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32, tensorrt 6.0.1.5)
 - 10.0-cudnn7-tensorrt7-devel-ubuntu18.04, 10.0-ubuntu18.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32, tensorrt 7.0.0.11)
 
-## Ubuntu 16.04 (No longer updated)
+## Ubuntu 16.04
 - 10.0-base-ubuntu16.04 (cuda 10.0.130)
 - 10.0-runtime-ubuntu16.04 (cuda 10.0.130, nccl 2.6.4)
 - 10.0-cudnn7-runtime-ubuntu16.04 (cuda 10.0.130, nccl 2.6.4, cudnn 7.6.5.32)

@@ -1,8 +1,8 @@
 ARG repository=vistart/cuda
-FROM ${repository}:11.0-cudnn8-devel-ubuntu18.04
+FROM ${repository}:11.1-cudnn8-devel-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
-ARG NVINFER_VERSION=7.1.3-1+cuda11.0
+ARG NVINFER_VERSION=7.2.1-1+cuda11.1
 RUN apt-get update && apt-get install libnvinfer7=$NVINFER_VERSION \
                     libnvinfer-plugin7=$NVINFER_VERSION \
                     libnvparsers7=$NVINFER_VERSION \

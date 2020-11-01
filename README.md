@@ -42,9 +42,9 @@ After that, if you want to update the image, repeat the above operations.
 - 11.0-base-ubuntu20.04 (cuda 11.0.3)
 - 11.0-runtime-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8)
 - 11.0-devel-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8)
-- 11.0-cudnn8-runtime-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39)
-- 11.0-cudnn8-devel-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39)
-- 11.0-cudnn8-tensorrt7-devel-ubuntu20.04, 11.0-ubuntu20.04, latest (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.2.39, tensorrt 7.1.3.4)
+- 11.0-cudnn8-runtime-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.4.30)
+- 11.0-cudnn8-devel-ubuntu20.04 (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.4.30)
+- 11.0-cudnn8-tensorrt7-devel-ubuntu20.04, 11.0-ubuntu20.04, latest (cuda 11.0.3, nccl 2.7.8, cudnn 8.0.4.30, tensorrt 7.2.1.6)
 
 ## Ubuntu 18.04
 - 11.0-base-ubuntu18.04 (cuda 11.0.3)
@@ -126,7 +126,6 @@ After that, if you want to update the image, repeat the above operations.
 - 10.1-devel-ubuntu16.04 (cuda 10.1.243, nccl 2.7.8)
 - 10.1-cudnn7-devel-ubuntu16.04 (cuda 10.1.243, nccl 2.7.8, cudnn 7.6.5.32)
 - 10.1-cudnn8-devel-ubuntu16.04 (cuda 10.1.243, nccl 2.7.8, cudnn 8.0.4.30)
-- 10.1-cudnn7-tensorrt6-devel-ubuntu16.04, 10.1-ubuntu16.04 (cuda 10.1.243, nccl 2.7.8, cudnn 7.6.5.32, tensorrt 6.0.1.5)
 
 ## Ubuntu 14.04 (No longer updated)
 - 10.1-base-ubuntu14.04 (cuda 10.1.243)

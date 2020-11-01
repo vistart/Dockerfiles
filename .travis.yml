@@ -90,7 +90,7 @@ script:
                                                  -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.0-devel-ubuntu20.04 &&
         docker build cuda/ubuntu20.04/11.0/devel/cudnn8 -t vistart/cuda:11.0-cudnn8-devel-ubuntu20.04 \
                                                         -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.0-cudnn8-devel-ubuntu20.04 &&
-        python download_googledrive.py "$GDRIVETRT7DEB1804110FID" "cuda/ubuntu20.04/11.0/devel/cudnn8/tensorrt7/nv-tensorrt-repo-ubuntu1804-cuda11.0-trt7.1.3.4-ga-20200617_1-1_amd64.deb" &&
+        python download_googledrive.py "$GDRIVETRT7DEB1804110FID" "cuda/ubuntu20.04/11.0/devel/cudnn8/tensorrt7/nv-tensorrt-repo-ubuntu1804-cuda11.0-trt7.2.1.6-ga-20201007_1-1_amd64.deb" &&
         docker build cuda/ubuntu20.04/11.0/devel/cudnn8/tensorrt7 -t vistart/cuda:11.0-cudnn8-tensorrt7-devel-ubuntu20.04 -t vistart/cuda:11.0-ubuntu20.04 -t vistart/cuda:latest \
                                                                   -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.0-cudnn8-tensorrt7-devel-ubuntu20.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:11.0-ubuntu20.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:latest &&
         # docker build cuda/ubuntu20.04/11.0/devel/cudnn8/tensorrt7 -f cuda/ubuntu20.04/11.0/devel/cudnn8/tensorrt7/Dockerfile2 -t vistart/cuda:11.0-cudnn8-tensorrt7-devel-ubuntu20.04 -t vistart/cuda:11.0-ubuntu20.04 -t vistart/cuda:latest \
@@ -338,7 +338,7 @@ script:
         docker images | grep vistart/cuda
 
 
-    elif [ $BUILD_GROUP = 'cuda10.2-ubuntu16.04' ]; then
+        elif [ $BUILD_GROUP = 'cuda10.2-ubuntu16.04' ]; then
 
         docker build cuda/ubuntu16.04/10.2/base -t vistart/cuda:10.2-base-ubuntu16.04 \
                                                 -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:10.2-base-ubuntu16.04 &&
@@ -372,6 +372,27 @@ script:
         # docker build cuda/ubuntu16.04/10.2/devel/cudnn8/tensorrt7 -f cuda/ubuntu16.04/10.2/devel/cudnn8/tensorrt7/Dockerfile2 -t vistart/cuda:10.2-cudnn8-tensorrt7-devel-ubuntu16.04 -t vistart/cuda:10.2-ubuntu16.04 \
         #                                                                                                                       -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:10.2-cudnn8-tensorrt7-devel-ubuntu16.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:10.2-ubuntu16.04 &&
         
+        docker images | grep vistart/cuda
+
+    elif [ $BUILD_GROUP = 'cuda10.1-ubuntu16.04' ]; then
+
+        docker build cuda/ubuntu16.04/10.1/base -t vistart/cuda:10.1-base-ubuntu16.04 \
+                                                -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:10.1-base-ubuntu16.04 &&
+        docker build cuda/ubuntu16.04/10.1/runtime -t vistart/cuda:10.1-runtime-ubuntu16.04 \
+                                                    -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:10.1-runtime-ubuntu16.04 &&
+
+        docker build cuda/ubuntu16.04/10.1/runtime/cudnn7 -t vistart/cuda:10.1-cudnn7-runtime-ubuntu16.04 \
+                                                          -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:10.1-cudnn7-runtime-ubuntu16.04 &&
+        docker build cuda/ubuntu16.04/10.1/devel -t vistart/cuda:10.1-devel-ubuntu16.04 \
+                                                  -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:10.1-devel-ubuntu16.04 &&
+        docker build cuda/ubuntu16.04/10.1/devel/cudnn7 -t vistart/cuda:10.1-cudnn7-devel-ubuntu16.04 \
+                                                        -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:10.1-cudnn7-devel-ubuntu16.04 &&
+        
+        docker build cuda/ubuntu16.04/10.1/runtime/cudnn8 -t vistart/cuda:10.1-cudnn8-runtime-ubuntu16.04 \
+                                                        -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:10.1-cudnn8-runtime-ubuntu16.04 &&
+        docker build cuda/ubuntu16.04/10.1/devel/cudnn8 -t vistart/cuda:10.1-cudnn8-devel-ubuntu16.04 \
+                                                        -t registry.cn-hongkong.aliyuncs.com/vistart_public/cuda:10.1-cudnn8-devel-ubuntu16.04 &&
+         
         docker images | grep vistart/cuda
 
     elif [ $BUILD_GROUP = 'cuda10.0-ubuntu16.04' ]; then

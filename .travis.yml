@@ -49,19 +49,19 @@ script:
 
   elif [ $BUILD_GROUP = 'php7.3-apache' ]; then
 
-    docker buildx build php --build-arg TAG=7.3.25-apache \
+    docker buildx build php --build-arg TAG=7.3.26-apache \
     -t registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:7.3-apache \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.4-apache' ]; then
 
-    docker buildx build php --build-arg TAG=7.4.13-apache \
+    docker buildx build php --build-arg TAG=7.4.14-apache \
     -t registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:7.4-apache \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php8.0-apache' ]; then
 
-    docker buildx build php --build-arg TAG=8.0.0-apache \
+    docker buildx build php --build-arg TAG=8.0.1-apache \
     -t registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:8.0-apache -t registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:apache \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x --pull --push
 
@@ -73,19 +73,19 @@ script:
 
   elif [ $BUILD_GROUP = 'php7.3-cli' ]; then
 
-    docker buildx build php --build-arg TAG=7.3.25-cli \
+    docker buildx build php --build-arg TAG=7.3.26-cli \
     -t registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:7.3-cli \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php7.4-cli' ]; then
 
-    docker buildx build php --build-arg TAG=7.4.13-cli \
+    docker buildx build php --build-arg TAG=7.4.14-cli \
     -t registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:7.4-cli \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x --pull --push
 
   elif [ $BUILD_GROUP = 'php8.0-cli' ]; then
 
-    docker buildx build php --build-arg TAG=8.0.0-cli \
+    docker buildx build php --build-arg TAG=8.0.1-cli \
     -t registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:8.0-cli -t registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:cli \
     --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x --pull --push
 

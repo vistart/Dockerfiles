@@ -23,8 +23,8 @@ After that, if you want to update the image, repeat the above operations.
 - 11.1-base-ubuntu20.04 (cuda 11.1.1)
 - 11.1-runtime-ubuntu20.04 (cuda 11.1.1, nccl 2.8.3)
 - 11.1-devel-ubuntu20.04 (cuda 11.1.1, nccl 2.8.3)
-- 11.1-cudnn8-runtime-ubuntu20.04 (cuda 11.1.1, nccl 2.8.3, cudnn 8.0.5.39)
-- 11.1-cudnn8-devel-ubuntu20.04 (cuda 11.1.1, nccl 2.8.3, cudnn 8.0.5.39)
+- 11.1-cudnn8-runtime-ubuntu20.04 (cuda 11.1.1, nccl 2.8.3, cudnn 8.1.0.77)
+- 11.1-cudnn8-devel-ubuntu20.04 (cuda 11.1.1, nccl 2.8.3, cudnn 8.1.0.77)
 
 ## Ubuntu 18.04
 - 11.1-base-ubuntu18.04 (cuda 11.1.1)

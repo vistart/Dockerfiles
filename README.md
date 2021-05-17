@@ -17,7 +17,29 @@ If you want to use the latest image as soon as possible, but don't want to chang
 
 After that, if you want to update the image, repeat the above operations.
 
-# Latest CUDA 11.1
+# Latest CUDA 11.3
+
+## Ubuntu 20.04
+
+- 11.3-base-ubuntu20.04 (cuda 11.3.0)
+- 11.3-runtime-ubuntu20.04 (cuda 11.3.0, nccl 2.9.8)
+- 11.3-devel-ubuntu20.04 (cuda 11.3.0, nccl 2.9.8)
+- 11.3-cudnn8-runtime-ubuntu20.04 (cuda 11.3.0, nccl 2.9.8, cudnn 8.2.0.53)
+- 11.3-cudnn8-devel-ubuntu20.04 (cuda 11.3.0, nccl 2.9.8, cudnn 8.2.0.53)
+
+## Ubuntu 18.04
+
+- 11.3-base-ubuntu18.04 (cuda 11.3.0)
+- 11.3-runtime-ubuntu18.04 (cuda 11.3.0, nccl 2.9.8)
+- 11.3-devel-ubuntu18.04 (cuda 11.3.0, nccl 2.9.8)
+- 11.3-cudnn8-runtime-ubuntu18.04 (cuda 11.3.0, nccl 2.9.8, cudnn 8.2.0.53)
+- 11.3-cudnn8-devel-ubuntu18.04 (cuda 11.3.0, nccl 2.9.8, cudnn 8.2.0.53)
+
+## Ubuntu 16.04
+
+- 11.3-base-ubuntu16.04 (cuda 11.3.0)
+
+# CUDA 11.1 (Deprecated)
 
 ## Ubuntu 20.04
 - 11.1-base-ubuntu20.04 (cuda 11.1.1)

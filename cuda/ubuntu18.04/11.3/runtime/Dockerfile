@@ -2,7 +2,7 @@ ARG repository=vistart/cuda
 FROM ${repository}:11.3-base-ubuntu18.04
 LABEL maintainer "vistart <i@vistart.me>"
 
-ENV NCCL_VERSION 2.9.6
+ENV NCCL_VERSION 2.9.8
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         cuda-libraries-$CUDA_PKG_VERSION \

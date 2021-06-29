@@ -3,6 +3,8 @@ name: php - Build and Deploy to Aliyun Container Registry
 on:
   push:
     branches: [ php ]
+  schedule:
+    - cron: '00 20 * * Tue'
 
 jobs:
   build_8_0_cli:

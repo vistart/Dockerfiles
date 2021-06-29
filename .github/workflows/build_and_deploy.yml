@@ -29,13 +29,13 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Hohhot
-        uses: docker/login-action@v1 
-        with:
-          registry: registry.cn-huhehaote.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+#      -
+#        name: Login to Aliyun Container Registry Hohhot
+#        uses: docker/login-action@v1 
+#        with:
+#          registry: registry.cn-huhehaote.aliyuncs.com
+#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 
@@ -97,7 +97,6 @@ jobs:
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.0-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.0-cli
-            registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:8.0-cli
             registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:8.0-cli
             registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:8.0-cli
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.0-cli
@@ -107,7 +106,6 @@ jobs:
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.0-cli
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:cli
-            registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:cli
             registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:cli
             registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:cli
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:cli
@@ -142,13 +140,13 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Hohhot
-        uses: docker/login-action@v1 
-        with:
-          registry: registry.cn-huhehaote.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+#      -
+#        name: Login to Aliyun Container Registry Hohhot
+#        uses: docker/login-action@v1 
+#        with:
+#          registry: registry.cn-huhehaote.aliyuncs.com
+#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 
@@ -210,7 +208,6 @@ jobs:
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.4-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.4-cli
-            registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:7.4-cli
             registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:7.4-cli
             registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:7.4-cli
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:7.4-cli
@@ -245,13 +242,13 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Hohhot
-        uses: docker/login-action@v1 
-        with:
-          registry: registry.cn-huhehaote.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+#      -
+#        name: Login to Aliyun Container Registry Hohhot
+#        uses: docker/login-action@v1 
+#        with:
+#          registry: registry.cn-huhehaote.aliyuncs.com
+#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 
@@ -313,7 +310,6 @@ jobs:
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.3-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.3-cli
-            registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:7.3-cli
             registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:7.3-cli
             registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:7.3-cli
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:7.3-cli
@@ -348,13 +344,13 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Hohhot
-        uses: docker/login-action@v1 
-        with:
-          registry: registry.cn-huhehaote.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+#      -
+#        name: Login to Aliyun Container Registry Hohhot
+#        uses: docker/login-action@v1 
+#        with:
+#          registry: registry.cn-huhehaote.aliyuncs.com
+#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 
@@ -416,7 +412,6 @@ jobs:
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.0-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.0-apache
-            registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:8.0-apache
             registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:8.0-apache
             registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:8.0-apache
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.0-apache
@@ -426,7 +421,6 @@ jobs:
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.0-apache
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:apache
-            registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:apache
             registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:apache
             registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:apache
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:apache
@@ -461,13 +455,13 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Hohhot
-        uses: docker/login-action@v1 
-        with:
-          registry: registry.cn-huhehaote.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+#      -
+#        name: Login to Aliyun Container Registry Hohhot
+#        uses: docker/login-action@v1 
+#        with:
+#          registry: registry.cn-huhehaote.aliyuncs.com
+#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 
@@ -529,7 +523,6 @@ jobs:
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.4-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.4-apache
-            registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:7.4-apache
             registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:7.4-apache
             registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:7.4-apache
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:7.4-apache
@@ -564,13 +557,13 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Hohhot
-        uses: docker/login-action@v1 
-        with:
-          registry: registry.cn-huhehaote.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+#      -
+#        name: Login to Aliyun Container Registry Hohhot
+#        uses: docker/login-action@v1 
+#        with:
+#          registry: registry.cn-huhehaote.aliyuncs.com
+#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 
@@ -632,7 +625,6 @@ jobs:
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.3-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.3-apache
-            registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:7.3-apache
             registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:7.3-apache
             registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:7.3-apache
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:7.3-apache

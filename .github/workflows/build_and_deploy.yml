@@ -1,4 +1,4 @@
-name: Build and Deploy to Aliyun Container Registry
+name: [php-official] Build and Deploy to Aliyun Container Registry
 
 on:
   push:

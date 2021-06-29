@@ -1,5 +1,5 @@
 ARG TAG=apache
-FROM registry.cn-huhehaote.aliyuncs.com/vistart_public/php_official:${TAG}
+FROM registry.us-west-1.aliyuncs.com/vistart_public/php_official:${TAG}
 # FROM php:${TAG}
 LABEL maintainer "vistart <i@vistart.me>"
 

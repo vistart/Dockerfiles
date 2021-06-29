@@ -31,8 +31,8 @@ jobs:
           push: true
           build-args: 8.0-cli
           tags: |
-            vistart_public/php_official:cli
-            vistart_public/php_official:8.0-cli
+            registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:cli
+            registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.0-cli
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

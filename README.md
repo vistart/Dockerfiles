@@ -1,3 +1,5 @@
+[![php-official - Build and Deploy to Aliyun Container Registry](https://github.com/vistart/Dockerfiles/actions/workflows/build_and_deploy.yml/badge.svg?branch=php-official&event=push)](https://github.com/vistart/Dockerfiles/actions/workflows/build_and_deploy.yml)
+
 # PHP Officials
 
 These images are transferred to the Hong Kong & Shanghai node of Aliyun Container Service.

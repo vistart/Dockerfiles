@@ -2,12 +2,27 @@
 
 # PHP Officials
 
-These images are transferred to the Hong Kong & Shanghai node of Aliyun Container Service.
+These images are transferred to the following node of Aliyun Container Registry.
 
 ```
 registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:<tag>
 registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:<tag>
+registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:<tag>
+registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:<tag>
+registry.us-west-1.aliyuncs.com/vistart_public/php_official:<tag>
+registry.eu-central-1.aliyuncs.com/vistart_public/php_official:<tag>
+registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:<tag>
+registry.me-east-1.aliyuncs.com/vistart_public/php_official:<tag>
+registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:<tag>
 ```
+
+The supported tags are as follows:
+- `cli` \ `8.0-cli`
+- `apache` \ `8.0-apache`
+- `7.4-cli`
+- `7.4-apache`
+- `7.3-cli`
+- `7.3-apache`
 
 This image has installed all the necessary software, as follows:
 

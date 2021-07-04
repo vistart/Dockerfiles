@@ -39,17 +39,17 @@ jobs:
 #          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
 #          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Guangzhou
+        name: Login to Aliyun Container Registry Tokyo
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-guangzhou.aliyuncs.com
+          registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Chengdu
+        name: Login to Aliyun Container Registry London
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-chengdu.aliyuncs.com
+          registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
@@ -93,14 +93,15 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: php/cli
-          platforms: linux/386,linux/amd64,linux/arm64
+          platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
-          build-args: 8.0-cli
+          build-args: |
+            TAG: 8.0-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:8.0-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:8.0-cli
-            registry.cn-guangzhou.aliyuncs.com/vistart_public/php:8.0-cli
-            registry.cn-chengdu.aliyuncs.com/vistart_public/php:8.0-cli
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:8.0-cli
+            registry.eu-west-1.aliyuncs.com/vistart_public/php:8.0-cli
             registry.us-west-1.aliyuncs.com/vistart_public/php:8.0-cli
             registry.eu-central-1.aliyuncs.com/vistart_public/php:8.0-cli
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:8.0-cli
@@ -108,8 +109,8 @@ jobs:
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php:8.0-cli
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:cli
-            registry.cn-guangzhou.aliyuncs.com/vistart_public/php:cli
-            registry.cn-chengdu.aliyuncs.com/vistart_public/php:cli
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:cli
+            registry.eu-west-1.aliyuncs.com/vistart_public/php:cli
             registry.us-west-1.aliyuncs.com/vistart_public/php:cli
             registry.eu-central-1.aliyuncs.com/vistart_public/php:cli
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:cli
@@ -150,17 +151,17 @@ jobs:
 #          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
 #          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Guangzhou
+        name: Login to Aliyun Container Registry Tokyo
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-guangzhou.aliyuncs.com
+          registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Chengdu
+        name: Login to Aliyun Container Registry London
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-chengdu.aliyuncs.com
+          registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
@@ -204,14 +205,15 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: php/cli
-          platforms: linux/386,linux/amd64,linux/arm64
+          platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
-          build-args: 7.4-cli
+          build-args: |
+            TAG:7.4-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:7.4-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:7.4-cli
-            registry.cn-guangzhou.aliyuncs.com/vistart_public/php:7.4-cli
-            registry.cn-chengdu.aliyuncs.com/vistart_public/php:7.4-cli
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:7.4-cli
+            registry.eu-west-1.aliyuncs.com/vistart_public/php:7.4-cli
             registry.us-west-1.aliyuncs.com/vistart_public/php:7.4-cli
             registry.eu-central-1.aliyuncs.com/vistart_public/php:7.4-cli
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:7.4-cli
@@ -252,17 +254,17 @@ jobs:
 #          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
 #          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Guangzhou
+        name: Login to Aliyun Container Registry Tokyo
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-guangzhou.aliyuncs.com
+          registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Chengdu
+        name: Login to Aliyun Container Registry London
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-chengdu.aliyuncs.com
+          registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
@@ -306,14 +308,15 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: php/cli
-          platforms: linux/386,linux/amd64,linux/arm64
+          platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
-          build-args: 7.3-cli
+          build-args: |
+            TAG: 7.3-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:7.3-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:7.3-cli
-            registry.cn-guangzhou.aliyuncs.com/vistart_public/php:7.3-cli
-            registry.cn-chengdu.aliyuncs.com/vistart_public/php:7.3-cli
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:7.3-cli
+            registry.eu-west-1.aliyuncs.com/vistart_public/php:7.3-cli
             registry.us-west-1.aliyuncs.com/vistart_public/php:7.3-cli
             registry.eu-central-1.aliyuncs.com/vistart_public/php:7.3-cli
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:7.3-cli
@@ -354,17 +357,17 @@ jobs:
 #          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
 #          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Guangzhou
+        name: Login to Aliyun Container Registry Tokyo
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-guangzhou.aliyuncs.com
+          registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Chengdu
+        name: Login to Aliyun Container Registry London
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-chengdu.aliyuncs.com
+          registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
@@ -408,14 +411,15 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: php/apache
-          platforms: linux/386,linux/amd64,linux/arm64
+          platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
-          build-args: 8.0-apache
+          build-args: |
+            TAG: 8.0-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:8.0-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:8.0-apache
-            registry.cn-guangzhou.aliyuncs.com/vistart_public/php:8.0-apache
-            registry.cn-chengdu.aliyuncs.com/vistart_public/php:8.0-apache
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:8.0-apache
+            registry.eu-west-1.aliyuncs.com/vistart_public/php:8.0-apache
             registry.us-west-1.aliyuncs.com/vistart_public/php:8.0-apache
             registry.eu-central-1.aliyuncs.com/vistart_public/php:8.0-apache
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:8.0-apache
@@ -423,8 +427,8 @@ jobs:
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php:8.0-apache
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:apache
-            registry.cn-guangzhou.aliyuncs.com/vistart_public/php:apache
-            registry.cn-chengdu.aliyuncs.com/vistart_public/php:apache
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:apache
+            registry.eu-west-1.aliyuncs.com/vistart_public/php:apache
             registry.us-west-1.aliyuncs.com/vistart_public/php:apache
             registry.eu-central-1.aliyuncs.com/vistart_public/php:apache
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:apache
@@ -465,17 +469,17 @@ jobs:
 #          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
 #          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Guangzhou
+        name: Login to Aliyun Container Registry Tokyo
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-guangzhou.aliyuncs.com
+          registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Chengdu
+        name: Login to Aliyun Container Registry London
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-chengdu.aliyuncs.com
+          registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
@@ -519,14 +523,15 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: php/apache
-          platforms: linux/386,linux/amd64,linux/arm64
+          platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
-          build-args: 7.4-apache
+          build-args: |
+            TAG: 7.4-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:7.4-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:7.4-apache
-            registry.cn-guangzhou.aliyuncs.com/vistart_public/php:7.4-apache
-            registry.cn-chengdu.aliyuncs.com/vistart_public/php:7.4-apache
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:7.4-apache
+            registry.eu-west-1.aliyuncs.com/vistart_public/php:7.4-apache
             registry.us-west-1.aliyuncs.com/vistart_public/php:7.4-apache
             registry.eu-central-1.aliyuncs.com/vistart_public/php:7.4-apache
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:7.4-apache
@@ -567,17 +572,17 @@ jobs:
 #          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
 #          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Guangzhou
+        name: Login to Aliyun Container Registry Tokyo
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-guangzhou.aliyuncs.com
+          registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Chengdu
+        name: Login to Aliyun Container Registry London
         uses: docker/login-action@v1 
         with:
-          registry: registry.cn-chengdu.aliyuncs.com
+          registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
@@ -621,14 +626,15 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: php/apache
-          platforms: linux/386,linux/amd64,linux/arm64
+          platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
-          build-args: 7.3-apache
+          build-args: |
+            TAG: 7.3-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:7.3-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:7.3-apache
-            registry.cn-guangzhou.aliyuncs.com/vistart_public/php:7.3-apache
-            registry.cn-chengdu.aliyuncs.com/vistart_public/php:7.3-apache
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:7.3-apache
+            registry.eu-west-1.aliyuncs.com/vistart_public/php:7.3-apache
             registry.us-west-1.aliyuncs.com/vistart_public/php:7.3-apache
             registry.eu-central-1.aliyuncs.com/vistart_public/php:7.3-apache
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:7.3-apache

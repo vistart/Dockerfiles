@@ -95,7 +95,8 @@ jobs:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
-          build-args: 8.0-cli
+          build-args: |
+            TAG: 8.0-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.0-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.0-cli
@@ -206,7 +207,8 @@ jobs:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
-          build-args: 7.4-cli
+          build-args: |
+            TAG: 7.4-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.4-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.4-cli
@@ -308,7 +310,8 @@ jobs:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
-          build-args: 7.3-cli
+          build-args: |
+            TAG: 7.3-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.3-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.3-cli
@@ -410,7 +413,8 @@ jobs:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
-          build-args: 8.0-apache
+          build-args: |
+            TAG: 8.0-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.0-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.0-apache
@@ -521,7 +525,8 @@ jobs:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
-          build-args: 7.4-apache
+          build-args: |
+            TAG: 7.4-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.4-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.4-apache
@@ -623,7 +628,8 @@ jobs:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
-          build-args: 7.3-apache
+          build-args: |
+            TAG: 7.3-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:7.3-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:7.3-apache

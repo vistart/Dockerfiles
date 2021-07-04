@@ -308,6 +308,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: php/cli
+          file: php/cli/Dockerfile-7.2
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
           build-args: |
@@ -626,6 +627,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: php/apache
+          file: php/apache/Dockerfile-7.2
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
           build-args: |

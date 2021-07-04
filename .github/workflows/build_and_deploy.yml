@@ -96,7 +96,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
           build-args: |
-            TAG: 8.0-cli
+            TAG=8.0-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:8.0-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:8.0-cli
@@ -208,7 +208,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
           build-args: |
-            TAG:7.4-cli
+            TAG=7.4-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:7.4-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:7.4-cli
@@ -311,7 +311,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
           build-args: |
-            TAG: 7.3-cli
+            TAG=7.3-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:7.3-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:7.3-cli
@@ -414,7 +414,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
           build-args: |
-            TAG: 8.0-apache
+            TAG=8.0-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:8.0-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:8.0-apache
@@ -526,7 +526,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
           build-args: |
-            TAG: 7.4-apache
+            TAG=7.4-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:7.4-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:7.4-apache
@@ -629,7 +629,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
           build-args: |
-            TAG: 7.3-apache
+            TAG=7.3-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:7.3-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:7.3-apache

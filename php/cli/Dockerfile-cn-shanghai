@@ -15,7 +15,7 @@ RUN docker-php-ext-configure gd --with-freetype	 --with-jpeg --with-webp soap &&
                                       pdo_mysql \
                                       gd \
                                       zip \
-                                      iconv && \
+                                      iconv \
                                       soap && \
     docker-php-ext-enable xdebug \
                           mongodb \

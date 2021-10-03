@@ -6,6 +6,7 @@ These images are all based on the official [php](https://hub.docker.com/_/php) i
 - mbstring
 - mysqli
 - redis
+- soap
 - pcntl
 - pdo
 - pdo_mysql

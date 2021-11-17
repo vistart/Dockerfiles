@@ -4,7 +4,7 @@ on:
   push:
     branches: [ php-official ]
   schedule:
-    - cron: '0 7 * * *'
+    - cron: '0 8 * * *'
 
 jobs:
   build_8_0_cli:

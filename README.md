@@ -17,12 +17,14 @@ registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:<tag>
 ```
 
 The supported tags are as follows:
-- `cli` \ `8.0-cli`
-- `apache` \ `8.0-apache`
+- `8.1-cli` \ `cli`
+- `8.1-apache` \ `apache`
+- `8.0-cli`
+- `8.0-apache`
 - `7.4-cli`
 - `7.4-apache`
-- `7.3-cli`
-- `7.3-apache`
+- `7.3-cli` (no longer updated)
+- `7.3-apache` (no longer updated)
 
 This image has installed all the necessary software, as follows:
 
@@ -33,7 +35,7 @@ This image has installed all the necessary software, as follows:
 - `libzip-dev`
 - `zip`
 - `unzip`
-- `libmcrypt-dev`
+- `libmcrypt-dev` (removed from PHP 8.1 and later)
 - `libicu-dev`
 - `libpng-dev`
 - `libonig-dev`
@@ -55,6 +57,6 @@ This image has downloaded the following PECL extensions:
 - https://pecl.php.net/get/igbinary
 - https://pecl.php.net/get/amqp
 - https://pecl.php.net/get/libsodium
-- https://pecl.php.net/get/mcrypt
+- https://pecl.php.net/get/mcrypt (removed from PHP 8.1 and later)
 
 and libsodium.

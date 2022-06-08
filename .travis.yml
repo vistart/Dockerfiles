@@ -7,6 +7,8 @@ services:
 
 matrix:
   include:
+  - name: "C++ Env in Ubuntu 22.04"
+    env: BUILD_TAG=22.04
   - name: "C++ Env in Ubuntu 20.04"
     env: BUILD_TAG=20.04
   - name: "C++ Env in Ubuntu 18.04"
@@ -37,13 +39,21 @@ before_install:
 
 script:
   - |
-    if [ $BUILD_TAG = '20.04' ]; then
-      travis_wait 30 docker buildx build ubuntu/20.04 -t vistart/ubuntu-cpp:20.04 -t vistart/ubuntu-cpp:focal -t vistart/ubuntu-cpp:latest \
-      -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
-      -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
-      -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
-      -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
-      -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu-cpp:focal -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
+    if [ $BUILD_TAG = '22.04' ]; then
+      travis_wait 30 docker buildx build ubuntu/22.04 -t vistart/ubuntu-cpp:22.04 -t vistart/ubuntu-cpp:jammy -t vistart/ubuntu-cpp:latest \
+      -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:22.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:jammy -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
+      -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:22.04 -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:jammy -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
+      -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:22.04 -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:jammy -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
+      -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:22.04 -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:jammy -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
+      -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu-cpp:22.04 -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu-cpp:jammy -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu-cpp:latest \
+      --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
+    elif [ $BUILD_TAG = '20.04' ]; then
+      travis_wait 30 docker buildx build ubuntu/20.04 -t vistart/ubuntu-cpp:20.04 -t vistart/ubuntu-cpp:focal \
+      -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu-cpp:focal \
+      -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu-cpp:focal \
+      -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu-cpp:focal \
+      -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu-cpp:focal \
+      -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu-cpp:20.04 -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu-cpp:focal \
       --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x --pull --push
     elif [ $BUILD_TAG = '18.04' ]; then
       travis_wait 30 docker buildx build ubuntu/18.04 -t vistart/ubuntu-cpp:18.04 -t vistart/ubuntu-cpp:bionic \

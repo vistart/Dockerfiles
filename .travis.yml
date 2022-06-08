@@ -7,6 +7,8 @@ services:
 
 matrix:
   include:
+  - name: "Ubuntu 22.04"
+    env: BUILD_TAG=22.04
   - name: "Ubuntu 20.04"
     env: BUILD_TAG=20.04
   - name: "Ubuntu 18.04"
@@ -38,14 +40,23 @@ before_install:
 
 script:
   - |
-    if [ $BUILD_TAG = '20.04' ]; then
-      travis_wait 30 docker buildx build ubuntu/20.04 -t vistart/ubuntu:20.04 -t vistart/ubuntu:focal -t vistart/ubuntu:latest \
-#      -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu:focal -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu:latest \
-#      -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:focal -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:latest \
-      -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu:focal -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu:latest \
-      -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu:focal -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu:latest \
-      -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu:focal -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu:latest \
-      -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu:focal -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu:latest \
+    if [ $BUILD_TAG = '22.04' ]; then
+      travis_wait 30 docker buildx build ubuntu/22.04 -t vistart/ubuntu:22.04 -t vistart/ubuntu:jammy -t vistart/ubuntu:latest \
+#      -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu:22.04 -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu:jammy -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu:latest \
+#      -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:22.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:jammy -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:latest \
+      -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu:22.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu:jammy -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu:latest \
+      -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu:22.04 -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu:jammy -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu:latest \
+      -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu:22.04 -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu:jammy -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu:latest \
+      -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu:22.04 -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu:jammy -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu:latest \
+      --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x,linux/ppc64le --pull --push
+    elif [ $BUILD_TAG = '20.04' ]; then
+      travis_wait 30 docker buildx build ubuntu/22.04 -t vistart/ubuntu:20.04 -t vistart/ubuntu:focal \
+#      -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu:focal \
+#      -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.cn-huhehaote.aliyuncs.com/vistart_public/ubuntu:focal \
+      -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu:focal \
+      -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu:focal \
+      -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.me-east-1.aliyuncs.com/vistart_public/ubuntu:focal \
+      -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu:20.04 -t registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu:focal \
       --platform=linux/amd64,linux/arm64,linux/arm/v7,linux/s390x,linux/ppc64le --pull --push
     elif [ $BUILD_TAG = '18.04' ]; then
       travis_wait 30 docker buildx build ubuntu/18.04 -t vistart/ubuntu:18.04 -t vistart/ubuntu:bionic \

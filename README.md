@@ -63,16 +63,25 @@ This image supports multiple platforms. For details, please refer to the followi
 - `linux/s390x`
 - `linux/arm/v7`
 
+
+## Ubuntu 22.04
+
+### Tags
+
+- `22.04`, `jammy`, `latest`
+
+### Platforms
+
+- `linux/amd64`
+- `linux/arm64`
+- `linux/s390x`
+- `linux/arm/v7`
+
 ## Aliyun Container Registry
 
 In addition to the image pushed to the docker hub, the same image is also pushed to the following container registry. You can replace the image name with one of the subordinates, and keep the tag unchanged, you can use the same image as the version managed in the docker hub.
 
 - `registry.cn-hongkong.aliyuncs.com/vistart_public/ubuntu:<tag>`
-- `registry.cn-shanghai.aliyuncs.com/vistart_public/ubuntu:<tag>`
-- `registry.cn-guangzhou.aliyuncs.com/vistart_public/ubuntu:<tag>`
-- `registry.cn-chengdu.aliyuncs.com/vistart_public/ubuntu:<tag>`
-- `registry.us-west-1.aliyuncs.com/vistart_public/ubuntu:<tag>`
 - `registry.eu-central-1.aliyuncs.com/vistart_public/ubuntu:<tag>`
 - `registry.ap-southeast-2.aliyuncs.com/vistart_public/ubuntu:<tag>`
 - `registry.me-east-1.aliyuncs.com/vistart_public/ubuntu:<tag>`
-- `registry.ap-southeast-1.aliyuncs.com/vistart_public/ubuntu:<tag>`

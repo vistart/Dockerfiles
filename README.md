@@ -46,13 +46,13 @@ The following apache2 module(s) are enabled:
 Also installed is [composer](https://getcomposer.org).
 
 # Supported tags and respective `Dockerfile` links
-- 8.1.6 ([`8.1-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.1)) \  ([`apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.1))
-- 8.0.19 ([`8.0-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
-- 7.4.29 ([`7.4-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
+- 8.1.7 ([`8.1-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.1)) \  ([`apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.1))
+- 8.0.20 ([`8.0-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
+- 7.4.30 ([`7.4-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
 - 7.3.33 ([`7.3-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) (no longer updated)
-- 8.1.6 ([`8.1-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.1)) \  ([`cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.1))
-- 8.0.19 ([`8.0-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
-- 7.4.29 ([`7.4-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
+- 8.1.7 ([`8.1-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.1)) \  ([`cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.1))
+- 8.0.20 ([`8.0-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
+- 7.4.30 ([`7.4-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
 - 7.3.33 ([`7.3-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile)) (no longer updated)
 
 # Supported CPU Archs:

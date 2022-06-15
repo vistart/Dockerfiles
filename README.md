@@ -57,6 +57,6 @@ This image has downloaded the following PECL extensions:
 - https://pecl.php.net/get/igbinary
 - https://pecl.php.net/get/amqp
 - https://pecl.php.net/get/libsodium
-- https://pecl.php.net/get/mcrypt (removed from PHP 8.1 and later)
+- https://pecl.php.net/get/mcrypt
 
 and libsodium.

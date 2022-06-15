@@ -3,7 +3,7 @@
 These images are all based on the official [php](https://hub.docker.com/_/php) images and the following extensions are enabled:
 - bcmath
 - intl
-- mcrypt (removed from PHP 8.1 and later)
+- mcrypt
 - mbstring
 - mysqli
 - redis
@@ -27,7 +27,7 @@ The following software is installed:
 - libfreetype6-dev
 - libjpeg62-turbo-dev
 - libicu-dev
-- libmcrypt-dev (removed from PHP 8.1 and later)
+- libmcrypt-dev
 - libmagickwand-dev
 - libpng-dev
 - librabbitmq-dev (amqp extension required)
@@ -46,11 +46,11 @@ The following apache2 module(s) are enabled:
 Also installed is [composer](https://getcomposer.org).
 
 # Supported tags and respective `Dockerfile` links
-- 8.1.7 ([`8.1-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.1)) \  ([`apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.1))
+- 8.1.7 ([`8.1-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) \  ([`apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
 - 8.0.20 ([`8.0-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
 - 7.4.30 ([`7.4-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
 - 7.3.33 ([`7.3-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) (no longer updated)
-- 8.1.7 ([`8.1-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.1)) \  ([`cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.1))
+- 8.1.7 ([`8.1-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile)) \  ([`cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile1))
 - 8.0.20 ([`8.0-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
 - 7.4.30 ([`7.4-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
 - 7.3.33 ([`7.3-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile)) (no longer updated)

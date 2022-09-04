@@ -46,14 +46,12 @@ The following apache2 module(s) are enabled:
 Also installed is [composer](https://getcomposer.org).
 
 # Supported tags and respective `Dockerfile` links
-- 8.1.7 ([`8.1-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) \  ([`apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
-- 8.0.20 ([`8.0-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
-- 7.4.30 ([`7.4-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
-- 7.3.33 ([`7.3-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) (no longer updated)
-- 8.1.7 ([`8.1-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile)) \  ([`cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile1))
-- 8.0.20 ([`8.0-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
-- 7.4.30 ([`7.4-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
-- 7.3.33 ([`7.3-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile)) (no longer updated)
+- 8.2.0RC1 ([`8.2-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
+- 8.1.10 ([`8.1-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) \  ([`apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
+- 8.0.23 ([`8.0-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile))
+- 8.2.0RC1 ([`8.2-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
+- 8.1.10 ([`8.1-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile)) \  ([`cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile1))
+- 8.0.23 ([`8.0-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
 
 # Supported CPU Archs:
 - linux/386
@@ -92,15 +90,3 @@ Switch the current directory to the directory where the dockerfile is saved and 
 or
 
 `docker build . --build-arg TAG=8.1-apache`
-
-# Troubleshooting
-
-## `composer-setup.sh` NOT FOUND
-
-This problem is caused by the end of the `composer-setup.sh` file not conforming to the unix format.
-
-Solution: Use `dos2unix` to convert the `composer-setup.sh` file:
-
-```
-$ dos2unix composer-setup.sh
-```

@@ -4,7 +4,7 @@ on:
   push:
     branches: [ php-official ]
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 6 28 * 0'
 
 jobs:
   build_8_1_cli:
@@ -387,7 +387,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
           build-args: |
-            TAG=8.2.0RC5-cli
+            TAG=8.2.0RC7-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.2-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.2-cli
@@ -781,7 +781,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
           build-args: |
-            TAG=8.2.0RC5-apache
+            TAG=8.2.0RC7-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.2-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.2-apache

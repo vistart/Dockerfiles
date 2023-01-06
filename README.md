@@ -17,14 +17,14 @@ registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:<tag>
 ```
 
 The supported tags are as follows:
-- `8.1-cli` \ `cli`
-- `8.1-apache` \ `apache`
+- `8.2-cli` \ `cli`
+- `8.2-apache` \ `apache`
+- `8.1-cli`
+- `8.1-apache`
 - `8.0-cli`
 - `8.0-apache`
-- `7.4-cli`
-- `7.4-apache`
-- `7.3-cli` (no longer updated)
-- `7.3-apache` (no longer updated)
+- `7.4-cli` (no longer updated)
+- `7.4-apache` (no longer updated)
 
 This image has installed all the necessary software, as follows:
 

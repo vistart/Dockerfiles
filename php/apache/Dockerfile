@@ -5,7 +5,7 @@ LABEL maintainer "vistart <i@vistart.me>"
 
 RUN tar -xzf libsodium.tar.gz && rm libsodium.tar.gz && cd libsodium-stable && ./configure && make && make check && make install
 RUN pecl install xdebug mongodb timezonedb imagick igbinary amqp libsodium mcrypt redis && rm xdebug mongodb timezonedb imagick igbinary amqp libsodium mcrypt redis
-RUN docker-php-ext-configure gd --with-freetype	 --with-jpeg --with-webp && docker-php-ext-configure soap && \
+RUN docker-php-ext-configure gd --with-freetype	 --with-jpeg --with-webp && docker-php-ext-configure soap && docker-php-ext-configure pdo_pgsql && \
     docker-php-ext-install -j$(nproc) bcmath \
                                       intl \
                                       mbstring \
@@ -17,6 +17,7 @@ RUN docker-php-ext-configure gd --with-freetype	 --with-jpeg --with-webp && dock
                                       zip \
                                       iconv \
                                       soap && \
+                                      pdo_pgsql && \
     docker-php-ext-enable xdebug \
                           mongodb \
                           timezonedb \

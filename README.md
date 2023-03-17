@@ -47,6 +47,7 @@ This image has installed all the necessary software, as follows:
 - `openssl`
 - `libssl-dev`
 - `librabbitmq-dev`
+- `libpq-dev`
 
 This image has downloaded the following PECL extensions:
 

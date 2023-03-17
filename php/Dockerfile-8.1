@@ -22,6 +22,7 @@ RUN apt-get update -qq && apt-get upgrade -y -qq && apt-get install -y -qq axel 
                        openssl \
                        libssl-dev \
                        librabbitmq-dev \
+                       libpq-dev \
     && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list && sed -i 's/http/https/g' /etc/apt/sources.list
 WORKDIR /tmp

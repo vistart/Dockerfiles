@@ -101,15 +101,6 @@ jobs:
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.1-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.1-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.1-cli
-            registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:cli
-            registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:cli
-            registry.ap-northeast-1.aliyuncs.com/vistart_public/php_official:cli
-            registry.eu-west-1.aliyuncs.com/vistart_public/php_official:cli
-            registry.us-west-1.aliyuncs.com/vistart_public/php_official:cli
-            registry.eu-central-1.aliyuncs.com/vistart_public/php_official:cli
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:cli
-            registry.me-east-1.aliyuncs.com/vistart_public/php_official:cli
-            registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:cli
       -
         name: Image digest
         run: echo ${{ steps.build_and_push_8_1_cli.outputs.digest }}
@@ -284,27 +275,36 @@ jobs:
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Build and push
-        id: build_and_push_8_0_cli
+        id: build_and_push_8_2_cli
         uses: docker/build-push-action@v2
         with:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
           build-args: |
-            TAG=8.0-cli
+            TAG=8.2-cli
           tags: |
-            registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.0-cli
-            registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.0-cli
-            registry.ap-northeast-1.aliyuncs.com/vistart_public/php_official:8.0-cli
-            registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.0-cli
-            registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.0-cli
-            registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.0-cli
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.0-cli
-            registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.0-cli
-            registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.0-cli
+            registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.2-cli
+            registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.2-cli
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php_official:8.2-cli
+            registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.2-cli
+            registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.2-cli
+            registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.2-cli
+            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.20-cli
+            registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.2-cli
+            registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.2-cli
+            registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:cli
+            registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:cli
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php_official:cli
+            registry.eu-west-1.aliyuncs.com/vistart_public/php_official:cli
+            registry.us-west-1.aliyuncs.com/vistart_public/php_official:cli
+            registry.eu-central-1.aliyuncs.com/vistart_public/php_official:cli
+            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:cli
+            registry.me-east-1.aliyuncs.com/vistart_public/php_official:cli
+            registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:cli
       -
         name: Image digest
-        run: echo ${{ steps.build_and_push_8_0_cli.outputs.digest }}
+        run: echo ${{ steps.build_and_push_8_2_cli.outputs.digest }}
   build_8_3_cli:
     runs-on: ubuntu-latest
     steps:
@@ -495,15 +495,6 @@ jobs:
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.1-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.1-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.1-apache
-            registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:apache
-            registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:apache
-            registry.ap-northeast-1.aliyuncs.com/vistart_public/php_official:apache
-            registry.eu-west-1.aliyuncs.com/vistart_public/php_official:apache
-            registry.us-west-1.aliyuncs.com/vistart_public/php_official:apache
-            registry.eu-central-1.aliyuncs.com/vistart_public/php_official:apache
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:apache
-            registry.me-east-1.aliyuncs.com/vistart_public/php_official:apache
-            registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:apache
       -
         name: Image digest
         run: echo ${{ steps.build_and_push_8_1_apache.outputs.digest }}
@@ -678,27 +669,36 @@ jobs:
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Build and push
-        id: build_and_push_8_0_apache
+        id: build_and_push_8_2_apache
         uses: docker/build-push-action@v2
         with:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
           build-args: |
-            TAG=8.0-apache
+            TAG=8.2-apache
           tags: |
-            registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.0-apache
-            registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.0-apache
-            registry.ap-northeast-1.aliyuncs.com/vistart_public/php_official:8.0-apache
-            registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.0-apache
-            registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.0-apache
-            registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.0-apache
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.0-apache
-            registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.0-apache
-            registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.0-apache
+            registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.2-apache
+            registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.2-apache
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php_official:8.2-apache
+            registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.2-apache
+            registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.2-apache
+            registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.2-apache
+            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.2-apache
+            registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.2-apache
+            registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.2-apache
+            registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:apache
+            registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:apache
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php_official:apache
+            registry.eu-west-1.aliyuncs.com/vistart_public/php_official:apache
+            registry.us-west-1.aliyuncs.com/vistart_public/php_official:apache
+            registry.eu-central-1.aliyuncs.com/vistart_public/php_official:apache
+            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:apache
+            registry.me-east-1.aliyuncs.com/vistart_public/php_official:apache
+            registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:apache
       -
         name: Image digest
-        run: echo ${{ steps.build_and_push_8_0_apache.outputs.digest }}
+        run: echo ${{ steps.build_and_push_8_2_apache.outputs.digest }}
   build_8_3_apache:
     runs-on: ubuntu-latest
     steps:

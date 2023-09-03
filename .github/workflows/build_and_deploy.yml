@@ -387,7 +387,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
           build-args: |
-            TAG=8.3.0beta2-cli
+            TAG=8.3.0beta3-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.3-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.3-cli
@@ -781,7 +781,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
           build-args: |
-            TAG=8.3.0beta2-apache
+            TAG=8.3.0beta3-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:8.3-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:8.3-apache

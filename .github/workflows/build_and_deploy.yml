@@ -10,7 +10,7 @@ jobs:
   build_trusty:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -37,13 +37,6 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-#      -
-#        name: Login to Aliyun Container Registry Hohhot
-#        uses: docker/login-action@v1 
-#        with:
-#          registry: registry.cn-huhehaote.aliyuncs.com
-#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 
@@ -128,7 +121,7 @@ jobs:
   build_xenial:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -155,13 +148,6 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-#      -
-#        name: Login to Aliyun Container Registry Hohhot
-#        uses: docker/login-action@v1 
-#        with:
-#          registry: registry.cn-huhehaote.aliyuncs.com
-#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 
@@ -246,7 +232,7 @@ jobs:
   build_bionic:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -273,13 +259,6 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-#      -
-#        name: Login to Aliyun Container Registry Hohhot
-#        uses: docker/login-action@v1 
-#        with:
-#          registry: registry.cn-huhehaote.aliyuncs.com
-#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 
@@ -364,7 +343,7 @@ jobs:
   build_focal:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -391,13 +370,6 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-#      -
-#        name: Login to Aliyun Container Registry Hohhot
-#        uses: docker/login-action@v1 
-#        with:
-#          registry: registry.cn-huhehaote.aliyuncs.com
-#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 
@@ -509,13 +481,6 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-#      -
-#        name: Login to Aliyun Container Registry Hohhot
-#        uses: docker/login-action@v1 
-#        with:
-#          registry: registry.cn-huhehaote.aliyuncs.com
-#          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-#          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
         name: Login to Aliyun Container Registry Guangzhou
         uses: docker/login-action@v1 

@@ -83,7 +83,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_1_cli
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: php
           file: php/Dockerfile
@@ -180,7 +180,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_0_cli
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
@@ -276,7 +276,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_2_cli
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
@@ -381,7 +381,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_3_cli
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
@@ -477,7 +477,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_1_apache
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: php
           file: php/Dockerfile
@@ -574,7 +574,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_0_apache
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
@@ -670,7 +670,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_2_apache
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
@@ -775,7 +775,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_3_apache
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: php
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x

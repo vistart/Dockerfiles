@@ -17,8 +17,10 @@ registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:<tag>
 ```
 
 The supported tags are as follows:
-- `8.2-cli` \ `cli`
-- `8.2-apache` \ `apache`
+- `8.3-cli` \ `cli`
+- `8.3-apache` \ `apache`
+- `8.2-cli`
+- `8.2-apache`
 - `8.1-cli`
 - `8.1-apache`
 - `8.0-cli`

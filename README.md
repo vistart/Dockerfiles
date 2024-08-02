@@ -23,8 +23,8 @@ The supported tags are as follows:
 - `8.2-apache`
 - `8.1-cli`
 - `8.1-apache`
-- `8.0-cli`
-- `8.0-apache`
+- `8.0-cli` (no longer updated)
+- `8.0-apache` (no longer updated)
 - `7.4-cli` (no longer updated)
 - `7.4-apache` (no longer updated)
 

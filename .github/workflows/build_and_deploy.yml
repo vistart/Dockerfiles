@@ -34,8 +34,7 @@ jobs:
                 docker buildx create --name mybuilder --use
 
                 # Pull the existing images
-                docker buildx imagetools create --tag temp:latest $OLD_TAG
-                docker buildx imagetools create --tag $NEW_TAG temp:latest
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
 
                 # Retag and push them
                 docker push $NEW_TAG

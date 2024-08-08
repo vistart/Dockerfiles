@@ -33,9 +33,9 @@ jobs:
                 # Create a new buildx builder instance
                 docker buildx create --name mybuilder --use
 
-                # Pull the existing manifest
-                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+                # Pull the existing images
+                docker buildx imagetools create --tag temp:latest $OLD_TAG
+                docker buildx imagetools create --tag $NEW_TAG temp:latest
 
                 # Retag and push them
-                docker tag $OLD_TAG $NEW_TAG
                 docker push $NEW_TAG

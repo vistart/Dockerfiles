@@ -34,15 +34,8 @@ jobs:
                 docker buildx create --name mybuilder --use
 
                 # Pull the existing manifest
-                docker buildx imagetools inspect $OLD_TAG > manifest.json
+                docker buildx imagetools create --tag $NEW_TAG
 
-                # Extract individual images and retag them
-                for digest in $(grep -oE 'sha256:[a-f0-9]+' manifest.json); do
-                    docker pull $OLD_TAG@$digest
-                    docker tag $OLD_TAG@$digest $NEW_TAG@$digest
-                    docker push $NEW_TAG@$digest
-                done
-
-                # Create and push new manifest
-                docker buildx imagetools create -t $NEW_TAG $(grep -oE 'sha256:[a-f0-9]+' manifest.json | sed "s|^|$NEW_TAG@|")
-                docker buildx imagetools inspect $NEW_TAG
+                # Retag and push them
+                docker tag $OLD_TAG $NEW_TAG
+                docker push $NEW_TAG

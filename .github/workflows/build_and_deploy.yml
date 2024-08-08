@@ -15,9 +15,6 @@ jobs:
 
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v3
-            
-            - name: Install jq
-              run: sudo apt-get update && sudo apt-get install -y jq
 
             -
                 name: Login to Aliyun Container Registry Shanghai
@@ -37,15 +34,15 @@ jobs:
                 docker buildx create --name mybuilder --use
 
                 # Pull the existing manifest
-                docker buildx imagetools inspect $OLD_TAG --raw > manifest.json
+                docker buildx imagetools inspect $OLD_TAG > manifest.json
 
                 # Extract individual images and retag them
-                for digest in $(jq -r '.manifests[].digest' manifest.json); do
+                for digest in $(grep -oE 'sha256:[a-f0-9]+' manifest.json); do
                     docker pull $OLD_TAG@$digest
-                    docker tag $OLD_TAG@$digest $NEW_TAG
-                    docker push $NEW_TAG
+                    docker tag $OLD_TAG@$digest $NEW_TAG@$digest
+                    docker push $NEW_TAG@$digest
                 done
 
                 # Create and push new manifest
-                docker buildx imagetools create -t $NEW_TAG $(for digest in $(jq -r '.manifests[].digest' manifest.json); do echo $NEW_TAG@$digest; done)
+                docker buildx imagetools create -t $NEW_TAG $(grep -oE 'sha256:[a-f0-9]+' manifest.json | sed "s|^|$NEW_TAG@|")
                 docker buildx imagetools inspect $NEW_TAG

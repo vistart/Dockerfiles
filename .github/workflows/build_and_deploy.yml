@@ -100,7 +100,7 @@ jobs:
 
                 # Retag and push them
                 docker push $NEW_TAG
-    transfer_mongo_v44:
+    transfer_mongo_v4_4_18:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
@@ -120,8 +120,8 @@ jobs:
             - name: Pull and retag multi-architecture image
               run: |
                 # Set old and new tags
-                OLD_TAG=mongo:4.4
-                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/mongo:4.4
+                OLD_TAG=mongo:4.4.18
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/mongo:4.4.18
 
                 # Create a new buildx builder instance
                 docker buildx create --name mybuilder --use

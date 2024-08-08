@@ -34,7 +34,7 @@ jobs:
                 docker buildx create --name mybuilder --use
 
                 # Pull the existing manifest
-                docker buildx imagetools create --tag $NEW_TAG
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
 
                 # Retag and push them
                 docker tag $OLD_TAG $NEW_TAG

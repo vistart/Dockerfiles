@@ -27,7 +27,7 @@ jobs:
             - name: Pull and retag multi-architecture image
               run: |
                 # Set old and new tags
-                OLD_TAG=docker.io/library/redis:latest
+                OLD_TAG=redis:latest
                 NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/redis:latest
 
                 # Create a new buildx builder instance

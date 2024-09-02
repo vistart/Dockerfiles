@@ -101,15 +101,6 @@ jobs:
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:8.1-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php:8.1-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php:8.1-cli
-            registry.cn-hongkong.aliyuncs.com/vistart_public/php:cli
-            registry.cn-shanghai.aliyuncs.com/vistart_public/php:cli
-            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:cli
-            registry.eu-west-1.aliyuncs.com/vistart_public/php:cli
-            registry.us-west-1.aliyuncs.com/vistart_public/php:cli
-            registry.eu-central-1.aliyuncs.com/vistart_public/php:cli
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php:cli
-            registry.me-east-1.aliyuncs.com/vistart_public/php:cli
-            registry.ap-southeast-1.aliyuncs.com/vistart_public/php:cli
       -
         name: Image digest
         run: echo ${{ steps.build_and_push_8_1_cli.outputs.digest }}
@@ -304,6 +295,15 @@ jobs:
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:8.3-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php:8.3-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php:8.3-cli
+            registry.cn-hongkong.aliyuncs.com/vistart_public/php:cli
+            registry.cn-shanghai.aliyuncs.com/vistart_public/php:cli
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:cli
+            registry.eu-west-1.aliyuncs.com/vistart_public/php:cli
+            registry.us-west-1.aliyuncs.com/vistart_public/php:cli
+            registry.eu-central-1.aliyuncs.com/vistart_public/php:cli
+            registry.ap-southeast-2.aliyuncs.com/vistart_public/php:cli
+            registry.me-east-1.aliyuncs.com/vistart_public/php:cli
+            registry.ap-southeast-1.aliyuncs.com/vistart_public/php:cli
       -
         name: Image digest
         run: echo ${{ steps.build_and_push_8_3_cli.outputs.digest }}
@@ -401,15 +401,6 @@ jobs:
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:8.1-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php:8.1-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php:8.1-apache
-            registry.cn-hongkong.aliyuncs.com/vistart_public/php:apache
-            registry.cn-shanghai.aliyuncs.com/vistart_public/php:apache
-            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:apache
-            registry.eu-west-1.aliyuncs.com/vistart_public/php:apache
-            registry.us-west-1.aliyuncs.com/vistart_public/php:apache
-            registry.eu-central-1.aliyuncs.com/vistart_public/php:apache
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php:apache
-            registry.me-east-1.aliyuncs.com/vistart_public/php:apache
-            registry.ap-southeast-1.aliyuncs.com/vistart_public/php:apache
       -
         name: Image digest
         run: echo ${{ steps.build_and_push_8_1_apache.outputs.digest }}
@@ -604,6 +595,15 @@ jobs:
             registry.ap-southeast-2.aliyuncs.com/vistart_public/php:8.3-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php:8.3-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php:8.3-apache
+            registry.cn-hongkong.aliyuncs.com/vistart_public/php:apache
+            registry.cn-shanghai.aliyuncs.com/vistart_public/php:apache
+            registry.ap-northeast-1.aliyuncs.com/vistart_public/php:apache
+            registry.eu-west-1.aliyuncs.com/vistart_public/php:apache
+            registry.us-west-1.aliyuncs.com/vistart_public/php:apache
+            registry.eu-central-1.aliyuncs.com/vistart_public/php:apache
+            registry.ap-southeast-2.aliyuncs.com/vistart_public/php:apache
+            registry.me-east-1.aliyuncs.com/vistart_public/php:apache
+            registry.ap-southeast-1.aliyuncs.com/vistart_public/php:apache
       -
         name: Image digest
         run: echo ${{ steps.build_and_push_8_3_apache.outputs.digest }}

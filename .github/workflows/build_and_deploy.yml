@@ -4,7 +4,7 @@ on:
     push:
         branches: [ common-images-transition ]
     schedule:
-        - cron: '00 21 * * *'
+        - cron: '00 21 4 * *'
 
 jobs:
     transfer_redis:

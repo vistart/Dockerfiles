@@ -11,7 +11,7 @@ registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:<tag>
 registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:<tag>
 registry.us-west-1.aliyuncs.com/vistart_public/php_official:<tag>
 registry.eu-central-1.aliyuncs.com/vistart_public/php_official:<tag>
-registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:<tag>
+# registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:<tag>
 registry.me-east-1.aliyuncs.com/vistart_public/php_official:<tag>
 registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:<tag>
 ```

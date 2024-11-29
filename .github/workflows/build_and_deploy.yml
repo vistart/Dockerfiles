@@ -60,13 +60,6 @@ jobs:
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Sydney
-        uses: docker/login-action@v2 
-        with:
-          registry: registry.ap-southeast-2.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
         name: Login to Aliyun Container Registry Dubai
         uses: docker/login-action@v2 
         with:
@@ -98,7 +91,6 @@ jobs:
             registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.1-cli
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.1-cli
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.1-cli
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.1-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.1-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.1-cli
       -
@@ -157,13 +149,6 @@ jobs:
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Sydney
-        uses: docker/login-action@v2 
-        with:
-          registry: registry.ap-southeast-2.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
         name: Login to Aliyun Container Registry Dubai
         uses: docker/login-action@v2 
         with:
@@ -194,7 +179,6 @@ jobs:
             registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.2-cli
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.2-cli
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.2-cli
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.20-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.2-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.2-cli
       -
@@ -253,13 +237,6 @@ jobs:
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Sydney
-        uses: docker/login-action@v2 
-        with:
-          registry: registry.ap-southeast-2.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
         name: Login to Aliyun Container Registry Dubai
         uses: docker/login-action@v2 
         with:
@@ -290,7 +267,6 @@ jobs:
             registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.3-cli
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.3-cli
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.3-cli
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.3-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.3-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.3-cli
       -
@@ -349,13 +325,6 @@ jobs:
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Sydney
-        uses: docker/login-action@v2 
-        with:
-          registry: registry.ap-southeast-2.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
         name: Login to Aliyun Container Registry Dubai
         uses: docker/login-action@v2 
         with:
@@ -386,7 +355,6 @@ jobs:
             registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.4-cli
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.4-cli
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.4-cli
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.4-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.4-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.4-cli
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:cli
@@ -395,7 +363,6 @@ jobs:
             registry.eu-west-1.aliyuncs.com/vistart_public/php_official:cli
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:cli
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:cli
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:cli
       -
@@ -454,13 +421,6 @@ jobs:
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Sydney
-        uses: docker/login-action@v2 
-        with:
-          registry: registry.ap-southeast-2.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
         name: Login to Aliyun Container Registry Dubai
         uses: docker/login-action@v2 
         with:
@@ -492,7 +452,6 @@ jobs:
             registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.1-apache
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.1-apache
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.1-apache
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.1-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.1-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.1-apache
       -
@@ -551,13 +510,6 @@ jobs:
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Sydney
-        uses: docker/login-action@v2 
-        with:
-          registry: registry.ap-southeast-2.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
         name: Login to Aliyun Container Registry Dubai
         uses: docker/login-action@v2 
         with:
@@ -588,7 +540,6 @@ jobs:
             registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.2-apache
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.2-apache
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.2-apache
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.2-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.2-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.2-apache
       -
@@ -647,13 +598,6 @@ jobs:
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Sydney
-        uses: docker/login-action@v2 
-        with:
-          registry: registry.ap-southeast-2.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
         name: Login to Aliyun Container Registry Dubai
         uses: docker/login-action@v2 
         with:
@@ -684,7 +628,6 @@ jobs:
             registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.3-apache
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.3-apache
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.3-apache
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.3-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.3-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.3-apache
       -
@@ -743,13 +686,6 @@ jobs:
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       -
-        name: Login to Aliyun Container Registry Sydney
-        uses: docker/login-action@v2 
-        with:
-          registry: registry.ap-southeast-2.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
         name: Login to Aliyun Container Registry Dubai
         uses: docker/login-action@v2 
         with:
@@ -780,7 +716,6 @@ jobs:
             registry.eu-west-1.aliyuncs.com/vistart_public/php_official:8.4-apache
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:8.4-apache
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.4-apache
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:8.4-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.4-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.4-apache
             registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:apache
@@ -789,7 +724,6 @@ jobs:
             registry.eu-west-1.aliyuncs.com/vistart_public/php_official:apache
             registry.us-west-1.aliyuncs.com/vistart_public/php_official:apache
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:apache
-            registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:apache
       -

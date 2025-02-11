@@ -38,6 +38,99 @@ jobs:
 
                 # Retag and push them
                 docker push $NEW_TAG
+    transfer_redis_7_4:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=redis:7.4
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/redis:7.4
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
+    transfer_redis_7_2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=redis:7.2
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/redis:7.2
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
+    transfer_redis_6_2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=redis:6.2
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/redis:6.2
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
     transfer_redis_stack:
         runs-on: ubuntu-latest
         steps:
@@ -91,6 +184,130 @@ jobs:
                 # Set old and new tags
                 OLD_TAG=mysql:latest
                 NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/mysql:latest
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
+    transfer_mysql_8_4:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=mysql:8.4
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/mysql:8.4
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
+    transfer_mysql_8_0:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=mysql:8.0
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/mysql:8.0
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
+    transfer_mysql_5_7:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=mysql:5.7
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/mysql:5.7
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
+    transfer_mysql_5_6:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=mysql:5.6
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/mysql:5.6
 
                 # Create a new buildx builder instance
                 docker buildx create --name mybuilder --use
@@ -184,6 +401,130 @@ jobs:
                 # Set old and new tags
                 OLD_TAG=postgres:latest
                 NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:latest
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
+    transfer_postgres_16:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=postgres:16
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:16
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
+    transfer_postgres_15:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=postgres:15
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:15
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
+    transfer_postgres_14:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=postgres:14
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:14
+
+                # Create a new buildx builder instance
+                docker buildx create --name mybuilder --use
+
+                # Pull the existing images
+                docker buildx imagetools create --tag $NEW_TAG $OLD_TAG
+
+                # Retag and push them
+                docker push $NEW_TAG
+    transfer_postgres_13:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            -
+                name: Login to Aliyun Container Registry Shanghai
+                uses: docker/login-action@v3
+                with:
+                    registry: registry.cn-shanghai.aliyuncs.com
+                    username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+                    password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+            - name: Pull and retag multi-architecture image
+              run: |
+                # Set old and new tags
+                OLD_TAG=postgres:13
+                NEW_TAG=registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:13
 
                 # Create a new buildx builder instance
                 docker buildx create --name mybuilder --use

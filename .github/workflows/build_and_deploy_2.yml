@@ -1,5 +1,7 @@
 name: Transfer Docker Images
 on:
+  push:
+    branches: [ common-images-transition]
   schedule:
     - cron: '0 3 15 * *'  # 每月15号凌晨3点触发
   workflow_dispatch:      # 允许手动触发

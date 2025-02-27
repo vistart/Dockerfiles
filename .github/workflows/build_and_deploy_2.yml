@@ -180,3 +180,74 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # MariaDB 相关镜像
+  transfer_mariadb:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: 'latest'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_10_5:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '10.5'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_10_6:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '10.6'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_10_11:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '10.11'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_11_4:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '11.4'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_11_7:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '11.7'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_11_8:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '11.8'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}

@@ -12,7 +12,7 @@ jobs:
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: redis
-      source_tag: latest
+      source_tag: 'latest'
       dest_namespace: vistart_public
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -52,7 +52,7 @@ jobs:
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: redis/redis-stack
-      source_tag: latest
+      source_tag: 'latest'
       dest_image: redis-stack
       dest_namespace: vistart_public
     secrets:
@@ -64,7 +64,7 @@ jobs:
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: mysql
-      source_tag: latest
+      source_tag: 'latest'
       dest_namespace: vistart_public
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -115,7 +115,57 @@ jobs:
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: mongo
-      source_tag: latest
+      source_tag: 'latest'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mongo_4_4_18:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mongo
+      source_tag: '4.4.18'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_postgres_9:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: postgres
+      source_tag: '9'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_postgres_10:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: postgres
+      source_tag: '10'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_postgres_11:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: postgres
+      source_tag: '11'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_postgres_12:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: postgres
+      source_tag: '12'
       dest_namespace: vistart_public
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -161,6 +211,16 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
+  transfer_postgres_17:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: postgres
+      source_tag: '17'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
   transfer_postgres_latest:
     uses: ./.github/workflows/.docker-transfer.yml
     with:
@@ -175,7 +235,7 @@ jobs:
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: nginx
-      source_tag: latest
+      source_tag: 'latest'
       dest_namespace: vistart_public
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -187,6 +247,56 @@ jobs:
     with:
       source_image: mariadb
       source_tag: 'latest'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_10_0:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '10.0'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_10_1:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '10.1'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_10_2:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '10.2'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_10_3:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '10.3'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_10_4:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '10.4'
       dest_namespace: vistart_public
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -246,7 +356,7 @@ jobs:
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: mariadb
-      source_tag: '11.8'
+      source_tag: '11.8-rc'
       dest_namespace: vistart_public
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}

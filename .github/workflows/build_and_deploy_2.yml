@@ -70,6 +70,16 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
+  transfer_mysql_9_2:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mysql
+      source_tag: "9.2"
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
   transfer_mysql_8_4:
     uses: ./.github/workflows/.docker-transfer.yml
     with:
@@ -116,6 +126,16 @@ jobs:
     with:
       source_image: mongo
       source_tag: 'latest'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mongo_7:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mongo
+      source_tag: "7"
       dest_namespace: vistart_public
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}

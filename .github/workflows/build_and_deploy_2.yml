@@ -381,3 +381,235 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+# Dify系列镜像
+  transfer_langgenius_dify_api:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: langgenius/dify-api
+      source_tag: '1.3.1'
+      dest_image: dify-api
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_langgenius_dify_web:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: langgenius/dify-web
+      source_tag: '1.3.1'
+      dest_image: dify-web
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_langgenius_dify_sandbox:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: langgenius/dify-sandbox
+      source_tag: '0.2.11'
+      dest_image: dify-sandbox
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_langgenius_dify_plugin_daemon:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: langgenius/dify-plugin-daemon
+      source_tag: '0.0.9-local'
+      dest_image: dify-plugin-daemon
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 数据库及缓存相关镜像
+  transfer_postgres_15_alpine:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: postgres
+      source_tag: '15-alpine'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_redis_6_alpine:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: redis
+      source_tag: '6-alpine'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_redis_8:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: redis
+      source_tag: '8'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 工具类镜像
+  transfer_ubuntu_squid:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ubuntu/squid
+      source_tag: 'latest'
+      dest_image: squid
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_certbot_certbot:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: certbot/certbot
+      source_tag: 'latest'
+      dest_image: certbot
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 向量数据库及AI相关镜像
+  transfer_semitechnologies_weaviate:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: semitechnologies/weaviate
+      source_tag: '1.19.0'
+      dest_image: weaviate
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_langgenius_qdrant:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: langgenius/qdrant
+      source_tag: 'v1.7.3'
+      dest_image: qdrant
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_pgvector_pgvector:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: pgvector/pgvector
+      source_tag: 'pg16'
+      dest_image: pgvector
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_vastdata_vastbase_vector:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: vastdata/vastbase-vector
+      source_tag: 'latest'
+      dest_image: vastbase-vector
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_tensorchord_pgvecto_rs:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: tensorchord/pgvecto-rs
+      source_tag: 'pg16-v0.3.0'
+      dest_image: pgvecto-rs
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_oceanbase_oceanbase_ce:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: oceanbase/oceanbase-ce
+      source_tag: '4.3.5.1-101000042025031818'
+      dest_image: oceanbase-ce
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_minio_minio:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: minio/minio
+      source_tag: 'RELEASE.2023-03-20T20-16-18Z'
+      dest_image: minio
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_milvusdb_milvus:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: milvusdb/milvus
+      source_tag: 'v2.5.0-beta'
+      dest_image: milvus
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_opensearchproject_opensearch:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: opensearchproject/opensearch
+      source_tag: 'latest'
+      dest_image: opensearch
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_opensearchproject_opensearch_dashboards:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: opensearchproject/opensearch-dashboards
+      source_tag: 'latest'
+      dest_image: opensearch-dashboards
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_opengauss_opengauss:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: opengauss/opengauss
+      source_tag: '7.0.0-RC1'
+      dest_image: opengauss
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_myscale_myscaledb:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: myscale/myscaledb
+      source_tag: '1.6.4'
+      dest_image: myscaledb
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}

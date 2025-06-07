@@ -76,7 +76,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_1_cli
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: php/cli
           file: php/cli/Dockerfile
@@ -165,7 +165,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_2_cli
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: php/cli
           file: php/cli/Dockerfile-8.2
@@ -254,7 +254,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_3_cli
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: php/cli
           file: php/cli/Dockerfile-8.3
@@ -343,7 +343,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_4_cli
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: php/cli
           file: php/cli/Dockerfile-8.3
@@ -440,7 +440,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_1_apache
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: php/apache
           file: php/apache/Dockerfile
@@ -529,7 +529,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_2_apache
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: php/apache
           file: php/apache/Dockerfile-8.2
@@ -618,7 +618,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_3_apache
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: php/apache
           file: php/apache/Dockerfile-8.3
@@ -707,7 +707,7 @@ jobs:
       -
         name: Build and push
         id: build_and_push_8_4_apache
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: php/apache
           file: php/apache/Dockerfile-8.3

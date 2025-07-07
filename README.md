@@ -7,8 +7,7 @@ These images are transferred to the following node of Aliyun Container Registry.
 ```
 registry.cn-hongkong.aliyuncs.com/vistart_public/php_official:<tag>
 registry.cn-shanghai.aliyuncs.com/vistart_public/php_official:<tag>
-registry.cn-guangzhou.aliyuncs.com/vistart_public/php_official:<tag>
-registry.cn-chengdu.aliyuncs.com/vistart_public/php_official:<tag>
+registry.ap-northeast-1.aliyuncs.com/vistart_public/php_official:<tag>
 registry.us-west-1.aliyuncs.com/vistart_public/php_official:<tag>
 registry.eu-central-1.aliyuncs.com/vistart_public/php_official:<tag>
 # registry.ap-southeast-2.aliyuncs.com/vistart_public/php_official:<tag>
@@ -17,6 +16,7 @@ registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:<tag>
 ```
 
 The supported tags are as follows:
+
 - `8.4-cli` \ `cli`
 - `8.4-apache` \ `apache`
 - `8.3-cli`
@@ -55,13 +55,13 @@ This image has installed all the necessary software, as follows:
 
 This image has downloaded the following PECL extensions:
 
-- https://pecl.php.net/get/xdebug
-- https://pecl.php.net/get/mongodb
-- https://pecl.php.net/get/timezonedb
-- https://pecl.php.net/get/imagick
-- https://pecl.php.net/get/igbinary
-- https://pecl.php.net/get/amqp
-- https://pecl.php.net/get/libsodium
-- https://pecl.php.net/get/mcrypt
+- <https://pecl.php.net/get/xdebug>
+- <https://pecl.php.net/get/mongodb>
+- <https://pecl.php.net/get/timezonedb>
+- <https://pecl.php.net/get/imagick>
+- <https://pecl.php.net/get/igbinary>
+- <https://pecl.php.net/get/amqp>
+- <https://pecl.php.net/get/libsodium>
+- <https://pecl.php.net/get/mcrypt>
 
 and libsodium.

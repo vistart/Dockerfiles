@@ -1,6 +1,7 @@
 # Dockerfiles for PHP & Apache2
 
 These images are all based on the official [php](https://hub.docker.com/_/php) images and the following extensions are enabled:
+
 - bcmath
 - intl
 - mcrypt
@@ -22,6 +23,7 @@ These images are all based on the official [php](https://hub.docker.com/_/php) i
 - [xdebug](https://pecl.php.net/package/xdebug)
 
 The following software is installed:
+
 - git
 - imagemagick
 - libfreetype6-dev
@@ -40,25 +42,29 @@ The following software is installed:
 - zlib1g-dev
 
 The following apache2 module(s) are enabled:
+
 - rewrite
 - ssl
 
 Also installed is [composer](https://getcomposer.org).
 
 # Supported tags and respective `Dockerfile` links
-- 8.4.5 ([`8.4-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.3)) \ ([`8.4-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.3)) \ (`apache`) \ (`cli`)
-- 8.3.19 ([`8.3-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.3)) \ ([`8.3-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.3))
-- 8.2.28 ([`8.2-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.2)) \ ([`8.2-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.2)) 
-- 8.1.32 ([`8.1-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) \ ([`8.1-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
+
+- 8.4.10 ([`8.4-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.3)) \ ([`8.4-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.3)) \ (`apache`) \ (`cli`)
+- 8.3.23 ([`8.3-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.3)) \ ([`8.3-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.3))
+- 8.2.29 ([`8.2-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.2)) \ ([`8.2-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.2))
+- 8.1.33 ([`8.1-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) \ ([`8.1-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
 - 8.0.30 ([`8.0-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) \ ([`8.0-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile)) (no longer updated)
 
-# Supported CPU Archs:
+# Supported CPU Archs
+
 - linux/386
 - linux/amd64
 - linux/arm64
 - linux/ppc64le
 
-# Supported Container Registry:
+# Supported Container Registry
+
 - [Docker Hub](https://hub.docker.com/r/vistart/php)
 - Aliyun Container Registry:
   - Hongkong, China: `registry.cn-hongkong.aliyuncs.com/vistart_public/php`
@@ -76,9 +82,11 @@ We will release the corresponding images within one week of the official release
 > If the above nodes do not meet your requirements, you can commit your requirements in `issues`. If the demand does not significantly increase the cost, we can consider adding new nodes.
 
 # How to Use
+
 Please refer to [official php image](https://hub.docker.com/_/php/).
 
 # How to build
+
 Use git to download the dockerfile locally:
 `git clone --branch=php https://github.com/vistart/Dockerfiles`
 

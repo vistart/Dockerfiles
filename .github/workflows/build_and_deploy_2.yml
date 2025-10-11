@@ -18,6 +18,16 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
+  transfer_redis_8_0:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: redis
+      source_tag: "8.0"
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
   transfer_redis_7_4:
     uses: ./.github/workflows/.docker-transfer.yml
     with:
@@ -267,6 +277,16 @@ jobs:
     with:
       source_image: mariadb
       source_tag: 'latest'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  transfer_mariadb_12_0:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: mariadb
+      source_tag: '12.0'
       dest_namespace: vistart_public
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}

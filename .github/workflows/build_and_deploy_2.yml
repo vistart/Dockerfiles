@@ -7,6 +7,17 @@ on:
   workflow_dispatch:      # 允许手动触发
 
 jobs:
+  # Alpine
+  transfer_alpine:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: alpine
+      source_tag: 'latest'
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
   # Redis 相关镜像
   transfer_redis:
     uses: ./.github/workflows/.docker-transfer.yml
@@ -396,7 +407,7 @@ jobs:
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: mariadb
-      source_tag: '11.8-rc'
+      source_tag: '11.8'
       dest_namespace: vistart_public
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}

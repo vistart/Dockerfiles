@@ -17,8 +17,10 @@ registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:<tag>
 
 The supported tags are as follows:
 
-- `8.4-cli` \ `cli`
-- `8.4-apache` \ `apache`
+- `8.5-cli` \ `cli`
+- `8.5-apache` \ `apache`
+- `8.4-cli`
+- `8.4-apache`
 - `8.3-cli`
 - `8.3-apache`
 - `8.2-cli`
@@ -35,6 +37,7 @@ This image has installed all the necessary software, as follows:
 - `axel`
 - `wget`
 - `git`
+- `python3-config`
 - `zlib1g-dev`
 - `libzip-dev`
 - `zip`
@@ -63,5 +66,6 @@ This image has downloaded the following PECL extensions:
 - <https://pecl.php.net/get/amqp>
 - <https://pecl.php.net/get/libsodium>
 - <https://pecl.php.net/get/mcrypt>
+- <https://pecl.php.net/get/phpy> (excluded in PHP 8.4)
 
 and libsodium.

@@ -439,7 +439,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
           build-args: |
-            TAG=8.4-cli
+            TAG=8.5-cli
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:8.5-cli
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:8.5-cli
@@ -892,7 +892,7 @@ jobs:
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
           push: true
           build-args: |
-            TAG=8.4-apache
+            TAG=8.5-apache
           tags: |
             registry.cn-hongkong.aliyuncs.com/vistart_public/php:8.5-apache
             registry.cn-shanghai.aliyuncs.com/vistart_public/php:8.5-apache

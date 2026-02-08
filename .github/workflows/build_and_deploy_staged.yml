@@ -1,0 +1,336 @@
+name: Staged Transfer Docker Images
+
+on:
+  push:
+    branches: [common-images-transition]
+  schedule:
+    - cron: "0 3 15 * *" # 每月15号凌晨3点触发
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  # 第一阶段：基础镜像
+  stage_1_base_images:
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: alpine
+      source_tag: "latest"
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第二阶段：Redis 相关镜像
+  stage_2_redis:
+    needs: stage_1_base_images  # 等待第一阶段完成
+    strategy:
+      matrix:
+        include:
+          - source_image: redis
+            source_tag: "latest"
+            dest_image: ""
+          - source_image: redis
+            source_tag: "8.2"
+            dest_image: ""
+          - source_image: redis
+            source_tag: "8.0"
+            dest_image: ""
+          - source_image: redis
+            source_tag: "7.4"
+            dest_image: ""
+          - source_image: redis
+            source_tag: "7.2"
+            dest_image: ""
+          - source_image: redis
+            source_tag: "6.2"
+            dest_image: ""
+          - source_image: redis/redis-stack
+            source_tag: "latest"
+            dest_image: redis-stack
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第三阶段：Clickhouse 相关镜像
+  stage_3_clickhouse:
+    needs: stage_2_redis  # 等待第二阶段完成
+    strategy:
+      matrix:
+        include:
+          - source_image: clickhouse
+            source_tag: "latest"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "lts"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "25.10"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "25.9"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "25.7"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "25.3"
+            dest_image: ""
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第四阶段：MySQL 相关镜像
+  stage_4_mysql:
+    needs: stage_3_clickhouse  # 等待第三阶段完成
+    strategy:
+      matrix:
+        include:
+          - source_image: mysql
+            source_tag: "latest"
+            dest_image: ""
+          - source_image: mysql
+            source_tag: "9.4"
+            dest_image: ""
+          - source_image: mysql
+            source_tag: "9.2"
+            dest_image: ""
+          - source_image: mysql
+            source_tag: "8.4"
+            dest_image: ""
+          - source_image: mysql
+            source_tag: "8.0"
+            dest_image: ""
+          - source_image: mysql
+            source_tag: "5.7"
+            dest_image: ""
+          - source_image: mysql
+            source_tag: "5.6"
+            dest_image: ""
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第五阶段：MongoDB 和 PostgreSQL 相关镜像
+  stage_5_mongo_postgres:
+    needs: stage_4_mysql  # 等待第四阶段完成
+    strategy:
+      matrix:
+        include:
+          - source_image: mongo
+            source_tag: "latest"
+            dest_image: ""
+          - source_image: mongo
+            source_tag: "7"
+            dest_image: ""
+          - source_image: mongo
+            source_tag: "4.4.18"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "9"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "10"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "11"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "12"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "13"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "14"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "15"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "16"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "17"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "latest"
+            dest_image: ""
+          - source_image: nginx
+            source_tag: "latest"
+            dest_image: ""
+          - source_image: postgres
+            source_tag: "15-alpine"
+            dest_image: ""
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第六阶段：MariaDB 相关镜像
+  stage_6_mariadb:
+    needs: stage_5_mongo_postgres  # 等待第五阶段完成
+    strategy:
+      matrix:
+        include:
+          - source_image: mariadb
+            source_tag: "latest"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "12.0"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "10.0"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "10.1"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "10.2"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "10.3"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "10.4"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "10.5"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "10.6"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "10.11"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "11.4"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "11.7"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "11.8"
+            dest_image: ""
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第七阶段：Dify系列镜像
+  stage_7_dify:
+    needs: stage_6_mariadb  # 等待第六阶段完成
+    strategy:
+      matrix:
+        include:
+          - source_image: langgenius/dify-api
+            source_tag: "1.3.1"
+            dest_image: dify-api
+          - source_image: langgenius/dify-web
+            source_tag: "1.3.1"
+            dest_image: dify-web
+          - source_image: langgenius/dify-sandbox
+            source_tag: "0.2.11"
+            dest_image: dify-sandbox
+          - source_image: langgenius/dify-plugin-daemon
+            source_tag: "0.0.9-local"
+            dest_image: dify-plugin-daemon
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第八阶段：其他镜像
+  stage_8_others:
+    needs: stage_7_dify  # 等待第七阶段完成
+    strategy:
+      matrix:
+        include:
+          - source_image: redis
+            source_tag: "6-alpine"
+            dest_image: ""
+          - source_image: redis
+            source_tag: "8"
+            dest_image: ""
+          - source_image: ubuntu/squid
+            source_tag: "latest"
+            dest_image: squid
+          - source_image: certbot/certbot
+            source_tag: "latest"
+            dest_image: certbot
+          - source_image: semitechnologies/weaviate
+            source_tag: "1.19.0"
+            dest_image: weaviate
+          - source_image: langgenius/qdrant
+            source_tag: "v1.7.3"
+            dest_image: qdrant
+          - source_image: pgvector/pgvector
+            source_tag: "pg16"
+            dest_image: pgvector
+          - source_image: vastdata/vastbase-vector
+            source_tag: "latest"
+            dest_image: vastbase-vector
+          - source_image: tensorchord/pgvecto-rs
+            source_tag: "pg16-v0.3.0"
+            dest_image: pgvecto-rs
+          - source_image: oceanbase/oceanbase-ce
+            source_tag: "4.3.5.1-101000042025031818"
+            dest_image: oceanbase-ce
+          - source_image: minio/minio
+            source_tag: "RELEASE.2023-03-20T20-16-18Z"
+            dest_image: minio
+          - source_image: milvusdb/milvus
+            source_tag: "v2.5.0-beta"
+            dest_image: milvus
+          - source_image: opensearchproject/opensearch
+            source_tag: "latest"
+            dest_image: opensearch
+          - source_image: opensearchproject/opensearch-dashboards
+            source_tag: "latest"
+            dest_image: opensearch-dashboards
+          - source_image: opengauss/opengauss
+            source_tag: "7.0.0-RC1"
+            dest_image: opengauss
+          - source_image: myscale/myscaledb
+            source_tag: "1.6.4"
+            dest_image: myscaledb
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}

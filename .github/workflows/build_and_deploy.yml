@@ -2,79 +2,68 @@ name: php-official - Build and Deploy to Aliyun Container Registry
 
 on:
   push:
-    branches: [ php-official ]
+    branches: [php-official]
   schedule:
-    - cron: '0 8 28 * *'
+    - cron: "0 8 28 * *"
 
 jobs:
   build_8_1_cli:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Hongkong
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Shanghai
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Tokyo
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry London
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Silicon Valley
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Frankfurt
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Dubai
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Singapore
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Build and push
+      - name: Build and push
         id: build_and_push_8_1_cli
         uses: docker/build-push-action@v5
         with:
@@ -92,77 +81,65 @@ jobs:
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.1-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.1-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.1-cli
-      -
-        name: Image digest
+      - name: Image digest
         run: echo ${{ steps.build_and_push_8_1_cli.outputs.digest }}
   build_8_2_cli:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Hongkong
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Shanghai
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Tokyo
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry London
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Silicon Valley
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Frankfurt
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Dubai
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Singapore
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Build and push
+      - name: Build and push
         id: build_and_push_8_2_cli
         uses: docker/build-push-action@v5
         with:
@@ -180,77 +157,65 @@ jobs:
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.2-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.2-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.2-cli
-      -
-        name: Image digest
+      - name: Image digest
         run: echo ${{ steps.build_and_push_8_2_cli.outputs.digest }}
   build_8_3_cli:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Hongkong
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Shanghai
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Tokyo
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry London
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Silicon Valley
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Frankfurt
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Dubai
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Singapore
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Build and push
+      - name: Build and push
         id: build_and_push_8_3_cli
         uses: docker/build-push-action@v5
         with:
@@ -268,77 +233,65 @@ jobs:
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.3-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.3-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.3-cli
-      -
-        name: Image digest
+      - name: Image digest
         run: echo ${{ steps.build_and_push_8_3_cli.outputs.digest }}
   build_8_4_cli:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Hongkong
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Shanghai
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Tokyo
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry London
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Silicon Valley
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Frankfurt
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Dubai
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Singapore
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Build and push
+      - name: Build and push
         id: build_and_push_8_4_cli
         uses: docker/build-push-action@v5
         with:
@@ -357,77 +310,65 @@ jobs:
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.4-cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.4-cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.4-cli
-      -
-        name: Image digest
+      - name: Image digest
         run: echo ${{ steps.build_and_push_8_4_cli.outputs.digest }}
   build_8_5_cli:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Hongkong
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Shanghai
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Tokyo
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry London
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Silicon Valley
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Frankfurt
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Dubai
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Singapore
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Build and push
+      - name: Build and push
         id: build_and_push_8_5_cli
         uses: docker/build-push-action@v5
         with:
@@ -453,77 +394,65 @@ jobs:
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:cli
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:cli
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:cli
-      -
-        name: Image digest
+      - name: Image digest
         run: echo ${{ steps.build_and_push_8_5_cli.outputs.digest }}
   build_8_1_apache:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Hongkong
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Shanghai
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Tokyo
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry London
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Silicon Valley
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Frankfurt
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Dubai
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Singapore
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Build and push
+      - name: Build and push
         id: build_and_push_8_1_apache
         uses: docker/build-push-action@v5
         with:
@@ -541,77 +470,65 @@ jobs:
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.1-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.1-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.1-apache
-      -
-        name: Image digest
+      - name: Image digest
         run: echo ${{ steps.build_and_push_8_1_apache.outputs.digest }}
   build_8_2_apache:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Hongkong
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Shanghai
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Tokyo
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry London
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Silicon Valley
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Frankfurt
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Dubai
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Singapore
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Build and push
+      - name: Build and push
         id: build_and_push_8_2_apache
         uses: docker/build-push-action@v5
         with:
@@ -629,77 +546,65 @@ jobs:
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.2-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.2-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.2-apache
-      -
-        name: Image digest
+      - name: Image digest
         run: echo ${{ steps.build_and_push_8_2_apache.outputs.digest }}
   build_8_3_apache:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Hongkong
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Shanghai
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Tokyo
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry London
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Silicon Valley
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Frankfurt
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Dubai
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Singapore
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Build and push
+      - name: Build and push
         id: build_and_push_8_3_apache
         uses: docker/build-push-action@v5
         with:
@@ -717,77 +622,65 @@ jobs:
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.3-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.3-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.3-apache
-      -
-        name: Image digest
+      - name: Image digest
         run: echo ${{ steps.build_and_push_8_3_apache.outputs.digest }}
   build_8_4_apache:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Hongkong
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Shanghai
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Tokyo
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry London
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Silicon Valley
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Frankfurt
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Dubai
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Singapore
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Build and push
+      - name: Build and push
         id: build_and_push_8_4_apache
         uses: docker/build-push-action@v5
         with:
@@ -806,77 +699,65 @@ jobs:
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:8.4-apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:8.4-apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:8.4-apache
-      -
-        name: Image digest
+      - name: Image digest
         run: echo ${{ steps.build_and_push_8_4_apache.outputs.digest }}
   build_8_5_apache:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      -
-        name: Set up QEMU
+      - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      -
-        name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Hongkong
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Shanghai
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Tokyo
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry London
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Silicon Valley
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Frankfurt
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Dubai
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3 
+      - name: Login to Aliyun Container Registry Singapore
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      -
-        name: Build and push
+      - name: Build and push
         id: build_and_push_8_5_apache
         uses: docker/build-push-action@v5
         with:
@@ -902,6 +783,5 @@ jobs:
             registry.eu-central-1.aliyuncs.com/vistart_public/php_official:apache
             registry.me-east-1.aliyuncs.com/vistart_public/php_official:apache
             registry.ap-southeast-1.aliyuncs.com/vistart_public/php_official:apache
-      -
-        name: Image digest
+      - name: Image digest
         run: echo ${{ steps.build_and_push_8_5_apache.outputs.digest }}

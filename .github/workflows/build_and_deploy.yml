@@ -16,49 +16,49 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -93,49 +93,49 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -170,49 +170,49 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -247,49 +247,49 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -324,49 +324,49 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -409,49 +409,49 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -486,49 +486,49 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -563,49 +563,49 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -640,49 +640,49 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
@@ -717,49 +717,49 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to Aliyun Container Registry Hongkong
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-hongkong.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Shanghai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Tokyo
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-northeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry London
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Silicon Valley
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Frankfurt
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.eu-central-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Dubai
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.me-east-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       - name: Login to Aliyun Container Registry Singapore
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: registry.ap-southeast-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}

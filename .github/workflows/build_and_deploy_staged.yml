@@ -21,12 +21,15 @@ jobs:
 
   # 第二阶段：Redis 相关镜像
   stage_2_redis:
-    needs: stage_1_base_images  # 等待第一阶段完成
+    needs: stage_1_base_images # 等待第一阶段完成
     strategy:
       matrix:
         include:
           - source_image: redis
             source_tag: "latest"
+            dest_image: ""
+          - source_image: redis
+            source_tag: "8.4"
             dest_image: ""
           - source_image: redis
             source_tag: "8.2"
@@ -58,7 +61,7 @@ jobs:
 
   # 第三阶段：Clickhouse 相关镜像
   stage_3_clickhouse:
-    needs: stage_2_redis  # 等待第二阶段完成
+    needs: stage_2_redis # 等待第二阶段完成
     strategy:
       matrix:
         include:
@@ -67,6 +70,12 @@ jobs:
             dest_image: ""
           - source_image: clickhouse
             source_tag: "lts"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "26.1"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "25.12"
             dest_image: ""
           - source_image: clickhouse
             source_tag: "25.10"
@@ -92,7 +101,7 @@ jobs:
 
   # 第四阶段：MySQL 相关镜像
   stage_4_mysql:
-    needs: stage_3_clickhouse  # 等待第三阶段完成
+    needs: stage_3_clickhouse # 等待第三阶段完成
     strategy:
       matrix:
         include:
@@ -129,7 +138,7 @@ jobs:
 
   # 第五阶段：MongoDB 和 PostgreSQL 相关镜像
   stage_5_mongo_postgres:
-    needs: stage_4_mysql  # 等待第四阶段完成
+    needs: stage_4_mysql # 等待第四阶段完成
     strategy:
       matrix:
         include:
@@ -190,7 +199,7 @@ jobs:
 
   # 第六阶段：MariaDB 相关镜像
   stage_6_mariadb:
-    needs: stage_5_mongo_postgres  # 等待第五阶段完成
+    needs: stage_5_mongo_postgres # 等待第五阶段完成
     strategy:
       matrix:
         include:
@@ -245,7 +254,7 @@ jobs:
 
   # 第七阶段：Dify系列镜像
   stage_7_dify:
-    needs: stage_6_mariadb  # 等待第六阶段完成
+    needs: stage_6_mariadb # 等待第六阶段完成
     strategy:
       matrix:
         include:
@@ -273,7 +282,7 @@ jobs:
 
   # 第八阶段：其他镜像
   stage_8_others:
-    needs: stage_7_dify  # 等待第七阶段完成
+    needs: stage_7_dify # 等待第七阶段完成
     strategy:
       matrix:
         include:

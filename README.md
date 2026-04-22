@@ -6,26 +6,30 @@ Please choose specific branch which fit for your need.
 
 基于官方 PostgreSQL 镜像构建，预先安装常用扩展插件。
 
-### 预装扩展
+### 版本与预装扩展
+
+| 版本 | 基础镜像 | 预装扩展 |
+|------|----------|----------|
+| 9.6 | 9.6.24-bullseye | postgis-2.5, repack, cron, wal2json, pglogical |
+| 10 | 10.23-bullseye | postgis-2.5, repack, cron, wal2json, pglogical |
+| 11 | 11.22-bookworm | postgis-3, repack, cron, wal2json, pglogical |
+| 12 | 12.22-bookworm | postgis-3, repack, cron, wal2json, pglogical, timescaledb |
+| 13 | 13.15-bookworm | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
+| 14 | 14.22-bookworm | postgis-3, repack, cron, wal2json, pglogical, timescaledb |
+| 15 | 15.17-bookworm | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
+| 16 | 16.13-trixie | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
+| 17 | 17.9-trixie | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
+| 18 | 18.3-trixie (latest) | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
+
+### 扩展说明
 
 - **PostGIS**: 地理空间数据支持
-- **pgvector**: 向量搜索
+- **pgvector**: 向量搜索 (PG13+)
 - **pg_cron**: 定时任务
 - **pg_repack**: 在线重建表/索引
-- **pgaudit**: 审计日志
 - **wal2json**: WAL 日志解析
-- **pg_partman**: 分区管理
 - **pglogical**: 逻辑复制
-- **hypopg**: 虚拟索引
-- **orafce**: Oracle 兼容函数
-- **pgrouting**: 路径规划
-- **pg_stat_kcache**: 性能统计
-- **pg_qualstats**: 查询统计
-- **TimescaleDB**: 时序数据库（PG12+）
-
-### 支持版本
-
-9.6, 10, 11, 12, 13, 14, 15, 16, 17, 18
+- **TimescaleDB**: 时序数据库 (PG12+)
 
 ### 推送地址
 
@@ -35,7 +39,10 @@ Please choose specific branch which fit for your need.
 ### 使用示例
 
 ```bash
-# 从阿里云拉取
+# 从阿里云拉取 latest
+docker pull registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:latest
+
+# 从阿里云拉取指定版本
 docker pull registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:16
 
 # 从 Docker Hub 拉取

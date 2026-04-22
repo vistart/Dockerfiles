@@ -36,6 +36,7 @@ jobs:
       pg_version: "18"
       dockerhub_repo: "vistart/postgres"
       aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres"
+      latest_tag: true
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}

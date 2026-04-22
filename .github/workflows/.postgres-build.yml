@@ -15,6 +15,10 @@ on:
         required: true
         type: string
         description: "Aliyun registry (e.g., registry.cn-shanghai.aliyuncs.com/vistart_public/postgres)"
+      latest_tag:
+        required: false
+        type: boolean
+        default: false
     secrets:
       DOCKERHUB_USERNAME:
         required: true
@@ -60,6 +64,8 @@ jobs:
           tags: |
             ${{ inputs.dockerhub_repo }}:${{ inputs.pg_version }}
             ${{ inputs.aliyun_registry }}:${{ inputs.pg_version }}
+            ${{ inputs.latest_tag == 'true' && format('{0}:latest', inputs.dockerhub_repo) || '' }}
+            ${{ inputs.latest_tag == 'true' && format('{0}:latest', inputs.aliyun_registry) || '' }}
           push: true
           cache-from: type=gha,scope=pg-${{ inputs.pg_version }}
           cache-to: type=gha,mode=max,scope=pg-${{ inputs.pg_version }}

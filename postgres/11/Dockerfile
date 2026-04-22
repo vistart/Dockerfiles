@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM postgres:11
+FROM postgres:11.22-bookworm
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 

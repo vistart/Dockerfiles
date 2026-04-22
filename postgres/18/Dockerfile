@@ -1,16 +1,11 @@
 # syntax=docker/dockerfile:1
-FROM postgres:18
+FROM postgres:18.3-trixie
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
 RUN apt-get update && apt-get install -y --no-install-recommends apt-transport-https ca-certificates curl gnupg lsb-release \
     && curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /usr/share/keyrings/postgresql.gpg \
     && echo "deb [signed-by=/usr/share/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt trixie-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        build-essential \
-        postgresql-server-dev-18 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -ex; \
@@ -32,17 +27,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       postgresql-18-pgrouting \
       postgresql-18-hypopg \
       postgresql-18-partman \
-      postgresql-18-pg-stat-kcache \
-      postgresql-18-pg-qualstats \
-      postgresql-18-decoder-raw \
       postgresql-18-pglogical \
       postgresql-18-pgvector \
       timescaledb-2-postgresql-18 \
     || echo "Some packages not available, skipping"
 
-RUN apt-get purge -y build-essential postgresql-server-dev-18 \
-    && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/*
+RUN rm -rf /var/lib/apt/lists/*
 
 RUN cat >> /usr/share/postgresql/postgresql.conf.sample <<'EOF'
 

@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-transport-h
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
-        postgresql-server-dev-13 \
+        postgresql-13 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -ex; \

@@ -15,7 +15,7 @@ RUN apt-get install -y --no-install-recommends \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-RUN cat >> /usr/share/postgresql/9.6/main/postgresql.conf.sample <<'EOF'
+RUN cat >> /usr/share/postgresql/postgresql.conf.sample <<'EOF'
 
 shared_preload_libraries = 'pg_stat_statements,pg_cron,auto_explain'
 pg_stat_statements.track = all

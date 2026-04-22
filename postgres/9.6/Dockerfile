@@ -3,11 +3,6 @@ FROM postgres:9.6
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
-# Use archived Debian repos for EOL Stretch
-RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/archive.debian.org\/security/g' /etc/apt/sources.list && \
-    sed -i '/stretch-updates/d' /etc/apt/sources.list
-
 # Add PostgreSQL APT repository
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
@@ -85,13 +80,12 @@ relocatable = false
 requires = 'postgis'
 EOF
 
-# Install other extensions (may fail for EOL Debian)
+# Install other extensions
 RUN apt-get install -y --no-install-recommends \
     postgresql-9.6-repack \
     postgresql-9.6-cron \
     postgresql-9.6-wal2json \
-    postgresql-9.6-pglogical \
-    || echo "PostgreSQL extensions not available for EOL Debian Stretch"
+    postgresql-9.6-pglogical
 
 RUN rm -rf /var/lib/apt/lists/*
 

@@ -17,6 +17,7 @@ jobs:
     uses: ./.github/workflows/.postgres-build.yml
     strategy:
       fail-fast: false
+      max-parallel: 1
       matrix:
         pg_version: ${{ fromJson(github.event.inputs.pg_versions || '["9.6","10","11","12","13","14","15","16","17","18"]') }}
     with:

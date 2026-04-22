@@ -8,12 +8,54 @@ on:
   workflow_dispatch:
     inputs:
       pg_versions:
-        description: "PG versions to build (comma-separated, e.g., 12,13,14,15,16,17,18)"
+        description: "PG versions to build (comma-separated, e.g., 9.6,10,11,12,13,14,15,16,17,18)"
         required: false
-        default: "12,13,14,15,16,17,18"
+        default: "9.6,10,11,12,13,14,15,16,17,18"
 
 jobs:
+  build-9.6:
+    uses: ./.github/workflows/.postgres-build.yml
+    with:
+      pg_version: "9.6"
+      platforms: "linux/amd64,linux/arm64,linux/ppc64le,linux/s390x"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-10:
+    needs: [build-9.6]
+    uses: ./.github/workflows/.postgres-build.yml
+    with:
+      pg_version: "10"
+      platforms: "linux/amd64,linux/arm64,linux/ppc64le,linux/s390x"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-11:
+    needs: [build-10]
+    uses: ./.github/workflows/.postgres-build.yml
+    with:
+      pg_version: "11"
+      platforms: "linux/amd64,linux/arm64,linux/386"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
   build-12:
+    needs: [build-11]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "12"
@@ -27,6 +69,7 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-13:
+    needs: [build-12]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "13"
@@ -40,7 +83,7 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-14:
-    needs: [build-12, build-13]
+    needs: [build-13]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "14"

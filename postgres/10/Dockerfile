@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM postgres:10.23-bullseye
+FROM postgres:10
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 

@@ -8,18 +8,18 @@ Please choose specific branch which fit for your need.
 
 ### 版本与预装扩展
 
-| 版本 | 基础镜像 | 预装扩展 |
-|------|----------|----------|
-| 9.6 | 9.6.24-bullseye | postgis-2.5, repack, cron, wal2json, pglogical |
-| 10 | 10.23-bullseye | postgis-2.5, repack, cron, wal2json, pglogical |
-| 11 | 11.22-bookworm | postgis-3, repack, cron, wal2json, pglogical |
-| 12 | 12.22-bookworm | postgis-3, repack, cron, wal2json, pglogical, timescaledb |
-| 13 | 13.15-bookworm | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
-| 14 | 14.22-bookworm | postgis-3, repack, cron, wal2json, pglogical, timescaledb |
-| 15 | 15.17-bookworm | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
-| 16 | 16.13-trixie | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
-| 17 | 17.9-trixie | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
-| 18 | 18.3-trixie (latest) | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
+| 版本 | 基础镜像 | 支持架构 | 预装扩展 |
+|------|----------|----------|----------|
+| 9.6 | 9.6.24-bullseye | amd64, arm, arm64, 386, mips64le, ppc64le, s390x | postgis-2.5, repack, cron, wal2json, pglogical |
+| 10 | 10.23-bullseye | amd64, arm, arm64, 386, mips64le, ppc64le, s390x | postgis-2.5, repack, cron, wal2json, pglogical |
+| 11 | 11 | amd64, arm, arm64, 386 | postgis-3, repack, cron, wal2json, pglogical |
+| 12 | 12.22-bookworm | amd64, arm64, ppc64le, s390x | postgis-3, repack, cron, wal2json, pglogical, timescaledb |
+| 13 | 13.15-bookworm | amd64, arm64, ppc64le, s390x | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
+| 14 | 14.22-bookworm | amd64, arm64, ppc64le, s390x | postgis-3, repack, cron, wal2json, pglogical, timescaledb |
+| 15 | 15.17-bookworm | amd64, arm64, ppc64le, s390x | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
+| 16 | 16.13-trixie | amd64, arm64, ppc64le, s390x | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
+| 17 | 17.9-trixie | amd64, arm64, ppc64le, s390x | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
+| 18 | 18.3-trixie (latest) | amd64, arm64, ppc64le, s390x | postgis-3, repack, cron, wal2json, pglogical, pgvector, timescaledb |
 
 ### 扩展说明
 

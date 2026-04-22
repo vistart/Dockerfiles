@@ -15,6 +15,10 @@ on:
         required: true
         type: string
         description: "Aliyun registry (e.g., registry.cn-shanghai.aliyuncs.com/vistart_public/postgres)"
+      platforms:
+        required: false
+        type: string
+        default: "linux/386,linux/amd64,linux/arm64,linux/ppc64le"
       latest_tag:
         required: false
         type: boolean
@@ -60,7 +64,7 @@ jobs:
         with:
           context: ./postgres/${{ inputs.pg_version }}
           file: ./postgres/${{ inputs.pg_version }}/Dockerfile
-          platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
+          platforms: ${{ inputs.platforms }}
           tags: |
             ${{ inputs.dockerhub_repo }}:${{ inputs.pg_version }}
             ${{ inputs.aliyun_registry }}:${{ inputs.pg_version }}

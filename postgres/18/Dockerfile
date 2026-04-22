@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM postgres:18.3-trixie
+FROM postgres:18
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 

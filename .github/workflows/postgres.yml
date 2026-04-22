@@ -13,15 +13,11 @@ on:
         default: "12,13,14,15,16,17,18"
 
 jobs:
-  build:
+  build-12:
     uses: ./.github/workflows/.postgres-build.yml
-    strategy:
-      fail-fast: false
-      max-parallel: 1
-      matrix:
-        pg_version: ${{ fromJson(github.event.inputs.pg_versions || '["12","13","14","15","16","17","18"]') }}
     with:
-      pg_version: ${{ matrix.pg_version }}
+      pg_version: "12"
+      platforms: "linux/amd64,linux/arm64,linux/ppc64le,linux/s390x"
       dockerhub_repo: "vistart/postgres-exts"
       aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
     secrets:
@@ -30,11 +26,81 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
-  build-latest:
-    needs: build
+  build-13:
+    uses: ./.github/workflows/.postgres-build.yml
+    with:
+      pg_version: "13"
+      platforms: "linux/amd64,linux/arm64,linux/ppc64le,linux/s390x"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-14:
+    needs: [build-12, build-13]
+    uses: ./.github/workflows/.postgres-build.yml
+    with:
+      pg_version: "14"
+      platforms: "linux/386,linux/amd64,linux/arm64,linux/ppc64le"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-15:
+    needs: [build-14]
+    uses: ./.github/workflows/.postgres-build.yml
+    with:
+      pg_version: "15"
+      platforms: "linux/386,linux/amd64,linux/arm64,linux/ppc64le"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-16:
+    needs: [build-15]
+    uses: ./.github/workflows/.postgres-build.yml
+    with:
+      pg_version: "16"
+      platforms: "linux/386,linux/amd64,linux/arm64,linux/ppc64le"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-17:
+    needs: [build-16]
+    uses: ./.github/workflows/.postgres-build.yml
+    with:
+      pg_version: "17"
+      platforms: "linux/386,linux/amd64,linux/arm64,linux/ppc64le"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-18:
+    needs: [build-17]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "18"
+      platforms: "linux/386,linux/amd64,linux/arm64,linux/ppc64le"
       dockerhub_repo: "vistart/postgres-exts"
       aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
       latest_tag: true

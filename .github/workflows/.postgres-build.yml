@@ -54,9 +54,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./postgres
+          context: ./postgres/${{ inputs.pg_version }}
+          file: ./postgres/${{ inputs.pg_version }}/Dockerfile
           platforms: linux/386,linux/amd64,linux/arm64,linux/ppc64le
-          build-args: PG_MAJOR=${{ inputs.pg_version }}
           tags: |
             ${{ inputs.dockerhub_repo }}:${{ inputs.pg_version }}
             ${{ inputs.aliyun_registry }}:${{ inputs.pg_version }}

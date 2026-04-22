@@ -10,7 +10,7 @@ Please choose specific branch which fit for your need.
 
 | 版本 | 基础镜像 | 支持架构 | 预装扩展 |
 |------|----------|----------|----------|
-| 9.6 | postgres:9.6 | amd64, arm64, ppc64le, s390x | postgis-2.5, repack, cron, wal2json, pglogical |
+| 9.6 | postgres:9.6 | amd64, arm64, arm, 386 | postgis-2.5, repack, cron, wal2json, pglogical |
 | 10 | postgres:10 | amd64, arm64, ppc64le, s390x | postgis-2.5, repack, cron, wal2json, pglogical |
 | 11 | postgres:11 | amd64, arm64, 386 | postgis-3, repack, cron, wal2json, pglogical |
 | 12 | postgres:12 | amd64, arm64, ppc64le, s390x | postgis-3, repack, cron, wal2json, pglogical, timescaledb |

@@ -3,6 +3,11 @@ FROM postgres:9.6
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
+# Use archived repos for EOL Debian Stretch
+RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
+    sed -i 's/security.debian.org/archive.debian.org\/security/g' /etc/apt/sources.list && \
+    rm -f /etc/apt/sources.list.d/stretch*.list 2>/dev/null || true
+
 # Add PostgreSQL APT repository
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
@@ -11,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     lsb-release \
     && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
     && sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' \
+    && sed -i 's/apt.postgresql.org/archive.postgresql.org/g' /etc/apt/sources.list.d/pgdg.list \
     && apt-get update
 
 # Install build dependencies for PostGIS

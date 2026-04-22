@@ -1,0 +1,42 @@
+name: Build Custom Postgres Images
+
+on:
+  push:
+    branches: [postgres]
+  schedule:
+    - cron: "0 3 1 * *"
+  workflow_dispatch:
+    inputs:
+      pg_versions:
+        description: "PG versions to build (comma-separated, e.g., 9.6,10,11,12,13,14,15,16,17,18)"
+        required: false
+        default: "9.6,10,11,12,13,14,15,16,17,18"
+
+jobs:
+  build:
+    uses: ./.github/workflows/.postgres-build.yml
+    strategy:
+      matrix:
+        pg_version: ${{ fromJson(github.event.inputs.pg_versions || '["9.6","10","11","12","13","14","15","16","17","18"]') }}
+    with:
+      pg_version: ${{ matrix.pg_version }}
+      dockerhub_repo: "vistart/postgres"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-latest:
+    needs: build
+    uses: ./.github/workflows/.postgres-build.yml
+    with:
+      pg_version: "18"
+      dockerhub_repo: "vistart/postgres"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}

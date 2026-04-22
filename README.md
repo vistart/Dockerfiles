@@ -33,18 +33,18 @@ Please choose specific branch which fit for your need.
 
 ### 推送地址
 
-- **Docker Hub**: `vistart/postgres`
-- **阿里云**: `registry.cn-shanghai.aliyuncs.com/vistart_public/postgres`
+- **Docker Hub**: `vistart/postgres-exts`
+- **阿里云**: `registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts`
 
 ### 使用示例
 
 ```bash
 # 从阿里云拉取 latest
-docker pull registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:latest
+docker pull registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts:latest
 
 # 从阿里云拉取指定版本
-docker pull registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:16
+docker pull registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts:16
 
 # 从 Docker Hub 拉取
-docker pull vistart/postgres:16
+docker pull vistart/postgres-exts:16
 ```

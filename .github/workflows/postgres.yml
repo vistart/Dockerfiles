@@ -22,8 +22,8 @@ jobs:
         pg_version: ${{ fromJson(github.event.inputs.pg_versions || '["9.6","10","11","12","13","14","15","16","17","18"]') }}
     with:
       pg_version: ${{ matrix.pg_version }}
-      dockerhub_repo: "vistart/postgres"
-      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
@@ -35,8 +35,8 @@ jobs:
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "18"
-      dockerhub_repo: "vistart/postgres"
-      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
       latest_tag: true
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}

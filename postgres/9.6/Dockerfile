@@ -85,12 +85,13 @@ relocatable = false
 requires = 'postgis'
 EOF
 
-# Install other extensions
+# Install other extensions (may fail for EOL Debian)
 RUN apt-get install -y --no-install-recommends \
     postgresql-9.6-repack \
     postgresql-9.6-cron \
     postgresql-9.6-wal2json \
-    postgresql-9.6-pglogical
+    postgresql-9.6-pglogical \
+    || echo "PostgreSQL extensions not available for EOL Debian Stretch"
 
 RUN rm -rf /var/lib/apt/lists/*
 

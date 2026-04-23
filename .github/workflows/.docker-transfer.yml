@@ -30,9 +30,9 @@ on:
         required: true
       ALIYUN_PASSWORD:
         required: true
-      ALIYUN_USERNAME_2:
+      ALIYUN_CR_US_EAST_USERNAME:
         required: false
-      ALIYUN_PASSWORD_2:
+      ALIYUN_CR_US_EAST_PASSWORD:
         required: false
 
 jobs:
@@ -50,12 +50,12 @@ jobs:
           password: ${{ secrets.ALIYUN_PASSWORD }}
 
       - name: Login to secondary Aliyun Container Registry
-        if: ${{ contains(inputs.dest_registries, 'registry.us-west-1.aliyuncs.com') && secrets.ALIYUN_USERNAME_2 != '' }}
+        if: contains(inputs.dest_registries, 'registry.us-west-1.aliyuncs.com')
         uses: docker/login-action@v3
         with:
           registry: registry.us-west-1.aliyuncs.com
-          username: ${{ secrets.ALIYUN_USERNAME_2 }}
-          password: ${{ secrets.ALIYUN_PASSWORD_2 }}
+          username: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
+          password: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
       - name: Transfer Image
         run: |

@@ -1,34 +1,38 @@
 # syntax=docker/dockerfile:1
-FROM postgres:14
+FROM registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:14
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
-RUN apt-get update && apt-get install -y --no-install-recommends apt-transport-https ca-certificates curl gnupg lsb-release \
+# Add PostgreSQL PGDG repository
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        apt-transport-https ca-certificates curl gnupg lsb-release \
     && curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /usr/share/keyrings/postgresql.gpg \
     && echo "deb [signed-by=/usr/share/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
     && rm -rf /var/lib/apt/lists/*
 
+# Add TimescaleDB repository
 RUN set -ex; \
     curl -fsSL https://packagecloud.io/timescale/timescaledb/gpgkey \
       | gpg --dearmor -o /usr/share/keyrings/timescaledb.gpg; \
-    echo "deb [signed-by=/usr/share/keyrings/timescaledb.gpg] \
-      https://packagecloud.io/timescale/timescaledb/debian/ \
-      bookworm main" \
+    echo "deb [signed-by=/usr/share/keyrings/timescaledb.gpg] https://packagecloud.io/timescale/timescaledb/debian/ bookworm main" \
       > /etc/apt/sources.list.d/timescaledb.list
 
+# Install extensions
 RUN apt-get update && apt-get install -y --no-install-recommends \
-      postgresql-14-postgis-3 \
-      postgresql-14-postgis-3-scripts \
-      postgresql-14-repack \
-      postgresql-14-cron \
-      postgresql-14-wal2json \
-      postgresql-14-pgaudit \
-      postgresql-14-orafce \
-      postgresql-14-pgrouting \
-      postgresql-14-hypopg \
-      postgresql-14-partman \
-      postgresql-14-pglogical \
-      timescaledb-2-postgresql-14 \
+        postgresql-14-postgis-3 \
+        postgresql-14-postgis-3-scripts \
+        postgresql-14-repack \
+        postgresql-14-cron \
+        postgresql-14-wal2json \
+        postgresql-14-pgaudit \
+        postgresql-14-orafce \
+        postgresql-14-pgrouting \
+        postgresql-14-pgtap \
+        postgresql-14-hypopg \
+        postgresql-14-partman \
+        postgresql-14-pglogical \
+        postgresql-14-pgvector \
+        timescaledb-2-postgresql-14 \
     || echo "Some packages not available, skipping"
 
 RUN rm -rf /var/lib/apt/lists/*

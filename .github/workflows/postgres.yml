@@ -27,7 +27,6 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-10:
-    needs: [build-9-6]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "10"
@@ -41,7 +40,6 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-11:
-    needs: [build-10]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "11"
@@ -55,7 +53,6 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-12:
-    needs: [build-11]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "12"
@@ -69,7 +66,6 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-13:
-    needs: [build-12]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "13"
@@ -83,7 +79,6 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-14:
-    needs: [build-13]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "14"
@@ -97,7 +92,6 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-15:
-    needs: [build-14]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "15"
@@ -111,7 +105,6 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-16:
-    needs: [build-15]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "16"
@@ -125,7 +118,6 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-17:
-    needs: [build-16]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "17"
@@ -139,7 +131,6 @@ jobs:
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
   build-18:
-    needs: [build-17]
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "18"

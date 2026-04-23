@@ -17,8 +17,8 @@ jobs:
       dest_namespace: vistart_public
       dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_CR_VISTART_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_CR_VISTART_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       ALIYUN_CR_US_EAST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
       ALIYUN_CR_US_EAST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
@@ -60,8 +60,8 @@ jobs:
       dest_namespace: vistart_public
       dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_CR_VISTART_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_CR_VISTART_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       ALIYUN_CR_US_EAST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
       ALIYUN_CR_US_EAST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
@@ -103,8 +103,8 @@ jobs:
       dest_namespace: vistart_public
       dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_CR_VISTART_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_CR_VISTART_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       ALIYUN_CR_US_EAST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
       ALIYUN_CR_US_EAST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
@@ -143,8 +143,8 @@ jobs:
       dest_namespace: vistart_public
       dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_CR_VISTART_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_CR_VISTART_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       ALIYUN_CR_US_EAST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
       ALIYUN_CR_US_EAST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
@@ -207,8 +207,8 @@ jobs:
       dest_namespace: vistart_public
       dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_CR_VISTART_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_CR_VISTART_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       ALIYUN_CR_US_EAST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
       ALIYUN_CR_US_EAST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
@@ -265,8 +265,8 @@ jobs:
       dest_namespace: vistart_public
       dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_CR_VISTART_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_CR_VISTART_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       ALIYUN_CR_US_EAST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
       ALIYUN_CR_US_EAST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
@@ -296,8 +296,8 @@ jobs:
       dest_namespace: vistart_public
       dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_CR_VISTART_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_CR_VISTART_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       ALIYUN_CR_US_EAST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
       ALIYUN_CR_US_EAST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
@@ -363,7 +363,7 @@ jobs:
       dest_namespace: vistart_public
       dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_CR_VISTART_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_CR_VISTART_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
       ALIYUN_CR_US_EAST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
       ALIYUN_CR_US_EAST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}

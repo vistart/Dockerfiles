@@ -26,9 +26,9 @@ on:
         default: 'registry.cn-shanghai.aliyuncs.com'
         description: "Comma-separated list of destination registries"
     secrets:
-      ALIYUN_USERNAME:
+      ALIYUN_CR_VISTART_USERNAME:
         required: true
-      ALIYUN_PASSWORD:
+      ALIYUN_CR_VISTART_PASSWORD:
         required: true
       ALIYUN_CR_US_EAST_USERNAME:
         required: false
@@ -46,8 +46,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: registry.cn-shanghai.aliyuncs.com
-          username: ${{ secrets.ALIYUN_USERNAME }}
-          password: ${{ secrets.ALIYUN_PASSWORD }}
+          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
       - name: Login to secondary Aliyun Container Registry
         if: contains(inputs.dest_registries, 'registry.us-west-1.aliyuncs.com')

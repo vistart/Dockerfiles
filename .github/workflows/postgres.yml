@@ -8,15 +8,15 @@ on:
   workflow_dispatch:
     inputs:
       pg_versions:
-        description: "PG versions to build (comma-separated, e.g., 9.6,10,11,12,13,14,15,16,17,18)"
+        description: "PG versions to build (comma-separated, e.g., 9,10,11,12,13,14,15,16,17,18)"
         required: false
-        default: "9.6,10,11,12,13,14,15,16,17,18"
+        default: "9,10,11,12,13,14,15,16,17,18"
 
 jobs:
-  build-9-6:
+  build-9:
     uses: ./.github/workflows/.postgres-build.yml
     with:
-      pg_version: "9.6"
+      pg_version: "9"
       platforms: "linux/amd64,linux/arm64,linux/arm,linux/386"
       dockerhub_repo: "vistart/postgres-exts"
       aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
@@ -30,7 +30,7 @@ jobs:
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "10"
-      platforms: "linux/amd64,linux/arm64,linux/ppc64le,linux/s390x"
+      platforms: "linux/amd64,linux/arm64"
       dockerhub_repo: "vistart/postgres-exts"
       aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
     secrets:
@@ -43,7 +43,7 @@ jobs:
     uses: ./.github/workflows/.postgres-build.yml
     with:
       pg_version: "11"
-      platforms: "linux/amd64,linux/arm64,linux/386"
+      platforms: "linux/amd64,linux/arm64"
       dockerhub_repo: "vistart/postgres-exts"
       aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
     secrets:

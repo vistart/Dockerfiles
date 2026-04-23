@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM registry.cn-shanghai.aliyuncs.com/vistart_public/postgres:14
+FROM postgres:14
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 

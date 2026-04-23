@@ -26,13 +26,13 @@ on:
         default: 'registry.cn-shanghai.aliyuncs.com'
         description: "Comma-separated list of destination registries"
     secrets:
-      ALIYUN_CR_VISTART_USERNAME:
+      ALIYUN_USERNAME:
         required: true
-      ALIYUN_CR_VISTART_PASSWORD:
+      ALIYUN_PASSWORD:
         required: true
-      ALIYUN_CR_US_EAST_USERNAME:
+      ALIYUN_US_WEST_USERNAME:
         required: false
-      ALIYUN_CR_US_EAST_PASSWORD:
+      ALIYUN_US_WEST_PASSWORD:
         required: false
 
 jobs:
@@ -46,16 +46,16 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: registry.cn-shanghai.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+          username: ${{ secrets.ALIYUN_USERNAME }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
 
       - name: Login to secondary Aliyun Container Registry
         if: contains(inputs.dest_registries, 'registry.us-west-1.aliyuncs.com')
         uses: docker/login-action@v3
         with:
           registry: registry.us-west-1.aliyuncs.com
-          username: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
-          password: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
+          username: ${{ secrets.ALIYUN_US_WEST_USERNAME }}
+          password: ${{ secrets.ALIYUN_US_WEST_PASSWORD }}
 
       - name: Transfer Image
         run: |

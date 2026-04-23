@@ -30,10 +30,6 @@ on:
         required: true
       ALIYUN_PASSWORD:
         required: true
-      ALIYUN_US_WEST_USERNAME:
-        required: false
-      ALIYUN_US_WEST_PASSWORD:
-        required: false
 
 jobs:
   transfer:
@@ -54,8 +50,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: registry.us-west-1.aliyuncs.com
-          username: ${{ secrets.ALIYUN_US_WEST_USERNAME }}
-          password: ${{ secrets.ALIYUN_US_WEST_PASSWORD }}
+          username: ${{ secrets.ALIYUN_USERNAME }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
 
       - name: Transfer Image
         run: |

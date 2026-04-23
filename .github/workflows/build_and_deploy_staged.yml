@@ -19,8 +19,6 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      ALIYUN_US_WEST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
-      ALIYUN_US_WEST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第二阶段：Redis 相关镜像
   stage_2_redis:
@@ -62,8 +60,6 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      ALIYUN_US_WEST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
-      ALIYUN_US_WEST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第三阶段：Clickhouse 相关镜像
   stage_3_clickhouse:
@@ -105,8 +101,6 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      ALIYUN_US_WEST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
-      ALIYUN_US_WEST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第四阶段：MySQL 相关镜像
   stage_4_mysql:
@@ -145,8 +139,6 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      ALIYUN_US_WEST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
-      ALIYUN_US_WEST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第五阶段：MongoDB 和 PostgreSQL 相关镜像
   stage_5_mongo_postgres:
@@ -209,8 +201,6 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      ALIYUN_US_WEST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
-      ALIYUN_US_WEST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第六阶段：MariaDB 相关镜像
   stage_6_mariadb:
@@ -267,8 +257,6 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      ALIYUN_US_WEST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
-      ALIYUN_US_WEST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第七阶段：Dify系列镜像
   stage_7_dify:
@@ -298,8 +286,6 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      ALIYUN_US_WEST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
-      ALIYUN_US_WEST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第八阶段：其他镜像
   stage_8_others:
@@ -365,5 +351,3 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-      ALIYUN_US_WEST_USERNAME: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
-      ALIYUN_US_WEST_PASSWORD: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}

@@ -45,7 +45,6 @@ echo "=== 检查已安装的扩展 ==="
 
 check_extension() {
     local ext_name="$1"
-    local expected_version="$2"
 
     echo "- 检查 $ext_name..."
 
@@ -76,17 +75,16 @@ check_extension() {
 
 # 验证 PostGIS
 echo "--- PostGIS ---"
-check_extension "postgis" "2.3.1"
+check_extension "postgis"
 
 # 验证 Repack
 echo "--- pg_repack ---"
-check_extension "pg_repack" "1.3.4"
+check_extension "pg_repack"
 
 # 验证共享库配置
 echo "=== 检查 postgresql.conf 配置 ==="
 echo "- shared_preload_libraries..."
 
-local preload_libs
 preload_libs=$($DOCKER_CMD exec "$CONTAINER" grep "^shared_preload_libraries" /var/lib/postgresql/data/postgresql.conf 2>/dev/null || echo "")
 
 if [[ -n "$preload_libs" ]]; then

@@ -20,11 +20,20 @@ on:
         type: string
         default: 'vistart_public'
         description: "Destination namespace in Aliyun registry"
+      dest_registries:
+        required: false
+        type: string
+        default: 'registry.cn-shanghai.aliyuncs.com'
+        description: "Comma-separated list of destination registries"
     secrets:
       ALIYUN_USERNAME:
         required: true
       ALIYUN_PASSWORD:
         required: true
+      ALIYUN_USERNAME_2:
+        required: false
+      ALIYUN_PASSWORD_2:
+        required: false
 
 jobs:
   transfer:
@@ -32,41 +41,53 @@ jobs:
     steps:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-      
-      - name: Login to Aliyun Container Registry
+
+      - name: Login to primary Aliyun Container Registry
         uses: docker/login-action@v3
         with:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ALIYUN_USERNAME }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
-      
+
+      - name: Login to secondary Aliyun Container Registry
+        if: ${{ contains(inputs.dest_registries, 'registry.us-west-1.aliyuncs.com') && secrets.ALIYUN_USERNAME_2 != '' }}
+        uses: docker/login-action@v3
+        with:
+          registry: registry.us-west-1.aliyuncs.com
+          username: ${{ secrets.ALIYUN_USERNAME_2 }}
+          password: ${{ secrets.ALIYUN_PASSWORD_2 }}
+
       - name: Transfer Image
         run: |
-          # Handle source image
           OLD_TAG=${{ inputs.source_image }}:${{ inputs.source_tag }}
-          
+
           # Determine destination image name
           if [ -n "${{ inputs.dest_image }}" ]; then
-            # Use provided dest_image if available
             DEST_IMAGE=${{ inputs.dest_image }}
           else
-            # Extract base name from source_image if it contains a slash
             if [[ "${{ inputs.source_image }}" == *"/"* ]]; then
               DEST_IMAGE=$(echo "${{ inputs.source_image }}" | awk -F'/' '{print $NF}')
             else
               DEST_IMAGE=${{ inputs.source_image }}
             fi
           fi
-          
-          NEW_TAG=registry.cn-shanghai.aliyuncs.com/${{ inputs.dest_namespace }}/$DEST_IMAGE:${{ inputs.source_tag }}
-          
+
+          # Generate tags for all registries
+          TAGS=""
+          IFS=',' read -ra REGISTRIES <<< "${{ inputs.dest_registries }}"
+          for registry in "${REGISTRIES[@]}"; do
+            registry=$(echo "$registry" | xargs)
+            NEW_TAG="${registry}/${{ inputs.dest_namespace }}/$DEST_IMAGE:${{ inputs.source_tag }}"
+            TAGS="$TAGS --tag $NEW_TAG"
+            echo "Destination: $NEW_TAG"
+          done
+
           echo "Source: $OLD_TAG"
-          echo "Destination: $NEW_TAG"
-          
+
           if ! docker buildx inspect mybuilder >/dev/null 2>&1; then
               docker buildx create --name mybuilder --use
           fi
-          
-          docker buildx imagetools create --tag $NEW_TAG $OLD_TAG || true
-          
+
+          docker buildx imagetools create $TAGS $OLD_TAG || true
+
           echo "Transfer completed"

@@ -15,9 +15,12 @@ jobs:
       source_image: alpine
       source_tag: "latest"
       dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_USERNAME_2: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
+      ALIYUN_PASSWORD_2: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第二阶段：Redis 相关镜像
   stage_2_redis:
@@ -55,9 +58,12 @@ jobs:
       source_tag: ${{ matrix.source_tag }}
       dest_image: ${{ matrix.dest_image }}
       dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_USERNAME_2: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
+      ALIYUN_PASSWORD_2: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第三阶段：Clickhouse 相关镜像
   stage_3_clickhouse:
@@ -95,9 +101,12 @@ jobs:
       source_tag: ${{ matrix.source_tag }}
       dest_image: ${{ matrix.dest_image }}
       dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_USERNAME_2: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
+      ALIYUN_PASSWORD_2: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第四阶段：MySQL 相关镜像
   stage_4_mysql:
@@ -132,9 +141,12 @@ jobs:
       source_tag: ${{ matrix.source_tag }}
       dest_image: ${{ matrix.dest_image }}
       dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_USERNAME_2: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
+      ALIYUN_PASSWORD_2: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第五阶段：MongoDB 和 PostgreSQL 相关镜像
   stage_5_mongo_postgres:
@@ -193,9 +205,12 @@ jobs:
       source_tag: ${{ matrix.source_tag }}
       dest_image: ${{ matrix.dest_image }}
       dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_USERNAME_2: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
+      ALIYUN_PASSWORD_2: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第六阶段：MariaDB 相关镜像
   stage_6_mariadb:
@@ -248,9 +263,12 @@ jobs:
       source_tag: ${{ matrix.source_tag }}
       dest_image: ${{ matrix.dest_image }}
       dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_USERNAME_2: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
+      ALIYUN_PASSWORD_2: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第七阶段：Dify系列镜像
   stage_7_dify:
@@ -276,9 +294,12 @@ jobs:
       source_tag: ${{ matrix.source_tag }}
       dest_image: ${{ matrix.dest_image }}
       dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_USERNAME_2: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
+      ALIYUN_PASSWORD_2: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}
 
   # 第八阶段：其他镜像
   stage_8_others:
@@ -340,6 +361,9 @@ jobs:
       source_tag: ${{ matrix.source_tag }}
       dest_image: ${{ matrix.dest_image }}
       dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+      ALIYUN_USERNAME_2: ${{ secrets.ALIYUN_CR_US_EAST_USERNAME }}
+      ALIYUN_PASSWORD_2: ${{ secrets.ALIYUN_CR_US_EAST_PASSWORD }}

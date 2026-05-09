@@ -351,3 +351,32 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第九阶段：Oracle 相关镜像
+  stage_9_oracle:
+    needs: stage_8_others
+    strategy:
+      matrix:
+        include:
+          - source_image: gvenzl/oracle-xe
+            source_tag: "11-slim"
+            dest_image: oracle-xe
+          - source_image: gvenzl/oracle-xe
+            source_tag: "18-slim"
+            dest_image: oracle-xe
+          - source_image: gvenzl/oracle-xe
+            source_tag: "21-slim"
+            dest_image: oracle-xe
+          - source_image: gvenzl/oracle-free
+            source_tag: "23-slim"
+            dest_image: oracle-free
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}

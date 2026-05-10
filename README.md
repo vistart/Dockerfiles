@@ -1,30 +1,40 @@
 # Dockerfiles for PHP & Apache2
 
-These images are all based on the official [php](https://hub.docker.com/_/php) images and the following extensions are enabled:
+These images are built from the official [php](https://hub.docker.com/_/php) images with multi-stage build.
 
-- bcmath
-- intl
-- mcrypt
-- mbstring
-- mysqli
-- redis
-- soap
-- pcntl
-- pdo
-- pdo_mysql
-- gd
-- zip
-- [amqp](https://pecl.php.net/package/amqp)
-- [igbinary](https://pecl.php.net/package/igbinary)
-- [imagick](https://pecl.php.net/package/imagick)
-- [libsodium](https://pecl.php.net/package/libsodium)
-- [mongdb](https://pecl.php.net/package/mongodb)
-- [timezonedb](https://pecl.php.net/package/timezonedb)
-- [xdebug](https://pecl.php.net/package/xdebug)
+## Enabled Extensions
 
-The following software is installed:
+| Extension | 8.1 | 8.2 | 8.3 | 8.4 | 8.5 |
+|-----------|-----|-----|-----|-----|-----|
+| bcmath | ✓ | ✓ | ✓ | ✓ | ✓ |
+| intl | ✓ | ✓ | ✓ | ✓ | ✓ |
+| mbstring | ✓ | ✓ | ✓ | ✓ | ✓ |
+| mysqli | ✓ | ✓ | ✓ | ✓ | ✓ |
+| pcntl | ✓ | ✓ | ✓ | ✓ | ✓ |
+| pdo | ✓ | ✓ | ✓ | ✓ | ✓ |
+| pdo_mysql | ✓ | ✓ | ✓ | ✓ | ✓ |
+| pdo_pgsql | ✓ | ✓ | ✓ | ✓ | ✓ |
+| gd | ✓ | ✓ | ✓ | ✓ | ✓ |
+| zip | ✓ | ✓ | ✓ | ✓ | ✓ |
+| iconv | ✓ | ✓ | ✓ | ✓ | ✓ |
+| soap | ✓ | ✓ | ✓ | ✓ | ✓ |
+| redis | ✓ | ✓ | ✓ | ✓ | ✓ |
+| xdebug | ✓ | ✓ | ✓ | ✓ | ✓ |
+| mongodb | ✓ | ✓ | ✓ | ✓ | ✓ |
+| timezonedb | ✓ | ✓ | ✓ | ✓ | ✓ |
+| igbinary | ✓ | ✓ | ✓ | ✓ | ✓ |
+| sodium | ✓ | ✓ | ✓ | ✓ | ✓ |
+| amqp | ✓ | ✓ | ✓ | ✓ | ✗ |
+| imagick | ✓ | ✓ | ✗ | ✗ | ✓ |
+| mcrypt | ✓ | ✗ | ✗ | ✗ | ✓ |
+| phpy | ✓ | ✓ | ✓ | ✗ | ✓ |
+
+## Installed Software
 
 - git
+- axel
+- wget
+- python3-dev
 - imagemagick
 - libfreetype6-dev
 - libjpeg62-turbo-dev
@@ -32,69 +42,58 @@ The following software is installed:
 - libmcrypt-dev
 - libmagickwand-dev
 - libpng-dev
-- librabbitmq-dev (amqp extension required)
-- libssl-dev (mongodb extension required)
-- libzip-dev (zip extension required)
-- openssl (mongodb extension required)
-- wget
-- unzip (zip extension required)
-- zip (zip extension required)
+- libonig-dev
+- librabbitmq-dev
+- libssl-dev
+- libzip-dev
+- openssl
 - zlib1g-dev
+- zip / unzip
 
-The following apache2 module(s) are enabled:
+## Apache2 Modules
 
 - rewrite
 - ssl
 
-Also installed is [composer](https://getcomposer.org).
+## Other
 
-# Supported tags and respective `Dockerfile` links
+- [composer](https://getcomposer.org)
 
-- 8.5.0 ([`8.5-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.3)) \ ([`8.5-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.3)) \ (`apache`) \ (`cli`)
-- 8.4.15 ([`8.4-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.3)) \ ([`8.4-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.3))
-- 8.3.28 ([`8.3-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.3)) \ ([`8.3-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.3))
-- 8.2.29 ([`8.2-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile-8.2)) \ ([`8.2-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile-8.2))
-- 8.1.33 ([`8.1-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) \ ([`8.1-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile))
-- 8.0.30 ([`8.0-apache`](https://github.com/vistart/Dockerfiles/blob/php/php/apache/Dockerfile)) \ ([`8.0-cli`](https://github.com/vistart/Dockerfiles/blob/php/php/cli/Dockerfile)) (no longer updated)
+## Supported Tags
 
-# Supported CPU Archs
+| Tags | Variants |
+|------|----------|
+| `8.5-cli`, `8.5-apache`, `cli`, `apache` | PHP 8.5 |
+| `8.4-cli`, `8.4-apache` | PHP 8.4 |
+| `8.3-cli`, `8.3-apache` | PHP 8.3 |
+| `8.2-cli`, `8.2-apache` | PHP 8.2 |
+| `8.1-cli`, `8.1-apache` | PHP 8.1 |
+
+`cli` / `apache` tags point to the latest PHP 8.5.
+
+## Supported CPU Architectures
 
 - linux/386
 - linux/amd64
+- linux/arm/v6
+- linux/arm/v7
 - linux/arm64
 - linux/ppc64le
+- linux/s390x
 
-# Supported Container Registry
+## Supported Container Registry
 
-- [Docker Hub](https://hub.docker.com/r/vistart/php)
-- Aliyun Container Registry:
-  - Hongkong, China: `registry.cn-hongkong.aliyuncs.com/vistart_public/php`
-  - Shanghai, China: `registry.cn-shanghai.aliyuncs.com/vistart_public/php`
-  - Tokyo, Japan: `registry.ap-northeast-1.aliyuncs.com/vistart_public/php`
-  - London, UK: `registry.eu-west-1.aliyuncs.com/vistart_public/php`
-  - Silicon Valley, US: `registry.us-west-1.aliyuncs.com/vistart_public/php`
-  - Frankfurt, Germany: `registry.eu-central-1.aliyuncs.com/vistart_public/php`
-  - Sydney, Australia: `registry.ap-southeast-2.aliyuncs.com/vistart_public/php`
-  - Dubai, UAE: `registry.me-east-1.aliyuncs.com/vistart_public/php`
-  - Singapore: `registry.ap-southeast-1.aliyuncs.com/vistart_public/php`
+- `registry.cn-shanghai.aliyuncs.com/vistart_public/php`
 
-We will release the corresponding images within one week of the official release of the new version of PHP.
-
-> If the above nodes do not meet your requirements, you can commit your requirements in `issues`. If the demand does not significantly increase the cost, we can consider adding new nodes.
-
-# How to Use
+## How to Use
 
 Please refer to [official php image](https://hub.docker.com/_/php/).
 
-# How to build
+## How to Build
 
-Use git to download the dockerfile locally:
-`git clone --branch=php https://github.com/vistart/Dockerfiles`
-
-Switch the current directory to the directory where the dockerfile is saved and build it:
-
-`docker build . --build-arg TAG=apache`
-
-or
-
-`docker build . --build-arg TAG=8.4-apache`
+```bash
+git clone --branch=php https://github.com/vistart/Dockerfiles
+cd Dockerfiles/php
+docker build . --build-arg TAG=8.5-cli --build-arg PHP_VERSION=8.5
+docker build . --build-arg TAG=8.4-apache --build-arg PHP_VERSION=8.4
+```

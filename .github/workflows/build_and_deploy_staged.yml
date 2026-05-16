@@ -162,7 +162,10 @@ jobs:
       matrix:
         include:
           - source_image: mariadb
-            source_tag: "latest"
+            source_tag: "12.2"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "12.1"
             dest_image: ""
           - source_image: mariadb
             source_tag: "12.0"

@@ -64,82 +64,9 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
-  # 第三阶段：Clickhouse 相关镜像
-  stage_3_clickhouse:
+  # 第三阶段：MySQL 相关镜像
+  stage_3_mysql:
     needs: stage_2_redis # 等待第二阶段完成
-    strategy:
-      matrix:
-        include:
-          - source_image: clickhouse
-            source_tag: "latest"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "lts"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "26.1"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.12"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.10"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.9"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.7"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.3"
-            dest_image: ""
-    uses: ./.github/workflows/.docker-transfer.yml
-    with:
-      source_image: ${{ matrix.source_image }}
-      source_tag: ${{ matrix.source_tag }}
-      dest_image: ${{ matrix.dest_image }}
-      dest_namespace: vistart_public
-      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
-    secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-
-  # 第四阶段：PHP 相关镜像
-  stage_4_php:
-    needs: stage_3_clickhouse # 等待第三阶段完成
-    strategy:
-      matrix:
-        include:
-          - source_image: php
-            source_tag: "8.1"
-            dest_image: ""
-          - source_image: php
-            source_tag: "8.2"
-            dest_image: ""
-          - source_image: php
-            source_tag: "8.3"
-            dest_image: ""
-          - source_image: php
-            source_tag: "8.4"
-            dest_image: ""
-          - source_image: php
-            source_tag: "8.5"
-            dest_image: ""
-    uses: ./.github/workflows/.docker-transfer.yml
-    with:
-      source_image: ${{ matrix.source_image }}
-      source_tag: ${{ matrix.source_tag }}
-      dest_image: ${{ matrix.dest_image }}
-      dest_namespace: vistart_public
-      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
-    secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-
-  # 第五阶段：MySQL 相关镜像
-  stage_5_mysql:
-    needs: stage_4_php # 等待第四阶段完成
     strategy:
       matrix:
         include:
@@ -175,35 +102,9 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
-  # 第六阶段：MongoDB 相关镜像
-  stage_6_mongo:
-    needs: stage_5_mysql # 等待第五阶段完成
-    strategy:
-      matrix:
-        include:
-          - source_image: mongo
-            source_tag: "latest"
-            dest_image: ""
-          - source_image: mongo
-            source_tag: "7"
-            dest_image: ""
-          - source_image: mongo
-            source_tag: "4.4.18"
-            dest_image: ""
-    uses: ./.github/workflows/.docker-transfer.yml
-    with:
-      source_image: ${{ matrix.source_image }}
-      source_tag: ${{ matrix.source_tag }}
-      dest_image: ${{ matrix.dest_image }}
-      dest_namespace: vistart_public
-      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
-    secrets:
-      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
-      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
-
-  # 第七阶段：PostgreSQL 相关镜像
-  stage_7_postgres:
-    needs: stage_6_mongo # 等待第六阶段完成
+  # 第四阶段：PostgreSQL 相关镜像
+  stage_4_postgres:
+    needs: stage_3_mysql # 等待第三阶段完成
     strategy:
       matrix:
         include:
@@ -251,9 +152,9 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
-  # 第八阶段：MariaDB 相关镜像
-  stage_8_mariadb:
-    needs: stage_7_postgres # 等待第七阶段完成
+  # 第五阶段：MariaDB 相关镜像
+  stage_5_mariadb:
+    needs: stage_4_postgres # 等待第四阶段完成
     strategy:
       matrix:
         include:
@@ -307,9 +208,9 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
-  # 第九阶段：Oracle 相关镜像
-  stage_9_oracle:
-    needs: stage_8_mariadb
+  # 第六阶段：Oracle 相关镜像
+  stage_6_oracle:
+    needs: stage_5_mariadb
     strategy:
       matrix:
         include:
@@ -325,6 +226,105 @@ jobs:
           - source_image: gvenzl/oracle-free
             source_tag: "23-slim"
             dest_image: oracle-free
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第七阶段：Clickhouse 相关镜像
+  stage_7_clickhouse:
+    needs: stage_6_oracle
+    strategy:
+      matrix:
+        include:
+          - source_image: clickhouse
+            source_tag: "latest"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "lts"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "26.1"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "25.12"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "25.10"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "25.9"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "25.7"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "25.3"
+            dest_image: ""
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第八阶段：MongoDB 相关镜像
+  stage_8_mongo:
+    needs: stage_7_clickhouse
+    strategy:
+      matrix:
+        include:
+          - source_image: mongo
+            source_tag: "latest"
+            dest_image: ""
+          - source_image: mongo
+            source_tag: "7"
+            dest_image: ""
+          - source_image: mongo
+            source_tag: "4.4.18"
+            dest_image: ""
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第九阶段：PHP 相关镜像
+  stage_9_php:
+    needs: stage_8_mongo
+    strategy:
+      matrix:
+        include:
+          - source_image: php
+            source_tag: "8.1"
+            dest_image: ""
+          - source_image: php
+            source_tag: "8.2"
+            dest_image: ""
+          - source_image: php
+            source_tag: "8.3"
+            dest_image: ""
+          - source_image: php
+            source_tag: "8.4"
+            dest_image: ""
+          - source_image: php
+            source_tag: "8.5"
+            dest_image: ""
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: ${{ matrix.source_image }}

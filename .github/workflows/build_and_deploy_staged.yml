@@ -214,9 +214,69 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
-  # 第六阶段：Oracle 相关镜像
-  stage_6_oracle:
+  # 第六阶段：Firebird 相关镜像
+  stage_6_firebird:
     needs: stage_5_mariadb
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to primary Aliyun Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: registry.cn-shanghai.aliyuncs.com
+          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+      - name: Login to secondary Aliyun Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: registry.us-west-1.aliyuncs.com
+          username: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+          password: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+      - name: Fetch all tags from DockerHub and transfer
+        env:
+          SOURCE_IMAGE: firebirdsql/firebird
+          DEST_IMAGE: firebird
+          DEST_NAMESPACE: vistart_public
+          DEST_REGISTRIES: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
+        run: |
+          REPO="${{ env.SOURCE_IMAGE }}"
+          DEST_IMAGE="${{ env.DEST_IMAGE }}"
+          DEST_NAMESPACE="${{ env.DEST_NAMESPACE }}"
+          IFS=',' read -ra REGISTRIES <<< "${{ env.DEST_REGISTRIES }}"
+
+          echo "Fetching all tags for ${REPO}..."
+          RESPONSE=$(curl -s "https://hub.docker.com/v2/repositories/${REPO}/tags?page_size=200")
+          TAGS=$(echo "$RESPONSE" | jq -r '.results[].name' 2>/dev/null || echo "latest")
+          TAG_COUNT=$(echo "$TAGS" | wc -l)
+          echo "Found ${TAG_COUNT} tags"
+
+          echo "$TAGS" | while IFS= read -r tag; do
+            [ -z "$tag" ] && continue
+            OLD_TAG="${REPO}:${tag}"
+            echo "Transferring ${OLD_TAG}..."
+
+            TAGS_ARGS=""
+            for registry in "${REGISTRIES[@]}"; do
+              registry=$(echo "$registry" | xargs)
+              NEW_TAG="${registry}/${DEST_NAMESPACE}/${DEST_IMAGE}:${tag}"
+              TAGS_ARGS="$TAGS_ARGS --tag $NEW_TAG"
+            done
+
+            if ! docker buildx inspect mybuilder >/dev/null 2>&1; then
+              docker buildx create --name mybuilder --use
+            fi
+
+            docker buildx imagetools create $TAGS_ARGS $OLD_TAG || echo "Warning: failed to transfer ${OLD_TAG}, skipping"
+          done
+          echo "All Firebird tags transferred successfully"
+
+  # 第七阶段：Oracle 相关镜像
+  stage_7_oracle:
+    needs: stage_6_firebird
     strategy:
       matrix:
         include:
@@ -243,9 +303,9 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
-  # 第七阶段：Clickhouse 相关镜像
-  stage_7_clickhouse:
-    needs: stage_6_oracle
+  # 第八阶段：Clickhouse 相关镜像
+  stage_8_clickhouse:
+    needs: stage_7_oracle
     strategy:
       matrix:
         include:
@@ -284,9 +344,9 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
-  # 第八阶段：MongoDB 相关镜像
-  stage_8_mongo:
-    needs: stage_7_clickhouse
+  # 第九阶段：MongoDB 相关镜像
+  stage_9_mongo:
+    needs: stage_8_clickhouse
     strategy:
       matrix:
         include:
@@ -310,9 +370,9 @@ jobs:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
 
-  # 第九阶段：PHP 相关镜像
-  stage_9_php:
-    needs: stage_8_mongo
+  # 第十阶段：PHP 相关镜像
+  stage_10_php:
+    needs: stage_9_mongo
     strategy:
       matrix:
         include:

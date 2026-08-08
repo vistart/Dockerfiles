@@ -30,6 +30,9 @@ jobs:
             source_tag: "latest"
             dest_image: ""
           - source_image: redis
+            source_tag: "8.10"
+            dest_image: ""
+          - source_image: redis
             source_tag: "8.8"
             dest_image: ""
           - source_image: redis

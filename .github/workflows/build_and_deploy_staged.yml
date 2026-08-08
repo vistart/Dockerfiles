@@ -212,6 +212,18 @@ jobs:
           - source_image: mariadb
             source_tag: "11.8"
             dest_image: ""
+          - source_image: mariadb
+            source_tag: "latest"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "lts"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "12.3"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "13.0-rc"
+            dest_image: ""
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: ${{ matrix.source_image }}

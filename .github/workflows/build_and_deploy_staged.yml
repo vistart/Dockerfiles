@@ -309,6 +309,18 @@ jobs:
             source_tag: "lts"
             dest_image: ""
           - source_image: clickhouse
+            source_tag: "26.7"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "26.6"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "26.5"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "26.3"
+            dest_image: ""
+          - source_image: clickhouse
             source_tag: "26.1"
             dest_image: ""
           - source_image: clickhouse

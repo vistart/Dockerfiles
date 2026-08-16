@@ -33,6 +33,8 @@ jobs:
           file: php/Dockerfile
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
+          provenance: false
+          sbom: false
           build-args: |
             TAG=8.1-${{ matrix.variant }}
             PHP_VERSION=8.1
@@ -66,6 +68,8 @@ jobs:
           file: php/Dockerfile
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
+          provenance: false
+          sbom: false
           build-args: |
             TAG=8.2-${{ matrix.variant }}
             PHP_VERSION=8.2
@@ -99,6 +103,8 @@ jobs:
           file: php/Dockerfile
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
+          provenance: false
+          sbom: false
           build-args: |
             TAG=8.3-${{ matrix.variant }}
             PHP_VERSION=8.3
@@ -132,6 +138,8 @@ jobs:
           file: php/Dockerfile
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
+          provenance: false
+          sbom: false
           build-args: |
             TAG=8.4-${{ matrix.variant }}
             PHP_VERSION=8.4
@@ -171,6 +179,8 @@ jobs:
           file: php/Dockerfile
           platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
           push: true
+          provenance: false
+          sbom: false
           build-args: |
             TAG=8.5-${{ matrix.variant }}
             PHP_VERSION=8.5

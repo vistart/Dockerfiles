@@ -78,5 +78,7 @@ jobs:
             ${{ inputs.latest_tag == 'true' && format('{0}:latest', inputs.dockerhub_repo) || '' }}
             ${{ inputs.latest_tag == 'true' && format('{0}:latest', inputs.aliyun_registry) || '' }}
           push: true
+          provenance: false
+          sbom: false
           cache-from: type=gha,scope=pg-${{ inputs.pg_version }}
           cache-to: type=gha,mode=max,scope=pg-${{ inputs.pg_version }}

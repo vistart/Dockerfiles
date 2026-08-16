@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       pg_versions:
-        description: "PG versions to build (comma-separated, e.g., 9,10,11,12,13,14,15,16,17,18)"
+        description: "PG versions to build (comma-separated, e.g., 9,10,11,12,13,14,15,16,17,18,19beta3)"
         required: false
-        default: "9,10,11,12,13,14,15,16,17,18"
+        default: "9,10,11,12,13,14,15,16,17,18,19beta3"
 
 jobs:
   build-9:
@@ -138,6 +138,19 @@ jobs:
       dockerhub_repo: "vistart/postgres-exts"
       aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
       latest_tag: true
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-19beta3:
+    uses: ./.github/workflows/.postgres-build.yml
+    with:
+      pg_version: "19beta3"
+      platforms: "linux/amd64,linux/arm64,linux/ppc64le"
+      dockerhub_repo: "vistart/postgres-exts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts"
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}

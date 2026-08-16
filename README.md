@@ -20,46 +20,54 @@ Please choose specific branch which fit for your need.
 | 16 | postgres:16 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 | 17 | postgres:17 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 | 18 | postgres:18 (latest) | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
+| 19beta3 | postgres:19beta3 | amd64, arm64, ppc64le | pg_repack, pg_cron, pgaudit, orafce, pgtap, hypopg, pglogical, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 
 ### 扩展详细矩阵
 
-| 扩展 | PG9 | PG10 | PG11 | PG12 | PG13 | PG14 | PG15 | PG16 | PG17 | PG18 |
-|------|-----|------|------|------|------|------|------|------|------|------|
-| **postgis** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 |
-| **postgis_raster** | ✗ | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 |
-| **postgis_sfcgal** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 |
-| **postgis_topology** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 |
-| **postgis_tiger_geocoder** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 |
-| **pgrouting** | 2.3.2 | ✗ | ✗ | ✗ | 4.0.1 | 4.0.1 | ✗ | 4.0.1 | 4.0.1 | 4.0.1 |
-| **vector** | ✗ | ✗ | ✗ | 0.7.4 | ✗ | ✗ | 0.8.2 | ✗ | ✗ | ✗ |
-| **pg_partman** | ✗ | ✗ | ✗ | ✗ | 4.7.4 | 5.4.3 | ✗ | 5.4.3 | 5.4.3 | 5.4.3 |
-| **pg_cron** | ✗ | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 |
-| **pg_repack** | 1.3.4 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 |
-| **pglogical** | ✗ | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 |
-| **pgaudit** | ✗ | 1.2.4 | 1.3.4 | 1.4.3 | 1.5.3 | 1.6.3 | 1.7.1 | 16.1 | 17.1 | 18.0 |
-| **orafce** | 3.3 | 3.25 | 4.16 | 4.16 | 4.16 | 4.16 | 4.16 | 4.16 | 4.16 | 4.16 |
-| **pgtap** | 0.97.0 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 |
-| **hypopg** | ✗ | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 |
-| **address_standardizer** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 |
-| **pg_surgery** | ✗ | ✗ | ✗ | ✗ | ✗ | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
-| **pg_walinspect** | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | 1.0 | 1.1 | 1.1 | 1.1 |
-| **pg_logicalinspect** | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | 1.0 |
-| **hstore** | 1.4 | 1.4 | 1.5 | 1.6 | 1.7 | 1.8 | 1.8 | 1.8 | 1.8 | 1.8 |
-| **intarray** | 1.2 | 1.2 | 1.2 | 1.2 | 1.3 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 |
-| **ltree** | 1.1 | 1.1 | 1.1 | 1.1 | 1.2 | 1.2 | 1.2 | 1.2 | 1.3 | 1.3 |
-| **pg_trgm** | 1.3 | 1.3 | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 |
-| **pgcrypto** | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.4 |
-| **uuid-ossp** | 1.1 | 1.1 | 1.1 | 1.1 | ✗ | ✗ | 1.1 | ✗ | ✗ | ✗ |
-| **tablefunc** | 1.0 | 1.0 | 1.0 | 1.0 | ✗ | ✗ | 1.0 | ✗ | ✗ | ✗ |
-| **bloom** | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
-| **btree_gin** | 1.0 | 1.2 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 |
-| **btree_gist** | 1.2 | 1.5 | 1.5 | 1.5 | 1.5 | 1.6 | 1.7 | 1.7 | 1.7 | 1.8 |
-| **citext** | 1.3 | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.8 |
-| **cube** | 1.2 | 1.2 | 1.4 | 1.4 | 1.4 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 |
-| **fuzzystrmatch** | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.2 | 1.2 | 1.2 |
-| **pg_stat_statements** | 1.4 | 1.6 | 1.6 | 1.7 | 1.8 | 1.9 | 1.10 | 1.10 | 1.11 | 1.12 |
-| **amcheck** | ✗ | 1.0 | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 | 1.4 | 1.5 |
-| **pageinspect** | 1.5 | 1.6 | 1.7 | 1.7 | 1.8 | 1.9 | 1.11 | 1.12 | 1.12 | 1.13 |
+| 扩展 | PG9 | PG10 | PG11 | PG12 | PG13 | PG14 | PG15 | PG16 | PG17 | PG18 | PG19 |
+|------|-----|------|------|------|------|------|------|------|------|------|------|
+| **postgis** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.4 |
+| **postgis_raster** | ✗ | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.4 |
+| **postgis_sfcgal** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.4 |
+| **postgis_topology** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.4 |
+| **postgis_tiger_geocoder** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.4 |
+| **pgrouting** | 2.3.2 | ✗ | ✗ | ✗ | 4.0.1 | 4.0.1 | ✗ | 4.0.1 | 4.0.1 | 4.0.1 | 4.0.1 |
+| **vector** | ✗ | ✗ | ✗ | 0.7.4 | ✗ | ✗ | 0.8.2 | ✗ | ✗ | ✗ | 0.8.6 |
+| **pg_partman** | ✗ | ✗ | ✗ | ✗ | 4.7.4 | 5.4.3 | ✗ | 5.4.3 | 5.4.3 | 5.4.3 | 5.5.0 |
+| **pg_cron** | ✗ | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 |
+| **pg_repack** | 1.3.4 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 | 1.5.3 |
+| **pglogical** | ✗ | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.6 | 2.4.8 |
+| **pgaudit** | ✗ | 1.2.4 | 1.3.4 | 1.4.3 | 1.5.3 | 1.6.3 | 1.7.1 | 16.1 | 17.1 | 18.0 | 19.0 |
+| **orafce** | 3.3 | 3.25 | 4.16 | 4.16 | 4.16 | 4.16 | 4.16 | 4.16 | 4.16 | 4.16 | 4.16 |
+| **pgtap** | 0.97.0 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 | 1.3.4 |
+| **hypopg** | ✗ | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.2 | 1.4.3 |
+| **address_standardizer** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.4 |
+| **pg_surgery** | ✗ | ✗ | ✗ | ✗ | ✗ | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
+| **pg_walinspect** | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | 1.0 | 1.1 | 1.1 | 1.1 | 1.1 |
+| **pg_logicalinspect** | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | 1.0 | 1.0 |
+| **hstore** | 1.4 | 1.4 | 1.5 | 1.6 | 1.7 | 1.8 | 1.8 | 1.8 | 1.8 | 1.8 | 1.8 |
+| **intarray** | 1.2 | 1.2 | 1.2 | 1.2 | 1.3 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 |
+| **ltree** | 1.1 | 1.1 | 1.1 | 1.1 | 1.2 | 1.2 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 |
+| **pg_trgm** | 1.3 | 1.3 | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 |
+| **pgcrypto** | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 |
+| **uuid-ossp** | 1.1 | 1.1 | 1.1 | 1.1 | ✗ | ✗ | 1.1 | ✗ | ✗ | ✗ | 1.1 |
+| **tablefunc** | 1.0 | 1.0 | 1.0 | 1.0 | ✗ | ✗ | 1.0 | ✗ | ✗ | ✗ | 1.0 |
+| **bloom** | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 |
+| **btree_gin** | 1.0 | 1.2 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.4 |
+| **btree_gist** | 1.2 | 1.5 | 1.5 | 1.5 | 1.5 | 1.6 | 1.7 | 1.7 | 1.7 | 1.8 | 1.9 |
+| **citext** | 1.3 | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.8 | 1.8 |
+| **cube** | 1.2 | 1.2 | 1.4 | 1.4 | 1.4 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 |
+| **fuzzystrmatch** | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.2 | 1.2 | 1.2 | 1.2 |
+| **pg_stat_statements** | 1.4 | 1.6 | 1.6 | 1.7 | 1.8 | 1.9 | 1.10 | 1.10 | 1.11 | 1.12 | 1.13 |
+| **amcheck** | ✗ | 1.0 | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 | 1.4 | 1.5 | 1.5 |
+| **pageinspect** | 1.5 | 1.6 | 1.7 | 1.7 | 1.8 | 1.9 | 1.11 | 1.12 | 1.12 | 1.13 | 1.13 |
+
+### PG19 说明
+
+PG19 为 Beta 版本，与稳定版存在以下差异：
+
+- **wal2json**: PGDG 尚未提供 `postgresql-19-wal2json` 包
+- **TimescaleDB**: 尚未支持 PG19，未安装
 
 ### 架构说明
 

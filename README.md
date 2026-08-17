@@ -15,7 +15,7 @@ Images are transferred in stages with sequential dependencies:
 | 4 | `php` | `8.1`, `8.2`, `8.3`, `8.4`, `8.5` |
 | 5 | `mysql` | `latest`, `9.4`, `9.2`, `8.4`, `8.0`, `5.7`, `5.6` |
 | 6 | `mongo` | `latest`, `7`, `4.4.18` |
-| 7 | `postgres` | `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `latest`, `15-alpine` |
+| 7 | `postgres` | `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18`, `19beta3`, `latest`, `15-alpine` |
 | 7 | `nginx` | `latest` |
 | 8 | `mariadb` | `latest`, `12.0`, `10.0`, `10.1`, `10.2`, `10.3`, `10.4`, `10.5`, `10.6`, `10.11`, `11.4`, `11.7`, `11.8` |
 | 9 | `gvenzl/oracle-xe` | `11-slim`, `18-slim`, `21-slim` |

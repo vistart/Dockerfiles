@@ -148,7 +148,7 @@ jobs:
             source_tag: "18"
             dest_image: ""
           - source_image: postgres
-            source_tag: "19beta2"
+            source_tag: "19beta3"
             dest_image: ""
           - source_image: postgres
             source_tag: "latest"

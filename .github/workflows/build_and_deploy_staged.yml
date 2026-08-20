@@ -56,9 +56,7 @@ jobs:
           - source_image: redis
             source_tag: "7.0"
             dest_image: ""
-          - source_image: redis
-            source_tag: "6.2"
-            dest_image: ""
+
           - source_image: redis/redis-stack
             source_tag: "latest"
             dest_image: redis-stack
@@ -94,12 +92,6 @@ jobs:
           - source_image: mysql
             source_tag: "8.0"
             dest_image: ""
-          - source_image: mysql
-            source_tag: "5.7"
-            dest_image: ""
-          - source_image: mysql
-            source_tag: "5.6"
-            dest_image: ""
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: ${{ matrix.source_image }}
@@ -117,21 +109,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - source_image: postgres
-            source_tag: "9"
-            dest_image: ""
-          - source_image: postgres
-            source_tag: "10"
-            dest_image: ""
-          - source_image: postgres
-            source_tag: "11"
-            dest_image: ""
-          - source_image: postgres
-            source_tag: "12"
-            dest_image: ""
-          - source_image: postgres
-            source_tag: "13"
-            dest_image: ""
           - source_image: postgres
             source_tag: "14"
             dest_image: ""
@@ -312,34 +289,13 @@ jobs:
             source_tag: "lts"
             dest_image: ""
           - source_image: clickhouse
-            source_tag: "26.7"
-            dest_image: ""
-          - source_image: clickhouse
             source_tag: "26.6"
             dest_image: ""
           - source_image: clickhouse
             source_tag: "26.5"
             dest_image: ""
           - source_image: clickhouse
-            source_tag: "26.3"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "26.1"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.12"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.10"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.9"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.7"
-            dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.3"
+            source_tag: "25.8"
             dest_image: ""
     uses: ./.github/workflows/.docker-transfer.yml
     with:

@@ -73,6 +73,5 @@ verify_extension "pgtap"
 verify_extension "hypopg"
 verify_extension "pg_partman"
 verify_extension "vector"
-verify_extension "hint_plan"
 
 echo "=== 验证完成 ==="

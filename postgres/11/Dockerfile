@@ -25,7 +25,6 @@ RUN apt-get update \
         postgresql-11-orafce \
         postgresql-11-pgtap \
         postgresql-11-hypopg \
-        postgresql-11-pg-hint-plan \
     && rm -rf /var/lib/apt/lists/*
 
 RUN printf '\nshared_preload_libraries = '\''pg_stat_statements,pg_cron,auto_explain,pgaudit'\''\npg_stat_statements.track = all\npg_cron.database = '\''postgres'\''\n' >> /usr/share/postgresql/postgresql.conf.sample

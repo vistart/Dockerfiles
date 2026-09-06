@@ -25,6 +25,7 @@ RUN apt-get update \
         postgresql-10-orafce \
         postgresql-10-pgtap \
         postgresql-10-hypopg \
+        postgresql-10-hintplan \
     && rm -rf /var/lib/apt/lists/*
 
 RUN printf '\nshared_preload_libraries = '\''pg_stat_statements,pg_cron,auto_explain,pgaudit'\''\npg_stat_statements.track = all\npg_cron.database = '\''postgres'\''\n' >> /usr/share/postgresql/postgresql.conf.sample

@@ -20,6 +20,7 @@ RUN apt-get update \
         postgresql-13-pgtap \
         postgresql-13-hypopg \
         postgresql-13-pgvector \
+        postgresql-13-hintplan \
     && rm -rf /var/lib/apt/lists/*
 
 # Install extensions with Debian library dependencies (may fail in restricted networks)

@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         postgresql-12-pgtap \
         postgresql-12-hypopg \
         postgresql-12-pgvector \
+        postgresql-12-hintplan \
     && rm -rf /var/lib/apt/lists/*
 
 # Install extensions with Debian library dependencies (may fail in restricted networks)

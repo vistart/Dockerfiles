@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         postgresql-14-hypopg \
         postgresql-14-pglogical \
         postgresql-14-pgvector \
-        postgresql-14-hintplan \
+        postgresql-14-pg-hint-plan \
     && rm -rf /var/lib/apt/lists/*
 
 # Install extensions with Debian library dependencies (may fail in restricted networks)

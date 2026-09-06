@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         postgresql-18-hypopg \
         postgresql-18-pglogical \
         postgresql-18-pgvector \
-        postgresql-18-hintplan \
+        postgresql-18-pg-hint-plan \
     && rm -rf /var/lib/apt/lists/*
 
 # Install extensions with Debian library dependencies (may fail in restricted networks)

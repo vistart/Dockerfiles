@@ -1,6 +1,6 @@
-# PostgreSQL 19 Beta 3
+# PostgreSQL 19 Beta 4
 
-基于 `postgres:19beta3` 官方镜像构建，包含多个常用扩展。
+基于 `postgres:19beta4` 官方镜像构建，包含多个常用扩展。
 
 ## 已安装的扩展
 
@@ -45,14 +45,14 @@ pg_cron.database = 'postgres'
 
 ```bash
 # 运行容器
-docker run -d --name postgres19beta3 \
+docker run -d --name postgres19beta4 \
     -e POSTGRES_DB=test_db \
     -e POSTGRES_PASSWORD=password \
     -e POSTGRES_USER=root \
     -e TZ=Asia/Shanghai \
-    postgres:19beta3
+    postgres:19beta4
 
 # 启用扩展
-docker exec postgres19beta3 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS postgis;"
-docker exec postgres19beta3 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS pgvector;"
+docker exec postgres19beta4 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS postgis;"
+docker exec postgres19beta4 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS pgvector;"
 ```

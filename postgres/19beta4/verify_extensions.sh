@@ -1,6 +1,6 @@
 #!/bin/bash
 # verify_extensions.sh - 验证 PostgreSQL 扩展安装状态
-# 用法: DOCKER_HOST=tcp://host:2376 CONTAINER=postgres19beta3 ./verify_extensions.sh
+# 用法: DOCKER_HOST=tcp://host:2376 CONTAINER=postgres19beta4 ./verify_extensions.sh
 
 set -euo pipefail
 
@@ -25,7 +25,7 @@ if [[ -n "$DOCKER_CERT_PATH" ]]; then
     DOCKER_CMD="$DOCKER_CMD --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/cert.pem --tlskey=$DOCKER_CERT_PATH/key.pem"
 fi
 
-echo "=== 验证 PostgreSQL 19 Beta 3 扩展 ==="
+echo "=== 验证 PostgreSQL 19 Beta 4 扩展 ==="
 echo "容器: $CONTAINER"
 echo
 

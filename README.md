@@ -17,7 +17,7 @@ Images are transferred in stages with sequential dependencies:
 | 6 | `mongo` | `latest`, `7`, `4.4.18` |
 | 7 | `postgres` | `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18`, `19beta4`, `latest`, `15-alpine` |
 | 7 | `nginx` | `latest` |
-| 8 | `mariadb` | `latest`, `12.0`, `10.0`, `10.1`, `10.2`, `10.3`, `10.4`, `10.5`, `10.6`, `10.11`, `11.4`, `11.7`, `11.8` |
+| 8 | `mariadb` | `12.2`, `12.1`, `12.0`, `10.0`, `10.1`, `10.2`, `10.3`, `10.4`, `10.5`, `10.6`, `10.11`, `11.4`, `11.7`, `11.8`, `latest`, `lts`, `12.3`, `13.0`, `13.1-rc` |
 | 9 | `gvenzl/oracle-xe` | `11-slim`, `18-slim`, `21-slim` |
 | 9 | `gvenzl/oracle-free` | `23-slim` |
 

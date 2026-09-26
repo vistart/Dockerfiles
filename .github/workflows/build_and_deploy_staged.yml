@@ -202,7 +202,10 @@ jobs:
             source_tag: "12.3"
             dest_image: ""
           - source_image: mariadb
-            source_tag: "13.0-rc"
+            source_tag: "13.0"
+            dest_image: ""
+          - source_image: mariadb
+            source_tag: "13.1-rc"
             dest_image: ""
     uses: ./.github/workflows/.docker-transfer.yml
     with:

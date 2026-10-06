@@ -13,7 +13,7 @@ Images are transferred in stages with sequential dependencies:
 | 2 | `redis/redis-stack` | `latest` |
 | 3 | `clickhouse` | `latest`, `lts`, `26.1`, `25.12`, `25.10`, `25.9`, `25.7`, `25.3` |
 | 4 | `php` | `8.1`, `8.2`, `8.3`, `8.4`, `8.5` |
-| 5 | `mysql` | `latest`, `9.4`, `9.2`, `8.4`, `8.0`, `5.7`, `5.6` |
+| 5 | `mysql` | `latest`, `26.7`, `9.4`, `9.2`, `8.4`, `8.0`, `5.7`, `5.6` |
 | 6 | `mongo` | `latest`, `7`, `4.4.18` |
 | 7 | `postgres` | `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18`, `19beta4`, `latest`, `15-alpine` |
 | 7 | `nginx` | `latest` |

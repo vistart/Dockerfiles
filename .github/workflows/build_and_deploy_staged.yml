@@ -81,6 +81,9 @@ jobs:
             source_tag: "latest"
             dest_image: ""
           - source_image: mysql
+            source_tag: "26.7"
+            dest_image: ""
+          - source_image: mysql
             source_tag: "9.4"
             dest_image: ""
           - source_image: mysql

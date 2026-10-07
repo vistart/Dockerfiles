@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+
+  vlmcsd:
+    image: registry.cn-shanghai.aliyuncs.com/vistart_public/vlmcsd:1113
+    ports:
+      - "1688:1688"
+    restart: always

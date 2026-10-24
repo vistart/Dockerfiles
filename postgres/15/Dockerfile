@@ -7,12 +7,12 @@ SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 COPY postgresql.gpg /usr/share/keyrings/postgresql.gpg
 RUN apt-get update && apt-get install -y --no-install-recommends \
         apt-transport-https ca-certificates curl gnupg \
-    && echo "deb [signed-by=/usr/share/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
+    && echo "deb [signed-by=/usr/share/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt trixie-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
     && rm -rf /var/lib/apt/lists/*
 
 # Add TimescaleDB repository
 COPY timescaledb.gpg /usr/share/keyrings/timescaledb.gpg
-RUN echo "deb [signed-by=/usr/share/keyrings/timescaledb.gpg] https://packagecloud.io/timescale/timescaledb/debian/ bookworm main" \
+RUN echo "deb [signed-by=/usr/share/keyrings/timescaledb.gpg] https://packagecloud.io/timescale/timescaledb/debian/ trixie main" \
       > /etc/apt/sources.list.d/timescaledb.list
 
 # Install PGDG-only extensions (no external library dependencies)

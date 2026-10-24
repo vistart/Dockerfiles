@@ -26,9 +26,12 @@ Please choose specific branch which fit for your need.
 
 - **PG10 / PG11 已停止构建**：PGDG 已下架 `bullseye-pgdg`（Debian 11 已 EOL）且不再为 PG10/11 打包扩展，
   这两个版本的构建已从工作流中移除。注册表上已有的镜像仍可继续使用，但不再更新。
-- **TimescaleDB**：PG15–18 以独立步骤尽力安装（上游元包仅提供 amd64，arm64/ppc64le 及
-  PG15 会自动跳过）；PG9/12/13/14/19rc1 不安装 TimescaleDB。TimescaleDB 安装失败
-  被单独兜底，不会影响 PostGIS/pgrouting/partman 等其他扩展的安装。
+- **TimescaleDB**：PG15–18 以独立步骤尽力安装（上游元包仅提供 amd64，arm64/ppc64le
+  自动跳过）；PG9/12/13/14/19rc1 不安装 TimescaleDB。TimescaleDB 安装失败被单独
+  兜底，不会影响 PostGIS/pgrouting/partman 等其他扩展的安装。
+- **仓库与基础镜像对齐**：PG13–18 与 19rc1 的基础镜像为 trixie，均使用 trixie-pgdg /
+  trixie 仓库；PG12 基础镜像为 bookworm，使用 bookworm-pgdg。基础镜像升级导致 dist
+  漂移时，需同步调整本节仓库配置（PG15 即为此修复）。
 
 ### 扩展详细矩阵
 

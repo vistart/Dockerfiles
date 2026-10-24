@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1
-FROM postgres:19beta4
+FROM postgres:19rc1
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 
-# Add PostgreSQL PGDG repository (PG19 beta packages live in the "19" component)
+# Add PostgreSQL PGDG repository (PG19 rc packages live in the "19" component)
 COPY postgresql.gpg /usr/share/keyrings/postgresql.gpg
 RUN apt-get update && apt-get install -y --no-install-recommends \
         apt-transport-https ca-certificates curl gnupg \

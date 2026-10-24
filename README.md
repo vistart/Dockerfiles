@@ -20,7 +20,7 @@ Please choose specific branch which fit for your need.
 | 16 | postgres:16 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 | 17 | postgres:17 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 | 18 | postgres:18 (latest) | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
-| 19beta4 | postgres:19beta4 | amd64, arm64, ppc64le | pg_repack, pg_cron, pgaudit, orafce, pgtap, hypopg, pglogical, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
+| 19rc1 | postgres:19rc1 | amd64, arm64, ppc64le | pg_repack, pg_cron, pgaudit, orafce, pgtap, hypopg, pglogical, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 
 ### 扩展详细矩阵
 
@@ -62,9 +62,9 @@ Please choose specific branch which fit for your need.
 | **amcheck** | ✗ | 1.0 | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 | 1.4 | 1.5 | 1.5 |
 | **pageinspect** | 1.5 | 1.6 | 1.7 | 1.7 | 1.8 | 1.9 | 1.11 | 1.12 | 1.12 | 1.13 | 1.13 |
 
-### PG19 说明
+### PG19（19rc1）说明
 
-PG19 为 Beta 版本，与稳定版存在以下差异：
+PG19 当前为 RC（Release Candidate，发布候选）预发布版本，与稳定版存在以下差异：
 
 - **wal2json**: PGDG 尚未提供 `postgresql-19-wal2json` 包
 - **TimescaleDB**: 尚未支持 PG19，未安装

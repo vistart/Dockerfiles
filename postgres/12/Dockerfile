@@ -10,10 +10,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && echo "deb [signed-by=/usr/share/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
     && rm -rf /var/lib/apt/lists/*
 
-# Add TimescaleDB repository
-COPY timescaledb.gpg /usr/share/keyrings/timescaledb.gpg
-RUN echo "deb [signed-by=/usr/share/keyrings/timescaledb.gpg] https://packagecloud.io/timescale/timescaledb/debian/ bookworm main" \
-      > /etc/apt/sources.list.d/timescaledb.list
+# Note: the TimescaleDB repository is intentionally omitted for PG12.
+# The packagecloud bookworm dist currently breaks apt-get update in CI
+# ("Cannot allocate memory" while reading InRelease), and upstream no
+# longer provides a working timescaledb package chain for PG12.
+# Same approach as PG13/PG14.
 
 # Install PGDG-only extensions (no external library dependencies)
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -35,8 +36,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         postgresql-12-postgis-3-scripts \
         postgresql-12-pgrouting \
         postgresql-12-partman \
-        timescaledb-2-postgresql-12 \
-    || echo "Warning: Some Debian-dependent packages skipped (PostGIS, pgrouting, partman, timescaledb)" \
+    || echo "Warning: Some Debian-dependent packages skipped (PostGIS, pgrouting, partman)" \
     && rm -rf /var/lib/apt/lists/*
 
 RUN printf '\nshared_preload_libraries = '\''pg_stat_statements,pg_cron,auto_explain,pgaudit'\''\npg_stat_statements.track = all\npg_cron.database = '\''postgres'\''\n' >> /usr/share/postgresql/postgresql.conf.sample

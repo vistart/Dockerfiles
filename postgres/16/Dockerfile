@@ -35,8 +35,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         postgresql-16-postgis-3-scripts \
         postgresql-16-pgrouting \
         postgresql-16-partman \
+    || echo "Warning: Some Debian-dependent packages skipped (PostGIS, pgrouting, partman)" \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install TimescaleDB separately: upstream only ships amd64 metapackages and has
+# dropped older version/arch combinations, so this step is best-effort and must
+# never take the PostGIS group above down with it.
+RUN apt-get update && apt-get install -y --no-install-recommends \
         timescaledb-2-postgresql-16 \
-    || echo "Warning: Some Debian-dependent packages skipped (PostGIS, pgrouting, partman, timescaledb)" \
+    || echo "Warning: TimescaleDB skipped for this version/architecture" \
     && rm -rf /var/lib/apt/lists/*
 
 RUN printf '\nshared_preload_libraries = '\''pg_stat_statements,pg_cron,auto_explain,pgaudit'\''\npg_stat_statements.track = all\npg_cron.database = '\''postgres'\''\n' >> /usr/share/postgresql/postgresql.conf.sample

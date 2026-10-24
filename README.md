@@ -26,9 +26,9 @@ Please choose specific branch which fit for your need.
 
 - **PG10 / PG11 已停止构建**：PGDG 已下架 `bullseye-pgdg`（Debian 11 已 EOL）且不再为 PG10/11 打包扩展，
   这两个版本的构建已从工作流中移除。注册表上已有的镜像仍可继续使用，但不再更新。
-- **TimescaleDB 现状**：上游将包名改为带版本号的新命名（如 `timescaledb-2-2.31.0-postgresql-16`），
-  且元包仅提供 amd64。当前只有 PG16/17/18 的 amd64 镜像实际安装了 TimescaleDB；
-  PG12/PG15 及所有 arm64/ppc64le 镜像均未安装（构建以 Warning 跳过，不影响其他扩展）。
+- **TimescaleDB**：PG15–18 以独立步骤尽力安装（上游元包仅提供 amd64，arm64/ppc64le 及
+  PG15 会自动跳过）；PG9/12/13/14/19rc1 不安装 TimescaleDB。TimescaleDB 安装失败
+  被单独兜底，不会影响 PostGIS/pgrouting/partman 等其他扩展的安装。
 
 ### 扩展详细矩阵
 

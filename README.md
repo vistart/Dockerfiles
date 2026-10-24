@@ -11,8 +11,8 @@ Please choose specific branch which fit for your need.
 | 版本 | 基础镜像 | 支持架构 | 预装扩展 |
 |------|----------|----------|----------|
 | 9 | postgres:9 | amd64, arm64, arm, 386 | postgis-2.3, pgrouting, pgtap, orafce, pg_repack, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc |
-| 10 | postgres:10 | amd64, arm64 | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements |
-| 11 | postgres:11 | amd64, arm64 | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, amcheck, pageinspect |
+| 10 (EOL, 已停止构建) | postgres:10 | amd64, arm64 | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements |
+| 11 (EOL, 已停止构建) | postgres:11 | amd64, arm64 | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, amcheck, pageinspect |
 | 12 | postgres:12 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, pg_partman*, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements |
 | 13 | postgres:13 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, address_standardizer |
 | 14 | postgres:14 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, address_standardizer |
@@ -21,6 +21,14 @@ Please choose specific branch which fit for your need.
 | 17 | postgres:17 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 | 18 | postgres:18 (latest) | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 | 19rc1 | postgres:19rc1 | amd64, arm64, ppc64le | pg_repack, pg_cron, pgaudit, orafce, pgtap, hypopg, pglogical, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
+
+### 构建状态说明
+
+- **PG10 / PG11 已停止构建**：PGDG 已下架 `bullseye-pgdg`（Debian 11 已 EOL）且不再为 PG10/11 打包扩展，
+  这两个版本的构建已从工作流中移除。注册表上已有的镜像仍可继续使用，但不再更新。
+- **TimescaleDB 现状**：上游将包名改为带版本号的新命名（如 `timescaledb-2-2.31.0-postgresql-16`），
+  且元包仅提供 amd64。当前只有 PG16/17/18 的 amd64 镜像实际安装了 TimescaleDB；
+  PG12/PG15 及所有 arm64/ppc64le 镜像均未安装（构建以 Warning 跳过，不影响其他扩展）。
 
 ### 扩展详细矩阵
 

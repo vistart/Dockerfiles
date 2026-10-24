@@ -81,13 +81,13 @@ jobs:
             source_tag: "latest"
             dest_image: ""
           - source_image: mysql
-            source_tag: "26.7"
+            source_tag: "innovation"
             dest_image: ""
           - source_image: mysql
-            source_tag: "9.4"
+            source_tag: "lts"
             dest_image: ""
           - source_image: mysql
-            source_tag: "9.2"
+            source_tag: "9.7"
             dest_image: ""
           - source_image: mysql
             source_tag: "8.4"
@@ -128,7 +128,7 @@ jobs:
             source_tag: "18"
             dest_image: ""
           - source_image: postgres
-            source_tag: "19beta4"
+            source_tag: "19rc1"
             dest_image: ""
           - source_image: postgres
             source_tag: "latest"
@@ -295,10 +295,10 @@ jobs:
             source_tag: "lts"
             dest_image: ""
           - source_image: clickhouse
-            source_tag: "26.6"
+            source_tag: "26.9"
             dest_image: ""
           - source_image: clickhouse
-            source_tag: "26.5"
+            source_tag: "26.8"
             dest_image: ""
           - source_image: clickhouse
             source_tag: "25.8"
@@ -325,6 +325,12 @@ jobs:
             dest_image: ""
           - source_image: mongo
             source_tag: "7"
+            dest_image: ""
+          - source_image: mongo
+            source_tag: "8"
+            dest_image: ""
+          - source_image: mongo
+            source_tag: "9"
             dest_image: ""
           - source_image: mongo
             source_tag: "4.4.18"

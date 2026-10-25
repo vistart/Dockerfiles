@@ -377,3 +377,44 @@ jobs:
     secrets:
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # 第十一阶段：Python 相关镜像
+  stage_11_python:
+    needs: stage_10_php
+    strategy:
+      matrix:
+        include:
+          - source_image: python
+            source_tag: "3.15-slim"
+            dest_image: ""
+          - source_image: python
+            source_tag: "3.14-slim"
+            dest_image: ""
+          - source_image: python
+            source_tag: "3.13-slim"
+            dest_image: ""
+          - source_image: python
+            source_tag: "3.12-slim"
+            dest_image: ""
+          - source_image: python
+            source_tag: "3.11-slim"
+            dest_image: ""
+          - source_image: python
+            source_tag: "3.10-slim"
+            dest_image: ""
+          - source_image: python
+            source_tag: "3.9-slim"
+            dest_image: ""
+          - source_image: python
+            source_tag: "3.8-slim"
+            dest_image: ""
+    uses: ./.github/workflows/.docker-transfer.yml
+    with:
+      source_image: ${{ matrix.source_image }}
+      source_tag: ${{ matrix.source_tag }}
+      dest_image: ${{ matrix.dest_image }}
+      dest_namespace: vistart_public
+      dest_registries: "registry.cn-shanghai.aliyuncs.com,registry.us-west-1.aliyuncs.com"
+    secrets:
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}

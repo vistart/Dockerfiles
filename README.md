@@ -20,10 +20,12 @@ Images are transferred in stages with sequential dependencies:
 | 8 | `clickhouse` | `latest`, `lts`, `26.9`, `26.8`, `25.8` |
 | 9 | `mongo` | `latest`, `7`, `8`, `9`, `4.4.18` |
 | 10 | `php` | `8.1`, `8.2`, `8.3`, `8.4`, `8.5` |
+| 11 | `python` | `3.8-slim`, `3.9-slim`, `3.10-slim`, `3.11-slim`, `3.12-slim`, `3.13-slim`, `3.14-slim`, `3.15-slim` |
 
 Notes:
 - `mysql` uses moving tags to avoid chasing the quarterly Innovation line: `latest` / `innovation` always point to the newest Innovation release (calendar versioning `YY.M`, e.g. `26.10`), `lts` to the newest LTS line (`9.7`), while `9.7` / `8.4` track their own LTS lines.
 - `mongo` `4.4.18` is kept on purpose: it is the last version supporting the `armv8` architecture.
+- `python` `3.8-slim` / `3.9-slim` are kept for legacy compatibility; upstream has stopped updating those tags.
 
 ## Destination Registry
 

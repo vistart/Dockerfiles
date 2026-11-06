@@ -87,6 +87,9 @@ jobs:
             source_tag: "lts"
             dest_image: ""
           - source_image: mysql
+            source_tag: "26.10"
+            dest_image: ""
+          - source_image: mysql
             source_tag: "9.7"
             dest_image: ""
           - source_image: mysql
@@ -293,6 +296,9 @@ jobs:
             dest_image: ""
           - source_image: clickhouse
             source_tag: "lts"
+            dest_image: ""
+          - source_image: clickhouse
+            source_tag: "26.10"
             dest_image: ""
           - source_image: clickhouse
             source_tag: "26.9"

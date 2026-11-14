@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM postgres:19rc1
+FROM postgres:19rc2
 
 SHELL ["/bin/bash", "-euxo", "pipefail", "-c"]
 

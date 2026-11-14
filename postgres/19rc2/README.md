@@ -1,6 +1,6 @@
-# PostgreSQL 19 RC 1
+# PostgreSQL 19 RC 2
 
-基于 `postgres:19rc1` 官方镜像构建，包含多个常用扩展。
+基于 `postgres:19rc2` 官方镜像构建，包含多个常用扩展。
 
 ## 已安装的扩展
 
@@ -45,14 +45,14 @@ pg_cron.database = 'postgres'
 
 ```bash
 # 运行容器
-docker run -d --name postgres19rc1 \
+docker run -d --name postgres19rc2 \
     -e POSTGRES_DB=test_db \
     -e POSTGRES_PASSWORD=password \
     -e POSTGRES_USER=root \
     -e TZ=Asia/Shanghai \
-    postgres:19rc1
+    postgres:19rc2
 
 # 启用扩展
-docker exec postgres19rc1 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS postgis;"
-docker exec postgres19rc1 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS pgvector;"
+docker exec postgres19rc2 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS postgis;"
+docker exec postgres19rc2 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS pgvector;"
 ```

@@ -20,16 +20,16 @@ Please choose specific branch which fit for your need.
 | 16 | postgres:16 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 | 17 | postgres:17 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 | 18 | postgres:18 (latest) | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
-| 19rc1 | postgres:19rc1 | amd64, arm64, ppc64le | pg_repack, pg_cron, pgaudit, orafce, pgtap, hypopg, pglogical, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
+| 19rc2 | postgres:19rc2 | amd64, arm64, ppc64le | pg_repack, pg_cron, pgaudit, orafce, pgtap, hypopg, pglogical, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 
 ### 构建状态说明
 
 - **PG10 / PG11 已停止构建**：PGDG 已下架 `bullseye-pgdg`（Debian 11 已 EOL）且不再为 PG10/11 打包扩展，
   这两个版本的构建已从工作流中移除。注册表上已有的镜像仍可继续使用，但不再更新。
 - **TimescaleDB**：PG15–18 以独立步骤尽力安装（上游元包仅提供 amd64，arm64/ppc64le
-  自动跳过）；PG9/12/13/14/19rc1 不安装 TimescaleDB。TimescaleDB 安装失败被单独
+  自动跳过）；PG9/12/13/14/19rc2 不安装 TimescaleDB。TimescaleDB 安装失败被单独
   兜底，不会影响 PostGIS/pgrouting/partman 等其他扩展的安装。
-- **仓库与基础镜像对齐**：PG13–18 与 19rc1 的基础镜像为 trixie，均使用 trixie-pgdg /
+- **仓库与基础镜像对齐**：PG13–18 与 19rc2 的基础镜像为 trixie，均使用 trixie-pgdg /
   trixie 仓库；PG12 基础镜像为 bookworm，使用 bookworm-pgdg。基础镜像升级导致 dist
   漂移时，需同步调整本节仓库配置（PG15 即为此修复）。
 
@@ -73,7 +73,7 @@ Please choose specific branch which fit for your need.
 | **amcheck** | ✗ | 1.0 | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 | 1.4 | 1.5 | 1.5 |
 | **pageinspect** | 1.5 | 1.6 | 1.7 | 1.7 | 1.8 | 1.9 | 1.11 | 1.12 | 1.12 | 1.13 | 1.13 |
 
-### PG19（19rc1）说明
+### PG19（19rc2）说明
 
 PG19 当前为 RC（Release Candidate，发布候选）预发布版本，与稳定版存在以下差异：
 

@@ -1,5 +1,31 @@
 name: Staged Transfer Docker Images
 
+# ============================================================================
+# 迁移清单维护规则（自 2026-11-14 起执行）
+#
+# 本 workflow 只负责把 Docker Hub 的上游镜像搬运到 Aliyun 双 registry。
+# 标签生命周期如下：
+#
+#   * 上游仍在更新的标签保留在 matrix 中，由每月 15 日的定时任务照常搬运；
+#   * 一旦确认上游停止更新（EOL 或上游归档），对应的 matrix 条目会被【注释掉】，
+#     并在注释处标注确认日期与上游最后一次重建时间；
+#   * 只注释、永不删除：被注释的镜像早已推送过，Aliyun 两个 registry
+#     （registry.cn-shanghai / registry.us-west-1 的 vistart_public 命名空间）
+#     上一直可用，只是不再消耗迁移时间——与 postgres:9.6 这类 EOL 镜像同理；
+#   * 若上游恢复更新（安全补丁或基础镜像重建），取消注释即可恢复搬运。
+#
+# 截至 2026-11-14 已注释的标签（括号内为上游最后一次重建日期）：
+#   redis 7.0 (2024-09)、redis 8.0 (2026-04)、redis-stack latest (2025-11)
+#   mysql 8.0 (2026-05；Oracle 已于 2026-04 结束 8.0 支持)
+#   postgres 14 (2026-11-13 为最后重建；PG14 已于 2026-11-12 EOL)
+#   mariadb 10.0-10.5 (2019~2025-05，EOL)、11.7 与 12.0-12.2 (rolling，被后续 minor 取代)
+#   oracle-xe 11/18/21-slim (2024-10 后未再重建)
+#   clickhouse 25.8 (2026-08-28；LTS 支持期已结束)
+#   mongo 4.4.18 (2023-02，上游冻结；最后一个支持 armv8 的版本，镜像仍可用)
+#   php 8.1 (2026-01；PHP 8.1 安全支持于 2025-12-31 结束)
+#   python 3.8/3.9/3.10-slim (Python 3.8/3.9/3.10 EOL 后上游停止重建)
+# ============================================================================
+
 on:
   push:
     branches: [common-images-transition]
@@ -44,22 +70,25 @@ jobs:
           - source_image: redis
             source_tag: "8.2"
             dest_image: ""
-          - source_image: redis
-            source_tag: "8.0"
-            dest_image: ""
+          # redis 8.0：上游 2026-04-22 后未再重建（8.2+ 仍在滚动），2026-11-14 确认停更
+          # - source_image: redis
+          #   source_tag: "8.0"
+          #   dest_image: ""
           - source_image: redis
             source_tag: "7.4"
             dest_image: ""
           - source_image: redis
             source_tag: "7.2"
             dest_image: ""
-          - source_image: redis
-            source_tag: "7.0"
-            dest_image: ""
+          # redis 7.0：上游 2024-09-06 后未再重建，2026-11-14 确认停更
+          # - source_image: redis
+          #   source_tag: "7.0"
+          #   dest_image: ""
 
-          - source_image: redis/redis-stack
-            source_tag: "latest"
-            dest_image: redis-stack
+          # redis-stack：上游 2025-11-03 后未再更新（已被 Redis Open Source 8 取代），2026-11-14 确认停更
+          # - source_image: redis/redis-stack
+          #   source_tag: "latest"
+          #   dest_image: redis-stack
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: ${{ matrix.source_image }}
@@ -95,9 +124,10 @@ jobs:
           - source_image: mysql
             source_tag: "8.4"
             dest_image: ""
-          - source_image: mysql
-            source_tag: "8.0"
-            dest_image: ""
+          # mysql 8.0：Oracle 已于 2026-04 结束 8.0 支持，上游 2026-05-05 为最后重建，2026-11-14 确认停更
+          # - source_image: mysql
+          #   source_tag: "8.0"
+          #   dest_image: ""
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: ${{ matrix.source_image }}
@@ -115,9 +145,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - source_image: postgres
-            source_tag: "14"
-            dest_image: ""
+          # postgres 14：PG14 已于 2026-11-12 EOL，上游 2026-11-13 为最后一次重建，2026-11-14 确认停更
+          # - source_image: postgres
+          #   source_tag: "14"
+          #   dest_image: ""
           - source_image: postgres
             source_tag: "15"
             dest_image: ""
@@ -156,33 +187,38 @@ jobs:
     strategy:
       matrix:
         include:
-          - source_image: mariadb
-            source_tag: "12.2"
-            dest_image: ""
-          - source_image: mariadb
-            source_tag: "12.1"
-            dest_image: ""
-          - source_image: mariadb
-            source_tag: "12.0"
-            dest_image: ""
-          - source_image: mariadb
-            source_tag: "10.0"
-            dest_image: ""
-          - source_image: mariadb
-            source_tag: "10.1"
-            dest_image: ""
-          - source_image: mariadb
-            source_tag: "10.2"
-            dest_image: ""
-          - source_image: mariadb
-            source_tag: "10.3"
-            dest_image: ""
-          - source_image: mariadb
-            source_tag: "10.4"
-            dest_image: ""
-          - source_image: mariadb
-            source_tag: "10.5"
-            dest_image: ""
+          # mariadb rolling 版本：每个 minor 在下一个 minor GA 后停止维护，镜像仍可用
+          # 12.2：上游 2026-05-30 后未再重建（12.3 已 GA），2026-11-14 确认停更
+          # - source_image: mariadb
+          #   source_tag: "12.2"
+          #   dest_image: ""
+          # 12.1：上游 2026-02-09 后未再重建，2026-11-14 确认停更
+          # - source_image: mariadb
+          #   source_tag: "12.1"
+          #   dest_image: ""
+          # 12.0：上游 2025-11-14 后未再重建，2026-11-14 确认停更
+          # - source_image: mariadb
+          #   source_tag: "12.0"
+          #   dest_image: ""
+          # 10.0~10.5：均已 EOL，上游分别于 2019-05 / 2021-04 / 2022-08 / 2023-05 / 2024-06 / 2025-05 后停止重建，2026-11-14 确认停更
+          # - source_image: mariadb
+          #   source_tag: "10.0"
+          #   dest_image: ""
+          # - source_image: mariadb
+          #   source_tag: "10.1"
+          #   dest_image: ""
+          # - source_image: mariadb
+          #   source_tag: "10.2"
+          #   dest_image: ""
+          # - source_image: mariadb
+          #   source_tag: "10.3"
+          #   dest_image: ""
+          # - source_image: mariadb
+          #   source_tag: "10.4"
+          #   dest_image: ""
+          # - source_image: mariadb
+          #   source_tag: "10.5"
+          #   dest_image: ""
           - source_image: mariadb
             source_tag: "10.6"
             dest_image: ""
@@ -192,9 +228,10 @@ jobs:
           - source_image: mariadb
             source_tag: "11.4"
             dest_image: ""
-          - source_image: mariadb
-            source_tag: "11.7"
-            dest_image: ""
+          # 11.7：上游 2025-06-03 后未再重建（被 11.8 取代），2026-11-14 确认停更
+          # - source_image: mariadb
+          #   source_tag: "11.7"
+          #   dest_image: ""
           - source_image: mariadb
             source_tag: "11.8"
             dest_image: ""
@@ -262,15 +299,16 @@ jobs:
     strategy:
       matrix:
         include:
-          - source_image: gvenzl/oracle-xe
-            source_tag: "11-slim"
-            dest_image: oracle-xe
-          - source_image: gvenzl/oracle-xe
-            source_tag: "18-slim"
-            dest_image: oracle-xe
-          - source_image: gvenzl/oracle-xe
-            source_tag: "21-slim"
-            dest_image: oracle-xe
+          # oracle-xe 11/18/21-slim：上游 2024-10-01 后未再重建（仅 oracle-free 23-slim 仍在更新），2026-11-14 确认停更
+          # - source_image: gvenzl/oracle-xe
+          #   source_tag: "11-slim"
+          #   dest_image: oracle-xe
+          # - source_image: gvenzl/oracle-xe
+          #   source_tag: "18-slim"
+          #   dest_image: oracle-xe
+          # - source_image: gvenzl/oracle-xe
+          #   source_tag: "21-slim"
+          #   dest_image: oracle-xe
           - source_image: gvenzl/oracle-free
             source_tag: "23-slim"
             dest_image: oracle-free
@@ -306,9 +344,10 @@ jobs:
           - source_image: clickhouse
             source_tag: "26.8"
             dest_image: ""
-          - source_image: clickhouse
-            source_tag: "25.8"
-            dest_image: ""
+          # clickhouse 25.8：LTS 支持期已结束，上游 2026-08-28 为最后重建，2026-11-14 确认停更
+          # - source_image: clickhouse
+          #   source_tag: "25.8"
+          #   dest_image: ""
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: ${{ matrix.source_image }}
@@ -338,9 +377,10 @@ jobs:
           - source_image: mongo
             source_tag: "9"
             dest_image: ""
-          - source_image: mongo
-            source_tag: "4.4.18"
-            dest_image: ""
+          # mongo 4.4.18：上游 2023-02-16 后冻结；最后一个支持 armv8 的版本，镜像在 Aliyun 仍可用，2026-11-14 确认停更
+          # - source_image: mongo
+          #   source_tag: "4.4.18"
+          #   dest_image: ""
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: ${{ matrix.source_image }}
@@ -358,9 +398,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - source_image: php
-            source_tag: "8.1"
-            dest_image: ""
+          # php 8.1：PHP 8.1 安全支持于 2025-12-31 结束，上游 2026-01-02 为最后重建，2026-11-14 确认停更
+          # - source_image: php
+          #   source_tag: "8.1"
+          #   dest_image: ""
           - source_image: php
             source_tag: "8.2"
             dest_image: ""
@@ -390,6 +431,17 @@ jobs:
     strategy:
       matrix:
         include:
+          # python 3.8/3.9/3.10-slim：Python 3.8/3.9/3.10 已分别于 2024-10 / 2025-10 / 2026-10 EOL，
+          # 上游最后一次重建分别为 2024-09-28 / 2025-11-01 / 2026-10-06，2026-11-14 确认停更
+          # - source_image: python
+          #   source_tag: "3.8-slim"
+          #   dest_image: ""
+          # - source_image: python
+          #   source_tag: "3.9-slim"
+          #   dest_image: ""
+          # - source_image: python
+          #   source_tag: "3.10-slim"
+          #   dest_image: ""
           - source_image: python
             source_tag: "3.15-slim"
             dest_image: ""
@@ -405,15 +457,7 @@ jobs:
           - source_image: python
             source_tag: "3.11-slim"
             dest_image: ""
-          - source_image: python
-            source_tag: "3.10-slim"
-            dest_image: ""
-          - source_image: python
-            source_tag: "3.9-slim"
-            dest_image: ""
-          - source_image: python
-            source_tag: "3.8-slim"
-            dest_image: ""
+          # 3.10/3.9/3.8-slim 已在上方注释（均确认停更，镜像在 Aliyun 仍可用）
     uses: ./.github/workflows/.docker-transfer.yml
     with:
       source_image: ${{ matrix.source_image }}

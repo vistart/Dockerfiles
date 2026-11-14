@@ -12,7 +12,7 @@ Images are transferred in stages with sequential dependencies:
 | 2 | `redis` | `latest`, `8.10`, `8.8`, `8.6`, `8.4`, `8.2`, `8.0`, `7.4`, `7.2`, `7.0` |
 | 2 | `redis/redis-stack` | `latest` |
 | 3 | `mysql` | `latest`, `innovation`, `lts`, `26.10`, `9.7`, `8.4`, `8.0` |
-| 4 | `postgres` | `14`, `15`, `16`, `17`, `18`, `19rc1`, `latest`, `15-alpine` |
+| 4 | `postgres` | `14`, `15`, `16`, `17`, `18`, `19rc2`, `latest`, `15-alpine` |
 | 5 | `mariadb` | `12.2`, `12.1`, `12.0`, `10.0`, `10.1`, `10.2`, `10.3`, `10.4`, `10.5`, `10.6`, `10.11`, `11.4`, `11.7`, `11.8`, `latest`, `lts`, `12.3`, `13.0`, `13.1-rc` |
 | 6 | `firebirdsql/firebird` | `3`, `4`, `5`, `6-snapshot`, `latest` |
 | 7 | `gvenzl/oracle-xe` | `11-slim`, `18-slim`, `21-slim` |

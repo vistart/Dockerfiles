@@ -16,6 +16,7 @@
 - **partman** - 分区管理
 - **pglogical** - 逻辑复制
 - **pgvector** - 向量数据库
+- **PGroonga** - 多语言全文检索（Groonga 驱动）
 - **TimescaleDB** 2 - 时序数据库
 
 ## 支持的架构
@@ -57,5 +58,6 @@ docker run -d --name postgres18 \
 # 启用扩展
 docker exec postgres18 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS postgis;"
 docker exec postgres18 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS pgvector;"
+docker exec postgres18 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS pgroonga;"
 docker exec postgres18 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS timescaledb;"
 ```

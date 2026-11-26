@@ -46,4 +46,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     || echo "Warning: TimescaleDB skipped for this version/architecture" \
     && rm -rf /var/lib/apt/lists/*
 
+# Add Groonga repository for PGroonga full text search.
+COPY groonga-archive-keyring.asc /usr/share/keyrings/groonga-archive-keyring.asc
+RUN echo "deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.asc] https://packages.groonga.org/debian trixie main" \
+      > /etc/apt/sources.list.d/groonga.list
+
+# Install PGroonga. Kept isolated and best-effort: the Groonga repo
+# ships pgdg packages only for amd64/arm64 and for released PG majors,
+# so ppc64le and newly released majors must not break other groups.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        postgresql-18-pgdg-pgroonga \
+    || echo "Warning: PGroonga skipped for this version/architecture" \
+    && rm -rf /var/lib/apt/lists/*
+
+# Optional Groonga tokenizer / token filter plugins (TokenMecab,
+# TokenFilterStem). Their failure never costs the PGroonga install.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        groonga-tokenizer-mecab \
+        groonga-token-filter-stem \
+    || echo "Warning: Optional Groonga plugins skipped" \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN printf '\nshared_preload_libraries = '\''pg_stat_statements,pg_cron,auto_explain,pgaudit'\''\npg_stat_statements.track = all\npg_cron.database = '\''postgres'\''\n' >> /usr/share/postgresql/postgresql.conf.sample

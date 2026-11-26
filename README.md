@@ -13,13 +13,13 @@ Please choose specific branch which fit for your need.
 | 9 | postgres:9 | amd64, arm64, arm, 386 | postgis-2.3, pgrouting, pgtap, orafce, pg_repack, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc |
 | 10 (EOL, 已停止构建) | postgres:10 | amd64, arm64 | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements |
 | 11 (EOL, 已停止构建) | postgres:11 | amd64, arm64 | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, amcheck, pageinspect |
-| 12 | postgres:12 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, pg_partman*, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements |
+| 12 | postgres:12 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, pg_partman*, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pgroonga |
 | 13 | postgres:13 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, address_standardizer |
-| 14 | postgres:14 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, address_standardizer |
-| 15 | postgres:15 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect |
-| 16 | postgres:16 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
-| 17 | postgres:17 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
-| 18 | postgres:18 (latest) | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
+| 14 | postgres:14 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, address_standardizer, pgroonga |
+| 15 | postgres:15 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, pgroonga |
+| 16 | postgres:16 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer, pgroonga |
+| 17 | postgres:17 | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer, pgroonga |
+| 18 | postgres:18 (latest) | amd64, arm64, ppc64le | pg_repack, pg_cron, pglogical, pgaudit, orafce, pgtap, hypopg, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer, pgroonga |
 | 19 | postgres:19 | amd64, arm64, ppc64le | pg_repack, pg_cron, pgaudit, orafce, pgtap, hypopg, pglogical, pgvector, postgis-3, pgrouting, pg_partman, pg_logicalinspect, hstore, intarray, ltree, pg_trgm, pgcrypto, uuid-ossp, tablefunc, bloom, btree_gin, btree_gist, citext, cube, fuzzystrmatch, pg_stat_statements, pg_surgery, pg_walinspect, address_standardizer |
 
 ### 构建状态说明
@@ -32,6 +32,9 @@ Please choose specific branch which fit for your need.
 - **仓库与基础镜像对齐**：PG13–19 的基础镜像为 trixie，均使用 trixie-pgdg /
   trixie 仓库；PG12 基础镜像为 bookworm，使用 bookworm-pgdg。基础镜像升级导致 dist
   漂移时，需同步调整本节仓库配置（PG15 即为此修复）。
+- **PGroonga**：来自 packages.groonga.org（Groonga 仓库），PG12 走 bookworm、PG14–18 走
+  trixie；PG13（trixie 仓库无包）、PG19（尚未打包）以及已停更的 PG9/10/11 不安装。Groonga
+  仓库仅提供 amd64/arm64 扩展包，ppc64le 构建自动跳过。
 
 ### 扩展详细矩阵
 
@@ -43,6 +46,7 @@ Please choose specific branch which fit for your need.
 | **postgis_topology** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.4 |
 | **postgis_tiger_geocoder** | 2.3.1 | ✗ | ✗ | ✗ | 3.6.3 | 3.6.3 | ✗ | 3.6.3 | 3.6.3 | 3.6.3 | 3.6.4 |
 | **pgrouting** | 2.3.2 | ✗ | ✗ | ✗ | 4.0.1 | 4.0.1 | ✗ | 4.0.1 | 4.0.1 | 4.0.1 | 4.0.1 |
+| **pgroonga** | ✗ | ✗ | ✗ | 3.2.4 | ✗ | 4.1.0 | 4.1.0 | 4.1.0 | 4.1.0 | 4.1.0 | ✗ |
 | **vector** | ✗ | ✗ | ✗ | 0.7.4 | ✗ | ✗ | 0.8.2 | ✗ | ✗ | ✗ | 0.8.6 |
 | **pg_partman** | ✗ | ✗ | ✗ | ✗ | 4.7.4 | 5.4.3 | ✗ | 5.4.3 | 5.4.3 | 5.4.3 | 5.5.0 |
 | **pg_cron** | ✗ | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 |
@@ -104,6 +108,7 @@ PGDG (PostgreSQL Global Development Group) APT 仓库仅提供以下架构的扩
 - **pgtap**: 数据库测试框架
 - **hypopg**: 虚拟索引（PG10+）
 - **pgrouting**: 路径规划（PG9, PG12+）
+- **PGroonga**: 多语言全文检索（基于 Groonga；PG12、PG14–18，附 TokenMecab / TokenFilterStem 插件）
 - **pg_partman**: 分区管理（PG12+）
 - **address_standardizer**: 地址标准化（PG12+）
 - **pg_surgery**: 损坏数据修复（PG14+）

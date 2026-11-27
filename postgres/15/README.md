@@ -17,6 +17,7 @@
 - **pglogical** - 逻辑复制
 - **pgvector** - 向量数据库
 - **PGroonga** - 多语言全文检索（Groonga 驱动）
+- **pg_jsonschema** - JSONB 的 JSON Schema 校验（0.3.4；仅 amd64/arm64）
 - **TimescaleDB** 2 - 时序数据库
 
 ## 支持的架构
@@ -59,5 +60,6 @@ docker run -d --name postgres15 \
 docker exec postgres15 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS postgis;"
 docker exec postgres15 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS pgvector;"
 docker exec postgres15 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS pgroonga;"
+docker exec postgres15 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS pg_jsonschema;"
 docker exec postgres15 psql -U root -d test_db -c "CREATE EXTENSION IF NOT EXISTS timescaledb;"
 ```

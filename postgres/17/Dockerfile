@@ -59,6 +59,22 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     || echo "Warning: PGroonga skipped for this version/architecture" \
     && rm -rf /var/lib/apt/lists/*
 
+# Install pg_jsonschema from upstream release .deb packages. No apt repository
+# exists for this extension; Supabase publishes PG14-18 packages for amd64/arm64
+# only. Kept isolated and best-effort so ppc64le and unsupported majors are safe.
+RUN arch="$(dpkg --print-architecture)"; \
+    if [ "$arch" = "amd64" ] || [ "$arch" = "arm64" ]; then \
+      apt-get update && apt-get install -y --no-install-recommends curl ca-certificates \
+      && curl -fsSL -o /tmp/pg_jsonschema.deb \
+         "https://github.com/supabase/pg_jsonschema/releases/download/v0.3.4/pg_jsonschema-v0.3.4-pg17-${arch}-linux-gnu.deb" \
+      && apt-get install -y --no-install-recommends /tmp/pg_jsonschema.deb \
+      && rm -f /tmp/pg_jsonschema.deb \
+      || echo "Warning: pg_jsonschema skipped for this version/architecture"; \
+    else \
+      echo "Warning: pg_jsonschema skipped (unsupported architecture: $arch)"; \
+    fi \
+    && rm -rf /var/lib/apt/lists/*
+
 # Optional Groonga tokenizer / token filter plugins (TokenMecab,
 # TokenFilterStem). Their failure never costs the PGroonga install.
 RUN apt-get update && apt-get install -y --no-install-recommends \

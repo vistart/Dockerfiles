@@ -134,3 +134,57 @@ jobs:
       DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
       ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
       ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  # TimescaleDB derivatives: amd64-only and published to separate repositories
+  # so the multi-arch postgres-exts-N images above remain unchanged.
+  build-ts-15:
+    uses: ./.github/workflows/.postgres-timescaledb-build.yml
+    with:
+      pg_version: "15"
+      platforms: "linux/amd64"
+      dockerhub_repo: "vistart/postgres-exts-ts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts-ts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-ts-16:
+    uses: ./.github/workflows/.postgres-timescaledb-build.yml
+    with:
+      pg_version: "16"
+      platforms: "linux/amd64"
+      dockerhub_repo: "vistart/postgres-exts-ts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts-ts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-ts-17:
+    uses: ./.github/workflows/.postgres-timescaledb-build.yml
+    with:
+      pg_version: "17"
+      platforms: "linux/amd64"
+      dockerhub_repo: "vistart/postgres-exts-ts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts-ts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}
+
+  build-ts-18:
+    uses: ./.github/workflows/.postgres-timescaledb-build.yml
+    with:
+      pg_version: "18"
+      platforms: "linux/amd64"
+      dockerhub_repo: "vistart/postgres-exts-ts"
+      aliyun_registry: "registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts-ts"
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_VISTART_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_VISTART_PASSWORD }}
+      ALIYUN_USERNAME: ${{ secrets.ALIYUN_CR_VISTART_USERNAME }}
+      ALIYUN_PASSWORD: ${{ secrets.ALIYUN_CR_VISTART_PASSWORD }}

@@ -141,6 +141,34 @@ PGDG (PostgreSQL Global Development Group) APT 仓库仅提供以下架构的扩
 - **阿里云（上海）**: `registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts`
 - **阿里云（美西）**: `registry.us-west-1.aliyuncs.com/vistart_public/postgres-exts`
 
+### TimescaleDB 衍生镜像（仅 amd64）
+
+独立于上面的多架构 `postgres-exts-N` 镜像族，以 `vistart/postgres-exts:<N>` 为基础镜像，仅追加 TimescaleDB。
+现有 `postgres-exts-N` 镜像定义与 tag 保持不变（仍为多架构、不含 timescaledb 预加载）。
+
+| PG 版本 | TimescaleDB 包 | 架构 | Docker Hub | 阿里云（上海） |
+|---------|----------------|------|------------|----------------|
+| 15 | `timescaledb-2-postgresql-15` | linux/amd64 | `vistart/postgres-exts-ts:15` | `registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts-ts:15` |
+| 16 | `timescaledb-2-postgresql-16` | linux/amd64 | `vistart/postgres-exts-ts:16` | `registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts-ts:16` |
+| 17 | `timescaledb-2-postgresql-17` | linux/amd64 | `vistart/postgres-exts-ts:17` | `registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts-ts:17` |
+| 18 | `timescaledb-2-postgresql-18` | linux/amd64 | `vistart/postgres-exts-ts:18` | `registry.cn-shanghai.aliyuncs.com/vistart_public/postgres-exts-ts:18` |
+
+- **版本矩阵**：上游 packagecloud 的 Debian `trixie` 仓库只为 PG15–18 提供
+  `timescaledb-2-postgresql-<N>` 包；PG19 尚未打包，PG14 及更早版本不支持，故不构建这些版本。
+  （上游同样提供 arm64 包，但本镜像族按约定只构建 `linux/amd64`。）
+- **安装策略**：TimescaleDB 单独 best-effort 安装，失败只告警，不影响基础镜像的其它扩展。
+- **配置策略**：脚本从基础镜像现有的 `shared_preload_libraries` 读取原值，再追加 `timescaledb`，
+  不硬编码覆盖 `pg_stat_statements,pg_cron,auto_explain,pgaudit`；库文件缺失时不会改动配置。
+- **构建**：`postgres-timescaledb/<N>/Dockerfile`，CI job 为 `postgres.yml` 中的
+  `build-ts-15` … `build-ts-18`（push 到 `postgres` 分支自动触发，platforms 固定 `linux/amd64`）。
+
+```bash
+docker pull vistart/postgres-exts-ts:18
+docker run -d --name postgres18-ts -e POSTGRES_PASSWORD=secret vistart/postgres-exts-ts:18
+docker exec postgres18-ts psql -U postgres -d postgres -c "CREATE EXTENSION IF NOT EXISTS timescaledb;"
+docker exec postgres18-ts psql -U postgres -d postgres -c "SHOW shared_preload_libraries;"
+```
+
 ### 使用示例
 
 ```bash
